@@ -1,0 +1,212 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Tópicos de Mécanica Cuántica}}\\
+\textbf{Tarea 1: Operador P$_{z}$ sobre el Hamiltoniano}\\
+Enrique Valbuena Ordonez\\
+\end{large}
+\end{center}
+\end{titlepage}
+\section*{Transformaciones de Lorentz}
+\vspace*{-1cm}
+\begin{flushright}
+    \today
+\end{flushright}
+\subsection*{Transformaciones de Galileo}
+\begin{equation}
+    \vec{x}=\vec{x}'+\vec{R}t 
+\end{equation}
+\begin{equation}
+    \vec{v}=\vec{v}'+\vec{v}_f 
+\end{equation}
+\begin{equation}
+    \vec{a}=\vec{a}'
+\end{equation}
+Ejemplo: Sea un avión con $|\vec{v}|=C=|\vec{v}_f|$\\
+Por lo que:
+\begin{align*}
+    v&=v'+v_R\\
+     &=c+c\\
+     &=2c
+\end{align*}
+Sean $\theta$ y $\theta'$ S,R,I\\
+En $\theta$, un evento ocurre en $x,y,z,t$\\
+En $\theta'$, un evento ocurre en $x',y',z',t'$\\
+\begin{equation*}
+    x,y,z,t \leftrightarrow x',y',z',t'
+\end{equation*}
+¿Cuál es la relación entre los parámetros?\\
+\begin{eqnarray*}
+x'=\gamma (x-vt)\\
+y'=y\\
+z'=z\\
+t'=\gamma(t-\frac{v}{c^2}x)\\
+\gamma=\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}
+\end{eqnarray*}
+Las transformaciones inversas
+\begin{eqnarray*}
+    x=\gamma(x'+vt')\\
+    y=y'
+    z=z'
+    t=\gamma(t'+\frac{v}{c^2}x')
+\end{eqnarray*}
+Las transformaciones de Lorentz (deducción)\\
+En t=0, los orígenes coinciden, se emite un pulso luminoso, en el orígen de $\theta \Rightarrow \theta$ y $\theta'$ observaran un cascarón esférico de radiación exponiendose hacia afuera, con la misma rapidez c.\\
+En el sistema $\theta$, el fuente de onda, alcanza un punto P, de coordenadas $(x,y,z)$ y se satisface 
+\begin{equation*}
+    c^2t^2-(x^2+y^2+z^2)=0
+\end{equation*}
+En el sistema $\theta'$, se satisface
+\begin{equation*}
+    c^{2}t^{'2}-(x^{'2}+y^{'2}+z^{'2})=0
+\end{equation*}
+El espacio-tiempo es homogene e isotrópico, la conexión, transformación, entre $(x,y,z,t)$ y $(x',y',z',t')$ es lineal\\
+\begin{minipage}{0.5\linewidth}
+\begin{eqnarray*}
+    x'=x\\
+    y'y
+\end{eqnarray*}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\begin{eqnarray*}
+    z=z'(z,t',v,c)\\
+    t=t'(z',t',v,c)
+\end{eqnarray*}
+\end{minipage}
+Se propone que:
+\begin{eqnarray}
+    \label{sistema}
+    z'=Az+Bt\\
+    t'=Gz+Dt
+    \label{sistemas}
+\end{eqnarray}
+Determinar A,B,D,G.\\
+El sistema $\theta$ se encuentra en reposo, z=0
+\begin{eqnarray}
+    z'=A(0)+Bt \rightarrow z'=Bt \\
+    t'=G(0)+Dt \rightarrow t'=Dt
+\end{eqnarray}
+derivamos con respecto $t'$
+\begin{align*}
+    \frac{dz'}{dt'} &=\frac{d}{dt'}[Bt]\\
+                    &=B\frac{dt}{dt'}\\
+                    & =\frac{B}{D}\\
+                v'  &=\frac{B}{D}
+\end{align*}
+\begin{equation}
+    -v=\frac{B}{D}
+    \label{-v}
+\end{equation}
+$\theta'$ esta en reposo, con respecto a si mismo $z'=0$\\
+Derivamos $Az+Bt=0$ con respecto a t
+\begin{equation}
+    A\frac{dz}{dt}+B=0 \rightarrow A\gamma +B=0
+    \label{derivada}
+\end{equation}
+Usamos \ref{-v} en \ref{derivada}:
+\begin{equation}
+    A=D
+    \label{A=D}
+\end{equation}
+por ende:
+\begin{equation}
+    B=-vA
+    \label{B=-vA}
+\end{equation}
+usando \ref{A=D} y \ref{B=-vA} en \ref{sistemas} y \ref{sistema}
+\begin{eqnarray}
+    \label{z}
+    z'=A[z-vt]\\
+    t'=A=\left[t+\frac{c}{A}z \right]
+    \label{tt}
+\end{eqnarray}
+En $t=0=t'$ y $z=z'$, se emite el pulso y se cumplen las metricas, por ende
+\begin{equation}
+    (ct)^2-z^2=(ct')^2-z^{'2}
+    \label{ct}
+\end{equation}
+Usando las transformaciones \ref{z}, \ref{tt} y \ref{ct} se obtiene entonces\\
+\begin{minipage}{0.5\linewidth}
+\begin{eqnarray*}
+A=\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}\\
+t'=\frac{t-z\frac{v}{c^2}}{\sqrt{1-\frac{v^2}{c^2}}}
+\end{eqnarray*}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\begin{eqnarray*}
+G=\frac{-\frac{v}{c^2}}{\sqrt{1-\frac{v^2}{c^2}}}\\
+z'=\frac{z-vt}{\sqrt{1-\frac{v^2}{c^2}}}
+\end{eqnarray*}
+\end{minipage}
+Donde $\beta^2=\frac{v^2}{c^2}$\\
+\begin{minipage}{0.5\linewidth}
+\begin{eqnarray*}
+x_0=ct\\
+x_1=z\\
+x_2=x\\
+x_3=y
+\end{eqnarray*}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\begin{eqnarray*}
+x_0'=\gamma[x_0-\beta x_1]\\
+x_1'=\gamma[x_1-\beta x_0]\\
+x_2'=x_2\\
+x_3'=x_3
+\end{eqnarray*}
+\end{minipage}
+Se define que
+\begin{equation}
+    \beta=Tanh(\varsigma)
+    \label{beta}
+\end{equation}
+ya que $\beta=\frac{v}{c}$
+\begin{equation}
+    \gamma=[1-Tanh^2\varsigma]^{-\frac{1}{2}}
+    \label{gamma}
+\end{equation}
+entonces:
+\begin{eqnarray*}
+    x_0'=x_0Cosh \varsigma - x_1 Senh \varsigma \\
+    x_1'=-x_0Senh \varsigma +x_1Cosh\varsigma
+\end{eqnarray*}
+$\varsigma \rightarrow$ Boost parameter 
+\pagebreak
+\end{document}

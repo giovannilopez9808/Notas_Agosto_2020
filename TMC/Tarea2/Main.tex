@@ -1,0 +1,115 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Tópicos de Mécanica Cuántica}}\\
+\textbf{Tarea 2}\\
+Enrique Valbuena Ordonez\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt}
+Matricula:\\
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+\subsection*{Demostrar que la función de onda para la particula libre sigue siendo solución a pesar de que le hayamos aplicado el operador P$_z$}
+Se sabe que la función de onda para la partícula libre es 
+\begin{equation}
+    \psi(\vec{r},t)=Ae^{i(\vec{k}\cdot\vec{r}-\omega t)}
+    \label{psi}
+\end{equation}
+y el operador P$_z$ es
+\begin{equation}
+    P_z= \frac{\hbar}{i} \frac{\partial}{\partial z}
+    \label{pz}
+\end{equation}
+Aplicando \ref{pz} en \ref{psi} se obtiene lo siguiente:
+\begin{align*}
+\psi'(\vec{r},t)&= \frac{\hbar}{i} A  \frac{\partial}{\partial z} e^{i(\vec{k}\cdot\vec{r}-\omega t)}\\
+                &=\frac{A\hbar}{i} (iK_z) e^{i(\vec{k}\cdot\vec{r}-\omega t)}\\
+                &= A\hbar K_z e^{i(\vec{k}\cdot\vec{r}-\omega t)}
+\end{align*}
+por lo tanto, la función de onda es la siguiente:
+\begin{equation}
+\psi'(\vec{r},t)=A\hbar K_z e^{i(\vec{k}\cdot\vec{r}-\omega t)}
+\label{psi2}
+\end{equation}
+para comprobar que esta función sigue siendo solucion a la ecuación de Schr\"odinger tenemos que sustituirla en la siguiente:
+\begin{equation}
+    -\frac{\hbar^2}{2m} \nabla^2 \psi' = i\hbar \frac{\partial}{\partial t} \psi'
+    \label{eqschr}
+\end{equation}
+sustituyendo \ref{psi2} en \ref{eqschr}:\\
+calculando la parte izquierda:
+\begin{align*}
+    -\frac{\hbar^2}{2m} \nabla^2 \psi'  &= -\frac{\hbar^2}{2m} \left(\frac{\partial^2}{\partial x^2} +\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}\right)A\hbar K_z e^{i(\vec{k}\cdot \vec{r}-\omega t)}\\
+                                        &= \frac{\hbar^3 K_z A}{2m}  (K_x^2+K_y^2+K_z^2) e^{i(\vec{k}\cdot \vec{r}-\omega t)}\\
+                                        &= \frac{\hbar^3 K_z A}{2m} K^2 e^{i(\vec{k}\cdot \vec{r}-\omega t)}\\
+                                        &= E A\hbar e^{i(\vec{k}\cdot \vec{r}-\omega t)}\\
+\end{align*}
+por lo tanto:
+\begin{equation}
+    -\frac{\hbar^2}{2m} \nabla^2 \psi'=E A\hbar e^{i(\vec{k}\cdot \vec{r}-\omega t)}
+    \label{izq}
+\end{equation}
+calculando la parte derecha: 
+\begin{align*}
+i\hbar \frac{\partial }{\partial t} \psi'   &= i\hbar^2 AK_z  \frac{\partial }{\partial t}e^{i(\vec{k}\cdot \vec{r}-\omega t)}\\
+                                            &= \hbar^2 A K_z \omega e^{i(\vec{k}\cdot \vec{r}-\omega t)}\\
+                                            &= E A\hbar e^{i(\vec{k}\cdot \vec{r}-\omega t)}\\
+\end{align*}
+por lo tanto
+\begin{equation}
+    i\hbar \frac{\partial }{\partial t} \psi' =  E A\hbar e^{i(\vec{k}\cdot \vec{r}-\omega t)}
+    \label{der}
+\end{equation}
+como \ref{izq} y \ref{der} son iguales, la funcion de onda $\psi'$ cumple la ecuación de Schr\"odinger
+\end{document}

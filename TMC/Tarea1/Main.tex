@@ -1,0 +1,99 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Tópicos de Mécanica Cuántica}}\\
+\textbf{Tarea 1: Operador P$_{z}$ sobre el Hamiltoniano}\\
+Enrique Valbuena Ordonez\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt}
+Matricula:\\
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+\subsection*{Demostrar que el operador P$_{z}$ es invariante al Hamiltoniano}
+Se tiene que el operador P$_{z}$ es el siguiente:
+\begin{equation*}
+    P_{z}=\frac{\hbar}{i} \frac{\partial}{\partial z}
+\end{equation*}
+Si se llega a aplicar el operador $P_z$ a un estado de forma que:
+\begin{equation*}
+    |\psi'(t)\rangle = P_z |\psi(t) \rangle
+\end{equation*}
+Teniendo esto en la ecuación de Schr\"odinger de la siguiente manera:
+\begin{equation*}
+    i\hbar \frac{d |\psi'(t)\rangle } {dt} = \hat{H}|\psi'(t)\rangle \Rightarrow i\hbar \frac{d P_z |\psi'(t)\rangle } {dt} = \hat{H}P_z |\psi(t)\rangle=
+\end{equation*}
+Donde se nota que se tiene que cumpler la conmutación entre el operador Hamiltoniano y el operador $P_{z}$:
+\begin{equation*}
+    [\hat{H},P_z]=0
+\end{equation*}
+\begin{equation*}
+    [\hat{H},P_z]=\hat{H}P_Z-P_z\hat{H}
+\end{equation*}
+Calculando $\hat{H}P_Z$:
+\begin{align*}
+\hat{H}P_z  &=\left(i\hbar \frac{d}{dt} \right) \left(\frac{\hbar}{i}\frac{\partial}{\partial z} \right)\\
+            &=\hbar^2 \frac{d}{dt} \frac{\partial}{\partial z}
+\end{align*}
+Calculando $P_z \hat{H}$:
+\begin{align*}
+    \hat{H}P_z  &=\left(\frac{\hbar}{i}\frac{\partial}{\partial z} \right) \left(i\hbar \frac{d}{dt} \right)\\
+                &=\hbar^2 \frac{\partial}{\partial z} \frac{d}{dt} \frac{\partial}{\partial z}\\
+                &=\hbar^2 \frac{d}{dt} \frac{\partial}{\partial z}
+    \end{align*}
+Por lo que al momento de realizar el comuntador, se obtiene lo siguiente:
+\begin{equation*}
+    [\hat{H},P_z]=\hbar^2 \frac{d}{dt} \frac{\partial}{\partial z}-\hbar^2 \frac{d}{dt} \frac{\partial}{\partial z}=0
+\end{equation*}
+Por lo tanto, el operador H es invariante bajo el operador $P_z$
+\end{document}
