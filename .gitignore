@@ -7,3 +7,6 @@
 *.out
 *.snm
 *.toc
+*..bbl
+*.blg
+*.synctex(bysy)
