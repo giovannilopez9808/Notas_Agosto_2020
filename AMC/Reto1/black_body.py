@@ -22,8 +22,8 @@ spec=spec*1e-20
 pars,cov=curve_fit(f=black_body_freq,xdata=freq,ydata=spec,p0=[5])
 fit=black_body_freq(freq,pars[0])
 #<------------------------------W/m2srHZ -> Mjy/sr----------------------------------------->
-spec=spec*1e20
-fit=fit*1e20
+spec=spec*10**(26-6)
+fit=fit*10**(26-6)
 #<---------------------------Hz -> Gz--------------------------------------->
 freq=freq*1e-9
 #<---------------------------------Inicio de la grafica----------------------------->
@@ -54,8 +54,8 @@ T_color=["F48C06","e85d04","DC2F02","9D0208","6A040F","370617","03071E"]
 max_lon=[];max_spec=[]
 for T,color in zip(T_list,T_color):
     spec=black_body_freq(freq,T)
-    #<------------------------------W/m2srHZ -> Mjy/sr----------------------------------------->
-    spec=spec*1e10
+    #<------------------------------W/m2srHZ -> PBjy/sr----------------------------------------->
+    spec=spec*10**(26-15)
     #<--------------------------Localizacion del especto maximo--------------------------------->
     max_point=np.max(spec)
     max_spec=np.append(max_spec,max_point)
@@ -65,11 +65,11 @@ for T,color in zip(T_list,T_color):
     #<------------------------------------Grafica de cada temperatura------------------------------->
     plt.plot(lon*1e9,spec,label=str(T)+" K",lw="4",color="#"+color)
 plt.plot(max_lon,max_spec,label="Ley de Wien",color="#2b2d42",ls="--")
-plt.ylabel("Intensity (EBJy/sr)")
+plt.ylabel("Intensity (PBJy/sr)")
 plt.xlabel("Wavelength (nm)")
 plt.xlim(200,3200)
-plt.ylim(0,500)
+plt.ylim(0,5000)
 plt.xticks(np.arange(200,3700,500))
-plt.yticks(np.arange(0,550,50))
+plt.yticks(np.arange(0,5500,500))
 plt.legend(frameon=False,mode="expand",ncol=4)
 plt.savefig("Graphics/black_body.png",dpi=100)

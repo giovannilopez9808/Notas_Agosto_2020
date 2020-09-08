@@ -12,6 +12,7 @@
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[usenames]{color}
 \usepackage[breaklinks=true,hidelinks]{hyperref}
+\spanishdecimal{.}
 \parindent=0mm
 \pagestyle{empty}
 \definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
@@ -86,32 +87,65 @@ dando así tambien la ecuación para la densidad de energía emitida por el cuer
 Al momento de comparar con los datos experimentales se percataron que para frecuencias altas (longitutdes de onda cortas) el espectro se iba hacia infinito, por lo que esto llevo a un problema, ya que esto no podia estar pasando. Esto se puede apreciar en la figura \ref{teovsexp}.
 \begin{figure}[H]
 \includegraphics[scale=0.5]{../Graphics/exp_vs_teo.png}
-\caption{Espectro de un cuerpo negro obtenido a partir de la ecuación de Plank y ecuación de Rayleigh-Jeans}
+\caption{Espectro de un cuerpo negro obtenido a partir de la ecuación de Planck y ecuación de Rayleigh-Jeans}
 \label{teovsexp}
 \end{figure}
+Planck se percato que sucedia esto con la teoría de Rayleigh y Jeans, pero empezo a plantear que mientras más subia la frecuencia la energía media tenia que ir tendiendo a cero. 
+\begin{align*}
+    \bar{E} &\xrightarrow[\nu \rightarrow 0]{} kT \\
+    \bar{E} &\xrightarrow[\nu \rightarrow \infty]{} 0 
+\end{align*}
+Para calcular la energía promedio es necesario determinar el valor de la integral de la ecuación \ref{emed} donde cada valor de $\bar{E}$ este pesado por su probabilidad.
+\begin{equation}
+    \bar{E}= \frac{\int\limits_0^\infty EP(E)dE}{\int\limits_0^\infty P(E)dE} = kT
+    \label{emed}
+\end{equation}
+Donde la distribución de probabilidad $P(E)$ de Boltzmann es:
+\begin{equation}
+    P(E)=\frac{e^{-E/kT}}{kT}
+\end{equation}
+La contribución de Planck surgió cuando postuló que la energía de las ondas electromagnéticas dentro de la cavidad se intercambian discretamente. De este modo, PLanck tomó los valores de $E=0,\Delta E,2\Delta E,...$,
+como el conjunto de valores permitidos para la energía siendo $\Delta E$ el intervalo uniforme entre valores sucesivos.\\
+En donde Planck determido una relación lineal entre $\Delta E$ y $\nu$, a partir de ajustes experimentales Planck determino el valor de la constante h $h=6.57x10^{-34} Js$, el cual es muy cercano al actual ($h=6.63x10^{-34} Js$). \\
+A partir de resolver la integral \ref{emed}, Planck obtuvo la energía promedio dada por:
+\begin{equation}
+    E(\nu) = \frac{h\nu}{e^{h\nu/kT}-1}.
+\end{equation}
+De este modo , el valor que se obtiene para la densidad energía espectral $\rho_T(\nu)$ usnado la energía $\bar{E}(\nu)$ es:
+\begin{equation}
+    \rho_T(\nu) d\nu = \frac{8\pi \nu^2}{c^3} \frac{h \nu }{e^{h\ nu /kT}-1}
+\end{equation}
 \section*{Metodología}
+En el paper \cite{Eccarelli1996} se menciona la manera en la cual se obtuvieron los datos del COBE-FIRAS, junto con la ecuación \ref{body equation}, la cual da el espectro electromagnetico de un cuerpo negro con temperatura T, esto con unidades de  $W/m^2srHz$, las mediciones de COBE-FIRAS se realizaron en $Mjy/sr$, por lo que se procedio a realizar un cambio de unidades tomando en cuenta que $1 Jy /sr \rightarrow 10^{-26} W/m^2 srHz $
 \begin{equation}
 S(\nu,T)= \frac{2h\nu^3}{c^2} \frac{1}{e^{h\nu/kT}-1}
 \label{body equation}
 \end{equation}
+Y la frecuencia se encuentra medida en $cm^{-1}$, por lo que se pasara de esta unidad a $Hz$ tomando en cuenta la relación $c=\lambda \nu $.
 \section*{Resultados}
-\begin{figure}[H]
-    \includegraphics[scale=0.45]{../Graphics/fit.png}
-    \caption{Fit de los datos proporcionados por el satelite FIRAS de la misión COBEA}
-    \label{fit}
-    \end{figure}
+Al realizar el ajuste por medio de \textit{scipy} en el lenguaje  \textit{python}, se obtuvo que la temperatura a la cual se ajusta a los datos es:
 \begin{equation*}
     T=2.72502K
 \end{equation*}
+Comparando los datos con el espectro electromagnetico correspondiente a este temperatura de obtiene la figura \ref{fit}
+\begin{figure}[H]
+\includegraphics[scale=0.45]{../Graphics/fit.png}
+\caption{Fit de los datos proporcionados por el satelite FIRAS de la misión COBE}
+\label{fit}
+\end{figure}
+obteniendo así, un coeficiente de determinación con el ajuste de:
 \begin{equation*}
-    RD_i = \frac{|S_i(\nu,T)-COBE_i|}{COBE_i}*100\%
+R^2=0.99999972482939
+\label{coef_deter}
 \end{equation*}
+Y para calcular la diferencia relativa entre la medición y el modelo planteado por Planck se uso la ecuación \ref{rdi} en cada punto donde tengamos el conjunto medición-modelo
+\begin{equation}
+    RD_i = \frac{100|S_i(\nu,T)-COBE_i|}{COBE_i}
+    \label{rdi}
+\end{equation}
+Y calculando el valor medio de estos valores obtenemos que este es igual a:
 \begin{equation*}
-    \langle RD \rangle = \sum\limits_{i=1}^N \frac{RD_i}{N} = 0.3205\%
-\end{equation*}
-\begin{equation*}
-    R^2=0.99999972482939
-    \label{coef_deter}
+    \langle RD \rangle = 0.3205\%
 \end{equation*}
 \begin{figure}[H]
     \includegraphics[scale=0.45]{../Graphics/black_body.png}
