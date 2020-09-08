@@ -69,20 +69,20 @@ A finales del siglo XIX y comienzos del siglo XX se desarrollaron avances cient�
 A principios del siglo XX, Rayleigh \cite{LordRayleigh1900} y Jeans \cite{JHJeans1902} realizaron cálculos de la densidad de energía de la irradiancia (radiación solar de un solo rango de longitutdes de onda) emitida por un cuerpo negro. Este resultado llevo a que las investigaciones hacia un conflicto entre los resultados experimentales y física clásica. Para encontrar alguna ley de distribución clasica, los dos autores tomaron como base a la teoría electromagnética clásica para demostrar la radiación dentro de la cavidad, en donde ellos proponian que esta debia de existir en frma de ondas estacionarias con nodos en las superficies dentro del cuerpo negro. De este modo, fue encontrada 
 una ecuación para el número de ondas electromagnéticas estacionaras dentro del cuerpo, esta ecuación es la siguiente: 
 \begin{equation}
-    N(\nu)d\nu = \frac{8\pi V}{c^3} \nu^2 d\nu.
-    \label{N(nu)dnu}
+N(\nu)d\nu = \frac{8\pi V}{c^3} \nu^2 d\nu.
+\label{N(nu)dnu}
 \end{equation}
 En seguida, los autores realizaron el cálculo de la energía total promedio del sistema para cada onda con frecuencia $\nu$ utilizando la ley de equipartición de la energía, llegando a la ecuación
 \begin{equation}
-    \bar{E}=kT.
+\bar{E}=kT.
 \end{equation}
 Finalmente la irradiancia espectral clásica deducida por Rayleigh y Jeans es el producto del número de ondas estacionarias por unidad de volumen por la energía promedio y por la velocidad de la luz.
 \begin{equation}
-    R_T(\nu)d\nu = \frac{8\pi \nu^2 kT}{c^2} d\nu 
+R_T(\nu)d\nu = \frac{8\pi \nu^2 kT}{c^2} d\nu 
 \end{equation}
 dando así tambien la ecuación para la densidad de energía emitida por el cuerpo negro. 
 \begin{equation}
-    \rho_T(\nu) d\nu = \frac{8\pi \nu^2 k T}{c^3} d\nu 
+\rho_T(\nu) d\nu = \frac{8\pi \nu^2 k T}{c^3} d\nu 
 \end{equation}
 Al momento de comparar con los datos experimentales se percataron que para frecuencias altas (longitutdes de onda cortas) el espectro se iba hacia infinito, por lo que esto llevo a un problema, ya que esto no podia estar pasando. Esto se puede apreciar en la figura \ref{teovsexp}.
 \begin{figure}[H]
@@ -92,28 +92,28 @@ Al momento de comparar con los datos experimentales se percataron que para frecu
 \end{figure}
 Planck se percato que sucedia esto con la teoría de Rayleigh y Jeans, pero empezo a plantear que mientras más subia la frecuencia la energía media tenia que ir tendiendo a cero. 
 \begin{align*}
-    \bar{E} &\xrightarrow[\nu \rightarrow 0]{} kT \\
-    \bar{E} &\xrightarrow[\nu \rightarrow \infty]{} 0 
+\bar{E} &\xrightarrow[\nu \rightarrow 0]{} kT \\
+\bar{E} &\xrightarrow[\nu \rightarrow \infty]{} 0 
 \end{align*}
 Para calcular la energía promedio es necesario determinar el valor de la integral de la ecuación \ref{emed} donde cada valor de $\bar{E}$ este pesado por su probabilidad.
 \begin{equation}
-    \bar{E}= \frac{\int\limits_0^\infty EP(E)dE}{\int\limits_0^\infty P(E)dE} = kT
-    \label{emed}
+\bar{E}= \frac{\int\limits_0^\infty EP(E)dE}{\int\limits_0^\infty P(E)dE} = kT
+\label{emed}
 \end{equation}
 Donde la distribución de probabilidad $P(E)$ de Boltzmann es:
 \begin{equation}
-    P(E)=\frac{e^{-E/kT}}{kT}
+P(E)=\frac{e^{-E/kT}}{kT}
 \end{equation}
 La contribución de Planck surgió cuando postuló que la energía de las ondas electromagnéticas dentro de la cavidad se intercambian discretamente. De este modo, PLanck tomó los valores de $E=0,\Delta E,2\Delta E,...$,
 como el conjunto de valores permitidos para la energía siendo $\Delta E$ el intervalo uniforme entre valores sucesivos.\\
 En donde Planck determido una relación lineal entre $\Delta E$ y $\nu$, a partir de ajustes experimentales Planck determino el valor de la constante h $h=6.57x10^{-34} Js$, el cual es muy cercano al actual ($h=6.63x10^{-34} Js$). \\
 A partir de resolver la integral \ref{emed}, Planck obtuvo la energía promedio dada por:
 \begin{equation}
-    E(\nu) = \frac{h\nu}{e^{h\nu/kT}-1}.
+E(\nu) = \frac{h\nu}{e^{h\nu/kT}-1}.
 \end{equation}
 De este modo , el valor que se obtiene para la densidad energía espectral $\rho_T(\nu)$ usnado la energía $\bar{E}(\nu)$ es:
 \begin{equation}
-    \rho_T(\nu) d\nu = \frac{8\pi \nu^2}{c^3} \frac{h \nu }{e^{h\ nu /kT}-1}
+\rho_T(\nu) d\nu = \frac{8\pi \nu^2}{c^3} \frac{h \nu }{e^{h\ nu /kT}-1}
 \end{equation}
 \section*{Metodología}
 En el paper \cite{Eccarelli1996} se menciona la manera en la cual se obtuvieron los datos del COBE-FIRAS, junto con la ecuación \ref{body equation}, la cual da el espectro electromagnetico de un cuerpo negro con temperatura T, esto con unidades de  $W/m^2srHz$, las mediciones de COBE-FIRAS se realizaron en $Mjy/sr$, por lo que se procedio a realizar un cambio de unidades tomando en cuenta que $1 Jy /sr \rightarrow 10^{-26} W/m^2 srHz $
@@ -125,7 +125,7 @@ Y la frecuencia se encuentra medida en $cm^{-1}$, por lo que se pasara de esta u
 \section*{Resultados}
 Al realizar el ajuste por medio de \textit{scipy} en el lenguaje  \textit{python}, se obtuvo que la temperatura a la cual se ajusta a los datos es:
 \begin{equation*}
-    T=2.72502K
+T=2.72502K
 \end{equation*}
 Comparando los datos con el espectro electromagnetico correspondiente a este temperatura de obtiene la figura \ref{fit}
 \begin{figure}[H]
@@ -140,22 +140,28 @@ R^2=0.99999972482939
 \end{equation*}
 Y para calcular la diferencia relativa entre la medición y el modelo planteado por Planck se uso la ecuación \ref{rdi} en cada punto donde tengamos el conjunto medición-modelo
 \begin{equation}
-    RD_i = \frac{100|S_i(\nu,T)-COBE_i|}{COBE_i}
-    \label{rdi}
+RD_i = \frac{100|S_i(\nu,T)-COBE_i|}{COBE_i}
+\label{rdi}
 \end{equation}
 Y calculando el valor medio de estos valores obtenemos que este es igual a:
 \begin{equation*}
-    \langle RD \rangle = 0.3205\%
+\langle RD \rangle = 0.3205\%
 \end{equation*}
 \begin{figure}[H]
-    \includegraphics[scale=0.45]{../Graphics/black_body.png}
-    \caption{Espectro electromagnetico para varias temperaturas.}
-    \end{figure}
+\includegraphics[scale=0.45]{../Graphics/black_body.png}
+\caption{Espectro electromagnetico para varias temperaturas.}
+\end{figure}
+\begin{figure}[H]
+\includegraphics[scale=0.45]{../Graphics/wien_law.png}
+\caption{Regresión de los datos para comprobar la ley de Wien}
+\label{wienfig}
+\end{figure}
 \section*{Conclusiones}
 \bibliographystyle{plain}
 \bibliography{Main}
 \nocite{*}
 \section*{Código}
 \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/AMC/Reto1/black_body.py}{Github - black\_body.py}
+\href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/AMC/Reto1/wien_law.py}{Github - wien\_law.py}
 \end{multicols}
 \end{document}
