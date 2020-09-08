@@ -1,4 +1,4 @@
-\documentclass[12pt,letterpaper]{report}
+\documentclass[12pt,letterpaper]{article}
 \usepackage{graphicx}
 \usepackage{scrextend}
 \usepackage{vmargin}
@@ -11,6 +11,7 @@
 \usepackage{float}
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[usenames]{color}
+\usepackage[breaklinks=true,hidelinks]{hyperref}
 \parindent=0mm
 \pagestyle{empty}
 \definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
@@ -38,7 +39,7 @@ FÍSICO MATEMÁTICAS}\\
 \vspace*{2cm}
 \begin{large}
 \vspace{1cm}
-\large{\textbf{Tópicos de Mécanica Cuántica}}\\
+\large{\textbf{Aplicaciones de la Mecánica Cuántica}}\\
 \textbf{Radiación de fondo de microondas}\\
 Carlos Luna Criado\\
 \end{large}
@@ -62,6 +63,12 @@ Matricula:\\
 \end{titlepage}
 \begin{multicols}{2}
 \section*{Introducción}
+\begin{figure}[H]
+    \hspace{-0.5cm}
+    \includegraphics[scale=0.5]{../Graphics/black_body.png}
+    \caption{Ecuación de cuerpo negro para diferentes temperaturas.}
+    \label{black_body}
+\end{figure}
 \section*{Metodología}
 \begin{equation}
 S(\nu,T)= \frac{2h\nu^3}{c^2} \frac{1}{e^{h\nu/kT}-1}
@@ -72,6 +79,24 @@ S(\nu,T)= \frac{2h\nu^3}{c^2} \frac{1}{e^{h\nu/kT}-1}
 \caption{Fit de los datos proporcionados por el satelite FIRAS de la misión COBEA}
 \end{figure}
 \section*{Resultados}
+\begin{equation*}
+    T=2.72502K
+\end{equation*}
+\begin{equation*}
+    RD_i = \frac{|S_i(\nu,T)-COBE_i|}{COBE_i}*100\%
+\end{equation*}
+\begin{equation*}
+    \langle RD \rangle = \sum\limits_{i=1}^N \frac{RD_i}{N} = 0.3205\%
+\end{equation*}
+\begin{equation*}
+    R^2=0.99999972482939
+    \label{coef_deter}
+\end{equation*}
 \section*{Conclusiones}
+\bibliographystyle{plain}
+\bibliography{Main}
+\nocite{*}
+\section*{Código}
+\href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/AMC/Reto1/fit.py}{Github - black_body.py}
 \end{multicols}
 \end{document}
