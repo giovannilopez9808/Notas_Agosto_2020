@@ -5,46 +5,48 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 5 items.
 Database file #1: Main.bib
+Warning--entry type for "unknown" isn't style-file defined
+--line 58 of file Main.bib
 Warning--empty journal in Eccarelli1996
-You've used 3 entries,
+You've used 7 entries,
             2118 wiz_defined-function locations,
-            517 strings with 4394 characters,
-and the built_in function-call counts, 1023 in all, are:
-= -- 105
-> -- 38
+            546 strings with 4873 characters,
+and the built_in function-call counts, 2093 in all, are:
+= -- 212
+> -- 66
 < -- 1
-+ -- 15
-- -- 12
-* -- 71
-:= -- 173
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 15
++ -- 27
+- -- 20
+* -- 143
+:= -- 350
+add.period$ -- 20
+call.type$ -- 7
+change.case$ -- 31
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 38
-empty$ -- 80
-format.name$ -- 12
-if$ -- 210
+cite$ -- 8
+duplicate$ -- 78
+empty$ -- 183
+format.name$ -- 20
+if$ -- 436
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 3
-newline$ -- 18
-num.names$ -- 6
-pop$ -- 13
+int.to.str$ -- 7
+missing$ -- 6
+newline$ -- 37
+num.names$ -- 14
+pop$ -- 28
 preamble$ -- 1
-purify$ -- 12
+purify$ -- 24
 quote$ -- 0
-skip$ -- 28
+skip$ -- 57
 stack$ -- 0
-substring$ -- 81
-swap$ -- 7
+substring$ -- 168
+swap$ -- 11
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
+type$ -- 28
 warning$ -- 1
-while$ -- 13
-width$ -- 4
-write$ -- 34
-(There was 1 warning)
+while$ -- 25
+width$ -- 8
+write$ -- 75
+(There were 2 warnings)

@@ -55,7 +55,7 @@ max_lon=[];max_spec=[]
 for T,color in zip(T_list,T_color):
     spec=black_body_freq(freq,T)
     #<------------------------------W/m2srHZ -> Mjy/sr----------------------------------------->
-    spec=spec*1e8
+    spec=spec*1e10
     #<--------------------------Localizacion del especto maximo--------------------------------->
     max_point=np.max(spec)
     max_spec=np.append(max_spec,max_point)
@@ -66,10 +66,10 @@ for T,color in zip(T_list,T_color):
     plt.plot(lon*1e9,spec,label=str(T)+" K",lw="4",color="#"+color)
 plt.plot(max_lon,max_spec,label="Ley de Wien",color="#2b2d42",ls="--")
 plt.ylabel("Intensity (EBJy/sr)")
-plt.xlabel("Wavelenght (nm)")
+plt.xlabel("Wavelength (nm)")
 plt.xlim(200,3200)
-plt.ylim(0,5)
+plt.ylim(0,500)
 plt.xticks(np.arange(200,3700,500))
-plt.yticks(np.arange(0,5.5,.5))
+plt.yticks(np.arange(0,550,50))
 plt.legend(frameon=False,mode="expand",ncol=4)
 plt.savefig("Graphics/black_body.png",dpi=100)
