@@ -116,7 +116,7 @@ De este modo , el valor que se obtiene para la densidad energía espectral $\rho
 \rho_T(\nu) d\nu = \frac{8\pi \nu^2}{c^3} \frac{h \nu }{e^{h\ nu /kT}-1}
 \end{equation}
 \section*{Metodología}
-En el paper \cite{Eccarelli1996} se menciona la manera en la cual se obtuvieron los datos del COBE-FIRAS, junto con la ecuación \ref{body equation}, la cual da el espectro electromagnetico de un cuerpo negro con temperatura T, esto con unidades de  $W/m^2srHz$, las mediciones de COBE-FIRAS se realizaron en $Mjy/sr$, por lo que se procedio a realizar un cambio de unidades tomando en cuenta que $1 Jy /sr \rightarrow 10^{-26} W/m^2 srHz $
+En el paper \cite{Eccarelli1996} se menciona la manera en la cual se obtuvieron los datos del COBE-FIRAS, junto con la ecuación \ref{body equation}, la cual da el espectro electromagnético de un cuerpo negro con temperatura T, esto con unidades de  $W/m^2srHz$, las mediciones de COBE-FIRAS se realizaron en $Mjy/sr$, por lo que se procedio a realizar un cambio de unidades tomando en cuenta que $1 Jy /sr \rightarrow 10^{-26} W/m^2 srHz $
 \begin{equation}
 S(\nu,T)= \frac{2h\nu^3}{c^2} \frac{1}{e^{h\nu/kT}-1}
 \label{body equation}
@@ -127,7 +127,7 @@ Al realizar el ajuste por medio de \textit{scipy} en el lenguaje  \textit{python
 \begin{equation*}
 T=2.72502K
 \end{equation*}
-Comparando los datos con el espectro electromagnetico correspondiente a este temperatura de obtiene la figura \ref{fit}
+Comparando los datos con el espectro electromagnético correspondiente a este temperatura de obtiene la figura \ref{fit}
 \begin{figure}[H]
 \includegraphics[scale=0.45]{../Graphics/fit.png}
 \caption{Fit de los datos proporcionados por el satelite FIRAS de la misión COBE}
@@ -147,21 +147,68 @@ Y calculando el valor medio de estos valores obtenemos que este es igual a:
 \begin{equation*}
 \langle RD \rangle = 0.3205\%
 \end{equation*}
+Realizando el calculo para diferentes temperaturas en el intervalo $[3000,6000]$ para así, calcular el espectro electromagnético correspondiente al cuerpo negro a esa temperatura obtenemos la figura \ref{dif_temp}
 \begin{figure}[H]
 \includegraphics[scale=0.45]{../Graphics/black_body.png}
-\caption{Espectro electromagnetico para varias temperaturas.}
+\caption{Espectro electromagnético para varias temperaturas.}
+\label{dif_temp}
 \end{figure}
+en donde al encontrar las posiciones en que suceden los picos del espectro y unirlos se llega a formar una curva, la cual es llamada la ley de Wien. \\
+Los puntos que se obtuvieron para las diferentes temperaturas son los siguientes:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c}
+        \hline
+        Temperatura (k) & $\lambda$ (nm) \\ \hline
+        3000 & 966 \\
+        3500 & 828 \\ 
+        4000 & 724 \\
+        4500 & 644 \\ 
+        5000 & 580 \\ 
+        5500 & 527 \\ 
+        6000 & 483 \\ \hline
+    \end{tabular}
+    \caption{Longitudes de onda en donde sucedio un pico en el espectro electromagnético con su respectiva temperatura del cuerpo negro}
+    \label{datos de wien}
+\end{table}
+La ley de Wien es la siguiente:
+\begin{equation}
+    \lambda_{max}= \frac{2.898x10^{-3} m\cdot K}{T}
+    \label{ley de wein}
+\end{equation}
+la cual se puede reescribir de la siguiente manera para que esta sea una liena recta:
+\begin{equation}
+    \lambda_{max} = 2.898x10^{-3} T^{-1}
+\end{equation}
+por lo que le podemos aplicar una regresión lineal a los datos de la tabla \ref{datos de wien} para asi poder nosotros calcular la constante de Wien.\\
+En la figura \ref{wienfig} se observan los datos de la tabla \ref{datos de wien}, el ecuación \ref{ley de wein} y la regresión lineal que se realizó, en donde la constante de Wien calculada fue:
+\begin{equation*}
+    C_{Wien}= 2.8968x10^{-3}
+\end{equation*}
+y su diferencia relativa a la teorica es de:
+\begin{equation*}
+    RD_{Wien}= 0.0347 \%
+\end{equation*}
+por lo que se pudo llegar a comprobar la ley de Wien con estos datos.
 \begin{figure}[H]
 \includegraphics[scale=0.45]{../Graphics/wien_law.png}
 \caption{Regresión de los datos para comprobar la ley de Wien}
 \label{wienfig}
 \end{figure}
+Los códigos se encuentran en la sección \textbf{Código}, estos como link hacia un \textit{Github}
 \section*{Conclusiones}
+\begin{itemize}
+\item a
+\end{itemize}
+\section*{Código}
+\begin{itemize}
+\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/AMC/Reto1/black_body.py}{Github - black\_body.py}\\
+Este código realiza el fit de los datos de COBE guardados en el archivo  \textit{data.txt} y crea la figura \ref{fit}
+\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/AMC/Reto1/wien_law.py}{Github - wien\_law.py}\\
+Este código realiza el calculo del espectro electromagnético de un cuerpo negro para diferentes temperaturas, localiza sus picos y en base a ello opera una regresión lineal para obtener la constante de Wien.
+\end{itemize}
 \bibliographystyle{plain}
 \bibliography{Main}
 \nocite{*}
-\section*{Código}
-\href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/AMC/Reto1/black_body.py}{Github - black\_body.py}\\
-\href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/AMC/Reto1/wien_law.py}{Github - wien\_law.py}
 \end{multicols}
 \end{document}

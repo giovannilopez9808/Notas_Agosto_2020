@@ -52,7 +52,7 @@ fit=fit[0]*T
 #<-------------------------Inicio de la grafica----------------------------->
 plt.scatter(T_list,max_lon*1e9,label="Data",c="#fb5607")
 plt.plot(T_list,wien*1e9,label="Wien's law",alpha=0.5,lw="2",color="#ff006e")
-plt.plot(T_list,fit*1e9,label="Regresion",alpha=0.5,lw="2",ls="--",color="#8338ec")
+plt.plot(T_list,fit*1e9,label="Regression",alpha=0.5,lw="2",ls="--",color="#8338ec")
 #<-----------------------------------Leyenda de cada ploteo------------------------------->
 plt.legend(frameon=False,ncol=3)
 #<--------------------------------Limites de la grafica--------------------------->
