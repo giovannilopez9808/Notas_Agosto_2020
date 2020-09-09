@@ -1,9 +1,9 @@
 !======================================================================
       module coor
        integer, parameter :: n=864,ngrx=1000  ! debe ser n=4*a*a*a
-       real (kind=8) :: x(n), y(n), z(n)
-       real (kind=8) :: vx(n),vy(n), vz(n)
-       real (kind=8) :: fx(n),fy(n), fz(n)
+       real (kind=8) :: x(n), y(n)
+       real (kind=8) :: vx(n),vy(n)
+       real (kind=8) :: fx(n),fy(n)
        real (kind=8) :: aL
        real (kind=8) :: gr(ngrx)
 
@@ -24,12 +24,12 @@
       real (kind=8) :: aL2,cut2,cutr2,ngr,hgr,dt
       real (kind=8) :: ec,u,ap
       real (kind=8) :: epot
-      real (kind=8) :: xx,yy,zz,r2
-      real (kind=8) :: r1,r6,pot,rr,fxx,fyy,fzz
+      real (kind=8) :: xx,yy,r2
+      real (kind=8) :: r1,r6,pot,rr,fxx,fyy
       real (kind=8) :: ekin,en,temp
-      real (kind=8) :: vxi,vyi,vzi,vxx,vyy,vzz
-      real (kind=8) :: vol,gdr
-      real (kind=8) :: xi,yi,zi
+      real (kind=8) :: vxi,vyi,vxx,vyy
+      real (kind=8) :: area,gdr
+      real (kind=8) :: xi,yi
 
 
         open(0, file = '0_salida.dat',status='unknown')
@@ -61,7 +61,6 @@
            fi = r*2*pi
             vx(i) = vr*sint*dcos(fi)
             vy(i) = vr*sint*dsin(fi)
-            vz(i) = vr*cost
          end do
 
         aL2 = aL/2d0
@@ -90,13 +89,12 @@
       do k = 1,npasos
 
          do i = 1, n
-           call pbc(x(i),y(i),z(i),aL,aL,aL)
+           call pbc(x(i),y(i),aL,aL)
          end do
 
          do i = 1, n
           fx(i) = 0
           fy(i) = 0
-          fz(i) = 0
          end do
 
          epot=0
@@ -104,12 +102,10 @@
          do i = 1, n-1
           xi = x(i)
           yi = y(i)
-          zi = z(i)
            do j = i+1, n
              xx = xi-x(j)
              yy = yi-y(j)
-             zz = zi-z(j)
-              call mic(xx,yy,zz,aL,aL,aL)
+              call mic(xx,yy,aL,aL)
              r2 = xx**2+yy**2+zz**2
 !<---------------Potencial de interacción---------------->
              if (r2 .lt. cut2) then
@@ -124,16 +120,13 @@
 
                fxx = rr*xx
                fyy = rr*yy
-               fzz = rr*zz
 
                ap = ap+rr*r2
 
                fx(i) = fx(i)+fxx
                fy(i) = fy(i)+fyy
-               fz(i) = fz(i)+fzz
-                 fx(j) = fx(j)-fxx
-                 fy(j) = fy(j)-fyy
-                 fz(j) = fz(j)-fzz
+               fx(j) = fx(j)-fxx
+               fy(j) = fy(j)-fyy
              end if
            end do
          end do
@@ -143,34 +136,30 @@
          do i=1,n
           vxi = vx(i)+dt*fx(i)
           vyi = vy(i)+dt*fy(i)
-          vzi = vz(i)+dt*fz(i)
 
             vxx = 0.5d0*(vxi+vx(i))
             vyy = 0.5d0*(vyi+vy(i))
-            vzz = 0.5d0*(vzi+vz(i))
 
-            en = vxx**2+vyy**2+vzz**2
+            en = vxx**2+vyy**2
             ekin = ekin+en
             ec = ec+en
 
             vx(i) = vxi
             vy(i) = vyi
-            vz(i) = vzi
 !<-----------------Movimiento infinitedecimal------------------------>
             x(i) = x(i)+dt*vx(i)
             y(i) = y(i)+dt*vy(i)
-            z(i) = z(i)+dt*vz(i)
          end do
 !<------------Over
           if(mod(k,iprint).EQ.0) then
              write(3,*)k
              write(2,*)k
            do i=1,n
-             write(3,*)SNGL(x(i)),SNGL(y(i)),SNGL(z(i))
-             write(2,*)SNGL(vx(i)),SNGL(vy(i)),SNGL(vz(i))
+             write(3,*)SNGL(x(i)),SNGL(y(i))
+             write(2,*)SNGL(vx(i)),SNGL(vy(i))
            end do
            
-            write(8,*)k,ekin/(3*n),epot/(n*n),ap/(3*aL**3)
+            write(8,*)k,ekin/(3*n),epot/(n*n),ap/(3*aL**2)
           endif
           
           
@@ -178,13 +167,13 @@
              write(6,16)n
              write(7,16)n
            do i=1,n
-             write(6,15)i,SNGL(x(i)),SNGL(y(i)),SNGL(z(i)),22,i
-             write(7,15)i,SNGL(vx(i)),SNGL(vy(i)),SNGL(vz(i)),22,i
+             write(6,15)i,SNGL(x(i)),SNGL(y(i)),22,i
+             write(7,15)i,SNGL(vx(i)),SNGL(vy(i)),22,i
            end do
           endif
           
 !<-----------------------Histograma----------------------------------------->
-         call sgdr(n,aL,aL,aL,hgr)
+         call sgdr(n,aL,aL,hgr)
 
       end do
 
@@ -200,8 +189,8 @@
 
         do k=1,ngrx
          r = (k-1)*hgr+hgr/2d0
-         vol = 4*pi/3*((r+hgr/2d0)**3-(r-hgr/2d0)**3)
-         gdr = gr(k)/(n*(n-1)/aL**3*npasos*vol)
+         area = pi*((r+hgr/2d0)**2-(r-hgr/2d0)**2)
+         gdr = gr(k)/(n*(n-1)/aL**2*npasos*area)
          write(4,*) r,gdr
         end do
 
@@ -232,14 +221,14 @@
 ! **********************************************************************
 !     Generation of fcc lattice
 ! *******************************************************************
-       subroutine fcc(lmn, dens, xl, yl, zl)
+       subroutine fcc(lmn, dens, xl, yl)
        use coor
 
        implicit real*8 (a-h, o-z)
 
-       real (kind=8) :: xl,yl,zl
+       real (kind=8) :: xl,yl
        Integer (kind=8) :: nn
-       dimension sx(4), sy(4), sz(4)
+       dimension sx(4), sy(4)
 
        data sx /0d0, 0.5d0, 0.5d0, 0d0/
        data sy /0d0, 0.5d0, 0d0, 0.5d0/
@@ -252,20 +241,16 @@
 
        xl = nn*a
        yl = nn*a
-       zl = nn*a
 
        m = 1
        do i = 1, nn
         do j = 1, nn
-         do k = 1, nn
           do l = 1, 4
            x(m) = (i - 1 + sx(l) + sh) * a - xl/2
            y(m) = (j - 1 + sy(l) + sh) * a - yl/2
-           z(m) = (k - 1 + sz(l) + sh) * a - zl/2
-            write(5,*) x(m),y(m),z(m),m
+           write(5,*) x(m),y(m),m
            m=m+1
           end do
-         end do
         end do
        end do
 
@@ -288,48 +273,45 @@
 ! **********************************************************************
 !      Periodic boundary conditions
 ! **********************************************************************
-       subroutine pbc(rx,ry,rz,xl,yl,zl)
+       subroutine pbc(rx,ry,xl,yl)
        use coor
        implicit none
-       real (kind=8) :: rx,ry,rz
-       real (kind=8) :: xl,yl,zl
+       real (kind=8) :: rx,ry
+       real (kind=8) :: xl,yl
 
        rx=rx-xl*dnint(rx/xl)
        ry=ry-yl*dnint(ry/yl)
-       rz=rz-zl*dnint(rz/zl)
 
         end subroutine
         
 ! **********************************************************************
 !      Minimum image convention
 ! **********************************************************************
-       subroutine mic(xx,yy,zz,xl,yl,zl)
+       subroutine mic(xx,yy,xl,yl)
        use coor
        implicit none
-       real (kind=8) :: xx,yy,zz
-       real (kind=8) :: xl,yl,zl
+       real (kind=8) :: xx,yy
+       real (kind=8) :: xl,yl
 
          xx=xx-xl*dnint(xx/xl)
          yy=yy-yl*dnint(yy/yl)
-         zz=zz-zl*dnint(zz/zl)
        end subroutine
        
 ! **********************************************************************
 ! Histogram for g(r)
 ! **********************************************************************
-      subroutine sgdr(m,xl,yl,zl,hgr)
+      subroutine sgdr(m,xl,yl,hgr)
       use coor
 
       implicit real*8(A-H,O-Z)
-      real (kind=8) :: xl,yl,zl,hgr
+      real (kind=8) :: xl,yl,hgr
 
        do i = 1, m-1
         do j = i + 1,m
          xx = x(i) - x(j)
          yy = y(i) - y(j)
-         zz = z(i) - z(j)
-       call mic (xx,yy,zz,xl,yl,zl)
-         r = xx*xx + yy*yy + zz*zz
+       call mic (xx,yy,xl,yl)
+         r = xx*xx + yy*yy
          rr = dsqrt(r)
 
          if (rr .lt. xl/2) then
