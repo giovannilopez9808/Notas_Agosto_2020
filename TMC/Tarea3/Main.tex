@@ -1,0 +1,98 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Tópicos de Mécanica Cuántica}}\\
+\textbf{Tarea 3}\\
+Enrique Valbuena Ordonez\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt}
+Matricula:\\
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+\subsection*{Demostrar la imparidad del tiempo de una función de onda dentro de la ecuación de Schr\"odinger para el átomo de hidrogeno}
+Definimos el operador paridad como lo siguiente:
+\begin{equation}
+    \Pi\psi(x) = \psi(-x)
+    \label{parity}
+\end{equation}
+Para demostrar que existe una paridad en el tiempo para una función de onda dentro de la ecuación de Schr\"odinger tenemos que comprobar que:
+\begin{equation}
+    [\Pi,\hat{H}]=0
+    \label{conmu}
+\end{equation}
+ya que con esto podemos decir que el operador paridad es constante del movimiento, de modo que si en el instante inical el estado de la partícula tiene paridad, en cualquier instante posterior seguirá teniendo la misma paridad.\\
+Calculando la ecuación \label{conmu} tomando en se tiene que:
+\begin{equation*}
+[\Pi,\hat{H}]= \Pi\hat{H} \psi(r,t) - \hat{H}\Pi \psi(r,t)
+\end{equation*}
+La parte izquierda es igual a:
+\begin{align*}
+\hat{H}\Pi \psi(r,t)    &= \hat{H}\psi(r,-t)\\
+                        &-\frac{\hbar}{2m}\nabla^2 \psi(r,-t) +\frac{1}{4\pi \epsilon_0} \frac{e^2}{r} \psi(r,-t)
+\end{align*}
+\begin{equation}
+\hat{H}\Pi \psi(r,t)= -\frac{\hbar}{2m}\nabla^2 \psi(r,-t) +\frac{1}{4\pi \epsilon_0} \frac{e^2}{r} \psi(r,-t)
+\label{izq}
+\end{equation}
+La parte derecha es igual a:
+\begin{align*}
+    \Pi\hat{H}\psi(r,t)    &=\Pi\left(-\frac{\hbar}{2m}\nabla^2 \psi(r,t) +\frac{1}{4\pi \epsilon_0} \frac{e^2}{r} \psi(r,t)\right)\\
+                            &-\frac{\hbar}{2m}\nabla^2 \psi(r,-t) +\frac{1}{4\pi \epsilon_0} \frac{e^2}{r} \psi(r,-t)
+    \end{align*}
+\begin{equation}
+\Pi\hat{H} \psi(r,t)=-\frac{\hbar}{2m}\nabla^2 \psi(r,-t) +\frac{1}{4\pi \epsilon_0} \frac{e^2}{r} \psi(r,-t)
+\label{der}
+\end{equation}
+como la ecuacion \ref{der} y \ref{izq} son lo mismo, entonces la ecuación \ref{conmu} es cierta, por lo tanto la paridad en el tiempo se cumple.
+\end{document}
