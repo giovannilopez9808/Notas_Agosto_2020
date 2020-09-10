@@ -1,0 +1,86 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\usepackage[breaklinks=true,hidelinks]{hyperref}
+\spanishdecimal{.}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Simuladores Moleculares}}\\
+\textbf{--}\\
+Omar Gonzalez Amezcua\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt}
+Matricula:\\
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+\begin{multicols}{2}
+\section*{Resumen}
+\subsection*{Palabras clave}
+\section*{Introducción}
+\section*{Objetivo general}
+\section*{Objetivo específico}
+\section*{Marco teórico}
+\section*{Resultados}
+\section*{Conclusiones}
+El planteamiento que habían realizado Rayleigh y Jeans sobre que la energía estaba distribuida de manera uniforme era erronea y que el cambio que realizo Plank al proponer la distribución de Boltzmann esto debido a los limites de la energía media fue lo que ayudo a que el problema de la radiación de cuerpo negro sea solucionado y corroborado por mediciones experimentales.
+\section*{Código}
+\begin{itemize}
+\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/AMC/Reto1/black_body.py}{Github - black\_body.py}\\
+Este código realiza el fit de los datos de COBE guardados en el archivo  \textit{data.txt} y crea la figura \ref{fit}
+\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/AMC/Reto1/wien_law.py}{Github - wien\_law.py}\\
+Este código realiza el calculo del espectro electromagnético de un cuerpo negro para diferentes temperaturas, localiza sus picos y en base a ello opera una regresión lineal para obtener la constante de Wien.
+\end{itemize}
+\bibliographystyle{plain}
+\bibliography{Main}
+\nocite{*}
+\end{multicols}
+\end{document}
