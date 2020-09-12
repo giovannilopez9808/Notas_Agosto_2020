@@ -1,0 +1,304 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Relatividad General}}\\
+\textbf{Tranformación de Lorentz}\\
+Carlos Luna Criado\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt}
+Matricula:\\
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+\section*{Transformación por el eje x}
+De esta manera podemos definir una transformación de la siguiente manera:
+\begin{equation}
+    \begin{bmatrix}
+        {t}'\\
+        x' 
+    \end{bmatrix}= 
+    \begin{bmatrix}
+        A & B \\
+        C & D\\
+    \end{bmatrix} \begin{bmatrix}
+        t \\
+        x
+    \end{bmatrix}
+    \label{ctx}
+\end{equation}
+al realizar la multiplicación de \ref{ctx} se obtiene que:
+\begin{equation}
+    \begin{bmatrix}
+        {t}' \\
+        {x}'
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        At+Bx \\
+        Ct+Dx 
+    \end{bmatrix}
+    \label{ctx2}
+\end{equation}
+cuando $x'=0$ se cumple que:
+\begin{equation}
+    D x + C t =0 \Rightarrow x= -\frac{C}{D} t =vt \Rightarrow -v = \frac{C}{D}
+    \label{c}
+\end{equation}
+por lo tanto, la componente $x'$ de \ref{ctx2} es 
+\begin{equation}
+    x'= D(x-vt)
+\end{equation}
+introduciendo esto en el invariante de Lorentz, encontramos que:
+\begin{align*}
+    D^2(x-vt)^2 + {y^2}' + {z^2}' - c^2(At+Bx)^2 &= x^2 + y^2 +z^2 -c^2 t^2 \\
+\end{align*}
+de la cual separando los coeficientes de los terminos $x^2 , xt , t^2$ obtenemos el siguiente sistema de ecuaciones
+\begin{align}
+    \label{d2}
+    D^2-c^2B^2 &= 1\\
+    \label{vd^2}
+    v D^2 + c^2 AB &= 0\\
+    \label{v2d2}
+    -v^2 D^2 +c^2 A^2&= c^2
+\end{align}
+despejando de \ref{d2} y \ref{v2d2} $D^2$ y $A^2$ y multiplicandolas
+\begin{align*}
+    A^2 B^2 c^4 &= (D^2-1)(v^2 D^2 + c^2 )\\
+                &=v^2D^4+D^2 c^2 -v^2 D^2 -c^2
+\end{align*}
+por la ecuación \ref{vd^2} al despejar $c^2AB$ y elevar al cuadrado, la operación anterior es igual a :
+\begin{align*}
+    v^2D^4+D^2 c^2 -v^2 D^2 -c^2&= D^4 v^2 \\
+    D^2(c^2-v^2)&=c^2\\
+\end{align*}
+\begin{equation}
+    D = \gamma  \label{D}
+\end{equation}
+por lo tanto, de la ecuación \ref{v2d2},obtenemos que:
+\begin{equation}
+    A= \sqrt{\frac{c^2-v^2 \gamma^2}{c^2}} = \gamma
+    \label{A}
+\end{equation}
+y de la ecuación \ref{d2}, obtenemos lo siguiente:
+\begin{equation}
+    B= -\sqrt{\frac{\gamma^2-1}{c^2}} = -\frac{v}{c^2} \gamma
+    \label{bvalue}
+\end{equation}
+y de la relación encontrada en \ref{c}, encontramos que:
+\begin{equation}
+    C=  -v \gamma
+    \label{cvalue}
+\end{equation}
+ya habiendo obtenido los resultados de las ecuaciones \ref{cvalue}, \ref{bvalue}, \ref{A}, \ref{D} e introduciendolas en la matriz \ref{ctx}, obetnemos que:
+\begin{equation}
+    \begin{bmatrix}
+        {t}'\\
+        x' 
+    \end{bmatrix}= 
+    \begin{bmatrix}
+        \gamma & -\frac{v}{c^2}\gamma \\
+        -v\gamma & \gamma\\
+    \end{bmatrix} \begin{bmatrix}
+        t \\
+        x
+    \end{bmatrix}
+    \label{ctx3}
+\end{equation}
+expandiendo esta matriz de transformación a 4 dimensiones tendriamos la siguiente:
+\begin{equation}
+    \begin{bmatrix}
+        {t}'\\
+        x' \\
+        y'\\
+        z'
+    \end{bmatrix}= 
+    \begin{bmatrix}
+        \gamma & -\frac{v}{c^2}\gamma & 0 & 0 \\
+        -v\gamma & \gamma & 0 & 0\\
+        0 & 0 & 1 & 0 \\
+        0 &  0 & 0 &1
+    \end{bmatrix} \begin{bmatrix}
+        t \\
+        x\\
+        y\\
+        z
+    \end{bmatrix}
+    \label{ctx3}
+\end{equation}
+\section*{Forma del Boost generalizado}
+Un vector lo podemos escribir de la siguiente manera:
+\begin{equation}
+    \vec{r}=\vec{r}_{\perp}+\vec{r}_{\parallel}
+    \label{r=rperp+rpal}
+\end{equation}
+realizando la comparación con un segundo vector $\vec{r}'$, se tiene lo siguiente:
+\begin{equation}
+    \vec{r}_{\perp}' = \vec{r}_{\perp}
+    \label{rpep}
+\end{equation}
+\begin{equation}
+    \vec{r}_{\parallel}'=\gamma (\vec{r}_{\parallel}'-\vec{v}t)
+    \label{rpal}
+\end{equation}
+usando \ref{rpep} y \ref{rpal} en \ref{r=rperp+rpal} se obtiene que
+\begin{equation}
+    \vec{r}'=\vec{r}_\perp'+\gamma (\vec{r}_\parallel' - \vec{v}t)
+    \label{r'conrpep}
+\end{equation}
+donde
+\begin{equation}
+    \gamma= \frac{1}{\sqrt{1-\frac{\vec{v}\cdot\vec{v}}{c^2}}} = \frac{1}{\sqrt{1-\frac{|v^2|}{c^2}}}
+    \label{gamma}
+\end{equation}
+calculando el producto escalar entre $\vec{r}$ y $\vec{v}$ en donde $\hat{r}=\hat{v}$
+\begin{align*}
+    \vec{r} \cdot \vec{v}   &= \vec{r}_\parallel \cdot \vec{v} + \vec{r}_perp \cdot \vec{v} \\
+                            &=\vec{r}_\parallel \cdot \vec{v} \\
+                            &=|\vec{r}_\parallel| |\vec{v}|
+\end{align*}
+por lo tanto
+\begin{equation}
+    \vec{r} \cdot \vec{v} =|\vec{r}_\parallel| |\vec{v}|
+    \label{r.v}
+\end{equation}
+en la configuración estandar se tiene que:
+\begin{equation}
+    t'= \gamma\left( t-\frac{\vec{r}\cdot \vec{v}}{c^2} \right)
+    \label{t'}
+\end{equation}
+expandiento los terminos de \ref{t'}
+\begin{align*}
+    t'  &= \gamma t - \gamma \frac{xv_x}{c^2}- \gamma \frac{yv_y}{c^2}- \gamma \frac{zv_z}{c^2}\\
+        &= \gamma ct - \gamma \frac{xv_x}{c}- \gamma \frac{yv_y}{c}- \gamma \frac{zv_z}{c}\\
+        &=  \gamma ct - \gamma x \beta_x - \gamma y \beta_y - \gamma z \beta_z
+\end{align*}
+por lo tanto:
+\begin{equation}
+    t' = \gamma ct - \gamma x \beta_x - \gamma y \beta_y - \gamma z \beta_z
+    \label{t'beta}
+\end{equation}
+usando \ref{r'conrpep} tomando en cuenta que $\vec{r_\perp}= \vec{r}-\vec{r}_\parallel$, entonces:
+\begin{equation}
+    \vec{r}'=\vec{r}-\vec{r}_\parallel+\gamma (\vec{r}_\parallel' - \vec{v}t)
+    \label{newr}
+\end{equation}
+de la relacion de la ecuacion \ref{r.v}, tenemos que:
+\begin{equation}
+    |\vec{r}_\parallel| = \frac{\vec{r}_\parallel \cdot \vec{v}}{|\vec{v}|} =\frac{\vec{r}\cdot \vec{v}}{|\vec{v}|} 
+    \label{rparalel}
+\end{equation}
+entonces:
+\begin{align*}
+\vec{r}_\parallel   &= |\vec{r}_\parallel| \frac{\vec{v}}{|\vec{v}|}\\
+                    &=\left(\frac{\vec{r}\cdot \vec{v}}{|\vec{v}|} \right) \frac{\vec{v}}{|\vec{v}|}
+\end{align*}
+por lo tanto la ecuacion \ref{newr} se puede reescribir como lo siguiente:
+\begin{align*}
+    \vec{r}'&=\vec{r}-\vec{r}_\parallel+\gamma (\vec{r}_\parallel' - \vec{v}t)\\
+            &=\vec{r}+(\gamma-1) \vec{r}_\parallel - \gamma\vec{v} t\\
+            &=\vec{r}+(\gamma-1) \left(\frac{\vec{r}\cdot \vec{v}}{|\vec{v}|} \right)\frac{\vec{v}}{|\vec{v}|} - \gamma \vec{v} t\\
+            &=-\gamma \vec{v}t + \vec{r} + (\gamma-1) \left(\frac{\vec{r}\cdot \vec{v}}{|\vec{v}|} \right)\frac{\vec{v}}{|\vec{v}|}\\
+            &= - \gamma \vec{v} t + \vec{r} + (\gamma-1)(\vec{r} \cdot \vec{v}) \frac{\vec{v}}{|\vec{v}|^2}
+\end{align*}
+porlo tanto:
+\begin{equation}
+\vec{r}' = - \gamma \vec{v} t + \vec{r} + (\gamma-1)(\vec{r} \cdot \vec{v}) \frac{\vec{v}}{|\vec{v}|^2}
+\end{equation}
+Calculando para cada componente:
+\begin{align*}
+    x'&=-\gamma v_x t + x +(\gamma -1) (xv_x+yv_Y+zv_z) \frac{v_x}{|v_x|^2}\\
+    y'&=-\gamma v_y t + y +(\gamma -1) (xv_x+yv_Y+zv_z) \frac{v_y}{|v_y|^2}\\
+    z'&=-\gamma v_z t + z+(\gamma -1) (xv_x+yv_Y+zv_z) \frac{v_z}{|v_z|^2}
+\end{align*}
+utilizando la relación $\beta_i = v_i/c$ en cada una de las componentes se tiene que:
+\begin{align}
+    \label{xfin}
+    x'&=-\gamma \beta_x ct + x +(\gamma -1) (x\beta_x+y\beta_y+z\beta_z) \frac{\beta_x}{|\beta_x|^2}\\
+    \label{zfin}
+    y'&=-\gamma \beta_y ct + y +(\gamma -1) (x\beta_x+y\beta_y+z\beta_z) \frac{\beta_y}{|\beta_y|^2}\\
+    \label{yfin}
+    z'&=-\gamma \beta_z ct + z +(\gamma -1) (x\beta_x+y\beta_y+z\beta_z) \frac{\beta_z}{|\beta_z|^2}
+\end{align}
+reescribiendo las ecuaciones \ref{xfin}, \ref{yfin}, \ref{zfin} y \ref{t'beta} como producto puntos de vectores se obtiene lo siguiente:
+\begin{align*}
+    x^0&= \Lambda^0_\nu \cdot x^\nu \\
+    x^1&= \Lambda^1_\nu \cdot y^\nu \\
+    x^2&= \Lambda^2_\nu \cdot y^\nu \\
+    x^3&= \Lambda^3_\nu \cdot y^\nu \\
+\end{align*}
+de modo que la matriz $\Lambda$ que la relación entre $\vec{r}$ y $\vec{r}'$:
+\begin{equation}
+    \begin{bmatrix}
+        ct'\\ 
+        x'\\ 
+        y'\\ 
+        z'
+        \end{bmatrix}=
+        \begin{bmatrix}
+        \gamma &-\gamma \beta_x & -\gamma \beta_y & -\gamma \beta_z \\ 
+        -\gamma \beta_x &1+(\gamma-1)\frac{\beta_x^2}{|\beta|^2}& (\gamma-1)\frac{\beta_x \beta_y}{|\beta|^2} &(\gamma-1)\frac{\beta_x \beta_z}{|\beta|^2}\\ 
+        -\gamma \beta_y &(\gamma-1)\frac{\beta_x \beta_y}{|\beta|^2}& 1+(\gamma-1)\frac{\beta_y^2}{|\beta|^2} &(\gamma-1)\frac{\beta_y \beta_z}{|\beta|^2}\\ 
+        -\gamma \beta_x &(\gamma-1)\frac{\beta_x \beta_z}{|\beta|^2}& (\gamma-1)\frac{\beta_z \beta_y}{|\beta|^2} &1+(\gamma-1)\frac{\beta_z^2}{|\beta|^2}\\ 
+        \end{bmatrix} \begin{bmatrix}
+        ct\\ 
+        x\\ 
+        y\\ 
+        z
+        \end{bmatrix}
+        \label{trans}
+\end{equation}
+de modo que la relación \ref{trans} se pueda escribir de manera tensorial como
+\begin{equation}
+    {r^\mu}' = {\Lambda^\mu}'_\nu r^\nu
+\end{equation}
+
+\end{document}
