@@ -1,6 +1,6 @@
 !======================================================================
       module coor
-       integer, parameter :: n=864,ngrx=1000  ! debe ser n=4*a*a*a
+       integer, parameter :: n=784,ngrx=1000  ! debe ser n=4*a*a*a
        real (kind=8) :: x(n), y(n)
        real (kind=8) :: vx(n),vy(n)
        real (kind=8) :: fx(n),fy(n)
@@ -16,10 +16,10 @@
       use coor            ! Coordenadas de posicion.
       implicit none
 
-      Integer (kind=8) :: npasos,dum
+      Integer (kind=8) :: npasos
       Integer (kind=8) :: i,k,j,iprint
 
-      real (kind=8) :: r,rho,T,pi
+      real (kind=8) :: r,rho,T,pi,dum
       real (kind=8) :: vr,cost,sint,fi
       real (kind=8) :: aL2,cut2,cutr2,ngr,hgr,dt
       real (kind=8) :: ec,u,ap
@@ -31,33 +31,30 @@
       real (kind=8) :: area,gdr
       real (kind=8) :: xi,yi
 
-
-      open(0, file = 'Results/0_salida.dat',status='unknown')
-      open(2, file = 'Results/2_velo.dat',status='unknown')
-      open(3, file = 'Results/3_coor.dat',status='unknown')
-      open(4, file = 'Results/4_hr.dat',status='unknown')
-      open(5, file = 'Results/5_Cor_in.dat',status='unknown')
+      open(0,  file = 'Results/0_salida.dat',status='unknown')
+      open(2,  file = 'Results/2_velo.dat',status='unknown')
+      open(3,  file = 'Results/3_coor.dat',status='unknown')
+      open(4,  file = 'Results/4_hr.dat',status='unknown')
+      open(5,  file = 'Results/5_Cor_in.dat',status='unknown')
       open(10, file = 'Results/6_coorpymol.xyz',status='unknown')
-      open(7, file = 'Results/7_velpymol.xyz',status='unknown')
-      open(8, file = 'Results/8_T_U_P.dat',status='unknown')
+      open(7,  file = 'Results/7_velpymol.xyz',status='unknown')
+      open(8,  file = 'Results/8_T_U_P.dat',status='unknown')
       rho=0.3
       T=0.6
-      !npasos=200000
-      npasos=2000
+      npasos=200000
+      !npasos=2000
       iprint = npasos/100
       dum = 17367d0
       pi = 4d0 * datan(1d0)
 !<------------------Definicion de las coordenadas------------------>
       call fcc(n, rho, aL, aL)
       do i=1,n
+        write(*,*) i,x(i),y(i)
         vr = dsqrt(3*T)
         call ggub(dum,r)
-        cost = 2*r-1
-        sint = dsqrt(1-cost**2)
-        call ggub(dum,r)
         fi = r*2*pi
-        vx(i) = vr*sint*dcos(fi)
-        vy(i) = vr*sint*dsin(fi)
+        vx(i) = vr*dcos(fi)
+        vy(i) = vr*dsin(fi)
       end do
       aL2 = aL/2d0
       cut2 = (2.5d0)**2
@@ -137,6 +134,7 @@
           x(i) = x(i)+dt*vx(i)
           y(i) = y(i)+dt*vy(i)
         end do
+        write(*,*)k,ekin/(3*n),epot/(n*n),ap/(3*aL**2)
         if(mod(k,iprint).EQ.0) then
             write(3,*)k
             write(2,*)k
@@ -145,7 +143,6 @@
             write(2,*)SNGL(vx(i)),SNGL(vy(i))
           end do
           write(8,*)k,ekin/(3*n),epot/(n*n),ap/(3*aL**2)
-          write(*,*)k,ekin/(3*n),epot/(n*n),ap/(3*aL**2)
         endif    
         if(mod(k,iprint*2).EQ.0) then
             write(10,16)n
@@ -207,11 +204,10 @@
 
        real (kind=8) :: xl,yl,dx,dy
        Integer (kind=8) :: nn
-       dimension sx(4), sy(4)
+       dimension sx(4), sy(4), sz(4)
 
        data sx /0d0, 0.5d0, 0.5d0, 0d0/
        data sy /0d0, 0.5d0, 0d0, 0.5d0/
-
        data sh /0.01d0/
 
        a = (4d0/dens)**(1d0/2d0)
@@ -224,8 +220,8 @@
        do i = 1, nn
         do j = 1, nn
           do l = 1, 4
-           x(m) = (i - 1 + sx(l) + sh) * a - xl/2
-           y(m) = (j - 1 + sy(l) + sh) * a - yl/2
+            x(m) = (i - 1 + sx(l) + sh) * a - xl/2
+            y(m) = (j - 1 + sy(l) + sh) * a - yl/2
            write(5,*) x(m),y(m),m
            m=m+1
           end do
@@ -237,7 +233,7 @@
 !      P1: Random number generator
 ! **********************************************************************
       subroutine ggub(dseed,r)
-      real*8 z,d2p31m,d2pn31,dseed
+      real*8 z,d2p31m,d2pn31,dseed,r
       data d2p31m/2147483647./,d2pn31/2147483648./
 
        z = dseed
@@ -255,10 +251,8 @@
        implicit none
        real (kind=8) :: rx,ry
        real (kind=8) :: xl,yl
-
-       rx=rx-xl*dnint(rx/xl)
-       ry=ry-yl*dnint(ry/yl)
-
+       if (abs(rx).gt.xl) rx=rx-xl*dnint(rx/xl)
+       if (abs(ry).gt.yl) ry=ry-yl*dnint(ry/yl)
         end subroutine
         
 ! **********************************************************************
