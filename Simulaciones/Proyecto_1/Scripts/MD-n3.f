@@ -31,25 +31,23 @@
       real (kind=8) :: area,gdr
       real (kind=8) :: xi,yi
 
-      open(0,  file = 'Results/0_salida.dat',status='unknown')
-      open(2,  file = 'Results/2_velo.dat',status='unknown')
-      open(3,  file = 'Results/3_coor.dat',status='unknown')
-      open(4,  file = 'Results/4_hr.dat',status='unknown')
-      open(5,  file = 'Results/5_Cor_in.dat',status='unknown')
-      open(10, file = 'Results/6_coorpymol.xyz',status='unknown')
-      open(7,  file = 'Results/7_velpymol.xyz',status='unknown')
-      open(8,  file = 'Results/8_T_U_P.dat',status='unknown')
+      open(0,file ='../Results/0_salida.dat',status='unknown')
+      open(2,file ='../Results/2_velo.dat',status='unknown')
+      open(3,file ='../Results/3_coor.dat',status='unknown')
+      open(4,file ='../Results/4_hr.dat',status='unknown')
+      open(5,file ='../Results/5_Cor_in.dat',status='unknown')
+      open(10,file ='../Results/6_coorpymol.xyz',status='unknown')
+      open(7,file ='../Results/7_velpymol.xyz',status='unknown')
+      open(8,file ='../Results/8_T_U_P.dat',status='unknown')
       rho=0.3
       T=0.6
       npasos=200000
-      !npasos=2000
       iprint = npasos/100
       dum = 17367d0
       pi = 4d0 * datan(1d0)
 !<------------------Definicion de las coordenadas------------------>
       call fcc(n, rho, aL, aL)
       do i=1,n
-        write(*,*) i,x(i),y(i)
         vr = dsqrt(3*T)
         call ggub(dum,r)
         fi = r*2*pi
@@ -101,7 +99,6 @@
               r1 = 1/r2
               r6 = r1**3
               pot=4*r6*(r6-1)
-              !write(*,*) pot,r1,r2
               u = u+pot
               epot=epot+pot
               rr = 48*r6*r1*(r6-0.5d0)
@@ -134,7 +131,6 @@
           x(i) = x(i)+dt*vx(i)
           y(i) = y(i)+dt*vy(i)
         end do
-        write(*,*)k,ekin/(3*n),epot/(n*n),ap/(3*aL**2)
         if(mod(k,iprint).EQ.0) then
             write(3,*)k
             write(2,*)k
@@ -143,6 +139,7 @@
             write(2,*)SNGL(vx(i)),SNGL(vy(i))
           end do
           write(8,*)k,ekin/(3*n),epot/(n*n),ap/(3*aL**2)
+          write(*,*) "Paso numero",k,"de",npasos
         endif    
         if(mod(k,iprint*2).EQ.0) then
             write(10,16)n
@@ -186,9 +183,6 @@
       Close(10)
       Close(7)
       Close(8)
-
-          write (*,*) 'Esooo es toooodooo amiiigosss '
-          write (0,*) 'Esooo es toooodooo amiiigosss '
       
       end program MD
       
