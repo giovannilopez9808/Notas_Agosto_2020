@@ -1,0 +1,97 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Aplicaciones de la Mecánica Cuántica}}\\
+\textbf{Cálculo de la longitud de De Broglie}\\
+Carlos Luna Criado\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt}
+Matricula:\\
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+\begin{enumerate}
+    \item \textbf{Calcule la longitud de onda de De Broglie de una pelota de béisbol que se mueve a una velocidad v=10 m/s y que tiene una masa m=1.0 kg.}\\
+    Se tiene que: v=10 m/s y m=1kg, introduciendo estos valores en la siguiente ecuación podremos obtener el valor de la onda de De Broglie.\\
+    \begin{align*}
+        \lambda &= \frac{h}{m_0 v}\\ 
+                &= \frac{6.6x10^{-34} Js}{(1 kg)(10 m/s)} \\
+                &= 6.6x10^{-35} m 
+    \end{align*}
+    por lo que la longitud de onda de De Broglie para este caso es de $\lambda = 6.6x10^{-35}m $
+    \item \textbf{Calcule la longitud de onda de un electrón cuya energía cinética es 100 eV.}\\
+    Al ser un electrón, en este caso su masa viene dada por $m_e$, y obteniendo su energía en terminos de J, se tiene que:
+    \begin{align*}
+        E   &= 100eV \\
+            &= 100eV \left(\frac{1.6x10^{-19}J}{1eV} \right) \\
+            &= 1.6x10^{-17}J\\
+    \end{align*}
+    por lo que aplicando la ecuación
+    \begin{equation*}
+        \lambda = \frac{hc}{E}
+    \end{equation*}
+    se obtiene que 
+    \begin{align*}
+        \lambda &= \frac{hc}{E} \\
+                &= \frac{(6.6x10^{-34}Js)(3x10^8 m/s)}{1.6x10^{-17}J }\\
+                & =12.375x 10^{-9} m \\
+                &= 12.375 nm
+    \end{align*}
+    por lo que la longitud de De Boglie para este caso es $\lambda= 12.375$nm.
+    \item \textbf{Compare los dos valores obtenidos en los apartados anteriores y acorde a esta compración razone en qué condiciones se pueden detectar el comportamiento ondulatorio de la materia.}
+\end{enumerate}
+\textbf{Datos:}\\
+$h=6.6x10^{-34}Js$\\
+$m_e=9.1x10^{-31}kg$\\
+$1 eV=1.6x10^{-19}j$
+\end{document}
