@@ -41,7 +41,7 @@
       open(8,file ='../Results/8_T_U_P.dat',status='unknown')
       rho=0.3
       T=0.6
-      npasos=200000
+      npasos=2000000
       iprint = npasos/100
       dum = 17367d0
       pi = 4d0 * datan(1d0)
