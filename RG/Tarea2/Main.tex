@@ -1,0 +1,130 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\spanishdecimal{.}
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Relatividad General}}\\
+\textbf{Dilatación del tiempo}\\
+Carlos Luna Criado\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt}
+Matricula:\\
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+Un cohete sale de la Tierra a una velocidad de $\frac{3}{5}c$. Cuando un reloj en el cohete indica que ha pasado 1 hora desde haber abandonado la Tierra, el cohete envía una señal luminosa a la Tierra.
+\begin{enumerate}[I)]
+    \item De acuerdo con los relojes de tierra, ¿cuándo se envió la señal?\\
+    De acuerdo con la ecuación:
+    \begin{equation}
+        \label{t'}
+        {t}'=t\sqrt{1-\frac{v^2}{c^2}}
+    \end{equation}
+    Y sustituyendo la velocidad del cohete en la ecuación \ref{t'} se tiene lo siguiente:
+    \begin{align*}
+        {t}'&= t\sqrt{1-\frac{v^2}{c^2}}\\
+            &= t\sqrt{1-\frac{3^2c^2}{5^2c^2}}\\
+            &= t\sqrt{1-\frac{9}{25}}\\
+            &= t\sqrt{\frac{16}{25}}\\
+            &=\frac{4}{5}t
+    \end{align*}
+    por ende:
+    \begin{equation}
+        \label{t'resul}
+        {t}'=\frac{4}{5}t
+    \end{equation}
+    por lo que el tiempo en tierra fue de:
+    \begin{align*}
+        {t}'&=\frac{4}{5}t\\
+        t   &=\frac{5}{4}{t}'\\
+            &=\frac{5}{4} hr\\
+            & = 1.25 hr
+    \end{align*}
+    \begin{equation}
+        \label{ttierra}
+        t=1.25 hr
+    \end{equation}
+    \item Según los relojes de tierra, ¿cuánto tiempo después de que saliera el cohete, regresó la señal a la Tierra?\\
+    Considerando que el cohete salio con una velocidad constante de $\frac{3}{5}c$, se puede calcular la distancia que ha recorrido en una hora:
+    \begin{align*}
+        d   &=vt\\
+            &=\left(\frac{3}{5}c\right)\left(60^2 seg\right)\\
+            &=6.4755x10^{11} km 
+    \end{align*}
+    con esta distancia calcularemos el tiempo en el la señal la reccore, tomando en cuenta que su velocidad es $c$.
+    \begin{align*}
+        t   &= \frac{d}{v}\\
+            &=\frac{60^2 c(3)}{5c}\\
+            &=2160 seg\\
+            & = 0.6 hr
+    \end{align*}
+    por lo que el tiempo que le tomo fue 
+    \begin{equation}
+        \label{tluz}
+        t= 0.6 hr
+    \end{equation}
+    entonces, el tiempo que se observo en la tierra es la suma de la expresión \ref{ttierra} y \ref{tluz}, que es:
+    \begin{align*}
+        t_{total}   &=t_{luz}+t_{tierra}\\
+                    &=0.6+1.25\\
+                    &=1.85 hr
+    \end{align*}
+    por lo que llegamos al resultado de $t_{total}=1.85 hr$
+    \item Según el observador del cohete, ¿cuánto tiempo después de la partida del cohete llegó la señal a la Tierra?\\
+    De misma forma, para obtener este resultado sumaremos el tiempo de la expresión \ref{tluz} y la hora que paso en el cohete, por lo que se tiene el siguiente resultado:
+    \begin{align*}
+        t_{total}   &=t_{luz}+t_{cohete}\\
+                    &=0.6+1\\
+                    &=1.6 hr
+    \end{align*}
+\end{enumerate}
+\end{document}
