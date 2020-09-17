@@ -1,40 +1,35 @@
 \begin{thebibliography}{1}
 
-\bibitem{JHJeans1902}
-J.H.~Jeans B.A.
-\newblock Lxv. on the conditions necessary for equipartition of energy.
-\newblock {\em The London, Edinburgh, and Dublin Philosophical Magazine and
-  Journal of Science}, 4(23):585--596, 1902.
+\bibitem{Girifalco2000}
+L.~A. Girifalco, M.~Hodak, and R.~S. Lee.
+\newblock {Carbon nanotubes, buckyballs, ropes, and a universal graphitic
+  potential}.
+\newblock {\em Physical Review B - Condensed Matter and Materials Physics},
+  62(19):13104--13110, 2000.
 
-\bibitem{Eccarelli1996}
-C~Ecilia~C Eccarelli, D~Avid J~H Ollenbach, and A~Lexander G G M~T Ielens.
-\newblock {Received 1996 January 16 ; accepted 1996 May 13}.
-\newblock 1:400--426, 1996.
+\bibitem{Kong1973}
+Chang~Lyoul Kong.
+\newblock {Combining rules for intermolecular potential parameters. II. Rules
+  for the Lennard-Jones (12–6) potential and the Morse potential}.
+\newblock {\em Journal of Chemical Physics}, 59(5):2464--2467, 1973.
 
-\bibitem{Fixsen2002}
-D.~J. Fixsen and J.~C. Mather.
-\newblock { The Spectral Results of the Far‐Infrared Absolute
-  Spectrophotometer Instrument on COBE }.
-\newblock {\em The Astrophysical Journal}, 581(2):817--822, 2002.
+\bibitem{Koura1991}
+Katsuhisa Koura and Hiroaki Matsumoto.
+\newblock {Variable soft sphere molecular model for inverse-power-law or
+  Lennard-Jones potential}.
+\newblock {\em Physics of Fluids A}, 3(10):2459--2465, 1991.
 
-\bibitem{LordRayleigh1900}
-Lord~Rayleigh F.R.S.
-\newblock Liii. remarks upon the law of complete radiation.
-\newblock {\em The London, Edinburgh, and Dublin Philosophical Magazine and
-  Journal of Science}, 49(301):539--540, 1900.
+\bibitem{Lee2005}
+Byeong~Joo Lee and Jin~Wook Lee.
+\newblock {A modified embedded atom method interatomic potential for carbon}.
+\newblock {\em Calphad: Computer Coupling of Phase Diagrams and
+  Thermochemistry}, 29(1):7--16, 2005.
 
-\bibitem{Kr2011}
-Timm Kr.
-\newblock {Unit conversion in LBM}.
-\newblock {\em Metal Forming}, pages 1--4, 2011.
-
-\bibitem{unknown}
-Emiliano Muñoz.
-\newblock Revisión histórica del concepto del cuanto de luz, 07 2015.
-
-\bibitem{Planck1901}
-M.~Planck.
-\newblock {Ueber das Gesetx}.
-\newblock {\em Annalen der Physik}, 4(October):553--563, 1901.
+\bibitem{Nose1991}
+Shuichi Nos{\'{e}}.
+\newblock {Molecular Dynamics Simulations at Constant Temperature and
+  Pressure}.
+\newblock {\em Computer Simulation in Materials Science}, 2384(1980):21--41,
+  1991.
 
 \end{thebibliography}

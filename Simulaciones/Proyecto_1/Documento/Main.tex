@@ -41,7 +41,7 @@ FÍSICO MATEMÁTICAS}\\
 \begin{large}
 \vspace{1cm}
 \large{\textbf{Simuladores Moleculares}}\\
-\textbf{--}\\
+\textbf{Dinámica molecular con el potencial \\ de Lennard-Jones en dos dimensiones}\\
 Omar Gonzalez Amezcua\\
 \end{large}
 \vspace{3.5cm}
@@ -69,11 +69,64 @@ Matricula:\\
 \section*{Objetivo general}
 \section*{Objetivo específico}
 \section*{Marco teórico}
+\begin{equation}
+    \label{Potencial de Lennard-Jones}
+    V(r) = 4 \epsilon \left[\left(\frac{\sigma}{r} \right)^{12} - \left(\frac{\sigma}{r} \right)^6 \right]
+\end{equation}
+donde:
+\begin{itemize}
+    \item $V$ es el potencial intermolecular entre dos átomos o partículas.
+    \item $\epsilon$ es la profundidad del valle que define que tan fuerte es la atracción entre partículas.
+    \item $\sigma$ es la distancia a la cual el potencial entre dos partículas es igual a cero.
+    \item $r$ es la distancia de separación entre dos partículas
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45]{../Graphics/Potencial.png}
+    \caption{Potencial Lennard-Jones}
+    \label{pot-len-jones}
+\end{figure}
 \section*{Resultados}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45]{../Graphics/Cor_in.png}
+    \caption{Posición inicial de la dinámica}
+    \label{pos inicial}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45]{../Graphics/Dis_rad.png}
+    \caption{Distribución radial de la estructura}
+    \label{distribucion radial}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45]{../Graphics/Dim_Graphics.png}
+    \caption{Dinámica molecular en diferentes tiempos}
+    \label{screen dinamica}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.335]{../Graphics/Energy.png}
+    \caption{Energía cinética, potencial y total del sistema en toda la simulación}
+    \label{energias}
+\end{figure}
 \section*{Conclusiones}
 \section*{Código}
 \begin{itemize}
-\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Codigo/MD-n3.f}{Github - MD-n3.f}\\
+\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/MD-n3.f}{Github - MD-n3.f}\\
+Este código contiene la simulación del sistema.
+\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Energy_Graphics.py}{Github - Gráfica de las energías}\\
+Este código genera la gráfica \ref{energias}
+\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Cor_Graphics.py}{Github - Gráfica de la posición inicial y Distribución radial}\\
+Este código genera la figura \ref{pos inicial} y \ref{distribucion radial}
+\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Dim_gif.py}{Github - Animación de la dinámica}\\
+Este código genera la animación mostrada en la figura \ref{screen dinamica}
+\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Dim_Graphics.py}{Github - Gráfica para diferentes tiempos}\\
+Este código genera la figura \ref{screen dinamica}
+
+\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Potencial_Graphics.py}{Github - Gráfica del potencial de Lennard-Jones}\\
+Este código realiza la figura \ref{pot-len-jones}
 \end{itemize}
 \bibliographystyle{plain}
 \bibliography{Main}
