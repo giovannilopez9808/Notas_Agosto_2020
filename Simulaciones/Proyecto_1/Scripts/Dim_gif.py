@@ -26,6 +26,7 @@ n_walks=np.size(walks)
 lim=np.arange(-30,35,5)
 #<--------------------------------Reposicion de las particulas---------------------->
 lim_real=np.arange(0,65,5)
+print("Creando graficas")
 for walk,walk_real in zip(range(n_walks),walks):
     #<--------------------------------Lectura de las posiciones------------------------------------->
     pos_x,pos_y=np.loadtxt(dir_results+"3_coor.dat",unpack=True,usecols=[0,1],skiprows=walk*(n_part+1)+1,max_rows=n_part)

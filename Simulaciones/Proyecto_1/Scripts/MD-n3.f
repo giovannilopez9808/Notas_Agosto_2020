@@ -42,7 +42,7 @@
       rho=0.3
       T=0.6
       npasos=2000000
-      iprint = npasos/100
+      iprint = npasos/1000
       dum = 17367d0
       pi = 4d0 * datan(1d0)
 !<------------------Definicion de las coordenadas------------------>
