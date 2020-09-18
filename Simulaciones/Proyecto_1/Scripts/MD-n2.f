@@ -46,7 +46,7 @@
      & '.xyz',status='unknown')
       open(7,file=path//'7_velpymol'//version//'.xyz',status='unknown')
       open(8,file=path//'8_T_U_P'//version//'.dat',status='unknown')
-      rho=0.3
+      
       T=0.6
       npasos=200000
       iprint = npasos/1000
@@ -146,7 +146,6 @@
             write(2,*)SNGL(vx(i)),SNGL(vy(i))
           end do
           write(8,*)k,ekin/(3*n),epot/(n*n),ap/(3*aL**2)
-          write(*,*) "Paso numero",k,"de",npasos
         endif    
         if(mod(k,iprint*2).EQ.0) then
             write(10,16)n

@@ -222,14 +222,10 @@
       Close(3)
       Close(4)
       Close(5)
-      Close(6)
+      Close(10)
       Close(7)
       Close(8)
       close(11)
-
-          write (*,*) 'Esooo es toooodooo amiiigosss '
-          write (0,*) 'Esooo es toooodooo amiiigosss '
-      
       end program MD
       
       
