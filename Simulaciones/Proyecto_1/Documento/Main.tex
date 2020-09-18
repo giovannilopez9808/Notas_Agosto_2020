@@ -1,30 +1,23 @@
-\documentclass[12pt,letterpaper]{article}
-\usepackage{graphicx}
+\documentclass[reprint,amsmath,amssymb,aps,]{revtex4-2}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
 \usepackage{scrextend}
 \usepackage{vmargin}
-\usepackage{graphicx}
 \usepackage{multirow}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
-\usepackage{multicol}
 \usepackage{enumerate}
 \usepackage{float}
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[usenames]{color}
 \usepackage[breaklinks=true,hidelinks]{hyperref}
-\spanishdecimal{.}
-\parindent=0mm
-\pagestyle{empty}
-\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
 \begin{document}
-\setmargins{2.5cm}      
-{1.5cm}                     
-{2cm}  
-{24cm}                    
-{10pt}                          
-{1cm}                          
-{0pt}                             
-{2cm}
+\preprint{APS/123-QED}
+\begin{abstract}
+Se propuso un sistema conformado por átomos de carbono en una configuración cuadrangular donde cada átomo se encuentra a una distancia interatomica de $r=1.8257$, el sistema se dejara interaccionar en una simulación bajo el efecto del potencial de Lennard-Jones realizando $2x10^{6}$ pasos. Durante la simulación se monitoreo la energía cinética, energía potencial y energía total, a la par se calculó su función de distribución radial del sistema obteniendo un máximo a $r=1.11187677$.\\
+\textbf{Palabras clave:} Potencial de Lennard-Jones, distribución radial, dos dimensiones
+\end{abstract}
 \begin{titlepage}
 \begin{center}
 \includegraphics[scale=0.40]{../../../Logos/uanl.png} 
@@ -61,22 +54,19 @@ Matricula:\\
 \begin{flushright}
 \today
 \end{flushright}
+\pagebreak
 \end{titlepage}
-\begin{multicols}{2}
-\section*{Resumen}
-Se propuso un sistema conformado por átomos de carbono en una configuración cuadrangular donde cada átomo se encuentra a una distancia interatomica de $r=1.8257$, el sistema se dejara interaccionar en una simulación bajo el efecto del potencial de Lennard-Jones realizando $2x10^{6}$ pasos. Durante la simulación se monitoreo la energía cinética, energía potencial y energía total, a la par se calculó su función de distribución radial del sistema obteniendo un máximo a $r=1.11187677$
-\subsubsection*{Palabras clave}
-\textbf{Potencial de Lennard-Jones, distribución radial, dos dimensiones}
-\section*{Introducción}
-
-\section*{Objetivo general}
+\maketitle
+\section{Introducción}
+La dinámica molecular es un técnica de simulación en la que se permite que átomos y moléculas interactúen por un período, permitiendo una visualización del movimiento de las partículas, en donde le tendremos que especificar el tipo de átomo que es, sus posiciones iniciales, velocidades iniciales, el potencial de interacción y los parámetros que este puede llegar a necesitar para realizar su calculo.\\
+\section{Objetivo general}
 Simular la configuración cuadrada de átomos de Carbono con el potencial de Lennard-Jones.
-\section*{Objetivo específico}
+\section{Objetivo específico}
 \begin{enumerate}
     \item Encontrar la distribución radial del sistema.
     \item Monitorizar la energía en la dinámica del sistema.
 \end{enumerate}
-\section*{Marco teórico}
+\section{Marco teórico}
 El potencial de Lennard-Jones describe la energía potencial de interacción entre dos átomos o moleculas netros sujetos a dos fuerzas distintas, una fuerza que tiene mayor acción cuando la distancia entre las dos sistemas es grande y la otra fuerza de interacción tiene una mayor acción a corta distancia. Este potencial tiene la siguiente forma:
 \begin{equation}
     \label{Potencial de Lennard-Jones}
@@ -89,19 +79,20 @@ donde:
     \item $\sigma$ es la distancia a la cual el potencial entre dos partículas es igual a cero.
     \item $r$ es la distancia de separación entre dos partículas
 \end{itemize}
-Los parámetros $\epsilon$ y $\sigma$ son ajustados para reproducir datos experimentales o pueden ser dedudidos de resultados a partir de cálculos de química cuántica. La fígura \ref{Potencial de Lennard-Jones} es el potencial de Lennard-Jones con $\epsilon=1$ y $\sigma=1$.
+Los parámetros $\epsilon$ y $\sigma$ son ajustados para reproducir datos experimentales o pueden ser dedudidos de resultados a partir de cálculos de química cuántica. La fígura \ref{Potencial de Lennard-Jones} es el potencial de Lennard-Jones con $\epsilon=1$ y $\sigma=1$.\\
+En donde \cite{Girifalco2000} expone una gráfica de potenciales universales para estructuras de gráfito, y la que tenemos se asemeja en comportamiento a pesar de no tener la estrucura de un grafito.
+Teniendo el potencial de la ecuación \ref{Potencial de Lennard-Jones}, podemos deducir la fuerza, ya que esta puede ser deducida a partir de aplicar el gradiente a la función $V(r)$, teniendo así la siguiente expresión:
+\begin{equation}
+    \label{eq:fuerzateo}
+    \vec{F}(r)= 4\epsilon \left(12\frac{\sigma^{12}}{r^{13}}- 6 \frac{\sigma^6}{r^7} \right) \hat{r}
+\end{equation}
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.45]{../Graphics/Potencial.png}
     \caption{Potencial y fuerza de Lennard-Jones}
     \label{pot-len-jones}
 \end{figure}
-Teniendo el potencial de la ecuación \ref{Potencial de Lennard-Jones}, podemos deducir la fuerza, ya que esta puede ser deducida a partir de aplicar el gradiente a la función $V(r)$, teniendo así la siguiente expresión:
-\begin{equation}
-    \label{eq:fuerzateo}
-    \vec{F}(r)= 4\epsilon \left(12\frac{\sigma^{12}}{r^{13}}- 6 \frac{\sigma^6}{r^7} \right) \hat{r}
-\end{equation}
-reescribiendo las ecuaciones \ref{Potencial de Lennard-Jones} y \ref{eq:fuerzateo} pars tener la suma de estas en un sistema de n particulas se tiene lo siguiente:
+reescribiendo las ecuaciones \ref{Potencial de Lennard-Jones} y \ref{eq:fuerzateo} para tener la suma de estas en un sistema de n particulas (\cite{Nose1991} y \cite{Lee2005}) se tiene lo siguiente:
 \begin{equation}
     \label{eq:pot-n}
     U_t=\left\langle\sum_{i=1}^N \sum_{j<i}^N V_i,j(|r_j-r_i|)\right\rangle_t
@@ -121,7 +112,7 @@ por lo tanto, la energía total para un tiempo t será:
     \label{eq:e-tot}
     E_t=T_t+U_t
 \end{equation}
-\section*{Resultados}
+\section{Resultados}
 Planteando un sistema cuadrangular, en el cual todos los átomos se encuentran alineados como en la figura \ref{pos inicial}.
 \begin{figure}[H]
     \hspace*{-0.5cm}
@@ -140,15 +131,16 @@ donde:
     \label{eq:area}
     \pi r \Delta r = \pi \left(\left[r +\frac{\Delta r}{2}\right]^2 - \left[r- \frac{\Delta r}{2} \right]^2 \right)
 \end{equation}
-y la función $n_i(r,\Delta r)$ lleva el conteo del número de átomos que se encuentran en un anillo de radio $r$ y espesor $\Delta r$, llegando así a calcular la función de distribución radial mostrada en la figura \ref{distribución radial}
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.48]{../Graphics/Dis_rad.png}
     \caption{Distribución radial de la estructura}
     \label{distribución radial}
 \end{figure}
+y la función $n_i(r,\Delta r)$ lleva el conteo del número de átomos que se encuentran en un anillo de radio $r$ y espesor $\Delta r$, llegando así a calcular la función de distribución radial mostrada en la figura \ref{distribución radial}
 en la figura \ref{screen dinámica} se observa como es la evolución del sistema conforme se van realizando más pasos en la dinámica. 
-La misma simulación lleva acabo el calculo de la energía potencial y la energía cinética conforme las ecuaciones \ref{eq:kin-n} y \ref{eq:pot-n}, por lo que el cálculo de la energía total se realiza de manera simple, con esto en la figura \ref{energias} se muestra la energía cinética, potencial y total del sistema a lo largo de la simulación.
+La misma simulación lleva acabo el calculo de la energía potencial y la energía cinética conforme las ecuaciones \ref{eq:kin-n} y \ref{eq:pot-n}, por lo que el cálculo de la energía total se realiza de manera simple, con esto en la figura \ref{energias} se muestra la energía cinética, potencial y total del sistema a lo largo de la simulación.\\
+Calculando el máximo de la distribución radial se encuentra en $r=1.11187677$, con lo que en este disco es donde encontraremos una mayor cantidad de átomos alrededor de otros.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.48]{../Graphics/Dim_Graphics.png}
@@ -161,8 +153,9 @@ La misma simulación lleva acabo el calculo de la energía potencial y la energ�
     \caption{Energía cinética, potencial y total del sistema en toda la simulación}
     \label{energias}
 \end{figure}
-\section*{Conclusiones}
-\section*{Código}
+\section{Conclusiones}
+
+\section{Código}
 \begin{itemize}
 \item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/MD-n3.f}{Github - MD-n3.f}\\
 Este código contiene la simulación del sistema.
@@ -174,12 +167,9 @@ Este código genera la figura \ref{pos inicial} y \ref{distribución radial}
 Este código genera la animación mostrada en la figura \ref{screen dinámica}
 \item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Dim_Graphics.py}{Github - Gráfica para diferentes tiempos}\\
 Este código genera la figura \ref{screen dinámica}
-
 \item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Potencial_Graphics.py}{Github - Gráfica del potencial de Lennard-Jones}\\
 Este código realiza la figura \ref{pot-len-jones}
 \end{itemize}
-\bibliographystyle{plain}
-\bibliography{Main}
 \nocite{*}
-\end{multicols}
+\bibliography{Main}
 \end{document}
