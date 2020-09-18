@@ -10,3 +10,6 @@
 *..bbl
 *.blg
 *.synctex(bysy)
+*.DS_Store
+*.0
+*.6
