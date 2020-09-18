@@ -36,7 +36,7 @@
 
       open(11,file='../Input/rho.txt',status='unknown')
       read(11,*) rho,version
-      write(*,*) rho,version
+
       open(0,file=path//'0_salida'//version//'.dat',status='unknown')
       open(2,file=path//'2_velo'//version//'.dat',status='unknown')
       open(3,file=path//'3_coor'//version//'.dat',status='unknown')
