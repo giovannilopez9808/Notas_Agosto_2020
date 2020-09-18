@@ -33,9 +33,10 @@ for walk,walk_real in zip(range(n_walks),walks):
     #<------------------------------Limites de la caja--------------------------------->
     plt.ylim(-30,30);plt.xlim(-30,30)
     #<----------------------------Renombramiento de los bordes--------------------------_>
-    plt.yticks(lim,lim_real);plt.xticks(lim,lim_real)
+    #plt.yticks(lim,lim_real);plt.xticks(lim,lim_real)
+    plt.yticks([]);plt.xticks([])
     plt.title("Walk N="+str(int(walk_real)))
-    plt.scatter(pos_x,pos_y,c="#2d6a4f")
+    plt.scatter(pos_x,pos_y,c="#2d6a4f",marker=".")
     plt.savefig(str(walk)+".png")
     plt.clf()
 print("Creando gif")
