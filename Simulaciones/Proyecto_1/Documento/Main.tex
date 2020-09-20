@@ -63,7 +63,8 @@ La dinámica molecular es un técnica de simulación en la que se permite que á
 Simular la configuración cuadrada de átomos de Carbono con el potencial de Lennard-Jones.
 \section{Objetivo específico}
 \begin{enumerate}
-    \item Encontrar la distribución radial del sistema.
+    \item Encontrar la distribución radial del sistema para diferentes densidades.
+    \item Contrastar las diferencias entre dos y tres dimensiones.
     \item Monitorizar la energía en la dinámica del sistema.
 \end{enumerate}
 \section{Marco teórico}
@@ -103,6 +104,16 @@ reescribiendo las ecuaciones \ref{Potencial de Lennard-Jones} y \ref{eq:fuerzate
     F_i = \frac{48}{\sigma^2} \sum_{j \ne i} \left[\left(\frac{\sigma}{r_{ij}}\right)^{14}-\frac{1}{2}\left(\frac{\sigma}{r_{ij}} \right)^8  \right] (r_j-r_i)
 \end{equation}
 Teniendo ya la dinámica se este sistema podemos ir monitoreando la energía cinética de la siguiente manera:
+\begin{table*}
+    \begin{tabular}{cccccc}
+        \hline
+        Dimensión & Número de átomos & $\epsilon$ & $\sigma $ & $\rho $ & Número de pasos \\ \hline
+        2 &784 &a &a &a &a \\
+        3 &864 &a &a &a &a \\ \hline
+    \end{tabular}
+    \caption{Parámetros para la simulación para las diferentes dimensiones.}
+    \label{table:parametros}
+\end{table*}
 \begin{equation}
     \label{eq:kin-n}
     T_t=\left\langle \sum_{i=1}^N \frac{1}{2}m|v_i(t)|^2\right\rangle
@@ -117,10 +128,10 @@ Planteando un sistema cuadrangular, en el cual todos los átomos se encuentran a
 \begin{figure}[H]
     \hspace*{-0.5cm}
     \includegraphics[scale=0.4]{../Graphics/Cor_in.png}\\
-    \caption{Posición inicial de la dinámica}
+    \caption{Posición inicial del sistema en dos dimensiones.}
     \label{pos inicial}
 \end{figure}
-realizando una simulación de la dinámica entre estos átomos realizando 2000000 caminatas con 784 átomos se calculo la distribución radial de la siguiente manera:
+realizando una simulación de la dinámica con los parámetros establecidos en el cuadro \ref{table:parametros} se calculo la distribución radial para el caso de segunda dimensión de la siguiente manera:
 \begin{equation}
     \rho(r) = \frac{1}{N} \frac{\left\langle \sum_{i=1}^N n_i(r,\Delta r)  \right\rangle}{\pi r \rho \Delta r}
     \label{eq:rhor}
@@ -131,15 +142,26 @@ donde:
     \label{eq:area}
     \pi r \Delta r = \pi \left(\left[r +\frac{\Delta r}{2}\right]^2 - \left[r- \frac{\Delta r}{2} \right]^2 \right)
 \end{equation}
+para el caso de tres dimensiones se utilizo la siguiente:
+\begin{equation}
+    \rho(r) = \frac{1}{N} \frac{\left\langle \sum_{i=1}^N n_i(r,\Delta r)  \right\rangle}{ 4\pi r^2 \rho \Delta r}
+    \label{eq:rhor3}
+\end{equation}
+donde:
+\begin{equation}
+    \changefontsizes{9pt}
+    \label{eq:volumen}
+   4 \pi r^2 \Delta r =\frac{4}{3} \pi \left(\left[r +\frac{\Delta r}{2}\right]^3 - \left[r- \frac{\Delta r}{2} \right]^2 \right)
+\end{equation}
+la función $n_i(r,\Delta r)$ lleva el conteo del número de átomos que se encuentran en un anillo de radio $r$ y espesor $\Delta r$, llegando así a calcular la función de distribución radial mostrada en la figura \ref{distribución radial}
+en la figura \ref{screen dinámica} se observa como es la evolución del sistema conforme se van realizando más pasos en la dinámica. 
+La misma simulación lleva acabo el calculo de la energía potencial y la energía cinética conforme las ecuaciones \ref{eq:kin-n} y \ref{eq:pot-n}, por lo que el cálculo de la energía total se realiza de manera simple, con esto en la figura \ref{energias} se muestra la energía cinética, potencial y total del sistema a lo largo de la simulación.|
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.48]{../Graphics/Dis_rad.png}
     \caption{Distribución radial de la estructura}
     \label{distribución radial}
 \end{figure}
-y la función $n_i(r,\Delta r)$ lleva el conteo del número de átomos que se encuentran en un anillo de radio $r$ y espesor $\Delta r$, llegando así a calcular la función de distribución radial mostrada en la figura \ref{distribución radial}
-en la figura \ref{screen dinámica} se observa como es la evolución del sistema conforme se van realizando más pasos en la dinámica. 
-La misma simulación lleva acabo el calculo de la energía potencial y la energía cinética conforme las ecuaciones \ref{eq:kin-n} y \ref{eq:pot-n}, por lo que el cálculo de la energía total se realiza de manera simple, con esto en la figura \ref{energias} se muestra la energía cinética, potencial y total del sistema a lo largo de la simulación.\\
 Calculando el máximo de la distribución radial se encuentra en $r=1.11187677$, con lo que en este disco es donde encontraremos una mayor cantidad de átomos alrededor de otros.
 \begin{figure}[H]
     \centering

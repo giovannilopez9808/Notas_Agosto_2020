@@ -1,5 +1,5 @@
 import numpy as np
-import os
+import 
 rho_values=np.round(np.arange(0.1,1,0.1),2)
 os.system("gfortran MD-n3.f -o MD-n3.out")
 os.system("gfortran MD-n2.f -o MD-n2.out")
