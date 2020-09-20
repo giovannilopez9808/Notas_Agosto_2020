@@ -1,14 +1,15 @@
 \documentclass[reprint,amsmath,amssymb,aps,]{revtex4-2}
-\usepackage{graphicx}% Include figure files
-\usepackage{dcolumn}% Align table columns on decimal point
-\usepackage{bm}% bold math
+\usepackage{graphicx}
+\usepackage{dcolumn}
+\usepackage{bm}
 \usepackage{scrextend}
 \usepackage{vmargin}
 \usepackage{multirow}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+\usepackage[spanish, es-tabla]{babel}
 \usepackage{enumerate}
 \usepackage{float}
+\usepackage{lipsum}
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[usenames]{color}
 \usepackage[breaklinks=true,hidelinks]{hyperref}
@@ -63,7 +64,8 @@ La dinámica molecular es un técnica de simulación en la que se permite que á
 Simular la configuración cuadrada de átomos de Carbono con el potencial de Lennard-Jones.
 \section{Objetivo específico}
 \begin{enumerate}
-    \item Encontrar la distribución radial del sistema.
+    \item Encontrar la distribución radial del sistema para diferentes densidades.
+    \item Contrastar las diferencias en las funciones radiales entre los sistemas de dos y tres dimensiones.
     \item Monitorizar la energía en la dinámica del sistema.
 \end{enumerate}
 \section{Marco teórico}
@@ -85,7 +87,17 @@ Teniendo el potencial de la ecuación \ref{Potencial de Lennard-Jones}, podemos 
 \begin{equation}
     \label{eq:fuerzateo}
     \vec{F}(r)= 4\epsilon \left(12\frac{\sigma^{12}}{r^{13}}- 6 \frac{\sigma^6}{r^7} \right) \hat{r}
-\end{equation}
+\end{equation}\begin{table*}
+    \centering
+    \begin{tabular}{ccp{1cm}p{0.5cm}cc}
+        \hline
+        Dimensión & Número de átomos & $\epsilon$ & $\sigma $ & $\rho $ & Número de pasos \\ \hline
+        2 &784 &\multirow{2}{*}{1} &\multirow{2}{*}{1}  &\multirow{2}{*}{Variable$^{*}$}  &\multirow{2}{*}{$2x10^{6}$}  \\
+        3 &864 & & & & \\ \hline
+    \end{tabular}
+    \caption{Parámetros para la simulación para las diferentes dimensiones.}
+    \label{table:parametros}
+\end{table*}
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.45]{../Graphics/Potencial.png}
@@ -115,46 +127,50 @@ por lo tanto, la energía total para un tiempo t será:
 \section{Resultados}
 Planteando un sistema cuadrangular, en el cual todos los átomos se encuentran alineados como en la figura \ref{pos inicial}.
 \begin{figure}[H]
-    \hspace*{-0.5cm}
-    \includegraphics[scale=0.4]{../Graphics/Cor_in.png}\\
-    \caption{Posición inicial de la dinámica}
+    \centering
+    \includegraphics[scale=0.3]{../Graphics/Cor_in.png}\\
+    \caption{Posición inicial del sistema en dos dimensiones.}
     \label{pos inicial}
 \end{figure}
-realizando una simulación de la dinámica entre estos átomos realizando 2000000 caminatas con 784 átomos se calculo la distribución radial de la siguiente manera:
+realizando una simulación de la dinámica con los parámetros establecidos en el tabla \ref{table:parametros} se calculo la distribución radial para el caso de segunda dimensión de la siguiente manera:
 \begin{equation}
-    \rho(r) = \frac{1}{N} \frac{\left\langle \sum_{i=1}^N n_i(r,\Delta r)  \right\rangle}{\pi r \rho \Delta r}
+    \rho(r) = \frac{1}{N} \frac{\left\langle \sum\limits_{i=1}^N n_i(r,\Delta r)  \right\rangle}{\pi r \rho \Delta r}
     \label{eq:rhor}
 \end{equation}
 donde:
 \begin{equation}
-    \changefontsizes{11pt}
+    \changefontsizes{9pt}
     \label{eq:area}
     \pi r \Delta r = \pi \left(\left[r +\frac{\Delta r}{2}\right]^2 - \left[r- \frac{\Delta r}{2} \right]^2 \right)
 \end{equation}
+para el caso de tres dimensiones se utilizo la siguiente:
+\begin{equation}
+    \rho(r) = \frac{1}{N} \frac{\left\langle \sum\limits_{i=1}^N n_i(r,\Delta r)  \right\rangle}{ 4\pi r^2 \rho \Delta r}
+    \label{eq:rhor3}
+\end{equation}
+donde:
+\begin{equation}
+    \changefontsizes{9pt}
+    \label{eq:volumen}
+   4 \pi r^2 \Delta r =\frac{4}{3} \pi \left(\left[r +\frac{\Delta r}{2}\right]^3 - \left[r- \frac{\Delta r}{2} \right]^2 \right)
+\end{equation}
+La misma simulación lleva acabo el calculo de la energía potencial y la energía cinética conforme las ecuaciones \ref{eq:pot-n} y \ref{eq:kin-n}, por lo que el cálculo de la energía total se realiza de manera simple como se describe en la ecuación \ref{eq:e-tot}, en la figura \ref{energias} se muestra la energía total del sistema a lo largo de la simulación para dos dimensiones (azul) y tres dimensiones (verde).
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.48]{../Graphics/Dis_rad.png}
-    \caption{Distribución radial de la estructura}
-    \label{distribución radial}
-\end{figure}
-y la función $n_i(r,\Delta r)$ lleva el conteo del número de átomos que se encuentran en un anillo de radio $r$ y espesor $\Delta r$, llegando así a calcular la función de distribución radial mostrada en la figura \ref{distribución radial}
-en la figura \ref{screen dinámica} se observa como es la evolución del sistema conforme se van realizando más pasos en la dinámica. 
-La misma simulación lleva acabo el calculo de la energía potencial y la energía cinética conforme las ecuaciones \ref{eq:kin-n} y \ref{eq:pot-n}, por lo que el cálculo de la energía total se realiza de manera simple, con esto en la figura \ref{energias} se muestra la energía cinética, potencial y total del sistema a lo largo de la simulación.\\
-Calculando el máximo de la distribución radial se encuentra en $r=1.11187677$, con lo que en este disco es donde encontraremos una mayor cantidad de átomos alrededor de otros.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.48]{../Graphics/Dim_Graphics.png}
-    \caption{Dinámica molecular en diferentes tiempos}
-    \label{screen dinámica}
-\end{figure}
-\begin{figure}[H]
-    \hspace{-0.5cm}
-    \includegraphics[scale=0.35]{../Graphics/Energy.png}
-    \caption{Energía cinética, potencial y total del sistema en toda la simulación}
+    \includegraphics[scale=0.3]{../Graphics/Energy_2.png}
+    \includegraphics[scale=0.3]{../Graphics/Energy_3.png}
+    \caption{Energía total de los sistemas en dos y tres dimensiones a lo largo de la simulación}
     \label{energias}
 \end{figure}
+\begin{figure*}
+    \centering
+    \includegraphics[scale=0.65]{../Graphics/Dis_rad.png}
+    \caption{Distribución radial de la estructura}
+    \label{distribución radial}
+\end{figure*}
+Con las ecuacciones \ref{eq:rhor} y \ref{eq:rhor3} se calcularon las distribuciones radiales para dos y tres dimensiones mostradas en la figura \ref{distribución radial}
 \section{Conclusiones}
-
+\lipsum[1-3]
 \section{Código}
 \begin{itemize}
 \item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/MD-n3.f}{Github - MD-n3.f}\\
@@ -163,10 +179,6 @@ Este código contiene la simulación del sistema.
 Este código genera la gráfica \ref{energias}
 \item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Cor_Graphics.py}{Github - Gráfica de la posición inicial y Distribución radial}\\
 Este código genera la figura \ref{pos inicial} y \ref{distribución radial}
-\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Dim_gif.py}{Github - Animación de la dinámica}\\
-Este código genera la animación mostrada en la figura \ref{screen dinámica}
-\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Dim_Graphics.py}{Github - Gráfica para diferentes tiempos}\\
-Este código genera la figura \ref{screen dinámica}
 \item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Potencial_Graphics.py}{Github - Gráfica del potencial de Lennard-Jones}\\
 Este código realiza la figura \ref{pot-len-jones}
 \end{itemize}
