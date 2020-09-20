@@ -8,5 +8,7 @@ for rho in rho_values:
     file.write(str(rho)+" _"+str(rho))
     file.close()
     print("Corriendo para rho="+str(rho))
+    print("Calculando para R2")
     os.system("./MD-n3.out")
+    print("Calculando para R3")
     os.system("./MD-n2.out")
