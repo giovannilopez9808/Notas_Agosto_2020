@@ -21,7 +21,7 @@
 \begin{abstract}
 Se propuso un sistema conformado por átomos de carbono en dos y tres dimensiones en los cuales se vario sus densidades en diferentes valores
 , los sistemas se dejaran interaccionar en una simulación bajo
-el efecto del potencial de Lennard-Jones realizando $2x10^{6}$ pasos. Durante la simulación se monitoreo la energía
+el efecto del potencial de Lennard-Jones realizando 2x$10^{6}$ pasos. Durante la simulación se monitoreo la energía
 cinética, energía potencial y energía total, a la par se calculó su función de distribución radial de los sistemas.\\
 \textbf{Palabras clave:} Potencial de Lennard-Jones, distribución radial, dos dimensiones
 \end{abstract}
@@ -40,8 +40,8 @@ FÍSICO MATEMÁTICAS}\\
 \vspace*{2cm}
 \begin{large}
 \vspace{1cm}
-\large{\textbf{Simuladores Moleculares}}\\
-\textbf{Dinámica molecular con el potencial \\ de Lennard-Jones en dos dimensiones}\\
+\textbf{Simuladores Moleculares\vspace{0.5cm}\\
+Dinámica molecular con el potencial \\ de Lennard-Jones en dos y tres dimensiones\\ para diferntes densidades}\\
 Omar Gonzalez Amezcua\\
 \end{large}
 \vspace{3.5cm}
@@ -95,7 +95,7 @@ En donde \cite{Girifalco2000} expone una gráfica de potenciales universales par
 Teniendo el potencial de la ecuación \ref{Potencial de Lennard-Jones}, podemos deducir la fuerza, ya que esta puede ser deducida a partir de aplicar el gradiente a la función $V(r)$, teniendo así la siguiente expresión:
 \begin{equation}
     \label{eq:fuerzateo}
-    \vec{F}(r)= 4\epsilon \left(12\frac{\sigma^{12}}{r^{13}}- 6 \frac{\sigma^6}{r^7} \right) \hat{r}
+    \vec{F}(r)= 48\epsilon \left(\frac{\sigma^{12}}{r^{13}}- \frac{1}{2}\frac{\sigma^6}{r^7} \right) \hat{r}
 \end{equation}\begin{table*}
     \centering
     \begin{tabular}{ccp{1cm}p{0.5cm}cc}
@@ -195,12 +195,12 @@ Con las ecuacciones \ref{eq:rhor} y \ref{eq:rhor3} se calcularon las distribucio
 \begin{itemize}
 \item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/MD-n3.f}{Github - MD-n3.f}\\
 Este código contiene la simulación del sistema.
-\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Energy_Graphics.py}{Github - Gráfica de las energías}\\
-Este código genera la gráfica \ref{energias}
-\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Cor_Graphics.py}{Github - Gráfica de la posición inicial y Distribución radial}\\
-Este código genera la figura \ref{pos inicial} y \ref{distribución radial}
 \item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Potencial_Graphics.py}{Github - Gráfica del potencial de Lennard-Jones}\\
 Este código realiza la figura \ref{pot-len-jones}
+\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Cor_Graphics.py}{Github - Gráfica de la posición inicial y Distribución radial}\\
+Este código genera la figura \ref{pos inicial} y \ref{distribución radial} a
+\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Energy_Graphics.py}{Github - Gráfica de las energías}\\
+Este código genera la gráfica \ref{energias}
 \end{itemize}
 \nocite{*}
 \bibliography{Main}
