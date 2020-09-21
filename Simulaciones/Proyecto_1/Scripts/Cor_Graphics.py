@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 #<----------------------------Direcciones de los archivos-------------------->
 dir_results2="../Results_2/";dir_graphics="../Graphics/";dir_results3="../Results_3/"
 #<-----------------------------------------Densidades----------------------------->
-rho_values=np.round(np.arange(0.1,0.6,0.1),2)
+rho_values=np.round(np.arange(0.1,1 ,0.1),2)
 for rho in rho_values:
     rho=0.1
     #<------------------Grafica la posicion inicial---------------------------------->
@@ -28,16 +28,17 @@ for rho,ax in zip(rho_values,axs):
     ax.set_title("$\\rho=$"+str(rho))
     ax.plot(r3,hist3,label="R$^{3}$",color="#0096c7")
     ax.set_xlim(0.9,4)
-    ax.set_ylim(0,2.5)
+    ax.set_ylim(0,5)
     if ax in [ax1,ax4,ax7]:
-        ax.set_yticks(np.arange(0,2.5+0.5,0.5))
+        ax.set_yticks(np.arange(0,5+1,1))
         ax.set_ylabel("$ \\rho (r)$")
     else:
         ax.set_yticks([])
     if ax in [ax7,ax8,ax9]:
         ax.set_xticks(np.arange(0.9,4+0.6,0.6))
-        ax.set_xlabel("Distancia radial (r)")
+        #ax.set_xlabel("Distancia radial (r)")
     else:
         ax.set_xticks([])
     ax.legend(frameon=False,ncol=2)
-plt.savefig(dir_graphics+"Dis_rad.png",dpi=100)
+ax8.set_xlabel('Distancia radial(r)')
+plt.savefig(dir_graphics+"Dis_rad.png",dpi=300)

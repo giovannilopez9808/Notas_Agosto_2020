@@ -5,7 +5,7 @@ dir_results2="../Results_2/";dir_graphics="../Graphics/";dir_results3="../Result
 #<----------Lista de las direcciones, titulos y terminaciones de las graricas------------->
 dirs=[dir_results2,dir_results3];titles=["R$^{2}$","R$^{3}$"];names=["2","3"]
 #<-_----------------------Grafica de la energía--------------------------------->
-rho_values=np.round(np.arange(0.1,0.6,0.1),2)
+rho_values=np.round(np.arange(0.1,1,0.1),2)
 #<-----------------------------Colores de las graficas--------------------->
 colors=["#0466c8","#52b788"]
 for dir,color,title,name in zip(dirs,colors,titles,names):
