@@ -10,8 +10,8 @@ rho_values=np.round(np.arange(0.1,1,0.1),2)
 colors=["#0466c8","#52b788"]
 for dir,color,title,name in zip(dirs,colors,titles,names):
     #<-------------Divisiones de las graficas---------------------------->
-    fig,((ax1,ax2,ax3),(ax4,ax5,ax6),(ax7,ax8,ax9))=plt.subplots(3,3,figsize=(9,7))
-    axs=[ax1,ax2,ax3,ax4,ax5,ax6,ax7,ax8,ax9]
+    fig,axs=plt.subplots(3,3,figsize=(9,7))
+    axs=np.reshape(axs,9)
     for rho,ax in zip(rho_values,axs):
         #<------------------Lectura de los datos------------------------->
         walks,e_kin,e_pot=np.loadtxt(dir+"8_T_U_P_"+str(rho)+".dat",unpack=True,usecols=[0,1,2])
@@ -19,12 +19,12 @@ for dir,color,title,name in zip(dirs,colors,titles,names):
         walks=walks*1e-4
         ax.plot(walks,e_tol,color=color)
         #<-----------------Añadir el titulo centrado---------------------->
-        if ax==ax2:
+        if ax==axs[1]:
             ax.set_title(title+"\n $\\rho=$"+str(rho))
         else:
             ax.set_title("$\\rho=$"+str(rho))
         #<-----------------------Añadir label del eje x a las ultimas tres------------------>
-        if ax in [ax7,ax8,ax9]:
+        if ax in [axs[6],axs[7],axs[8]]:
             ax.set_xticks(np.arange(0,20+5,5))
             ax.set_xlabel("Walks (10$^{4}$)")
         else:
