@@ -35,7 +35,7 @@ for rho,ax in zip(rho_values,axs):
     else:
         ax.set_yticks([])
     if ax in [ax7,ax8,ax9]:
-        ax.set_xticks(np.arange(0.9,4+0.6,0.6))
+        ax.set_xticks(np.arange(0.9,5+0.6,0.6))
         #ax.set_xlabel("Distancia radial (r)")
     else:
         ax.set_xticks([])

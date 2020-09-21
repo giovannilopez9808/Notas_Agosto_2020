@@ -10,13 +10,19 @@
 \usepackage{enumerate}
 \usepackage{float}
 \usepackage{lipsum}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[usenames]{color}
 \usepackage[breaklinks=true,hidelinks]{hyperref}
+\pagestyle{empty}
 \begin{document}
 \preprint{APS/123-QED}
 \begin{abstract}
-Se propuso un sistema conformado por átomos de carbono en una configuración cuadrangular donde cada átomo se encuentra a una distancia interatomica de $r=1.8257$, el sistema se dejara interaccionar en una simulación bajo el efecto del potencial de Lennard-Jones realizando $2x10^{6}$ pasos. Durante la simulación se monitoreo la energía cinética, energía potencial y energía total, a la par se calculó su función de distribución radial del sistema obteniendo un máximo a $r=1.11187677$.\\
+Se propuso un sistema conformado por átomos de carbono en dos y tres dimensiones en los cuales se vario sus densidades en diferentes valores
+, los sistemas se dejaran interaccionar en una simulación bajo
+el efecto del potencial de Lennard-Jones realizando $2x10^{6}$ pasos. Durante la simulación se monitoreo la energía
+cinética, energía potencial y energía total, a la par se calculó su función de distribución radial de los sistemas.\\
 \textbf{Palabras clave:} Potencial de Lennard-Jones, distribución radial, dos dimensiones
 \end{abstract}
 \begin{titlepage}
@@ -59,9 +65,12 @@ Matricula:\\
 \end{titlepage}
 \maketitle
 \section{Introducción}
-La dinámica molecular es un técnica de simulación en la que se permite que átomos y moléculas interactúen por un período, permitiendo una visualización del movimiento de las partículas, en donde le tendremos que especificar el tipo de átomo que es, sus posiciones iniciales, velocidades iniciales, el potencial de interacción y los parámetros que este puede llegar a necesitar para realizar su calculo.\\
+La dinámica molecular es un técnica de simulación en la que se permite que átomos y moléculas interactúen por un período,
+ permitiendo una visualización del movimiento de las partículas, en donde le tendremos que especificar el tipo de átomo que es,
+  sus posiciones iniciales, velocidades iniciales, el potencial de interacción y los parámetros que este puede llegar a necesitar 
+  para realizar su calculo.\\
 \section{Objetivo general}
-Simular la configuración cuadrada de átomos de Carbono con el potencial de Lennard-Jones.
+Simular la configuración cuadrada y FCC de átomos de Carbono con el potencial de Lennard-Jones.
 \section{Objetivo específico}
 \begin{enumerate}
     \item Encontrar la distribución radial del sistema para diferentes densidades.
@@ -155,22 +164,33 @@ donde:
    4 \pi r^2 \Delta r =\frac{4}{3} \pi \left(\left[r +\frac{\Delta r}{2}\right]^3 - \left[r- \frac{\Delta r}{2} \right]^2 \right)
 \end{equation}
 La misma simulación lleva acabo el calculo de la energía potencial y la energía cinética conforme las ecuaciones \ref{eq:pot-n} y \ref{eq:kin-n}, por lo que el cálculo de la energía total se realiza de manera simple como se describe en la ecuación \ref{eq:e-tot}, en la figura \ref{energias} se muestra la energía total del sistema a lo largo de la simulación para dos dimensiones (azul) y tres dimensiones (verde).
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{../Graphics/Energy_2.png}
-    \includegraphics[scale=0.3]{../Graphics/Energy_3.png}
-    \caption{Energía total de los sistemas en dos y tres dimensiones a lo largo de la simulación}
-    \label{energias}
-\end{figure}
 \begin{figure*}
     \centering
     \includegraphics[scale=0.65]{../Graphics/Dis_rad.png}
     \caption{Distribución radial de la estructura}
     \label{distribución radial}
 \end{figure*}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{\linewidth}
+    \includegraphics[scale=0.35]{../Graphics/Energy_2.png}
+    \caption{Energía total para las diferentes densidades en un sistema de dos dimensiones.}
+    \end{subfigure}
+    \begin{subfigure}[b]{\linewidth}
+        \includegraphics[scale=0.35]{../Graphics/Energy_3.png}
+        \caption{Energía total para las diferentes densidades en un sistema de tres dimensiones.}
+    \end{subfigure}
+    \caption{Energía total de los sistemas en dos y tres dimensiones a lo largo de la simulación}
+    \label{energias}
+\end{figure}
 Con las ecuacciones \ref{eq:rhor} y \ref{eq:rhor3} se calcularon las distribuciones radiales para dos y tres dimensiones mostradas en la figura \ref{distribución radial}
 \section{Conclusiones}
-\lipsum[1-3]
+\begin{itemize}
+    \item Observando el comportamiento de la energía total en se observa que en el sistema de dos y tres dimensiones, mientras mayor es la densidad el comportamiento en seguida llega a un estado oscilatorio más rápido.
+    \item Comparando el comportamiento de la energía total para una misma densidad en dos y tres dimensiones, esta llega a comportarse de una manera semejante a pesar de sus diferencias espaciales.
+    \item Observando la distribución  radial, mientras más va creciendo la densidad, existe una mayor concentración de átomos a diferentes distancias.
+    \item Comparando el comportamiento en las distribuciones radiales para una misma densidad se observa que para el caso de tres dimensiones esta llega a obtener una mayor variación mientras mas se aumenta la distancia radial a comparación del caso de dos dimensiones.
+\end{itemize}
 \section{Código}
 \begin{itemize}
 \item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/MD-n3.f}{Github - MD-n3.f}\\
