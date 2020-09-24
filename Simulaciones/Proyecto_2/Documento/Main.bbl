@@ -1,0 +1,38 @@
+\begin{thebibliography}{1}
+
+\bibitem{Begun2005}
+V.~V. Begun, M.~I. Gorenstein, and O.~S. Zozulya.
+\newblock {Fluctuations in the canonical ensemble}.
+\newblock {\em Physical Review C - Nuclear Physics}, 72(1):1--13, 2005.
+
+\bibitem{Borjas-Mayorga2019}
+J.~M. Borjas-Mayorga, M.~E. Grimaldo-Reyna, F.~J. Almaguer-Mart{\'{i}}nez,
+  O.~Gonz{\'{a}}lez-Amezcua, and J.~R. Cant{\'{u}}-Gonz{\'{a}}lez.
+\newblock {Monte Carlo simulation for a gas of hard spheres in d-dimensional
+  space: Equilibrium structure and state equations}.
+\newblock {\em Revista Mexicana de Fisica E}, 65(2):206--212, 2019.
+
+\bibitem{Chastain2016}
+S~H Chastain.
+\newblock {A simulation experiment with a canonical ensemble}.
+\newblock (April 2013):8--11, 2016.
+
+\bibitem{Fiore2006}
+Carlos~E. Fiore, Vera~B. Henriques, and Mario~J. {De Oliveira}.
+\newblock {Canonical and microcanonical Monte Carlo simulations of lattice-gas
+  mixtures}.
+\newblock {\em Journal of Chemical Physics}, 125(16):1--9, 2006.
+
+\bibitem{Kamberaj2020}
+Hiqmet Kamberaj.
+\newblock {Molecular Dynamics Methods in Simulations of Macromolecules}.
+\newblock pages 189--280, 2020.
+
+\bibitem{Viot2015}
+Pascal Viot.
+\newblock {Numerical Simulation in Statistical Physics Lecture in Master 2 “
+  Physics of complex systems ” and “ Modeling , Statistics and Algorithms
+  for out-of-equilibrium systems .}
+\newblock 2015.
+
+\end{thebibliography}
