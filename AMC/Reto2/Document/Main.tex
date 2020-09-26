@@ -1,24 +1,30 @@
-\documentclass[reprint,amsmath,amssymb,aps,]{revtex4-2}
+\documentclass[12pt,letterpaper]{article}
 \usepackage{graphicx}
-\usepackage{dcolumn}
-\usepackage{bm}
 \usepackage{scrextend}
 \usepackage{vmargin}
+\usepackage{graphicx}
 \usepackage{multirow}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish, es-tabla]{babel}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
 \usepackage{enumerate}
 \usepackage{float}
-\usepackage{lipsum}
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[usenames]{color}
 \usepackage[breaklinks=true,hidelinks]{hyperref}
+\spanishdecimal{.}
+\parindent=0mm
 \pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
 \begin{document}
-\preprint{APS/123-QED}
-\begin{abstract}
-\lipsum[1]
-\end{abstract}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
 \begin{titlepage}
 \begin{center}
 \includegraphics[scale=0.40]{../../../Logos/uanl.png} 
@@ -34,9 +40,9 @@ FÍSICO MATEMÁTICAS}\\
 \vspace*{2cm}
 \begin{large}
 \vspace{1cm}
-\large{\textbf{Simuladores Moleculares}}\\
-\textbf{Proyecto final:\\ Algoritmo de Shor}\\
-Carlos Luna\\
+\large{\textbf{Aplicaciones de la Mecánica Cuántica}}\vspace{1.5cm}\\
+\textbf{Indexación de un patrón de difracción de electrones asociado a un monocristal de plata.}\\
+Carlos Luna Criado\\
 \end{large}
 \vspace{3.5cm}
 \begin{minipage}{0.6\linewidth}
@@ -44,28 +50,21 @@ Carlos Luna\\
 \changefontsizes{14pt}
 Nombre:\\
 Giovanni Gamaliel López Padilla\\
-Ivan Arturo Pla Guzman\\
 \end{minipage}
 \begin{minipage}{0.2\linewidth}
 \changefontsizes{14pt}
 Matricula:\\
-1837522\\
-1837515
+1837522
 \end{minipage}
 \end{center}
 \vspace{4cm}
 \begin{flushright}
 \today
 \end{flushright}
-\pagebreak
 \end{titlepage}
-\maketitle
-\section{Introducción}
-\section{Objetivo}
-\section{Marco teórico}
-\section{Resultados}
-\section{Conclusiones}
-\section{Código}
-\bibliography{Main}
+\begin{multicols}{2}
+\bibliographystyle{plain}
 \nocite{*}
+\bibliography{Main}
+\end{multicols}
 \end{document}
