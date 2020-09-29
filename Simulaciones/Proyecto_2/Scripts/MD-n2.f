@@ -32,15 +32,13 @@
       real (kind=8) :: xi,yi
 !<------------------Información------------------>
       !Tcons - Temperatura constante de alrededor
-      !Kb - Constante de Boltzamnn
-      !dg - Número de grados de libertad
-      real (kind=8) :: Tcons,kb,dg
+      real (kind=8) :: Tcons,tau
 
-      character:: path*13,version*4
+      character:: path*13,version*8
       path="../Results_2/"
-
+!<-------------------------------Lectura del input------------------>
       open(11,file='../Input/rho.txt',status='unknown')
-      read(11,*) rho,version
+      read(11,*) rho,Tcons,version
 
       open(0,file=path//'0_salida'//version//'.dat',status='unknown')
       open(2,file=path//'2_velo'//version//'.dat',status='unknown')
@@ -51,18 +49,17 @@
      & '.xyz',status='unknown')
       open(7,file=path//'7_velpymol'//version//'.xyz',status='unknown')
       open(8,file=path//'8_T_U_P'//version//'.dat',status='unknown')
-!<------------------------- Temperatura inicial-------------------------------->
-      T=0.6
-!<----------------------------------Temperatura constante---------------------->
-      Tcons=1
+
       npasos=200000
       iprint = npasos/10000
       dum = 17367d0
       pi = 4d0 * datan(1d0)
+!<------------------------- Temperatura inicial-------------------------------->
+      T=0.6
 !<------------------Definicion de las coordenadas------------------>
       call fcc(n, rho, aL, aL)
       do i=1,n
-        vr = dsqrt(3*T)
+        vr = dsqrt(2*T)
         call ggub(dum,r)
         fi = r*2*pi
         vx(i) = vr*dcos(fi)
@@ -140,13 +137,22 @@
           ekin = ekin+en
           ec = ec+en
 !<----------------------Isokinetic Termostato--------------------------->
-          tau=2*en/(dg*kb)
-          vx(i)=(Tcos/tau)**(1/2)*vxx
-          vy(i)=(Tcos/tau)**(1/2)*vyy
+          if (mod(k,100).eq.0) then
+            tau=ec/(3*n*k)
+            vx(i)=(Tcons/tau)**(0.5)*vxi
+            vy(i)=(Tcons/tau)**(0.5)*vyi
+          else
+            vx(i)=vxi
+            vy(i)=vyi
+          end if
+          ! write(*,*) ec/(3*n*k)
 !<-----------------Movimiento infinitedecimal------------------------>
+          ! vx(i)=vxi
+          ! vy(i)=vyi
           x(i) = x(i)+dt*vx(i)
           y(i) = y(i)+dt*vy(i)
         end do
+        write(*,*) k,ekin/(3*n)
         if(mod(k,iprint).EQ.0) then
             write(3,*)k
             write(2,*)k
@@ -214,7 +220,7 @@
 
        real (kind=8) :: xl,yl,dx,dy
        Integer (kind=8) :: nn
-       dimension sx(4), sy(4), sz(4)
+       dimension sx(4), sy(4)
 
        data sx /0d0, 0.5d0, 0.5d0, 0d0/
        data sy /0d0, 0.5d0, 0d0, 0.5d0/
