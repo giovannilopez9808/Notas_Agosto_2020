@@ -14,6 +14,7 @@
 \usepackage[usenames]{color}
 \usepackage[breaklinks=true,hidelinks]{hyperref}
 \pagestyle{empty}
+\spanishdecimal{.}
 \begin{document}
 \preprint{APS/123-QED}
 \begin{abstract}
@@ -34,7 +35,7 @@ FÍSICO MATEMÁTICAS}\\
 \vspace*{2cm}
 \begin{large}
 \vspace{1cm}
-\large{\textbf{Simuladores Moleculares}}\vspace{1.5cm}\\
+\large{\textbf{Aplicaciones de la Mecánica Cuántica}}\vspace{1.5cm}\\
 \textbf{Tarea 2:\\ Indexación de un patrón de \\difracción de electrones}\\
 Carlos Luna\\
 \end{large}
@@ -59,7 +60,9 @@ Matricula:\\
 \end{titlepage}
 \maketitle
 \section{Introducción}
+\lipsum[1]
 \section{Objetivo}
+Realizar una indexación a un sistema de átomos de plata dado sus parámetros de difracción de electrones.
 \section{Marco teórico}
 \begin{table}[H]
     \centering
@@ -84,7 +87,7 @@ Matricula:\\
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.4]{../Graphics/distancia.png}
-    \caption{Distancias interatomicas calculadas usando el criterio }
+    \caption{Distancias interatomicas calculadas usando el criterio}
     \label{fig:distancias}
 \end{figure}
 \begin{figure}[H]
@@ -96,7 +99,8 @@ Matricula:\\
 \section{Conclusiones}
 \section{Código}
 \begin{enumerate}
-    \item \href{aa}{Código \label{cod:distancias}}
+    \item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/AMC/Tarea2/distancia.py}{Distancia.py\label{cod:distancias}}\\
+    Este código realiza las figuras \ref{fig:inicial}, \ref{fig:distancias} y \ref{fig:indicesmiller} a partir de la posición de los átomos y la información de la tabla \ref{tabla:parametros}
 \end{enumerate}
 \bibliographystyle{plain}
 \nocite{*}

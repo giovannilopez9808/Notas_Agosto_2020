@@ -10,6 +10,13 @@ def m(x,y):
     else:
         m=abs(y)
     return m
+#<-------------------------------Formato------------------------------->
+def format(value):
+    if value>=0:
+        value=str(round(value))
+    else:
+        value="$\\bar{"+str(round(abs(value)))+"}$"
+    return value
 #<-----------------Localización de carpetas------------------------->
 dir_data="Data/";dir_graphics="Graphics/"
 #<-------------------------Lectura de las posiciones---------------------->
@@ -89,3 +96,21 @@ plt.plot([5,5+prop*8.47],[-11,-11],color="black",lw="3")
 plt.text(prop*8.47/2+5,-10.5,"8.47 nm$^{-1}$")
 plt.subplots_adjust(left=0, bottom=0, right=1, top=0.97)
 plt.savefig(dir_graphics+"indices.png",dpi=200)
+plt.clf()
+h_list,k_list,l_list=np.loadtxt(dir_data+"lattice.csv",delimiter=",",unpack=True,skiprows=1)
+for x,y,h,k,l in zip(pos_x,pos_y,h_list,k_list,l_list):
+    h_str=format(h);k_str=format(k);l_str=format(l)
+    string="["+h_str+k_str+l_str+"]"
+    plt.text(x-0.5,y+0.5,string)
+#<-----------------------------Eliminacion de ejes--------------------->
+plt.xticks([]);plt.yticks([]);plt.axis("off")
+#<-------------------------Origen------------------------>
+plt.scatter(0,0,c="#065a60",marker=".")
+#<------------------------Puntos------------------------->
+plt.scatter(coor_x,coor_y,color="#065a60",marker=".")
+#<-----------------------Leyenda de proporción-------------------->
+plt.plot([5,5+prop*8.47],[-11,-11],color="black",lw="3")
+plt.text(prop*8.47/2+5,-10.5,"8.47 nm$^{-1}$")
+plt.subplots_adjust(left=0, bottom=0, right=1, top=0.97)
+#plt.savefig(dir_graphics+"indices.png",dpi=200)
+plt.show()
