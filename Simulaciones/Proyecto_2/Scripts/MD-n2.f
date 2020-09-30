@@ -32,10 +32,10 @@
       real (kind=8) :: xi,yi
 !<------------------Información------------------>
       !Tcons - Temperatura constante de alrededor
-      real (kind=8) :: Tcons,tau
+      real (kind=8) :: Tcons,tau,temp_walk
 
-      character:: path*13,version*8
-      path="../Results_2/"
+      character:: path*11,version*8
+      path="../Results/"
 !<-------------------------------Lectura del input------------------>
       open(11,file='../Input/rho.txt',status='unknown')
       read(11,*) rho,Tcons,version
@@ -49,6 +49,7 @@
      & '.xyz',status='unknown')
       open(7,file=path//'7_velpymol'//version//'.xyz',status='unknown')
       open(8,file=path//'8_T_U_P'//version//'.dat',status='unknown')
+      open(12,file=path//"temp"//version//".dat",status="unknown")
 
       npasos=20000
       iprint = npasos/1000
@@ -145,13 +146,12 @@
             vx(i)=vxi
             vy(i)=vyi
           end if
-          ! write(*,*) ec/(3*n*k)
 !<-----------------Movimiento infinitedecimal------------------------>
-          ! vx(i)=vxi
-          ! vy(i)=vyi
           x(i) = x(i)+dt*vx(i)
           y(i) = y(i)+dt*vy(i)
         end do
+        temp_walk =ec/(3*n*k)
+        write(12,*) k, temp_walk
         if(mod(k,iprint).EQ.0) then
             write(3,*)k
             write(2,*)k
@@ -204,6 +204,7 @@
       Close(7)
       Close(8)
       Close(11)
+      Close(12)
       
       end program MD
       
