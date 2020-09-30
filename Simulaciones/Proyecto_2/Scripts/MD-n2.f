@@ -50,8 +50,8 @@
       open(7,file=path//'7_velpymol'//version//'.xyz',status='unknown')
       open(8,file=path//'8_T_U_P'//version//'.dat',status='unknown')
 
-      npasos=200000
-      iprint = npasos/10000
+      npasos=20000
+      iprint = npasos/1000
       dum = 17367d0
       pi = 4d0 * datan(1d0)
 !<------------------------- Temperatura inicial-------------------------------->
@@ -152,7 +152,6 @@
           x(i) = x(i)+dt*vx(i)
           y(i) = y(i)+dt*vy(i)
         end do
-        write(*,*) k,ekin/(3*n)
         if(mod(k,iprint).EQ.0) then
             write(3,*)k
             write(2,*)k
