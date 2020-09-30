@@ -141,6 +141,53 @@ Francisco Baez\\
         & = u_a^2 -\frac{c^2 \beta^2 \theta^2}{1-\beta^2} \left(\frac{(1-\beta^2)^3}{(1+\beta^2)^3}\right)\\
         & = u_a^2 - \eta \frac{1}{\gamma^3_a}
     \end{align*}
+    \item Muestre que:
+    \begin{equation*}
+        \partial_\alpha A^\alpha = \partial^\alpha A_\alpha 
+    \end{equation*}
+    Se tiene que:\\
+    \begin{minipage}{0.5\linewidth}
+        \begin{equation*}
+            x_\alpha = g_{\alpha \beta} x^\beta 
+        \end{equation*}
+    \end{minipage}
+    \begin{minipage}{0.5\linewidth}
+        \begin{equation*}
+            x^\alpha = g^{\alpha \beta}x_\beta
+        \end{equation*}
+    \end{minipage}
+    por lo tanto: 
+    \begin{align*}
+        g^{\alpha \beta}\partial_\alpha &= \partial^\alpha \\
+        g_{\alpha \beta}\partial^\alpha &= \partial_\alpha 
+    \end{align*}
+    calculando $\partial^\alpha A_\alpha$
+    \begin{align*}
+        \partial^\alpha A_\alpha &= \left(\frac{\partial A_0}{\partial x_0} \right)-\left(\frac{\partial A_1}{\partial x_1} \right)-\left(\frac{\partial A_2}{\partial x_2} \right)-\left(\frac{\partial A_3}{\partial x_3}\right)\\
+        & = \frac{\partial A_0}{\partial x_0} - \nabla A
+    \end{align*}
+    por lo que se encuentra que:
+    \begin{align*}
+        A_0&=A^0 \\ A_1&=-A^1 \\ A_2&=-A^2 \\ A_3&=-A^3 \\
+    \end{align*}
+    \begin{align*}
+        \partial^\alpha A_\alpha &= (g^{\alpha \beta}\partial_\beta)(g_{\alpha \gamma}A^\gamma)\\
+        \delta^\beta_\gamma &= \partial_\beta A^\gamma
+    \end{align*}
+    \item Por verificar que:
+    \begin{equation*}
+        \partial^\alpha = \left(\frac{\partial}{\partial x_0}, -\nabla  \right)
+    \end{equation*}
+    Sea $A^\alpha$ un tensor covariante, entonces:
+    \begin{align*}
+        \partial^\alpha A_\alpha &= \left(\frac{\partial A_0}{\partial x_0} \right)-\left(\frac{\partial A_1}{\partial x_1} \right)-\left(\frac{\partial A_2}{\partial x_2} \right)-\left(\frac{\partial A_3}{\partial x_3} \right)\\
+        &= \left(\frac{\partial}{\partial x_0},-\frac{\partial}{\partial x_1},-\frac{\partial}{\partial x_2},-\frac{\partial}{\partial x_3} \right) \cdot (A_0,A_1,A_2,A_3)\\
+        &= \left(\frac{\partial}{\partial x_0},-\nabla \right) \cdot A_\alpha
+    \end{align*}
+    por lo tanto:
+    \begin{equation*}
+        \partial^\alpha = \left(\frac{\partial}{\partial x_0}, -\nabla  \right)
+    \end{equation*}
     \item Probar que las matrices $S_1^2,S_2^2,S_3^2$ son diagonales con -1 y que las matrices $K_1^2,K_2^2,K_3^2$ son diagonales con 1:
     Se tiene la matriz $S_1$ igual a:
     \begin{equation*}
@@ -354,6 +401,7 @@ Francisco Baez\\
         \end{matrix}\right)
     \end{align*}
     por lo tanto las matrices $K_\mu^2$ son diagonales con 1
+    \item Compruebe la forma de L, que cumple $L^Tg=-gL$ donde L tiene diagonal de ceros y g es la representación matricial de $g_{\mu \nu \rho}$
     \item Mostrar que $F_{\alpha\gamma}=g_{\alpha\gamma}F^{\gamma \delta}g_{\delta \beta }$\\
     Se sabe que:\\
     \begin{minipage}{0.5\linewidth}
@@ -434,5 +482,7 @@ por lo tanto:
         -E_z & -B_y & B_x & 0  
     \end{matrix}\right)
 \end{equation*}
+\item Formule la matriz de rotación respecto a $\hat{z}$ por medio de la transformación de Lorentz partiendo de la invarianza de $S^2$ se obtiene la 
+forma (dependiente de 6 parámetros) de L, tal que $A=e^L$ es la transformación de Lorentz.
 \end{enumerate}
 \end{document}
