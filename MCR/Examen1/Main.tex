@@ -1,0 +1,438 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Mécaninca Cuántica Relativista}}\\
+\textbf{Problemas propuestos}\\
+Francisco Baez\\
+\end{large}
+\end{center}
+\end{titlepage}
+\begin{enumerate}
+    \item Mostrar que:
+    \begin{equation*}
+        U_\perp=\frac{u_i}{\gamma_v \left[1+\frac{\upsilon \cdot v}{c^2} \right]}
+    \end{equation*}
+    De las transformaciones:
+    \begin{align*}
+        r_\parallel &= \gamma_v [{r_\parallel}'+v{t}']\\
+        r_\perp &= {r_\perp}'\\
+        t&= \gamma_v \left[ {t}'+\frac{\upsilon \cdot v}{c^2}\right]
+    \end{align*}
+    tomando los diferenciales:
+    \begin{align*}
+        dr_\parallel &= \gamma_v \left[{dr}'_\parallel + vdt\right]\\
+        dr_\perp &= {dr}'_perp\\
+        dt&=\gamma_v \left[dt+ \frac{vdr}{c^2} \right]
+    \end{align*}
+    entonces:
+    \begin{align*}
+        \frac{dr_\perp}{dt}&= \frac{{dr}'_\perp}{\gamma_v {dt}'\left[1+\frac{v}{c^2} \frac{{dr}'}{{dt}'} \right]}\\
+        u_\perp&= \frac{{dr}'_\perp}{\gamma_v {dt}' \left[1+\frac{v}{c^2}\frac{{dr}'}{{dt}'} \right]}\\
+        & = \frac{{u}'_\perp}{\gamma_v \left[1+\frac{v\cdot {u}'}{c^2} \right]}
+    \end{align*}
+    por lo tanto:
+    \begin{equation}
+        u_\perp = \frac{{u}'_\perp}{\gamma_v \left[1+\frac{v\cdot {u}'}{c^2} \right]}
+    \end{equation}
+    \item Mostrar que
+    \begin{align*}
+        (U_d)_x &= \frac{-c\beta \sin({\theta}')}{\gamma_v (1-\beta^2 \cos({\theta}'))}\\
+        (U_d)_z &= \frac{c\beta (1-\cos({\theta}'))}{1-\beta^2 \cos({\theta}')}
+    \end{align*}
+    Se sabe que por convención:
+    \begin{align*}
+        (U_d)_\perp = (U_d)_x &= \frac{({U}'_d)_\perp}{\gamma_v \left(1+\frac{v \cdot {u}'}{c^2} \right)}\\
+        (U_d)_\parallel = (U_c)_z &= \frac{({U}'_d)_\parallel+v}{1+\frac{v \cdot {u}'_d}{c^2}}\\
+    \end{align*}
+    pero, del diagrama
+    \begin{align*}
+        ({U}'_d)_\perp &= {U}'_d \sin({\theta}')\\
+        ({U}'_d)_\parallel&={U}'_d \cos({\theta}')
+    \end{align*}
+    por lo tanto:
+    \begin{align*}
+        (U_d)_x &= \frac{{U}'_d \sin({\theta}')}{\gamma_v \left(1+\frac{|v||u_d|\cos(\theta)}{c^2} \right)}\\
+        (U_d)_z &= \frac{{U}'_d \cos({\theta}'_d)+v}{\gamma_v \left(1+\frac{|v||u_d|\cos(\theta)}{c^2} \right)}
+    \end{align*}
+    pero ${U}'_d =-v$
+    \begin{align*}
+        (U_d)_x &= \frac{-v \sin({\theta}')}{\gamma_v \left(1- \frac{v^2}{c^2}\cos({\theta}') \right)}\\
+        & = \frac{-c\beta \sin({\theta}')}{\gamma_v (1-\beta^2 \cos({\theta}'))}\\
+        (U_d)_z &= \frac{c\beta (1-\cos({\theta}'))}{1-\beta^2 \cos({\theta}')}
+    \end{align*}
+    \item Mostrar que
+    \begin{equation}
+        u_c^2 = u_a^2 - \frac{\eta}{\gamma_a}
+    \end{equation}
+    \begin{align*}
+        (U_c)_x &= \frac{c\beta \sin({\theta}')}{\gamma_v \left[1+\beta^2 \cos({\theta}') \right]}\\
+        & \approx \frac{c \beta  \theta}{\gamma_v \left[1+\beta^2 \left(1- \frac{\theta^2}{2} \right) \right]}\\
+        (U_c)_z & \approx \frac{c \beta (1+\left(1-\frac{\theta^2}{2} \right))}{1+\beta^2\left(1-\frac{\theta^2}{2}\right)}
+    \end{align*}
+    realizando el calculo para ángulos pequeños, tomando en cuenta que $\cos(\theta)=1-\theta^2/2$ y $\sin(\theta)=\theta$
+    \begin{align*}
+        (U_c)_z^2 &= \frac{c^2 \beta^2 \left(4-2\theta^2+\frac{\theta^4}{4}\right)}{(1+\beta^2)\left(1- \frac{\beta^2 \theta^2}{2(1+\beta^2)}\right)^2}\\
+        & = \frac{c^2 \beta^2 (4-2\theta^2)}{(1+\beta^2)^2 \left(1- \frac{\beta^2 \theta^2 }{2(1+\beta^2)}\right)^2}\\
+        & \approx \frac{c^2 \beta^2 (4-2\theta^2)}{(1+\beta^2)^2} \left(1+ \frac{\beta^2}{1+\beta^2}\theta^2 \right)\\
+        & \approx \frac{4c^2 \beta^2}{(1+\beta^2)^2} - \frac{2c^2 \beta^2 \theta^2}{(1+\beta^2)^2} + \frac{4c^2 \beta^4 \theta^2}{(1+\beta^2)^3}\\
+        & \approx u_a^2 - \frac{2c^2 \beta^2 \theta^2}{(1+\beta^2)^2} + \frac{4c^2 \beta^4 \theta^2}{(1+\beta^2)^3} 
+    \end{align*}
+    \begin{align*}
+        (U_c)_x^2 &= \frac{c^2 \beta^2 \theta^2}{\gamma_v^2 (1+\beta^2)^2 \left(1-\frac{\beta^2 \theta^2}{2(1+\beta^2)} \right)^2}\\
+        &\approx \frac{c^2 \beta^2 \theta^2 }{\gamma^2_v (1+\beta^2)} \left(1+\frac{\beta}{1+\beta^2}\theta^2 \right)\\
+        &\approx \frac{c^2 \beta^2 \theta^2}{\gamma^2 (1+\beta^2)^2} + \frac{c^2 \beta^4 \theta^4}{\gamma^2 (1+\beta^2)^3}\\
+        &\approx \frac{c^2 \beta^2 \theta^2}{\gamma^2 (1+\beta^2)^2}
+    \end{align*}
+    se tiene que:\\
+    \begin{minipage}{0.5\linewidth}
+        \begin{equation*}
+            u_a = \frac{2\beta c}{1+\beta^2}
+        \end{equation*}
+    \end{minipage}
+    \begin{minipage}{0.5\linewidth}
+        \begin{equation*}
+            \gamma_a = \frac{1+\beta^2}{1-\beta^2}
+        \end{equation*}
+    \end{minipage}
+    por lo tanto:
+    \begin{align*}
+        u_c^2&= (u_c)_x^2+(u_c)_z^2 \\
+        & = u_a^2 - \frac{2c^2 \beta^2 \theta^2}{(1+\beta^2)^2} + \frac{4c^2 \beta^4 \theta^2}{(1+\beta^2)^3}+\frac{c^2 \beta^2 \theta^2}{\gamma^2 (1+\beta^2)^2} \\
+        & =u_a^2 + \frac{c^2 \beta^2 \theta^2}{(1+\beta^2)^2}\left(1-\beta^2-2 + \frac{4\beta^2}{1+\beta^2} \right)\\
+        & = u_a^2 + \frac{c^2 \beta^2 \theta^2 }{(1+\beta^2)^2 }\left(\frac{1-2\beta^2-\beta^4}{1+\beta^2} \right) \\
+        &= u_a^2 - \frac{c^2 \beta^2 \theta^2 }{(1+\beta^2)^2 }\left(\frac{(1-\beta^2)^2}{1+\beta^2} \right) \\
+        & = u_a^2 -\frac{c^2 \beta^2 \theta^2}{1-\beta^2} \left(\frac{(1-\beta^2)^3}{(1+\beta^2)^3}\right)\\
+        & = u_a^2 - \eta \frac{1}{\gamma^3_a}
+    \end{align*}
+    \item Probar que las matrices $S_1^2,S_2^2,S_3^2$ son diagonales con -1 y que las matrices $K_1^2,K_2^2,K_3^2$ son diagonales con 1:
+    Se tiene la matriz $S_1$ igual a:
+    \begin{equation*}
+        S_1 =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & -1 \\
+            0 & 0 & 1 & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    entonces, calculando $S_1^2$, se tiene que:
+    \begin{align*}
+        S_1^2 &=\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & -1 \\
+            0 & 0 & 1 & 0 \\
+        \end{matrix}\right)^2 \\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & -1 \\
+            0 & 0 & 1 & 0 \\
+        \end{matrix}\right)\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & -1 \\
+            0 & 0 & 1 & 0 \\
+        \end{matrix}\right)\\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & -1 & 0 \\
+            0 & 0 & 0 & -1 \\
+        \end{matrix}\right)
+    \end{align*}
+    Se tiene la matriz $S_2$ igual a:
+    \begin{equation*}
+        S_2 =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & -1 \\
+            0 & 0 & 1 & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    entonces, calculando $S_2^2$, se tiene que:
+    \begin{align*}
+        S_2^2 &=\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & -1 & 0 & 0 \\
+        \end{matrix}\right)^2 \\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & -1 & 0 & 0 \\
+        \end{matrix}\right)\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & -1 & 0 & 0 \\
+        \end{matrix}\right)\\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & -1 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & -1 \\
+        \end{matrix}\right)
+    \end{align*}
+    Se tiene la matriz $S_3$ igual a:
+    \begin{equation*}
+        S_3 =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & -1 & 0 \\
+            0 & 1 & 0 & -0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    entonces, calculando $S_3^2$, se tiene que:
+    \begin{align*}
+        S_3^2 &=\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & -1 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)^2 \\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & -1 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & -1 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)\\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & -1 & 0 & 0 \\
+            0 & 0 & -1 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{align*}
+    por lo tanto las matrices $S_\mu^2$ son diagonales con -1
+    Se tiene la matriz $K_1$ igual a:
+    \begin{equation*}
+        S_1 =\left( \begin{matrix}
+            0 & 1 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    entonces, calculando $K_1^2$, se tiene que:
+    \begin{align*}
+        K_1^2 &=\left( \begin{matrix}
+            0 & 1 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)^2 \\
+        & =\left( \begin{matrix}
+            0 & 1 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)\left( \begin{matrix}
+            0 & 1 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)\\
+        & =\left( \begin{matrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{align*}
+    Se tiene la matriz $K_2$ igual a:
+    \begin{equation*}
+        K_2 =\left( \begin{matrix}
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    entonces, calculando $k_2^2$, se tiene que:
+    \begin{align*}
+        K_2^2 &=\left( \begin{matrix}
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)^2 \\
+        & =\left( \begin{matrix}
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)\left( \begin{matrix}
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)\\
+        & =\left( \begin{matrix}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{align*}
+    Se tiene la matriz $K_3$ igual a:
+    \begin{equation*}
+        K_3 =\left( \begin{matrix}
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    entonces, calculando $K_3^2$, se tiene que:
+    \begin{align*}
+        K_3^2 &=\left( \begin{matrix}
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+        \end{matrix}\right)^2 \\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+        \end{matrix}\right)\left( \begin{matrix}
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+        \end{matrix}\right)\\
+        & =\left( \begin{matrix}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+        \end{matrix}\right)
+    \end{align*}
+    por lo tanto las matrices $K_\mu^2$ son diagonales con 1
+    \item Mostrar que $F_{\alpha\gamma}=g_{\alpha\gamma}F^{\gamma \delta}g_{\delta \beta }$\\
+    Se sabe que:\\
+    \begin{minipage}{0.5\linewidth}
+    \begin{equation*}
+        F^{\gamma \delta} = \left( \begin{matrix}
+            0 & -Ex & -Ey   & -Ez \\
+            E_x &  0  & -B_z & B_y \\
+            E_y & B_z & 0 &-B_x \\
+            E_z & -B_y & B_x & 0  
+        \end{matrix}\right)
+    \end{equation*}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\begin{equation*}
+    g_{\alpha \gamma} = g_{\delta \beta} =\left(\begin{matrix}
+        1 & 0 & 0 & 0\\
+        0 & -1 & 0 & 0\\
+        0 & 0 & -1 & 0\\
+        0 & 0 & 0 & -1\\
+    \end{matrix}\right)
+\end{equation*}
+\end{minipage}
+realizando la multiplicacion $F^{\gamma \delta}g_{\delta \beta }$
+\begin{align*}
+    F^{\gamma \delta}g_{\delta \beta }&= \left( \begin{matrix}
+        0 & -Ex & -Ey   & -Ez \\
+        E_x &  0  & -B_z & B_y \\
+        E_y & B_z & 0 &-B_x \\
+        E_z & -B_y & B_x & 0  
+    \end{matrix}\right)\left(\begin{matrix}
+        1 & 0 & 0 & 0\\
+        0 & -1 & 0 & 0\\
+        0 & 0 & -1 & 0\\
+        0 & 0 & 0 & -1\\
+    \end{matrix}\right)\\
+    & =\left( \begin{matrix}
+        0 & Ex & Ey   & Ez \\
+        E_x &  0  & B_z & -B_y \\
+        E_y & -B_z & 0 &B_x \\
+        E_z & B_y & -B_x & 0  
+    \end{matrix}\right)
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    F^{\gamma}_\beta = \left( \begin{matrix}
+        0 & Ex & Ey   & Ez \\
+        E_x &  0  & B_z & -B_y \\
+        E_y & -B_z & 0 &B_x \\
+        E_z & B_y & -B_x & 0  
+    \end{matrix}\right)
+\end{equation*}
+realizando la multiplicacion $g_{\alpha\gamma}F^{\gamma}_\beta$ se obtiene que:
+\begin{align*}
+    g_{\alpha\gamma}F^{\gamma}_\beta &= \left(\begin{matrix}
+        1 & 0 & 0 & 0\\
+        0 & -1 & 0 & 0\\
+        0 & 0 & -1 & 0\\
+        0 & 0 & 0 & -1\\
+    \end{matrix}\right)\left( \begin{matrix}
+        0 & Ex & Ey   & Ez \\
+        E_x &  0  & B_z & -B_y \\
+        E_y & -B_z & 0 &B_x \\
+        E_z & B_y & -B_x & 0  
+    \end{matrix}\right) \\
+    & = \left( \begin{matrix}
+        0 & Ex & Ey   & Ez \\
+        -E_x &  0  & -B_z & B_y \\
+        -E_y & B_z & 0 &-B_x \\
+        -E_z & -B_y & B_x & 0  
+    \end{matrix}\right)
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    F_{\alpha \beta} = \left( \begin{matrix}
+        0 & Ex & Ey   & Ez \\
+        -E_x &  0  & -B_z & B_y \\
+        -E_y & B_z & 0 &-B_x \\
+        -E_z & -B_y & B_x & 0  
+    \end{matrix}\right)
+\end{equation*}
+\end{enumerate}
+\end{document}
