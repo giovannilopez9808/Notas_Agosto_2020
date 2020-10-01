@@ -19,11 +19,11 @@
 \begin{document}
 \preprint{APS/123-QED}
 \begin{abstract}
-Se propuso un sistema conformado por átomos de carbono en dos y tres dimensiones en los cuales se vario sus densidades en diferentes valores
-, los sistemas se dejaran interaccionar en una simulación bajo
-el efecto del potencial de Lennard-Jones realizando 2x$10^{6}$ pasos. Durante la simulación se monitoreo la energía
-cinética, energía potencial y energía total, a la par se calculó su función de distribución radial de los sistemas.\\
-\textbf{Palabras clave:} Potencial de Lennard-Jones, distribución radial, dos dimensiones
+Se propuso un sistema de dos dimensiones conformado por átomos de carbono bajo el potencial de Lennard-Jones donde estuvo en contacto
+a un termostato isocinético, se realizaron varias simulaciones variando su densidad y la temperatura del termostato, todos bajo la misma
+temperatura inicial. Se obtuvo que los átomos tienden a estar más agrupados cuando la densidad y la temperatura del termostato estan con niveles bajo, en
+comparación cuando se tiene al sistema con una densidad y temperatura del termostato alta, en donde los átomos tienden a agruparse a diferentes distancias.\\
+\textbf{Palabras clave:} Potencial de Lennard-Jones, distribución radial, dos dimensiones, termostato isocinético.
 \end{abstract}
 \begin{titlepage}
 \begin{center}
@@ -41,7 +41,7 @@ FÍSICO MATEMÁTICAS}\\
 \begin{large}
 \vspace{1cm}
 \textbf{Simuladores Moleculares\vspace{0.5cm}\\
-Dinámica molecular con el potencial \\ de Lennard-Jones en dos y tres dimensiones\\ para diferntes densidades}\\
+Dinámica molecular con el potencial \\ de Lennard-Jones en dos dimensiones\\ para diferntes densidades usando un termostado isocinético}\\
 Omar Gonzalez Amezcua\\
 \end{large}
 \vspace{3.5cm}
@@ -66,7 +66,15 @@ Matricula:\\
 \maketitle
 \section{Introducción}
 \section{Objetivo general}
+Realizar la implementación del termostato isocinético en la simulación bidimensional de átomos de
+ Carbono afectados por el potencial de Lennard-Jones.
  \section{Objetivo específico}
+ \begin{itemize}
+     \item Observar el cambio en las distancias radiales variando la densidad y la temperatura del termostato.
+     \item Monitorear la energía total del sistema a lo largo de la simulación.
+     \item Monitorear la temperatura del sistema a lo largo de la simulación para verificar que el termostato se encuentra realizando
+     su acción.
+ \end{itemize}
 \section{Marco teórico}
 El potencial de Lennard-Jones describe la energía potencial de interacción entre dos átomos o moleculas netros sujetos a dos fuerzas distintas, una fuerza que tiene mayor acción cuando la distancia entre las dos sistemas es grande y la otra fuerza de interacción tiene una mayor acción a corta distancia. Este potencial tiene la siguiente forma:
 \begin{equation}
@@ -95,15 +103,21 @@ Teniendo el potencial de la ecuación \ref{Potencial de Lennard-Jones}, podemos 
 \end{figure}
 \begin{table*}
     \centering
-    \begin{tabular}{ccp{1cm}p{0.5cm}cc}
+    \begin{tabular}{ccp{1cm}p{0.5cm}ccc}
         \hline
-        Dimensión & Número de átomos & $\epsilon$ & $\sigma $ & $\rho $ & Número de pasos \\ \hline
-        2 &784 &\multirow{2}{*}{1} &\multirow{2}{*}{1}  &\multirow{2}{*}{Variable$^{*}$}  &\multirow{2}{*}{$2x10^{6}$}  \\
-        3 &864 & & & & \\ \hline
+        Dimensión & Número de átomos & $\epsilon$ & $\sigma $ & $\rho $ & Número de pasos & T\textsubscript{0} \\ \hline
+        \multirow{2}{*}{2} &\multirow{2}{*}{784} &\multirow{2}{*}{1} &\multirow{2}{*}{1}  &\multirow{2}{*}{Variable$^{*}$}  &\multirow{2}{*}{$2x10^{3}$} & \multirow{2}{*}{0.6} \\
+         & & & & & \\ \hline
     \end{tabular}
     \caption{Parámetros para la simulación para las diferentes dimensiones.}
     \label{table:parametros}
 \end{table*}
+\begin{figure*}
+    \hspace*{-1cm}
+    \includegraphics[scale=0.45]{../Graphics/Dis_rad.png}
+    \caption{Distribución radial de la estructura}
+    \label{eq:disradial}
+\end{figure*}
 reescribiendo las ecuaciones \ref{Potencial de Lennard-Jones} y \ref{eq:fuerzateo} para tener la suma de estas en un sistema de n particulas se tiene lo siguiente:
 \begin{equation}
     \label{eq:pot-n}
@@ -124,17 +138,34 @@ por lo tanto, la energía total para un tiempo t será:
     \label{eq:e-tot}
     E_t=T_t+U_t
 \end{equation}
+El control de temperatura isocinético es un método el cual las velocidades son escalonadas por un parámetros $\lambda$ a intervalos regulares,
+el objetivo de esto es obtener una simulación estable con energía cinética media adecuada a la establecida con el termostato.\\
+Este parámetro $\lambda$ es igual a lo siguiente:
+\begin{equation}
+    \lambda = \sqrt{\frac{T_0}{\tau}}
+    \label{eq:lambda}
+\end{equation}
+donde $\tau$ esta definido como:
+\begin{equation}
+    \tau = \left\langle T \right\rangle
+\end{equation}
+Y la manera que actuará el termostato a lo largo de la simulación es el siguiente:
+\begin{equation}
+    {p}'_i(t+\Delta t) = \lambda p_i(t+\Delta t)
+\end{equation}
 \section{Resultados}
-\begin{figure*}
-    \hspace*{-2cm}
-    \includegraphics[scale=0.53]{../Graphics/Dis_rad.png}
-    \caption{Distribución radial de la estructura}
-    \label{eq:disradial}
-\end{figure*}
-\begin{figure*}
-    \includegraphics[scale=0.53]{../Graphics/Energy.png}
-    \caption{Energía total a lo largo de la simulación de las densidades seleccionadas variando la temperadura del exterior.}
-\end{figure*}
+\begin{figure}[H]
+    \hspace{-0.75cm}
+    \includegraphics[scale=0.275]{../Graphics/Temp.png}
+    \caption{temperatura del sistema para varias densidades y temperaturas del termostato a lo largo de la simulación}
+    \label{fig:temp}
+\end{figure}
+\begin{figure}[H]
+    \hspace{-0.75cm}
+    \includegraphics[scale=0.275]{../Graphics/Energy.png}
+    \caption{Energía total a lo largo de la simulación de las densidades seleccionadas variando la temperatura del termostato.}
+    \label{fig:energy}
+\end{figure}
 \section{Código}
 \bibliographystyle{plain}
 \nocite{*}
