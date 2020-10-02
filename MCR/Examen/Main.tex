@@ -1,0 +1,213 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Mécaninca Cuántica Relativista}}\\
+\textbf{Examen parcial 1}\\
+Francisco Baez\\
+\end{large}
+\end{center}
+\vspace{3.5cm}
+\begin{center}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt}
+Matricula:\\
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+\begin{enumerate}
+    \item Sean las transformaciones de Lorentz
+    \begin{align*}
+        {A}'_0&=\gamma (A_0-\vec{\beta}\cdot \vec{A})\\
+        {A}'_\parallel&=\gamma (A_\parallel - \beta A_0)\\
+        {A}'_\perp &= A_\perp
+        \end{align*}
+    Mostrar que el producto escalar tensorial es un invariante, es decir, \\${A}'_0{B}'_0-\vec{A}'\cdot\vec{B}'={A}_0{B}_0-\vec{A}\cdot\vec{B}$
+    \item Sea un sistema ${k}'$ que se mueve en el eje $x_i$ con una velocidad de $\nu = c\beta$ con respecto a K. Mostrar que la velocidad
+    perpendicular a la dirección de movimiento ${k}'$ vistas en el sistema K es:
+    \begin{equation*}
+        U_\perp=\frac{u_i}{\gamma_v \left[1+\frac{\upsilon \cdot v}{c^2} \right]}
+    \end{equation*}
+    De las transformaciones:
+    \begin{align*}
+        r_\parallel &= \gamma_v [{r_\parallel}'+v{t}']\\
+        r_\perp &= {r_\perp}'\\
+        t&= \gamma_v \left[ {t}'+\frac{\upsilon \cdot v}{c^2}\right]
+    \end{align*}
+    tomando los diferenciales:
+    \begin{align*}
+        dr_\parallel &= \gamma_v \left[{dr}'_\parallel + vdt\right]\\
+        dr_\perp &= {dr}'_perp\\
+        dt&=\gamma_v \left[dt+ \frac{vdr}{c^2} \right]
+    \end{align*}
+    entonces:
+    \begin{align*}
+        \frac{dr_\perp}{dt}&= \frac{{dr}'_\perp}{\gamma_v {dt}'\left[1+\frac{v}{c^2} \frac{{dr}'}{{dt}'} \right]}\\
+        u_\perp&= \frac{{dr}'_\perp}{\gamma_v {dt}' \left[1+\frac{v}{c^2}\frac{{dr}'}{{dt}'} \right]}\\
+        & = \frac{{u}'_\perp}{\gamma_v \left[1+\frac{v\cdot {u}'}{c^2} \right]}
+    \end{align*}
+    por lo tanto:
+    \begin{equation*}
+        u_\perp = \frac{{u}'_\perp}{\gamma_v \left[1+\frac{v\cdot {u}'}{c^2} \right]}
+    \end{equation*}
+    \item Sea el tensor de primer rango contravariante $A^\mu=(A^0,\vec{A})$. Expresar las componentes del tensor de primer rango contravariante
+    $A_\mu$ en términos de las componentes de $A^\mu$.\\
+    La transformación de un tensor contracovariante a covariante es la siguiente:
+    \begin{equation*}
+        A_\mu = g_{\gamma \mu} A^\gamma 
+    \end{equation*}
+    donde $g=diag(1,-1,-1,-1)$, entonces:
+    \begin{align*}
+        \left(\begin{matrix}
+            A_0 \\ A_1 \\ A_2 \\ A_3 
+        \end{matrix}\right)&= 
+        \left(\begin{matrix}
+        1 & 0 & 0 & 0 \\
+        0 & -1 & 0 & 0 \\
+        0 & 0 & -1 & 0 \\
+        0 & 0 & 0 & -1 \\
+        \end{matrix}\right)\left(
+           \begin{matrix}          
+        A^0 \\ A^1 \\ A^2 \\ A^3 \end{matrix}
+        \right)\\
+        & =\left( \begin{matrix}
+            A^0 \\ -A^1 \\ -A^2 \\ -A^3
+        \end{matrix}\right)
+    \end{align*}
+    por lo tanto:
+    \begin{align*}
+        A_0 &= A^0 \\
+        A_1 &= -A^1 \\
+        A_2 &= -A^2 \\
+        A_3 &= -A^3 \\
+    \end{align*}
+    \item Sea el tensor métrico en una representación matricial en la notación tradicional diag(1,-1,-1,-1) y sea L la matriz
+    sin traza tal que se cumple que $(Lg)^T=-gL$, donde T significa la transpuesta. Mostrar que la forma matricial de L es:
+    \begin{equation*}
+        L=\left(\begin{matrix}
+            0 & L_{01} & L_{02} & L_{03} \\
+            L_{01} & 0 & L_{12} & L_{13} \\
+            L_{02} & -L_{12} & 0 & L_{23} \\
+            L_{03} & -L_{13} & -L_{23} & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    tomando en cuenta que:
+    \begin{equation*}
+        g=diag(1,-1,-1,-1)
+    \end{equation*}
+    y que
+    \begin{equation*}
+        g^T=g=g^{-1}
+    \end{equation*}
+    por lo tanto:
+    \begin{align*}
+        (Lg)^T&=-gL\\
+        gL^T&=-gL\\
+        g(gL^T)&=g(-gL)\\
+        (gg)L^T&=-(gg)L\\
+        L^T=-L
+    \end{align*}
+    por lo tanto:
+    \begin{equation*}
+        L_{ji}=-L_{ij}
+    \end{equation*}
+    si $i=j$, entonces $L_{ii}=0$
+\item Sea la matriz de transformación de Lorentz más general dada por $A=e^{\vec{\omega}\cdot\vec{s}-\vec{\xi}\cdot  \vec{k}}$, donde 
+$\vec{\omega},\vec{\xi}$ contienen seis parámetros de la transformación general de Lorentz y $\vec{S},\vec{K}$ son los generadores de las transformaciones
+de Lorentz. Determina la matriz de transformación de Lorentz para $\vec{\xi}=0$ y $\vec{\omega}=\omega \hat{z}$.\\
+Se tiene la base, $S_\mu , K_\mu$, donde $L=-\vec{\omega}\cdot \vec{s}- \vec{\xi}\cdot \vec{k}$, para rotar con respecto $\hat{z}$, se tiene que cumplir que:
+$\vec{\xi}=0 , \vec{\omega}=\omega_z \hat{z}$, entonces:
+\begin{equation*}
+    L=-\vec{\omega}\cdot \vec{s}=-\omega_z s_3
+\end{equation*}
+por lo tanto:
+\begin{align*}
+    A&=e^L \\
+    &=e^{-\omega s_3}\\
+    &=\sum_{i=0}^\infty \frac{(-1)^i(\omega s_3)^i}{i!} 
+\end{align*}
+donde se cumple que: 
+\begin{align*}
+    s^3_3&=-s_3\\
+s^4_3&=-s_3^2\\
+s_3^5&=s_3
+\end{align*}
+entonces:
+\begin{align*}
+    A&=1-\omega s_3 + \frac{\omega^2}{2!}s_3^2 + \frac{\omega^3}{3!}s_3 - \frac{\omega^4}{4!}s_3^2\\
+    &=(1+s_3^2)-s_3^2\left[1-\frac{\omega^2}{2!}+\frac{\omega^4}{4!}-\dots \right] - s_3 \left[\omega - \frac{\omega^3}{3!}+\frac{\omega^5}{5!}-\dots \right]\\
+    &= \left(\begin{matrix}
+        1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+    \end{matrix}\right) - \left(\begin{matrix}
+        0 & 0 & 0 & 0 \\
+        0 &-1 & 0 & 0 \\
+        0 & 0 & -1 & 0 \\
+        0 & 0 & 0 & 0 \\
+    \end{matrix}\right) cos(\omega) - \left(\begin{matrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & -1 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+    \end{matrix}\right) sen(\omega)
+\end{align*}
+entonces:
+\begin{equation*}
+    A=\left(\begin{matrix}
+        1 & 0 & 0 & 0 \\
+        0 & cos(\omega) & sen(\omega) & 0 \\
+        0 & -sen(\omega) & cos(\omega) & 0 \\
+        0 & 0 & 0 & 1 \\
+    \end{matrix}\right) 
+\end{equation*}
+\end{enumerate}
+\end{document}
