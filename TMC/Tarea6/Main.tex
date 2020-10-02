@@ -1,0 +1,126 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Tópicos de Mécanica Cuántica}}\\
+\textbf{Tarea 6}\\
+Enrique Valbuena Ordonez\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt}
+Matricula:\\
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+\subsection*{Demostrar que: $\oint \vec{J} \cdot d\vec{S}$ = 0}
+Se tiene que la densidad de corriente de probabilidad es lo siguiente:
+\begin{equation}
+    \vec{J} = \frac{\hbar }{2mi}\left(\psi^* \nabla \psi-\psi \nabla \psi^* \right)
+    \label{eq:j}
+\end{equation}
+Donde $\psi$ y $\psi^*$ forman la densidad de probabilidad de la siguiente manera:
+\begin{equation}
+    \rho= \psi \psi^*
+\end{equation}
+derivando esta expresión respecto el tiempo:
+\begin{align*}
+    \frac{\partial \rho}{\partial t}    &= \frac{\partial}{\partial t}\left(\psi \psi^*  \right)\\
+                                        &=\psi \frac{\partial \psi^* }{\partial t} + \psi^* \frac{\partial \psi}{\partial t}
+\end{align*}
+como $\psi$ y $\psi^* $ son soluciones a la ecuación de Schr\"odinger, entonces:
+\begin{equation}
+    H\psi =i \hbar \frac{\partial \psi}{\partial t}
+    \label{eq:hpsi}
+\end{equation}
+\begin{equation}
+    H\psi^* =i \hbar \frac{\partial \psi^*}{\partial t}
+    \label{eq:hpsi*}
+\end{equation}
+por lo tanto:
+\begin{equation}
+    \frac{\partial \rho}{ \partial t} = \frac{i\hbar}{2m} \left(\psi^* \nabla^2 \psi - \psi \nabla^2 \psi^* \right)
+    \label{eq:partialrho}
+\end{equation}
+Si calculamos $\nabla \cdot \vec{J}$, encontramos lo siguiente:
+\begin{align*}
+    \nabla \cdot \vec{j}    &= \frac{\hbar}{2mi} (\nabla \cdot (\psi^* \nabla \psi - \psi \nabla \psi^*))\\
+                            &= \frac{\hbar}{2mi} (\nabla \cdot(\psi^* \nabla \psi) - \nabla \cdot (\psi \nabla \psi^*))\\
+                            &= \frac{\hbar}{2mi} (\nabla \psi \nabla \psi^* + \psi \nabla^2 \psi^* - (\nabla \psi \nabla \psi^* + \psi^* \nabla^2 \psi))\\
+                            &=\frac{\hbar}{2mi}(\psi \nabla^2 \psi^* - \psi^* \nabla^2 \psi)\\
+                            &= -\frac{i\hbar}{2m} (\psi \nabla^2 \psi^* - \psi^* \nabla^2 \psi)
+\end{align*}
+por lo tanto 
+\begin{equation}
+    \nabla \cdot \vec{j} = -\frac{i\hbar}{2m} (\psi \nabla^2 \psi^* - \psi^* \nabla^2 \psi)
+    \label{eq:nablaj}
+\end{equation}
+sumando al ecuación \ref{eq:partialrho} y \ref{eq:nablaj} se tiene que:
+\begin{equation}
+    \frac{\partial \rho}{ \partial t}  + \nabla \cdot \vec{j} =0
+    \label{eq:suma}
+\end{equation}
+integrando la ecuación \ref{eq:suma} sobre todo el volumen se obtiene lo siguiente:
+\begin{align*}
+    \int_V \left(\frac{\partial \rho}{ \partial t}  + \nabla \cdot \vec{j} \right) dV &= \int_V \frac{\partial \rho}{ \partial t}  dV+\int_V \nabla \cdot \vec{j} dV\\
+    &=\frac{\partial}{\partial t}\left(\int_V \rho dV\right) +\int_V  (\nabla \cdot \vec{j} )dV\\
+    &=\frac{\partial}{\partial t} \left(1 \right) + \int_V (\nabla \cdot \vec{j} )dV \\
+    &= \int_V( \nabla \cdot \vec{j} )dV
+\end{align*}
+por lo tanto:
+\begin{equation}
+    \int_V( \nabla \cdot \vec{j} )dV = 0 
+    \label{eq:intj}
+\end{equation}
+por ende:
+\begin{equation}
+    \int \vec{J} \cdot d\vec{S} = 0
+\end{equation}
+\end{document}

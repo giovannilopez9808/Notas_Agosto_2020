@@ -66,18 +66,8 @@ Matricula:\\
 \end{titlepage}
 \maketitle
 \section{Introducción}
-La dinámica molecular es un técnica de simulación en la que se permite que átomos y moléculas interactúen por un período,
- permitiendo una visualización del movimiento de las partículas, en donde le tendremos que especificar el tipo de átomo que es,
-  sus posiciones iniciales, velocidades iniciales, el potencial de interacción y los parámetros que este puede llegar a necesitar 
-  para realizar su calculo.\\
 \section{Objetivo general}
-Simular la configuración cuadrada y FCC de átomos de Carbono con el potencial de Lennard-Jones.
-\section{Objetivo específico}
-\begin{enumerate}
-    \item Encontrar la distribución radial del sistema para diferentes densidades.
-    \item Contrastar las diferencias en las funciones radiales entre los sistemas de dos y tres dimensiones.
-    \item Monitorizar la energía en la dinámica del sistema.
-\end{enumerate}
+ \section{Objetivo específico}
 \section{Marco teórico}
 El potencial de Lennard-Jones describe la energía potencial de interacción entre dos átomos o moleculas netros sujetos a dos fuerzas distintas, una fuerza que tiene mayor acción cuando la distancia entre las dos sistemas es grande y la otra fuerza de interacción tiene una mayor acción a corta distancia. Este potencial tiene la siguiente forma:
 \begin{equation}
@@ -97,7 +87,14 @@ Teniendo el potencial de la ecuación \ref{Potencial de Lennard-Jones}, podemos 
 \begin{equation}
     \label{eq:fuerzateo}
     \vec{F}(r)= 48\epsilon \left(\frac{\sigma^{12}}{r^{13}}- \frac{1}{2}\frac{\sigma^6}{r^7} \right) \hat{r}
-\end{equation}\begin{table*}
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45]{../Graphics/Potencial.png}
+    \caption{Potencial y fuerza de Lennard-Jones}
+    \label{pot-len-jones}
+\end{figure}
+\begin{table*}
     \centering
     \begin{tabular}{ccp{1cm}p{0.5cm}cc}
         \hline
@@ -108,12 +105,6 @@ Teniendo el potencial de la ecuación \ref{Potencial de Lennard-Jones}, podemos 
     \caption{Parámetros para la simulación para las diferentes dimensiones.}
     \label{table:parametros}
 \end{table*}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.45]{../Graphics/Potencial.png}
-    \caption{Potencial y fuerza de Lennard-Jones}
-    \label{pot-len-jones}
-\end{figure}
 reescribiendo las ecuaciones \ref{Potencial de Lennard-Jones} y \ref{eq:fuerzateo} para tener la suma de estas en un sistema de n particulas se tiene lo siguiente:
 \begin{equation}
     \label{eq:pot-n}
@@ -135,42 +126,17 @@ por lo tanto, la energía total para un tiempo t será:
     E_t=T_t+U_t
 \end{equation}
 \section{Resultados}
-Planteando un sistema cuadrangular, en el cual todos los átomos se encuentran alineados como en la figura \ref{pos inicial}.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{../Graphics/Cor_in.png}\\
-    \caption{Posición inicial del sistema en dos dimensiones.}
-    \label{pos inicial}
-\end{figure}
-realizando una simulación de la dinámica con los parámetros establecidos en el tabla \ref{table:parametros} se calculo la distribución radial para el caso de segunda dimensión de la siguiente manera:
-\begin{equation}
-    \rho(r) = \frac{1}{N} \frac{\left\langle \sum\limits_{i=1}^N n_i(r,\Delta r)  \right\rangle}{\pi r \rho \Delta r}
-    \label{eq:rhor}
-\end{equation}
-donde:
-\begin{equation}
-    \changefontsizes{9pt}
-    \label{eq:area}
-    \pi r \Delta r = \pi \left(\left[r +\frac{\Delta r}{2}\right]^2 - \left[r- \frac{\Delta r}{2} \right]^2 \right)
-\end{equation}
-para el caso de tres dimensiones se utilizo la siguiente:
-\begin{equation}
-    \rho(r) = \frac{1}{N} \frac{\left\langle \sum\limits_{i=1}^N n_i(r,\Delta r)  \right\rangle}{ 4\pi r^2 \rho \Delta r}
-    \label{eq:rhor3}
-\end{equation}
-donde:
-\begin{equation}
-    \changefontsizes{9pt}
-    \label{eq:volumen}
-   4 \pi r^2 \Delta r =\frac{4}{3} \pi \left(\left[r +\frac{\Delta r}{2}\right]^3 - \left[r- \frac{\Delta r}{2} \right]^2 \right)
-\end{equation}
-La misma simulación lleva acabo el calculo de la energía potencial y la energía cinética conforme las ecuaciones \ref{eq:pot-n} y \ref{eq:kin-n}, por lo que el cálculo de la energía total se realiza de manera simple como se describe en la ecuación \ref{eq:e-tot}, en la figura \ref{energias} se muestra la energía total del sistema a lo largo de la simulación para dos dimensiones (azul) y tres dimensiones (verde).
 \begin{figure*}
-    \centering
-    \includegraphics[scale=0.65]{../Graphics/Dis_rad.png}
+    \hspace*{-2cm}
+    \includegraphics[scale=0.53]{../Graphics/Dis_rad.png}
     \caption{Distribución radial de la estructura}
-    \label{distribución radial}
+    \label{eq:disradial}
 \end{figure*}
+\begin{figure*}
+    \includegraphics[scale=0.53]{../Graphics/Energy.png}
+    \caption{Energía total a lo largo de la simulación de las densidades seleccionadas variando la temperadura del exterior.}
+\end{figure*}
+<<<<<<< HEAD
 \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{\linewidth}
@@ -192,17 +158,9 @@ Con las ecuaciones \ref{eq:rhor} y \ref{eq:rhor3} se calcularon las distribucion
     \item Observando la distribución  radial, mientras más va creciendo la densidad, existe una mayor concentración de átomos a diferentes distancias.
     \item Comparando el comportamiento en las distribuciones radiales para una misma densidad se observa que para el caso de tres dimensiones esta llega a obtener una mayor variación mientras mas se aumenta la distancia radial a comparación del caso de dos dimensiones.
 \end{itemize}
+=======
+>>>>>>> fbba47cff6e71abce80480f76cd9fea96101c6f1
 \section{Código}
-\begin{itemize}
-\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/MD-n3.f}{Github - MD-n3.f}\\
-Este código contiene la simulación del sistema.
-\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Potencial_Graphics.py}{Github - Gráfica del potencial de Lennard-Jones}\\
-Este código realiza la figura \ref{pot-len-jones}
-\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Cor_Graphics.py}{Github - Gráfica de la posición inicial y Distribución radial}\\
-Este código genera la figura \ref{pos inicial} y \ref{distribución radial} a
-\item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/Simulaciones/Proyecto_1/Scripts/Energy_Graphics.py}{Github - Gráfica de las energías}\\
-Este código genera la gráfica \ref{energias}
-\end{itemize}
 \bibliographystyle{plain}
 \nocite{*}
 \bibliography{Main}

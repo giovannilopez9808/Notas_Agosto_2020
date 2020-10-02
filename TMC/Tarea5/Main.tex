@@ -1,0 +1,105 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Tópicos de Mécanica Cuántica}}\\
+\textbf{Tarea 5}\\
+Enrique Valbuena Ordonez\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt}
+Matricula:\\
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+\subsection*{¿Qué es una constante del movimiento?}
+Una constante de movimeinto es un objeto o cantidad que se conserva a lo largo de un desplazamiento, estas son mayormente consecuencias de las ecuaciones de movimiento, en lugar de ser una restricción impuesta.
+\subsection*{¿Qué es una corriente conservada?}
+Al tener nosotros un campo y someterlo a variaciones infinitedecimales como se muestra en la ecuación \ref{eq:delta}
+\begin{equation}
+    \label{eq:delta}
+    \phi \rightarrow \phi+ \delta \phi
+\end{equation}
+esto provocara una variación infinitedecimal en el lagrangiano del sistema.
+\begin{equation*}
+    \mathcal{L} \rightarrow \mathcal{L} + \delta \mathcal{L}
+\end{equation*}
+si la transformación presenta una simetria, entonces la variación que habiamos realizado en el lagrangiano es nula, por ende:
+\begin{equation}
+    \label{eq:0}
+    \delta \mathcal{L} =0
+\end{equation}
+como el lagrangiano puede ser descrito a partir de una función de campo y sus derivadas, esta puede ser reescriba como lo siguiente:
+\begin{equation}
+    \label{eq:newlagrangiano}
+    \delta \mathcal{L} = \frac{\partial \mathcal{L}}{\partial \phi} \delta \phi + \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)} \partial_\mu (\delta \phi )
+\end{equation}
+con el lagrangiano podemos calcular sus ecuaciones de movimiento asociadas, por lo que el lagrangiano podemos usarlo dentro de la ecuación de Euler-Lagrange, por lo tanto:
+\begin{equation}
+    \label{eq:euler}
+    \frac{\partial \mathcal{L}}{\partial \phi} = \partial_\mu \left(\frac{\partial \mathcal{L}}{\partial(\partial_mu \phi)}\right)
+\end{equation}
+al momento de sustituir la ecuación \ref{eq:euler} en \ref{eq:newlagrangiano}, se obtiene lo siguiente:
+\begin{align*}
+    \delta \mathcal{L}  &= \left(\partial_\mu \left(\frac{\partial \mathcal{L}}{\partial(\partial_mu \phi)}\right)\right) \delta \phi + \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)} \partial_\mu (\delta \phi )\\
+                        &= \partial_\mu \left(\frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)} \delta \phi \right)
+\end{align*}
+y por la ecuación \ref{eq:0}, se tiene que :
+\begin{equation}
+    \label{eq:delta}
+    \partial_\mu \left(\frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)} \delta \phi \right) = 0
+\end{equation}
+como la derivada es cero, debe existir algún objeto que sea constante, en este caso lo llamaremos $J^{\mu}$, la cual es la corriente conservada, por lo tanto:
+\begin{equation}
+    J^{\mu}=\frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi)} \delta \phi
+\end{equation}
+este objeto matemático representa al flujo de una magitud física.
+\end{document}
