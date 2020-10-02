@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 #<----------------------------Direcciones de los archivos-------------------->
-dir="../Results_2/";dir_graphics="../Graphics/"
+dir="../Results/";dir_graphics="../Graphics/"
 rho_values=np.round(np.array([0.3,0.6,0.8]),2)
 temp_values=np.round(np.arange(0.3,1.3,0.2),2)
 #<-----------------------------Colores de las graficas--------------------->

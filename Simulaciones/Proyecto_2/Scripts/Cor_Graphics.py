@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 #<----------------------------Direcciones de los archivos-------------------->
-dir_results2="../Results_2/";dir_graphics="../Graphics/"
+dir_results2="../Results/";dir_graphics="../Graphics/"
 #<-----------------------------------------Densidades----------------------------->
 rho_values=np.round(np.array([0.3,0.6,0.8]),2)
 temp_values=np.round(np.arange(0.3,1.3,0.2),2)
