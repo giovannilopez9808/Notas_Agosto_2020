@@ -17,6 +17,18 @@ def format(value):
     else:
         value="$\\bar{"+str(round(abs(value)))+"}$"
     return value
+#<--------------------Funcion que grafica los puntos--------------------->
+def plot_points(prop,path,name):
+    #<-------------------------Origen--------------------------->
+    plt.scatter(0,0,c="#065a60",marker=".")
+    #<-----------------------------Eliminacion de ejes--------------------->
+    plt.xticks([]);plt.yticks([]);plt.axis("off")
+    plt.subplots_adjust(left=0, bottom=0, right=1, top=0.97)
+    #<----------------------Barra de proporción--------------------->
+    plt.plot([5,5+prop*8.47],[-11,-11],color="black",lw="3")
+    plt.text(prop*8.47/2+5,-10.5,"8.47 nm$^{-1}$")
+    plt.savefig(path+name,dpi=200)
+    plt.clf()
 #<-----------------Localización de carpetas------------------------->
 dir_data="Data/";dir_graphics="Graphics/"
 #<-------------------------Lectura de las posiciones---------------------->
@@ -27,15 +39,7 @@ n_data=np.size(pos_x)
 prop=6.8/8.47
 #<--------------------------------------Ploteo de los datos iniciales------------------>
 plt.scatter(pos_x,pos_y,color="#065a60",marker=".")
-#<-------------------------Origen--------------------------->
-plt.scatter(0,0,c="#065a60",marker=".")
-#<-----------------------------Eliminacion de ejes--------------------->
-plt.xticks([]);plt.yticks([]);plt.axis("off")
-plt.subplots_adjust(left=0, bottom=0, right=1, top=1)
-#<----------------------Barra de proporción--------------------->
-plt.plot([5,5+prop*8.47],[-11,-11],color="black",lw="3")
-plt.text(prop*8.47/2+5,-10.5,"8.47 nm$^{-1}$")
-plt.savefig(dir_graphics+"inicial.png",dpi=200);plt.clf()
+plot_points(prop,dir_graphics,"inicial.png")
 coor_x,coor_y,dis_list=[],[],[]
 #<--------------------Guardado y eleccion de las distancias------------------>
 for i in range(n_data-1):
@@ -54,15 +58,7 @@ for i in range(n_data-1):
 #<-----------------------Ploteo de las lineas------------------------------>
             plt.scatter(pos_x,pos_y,c="#065a60",marker=".")
             plt.plot(pos_x[[i,j]],pos_y[[i,j]],color="#312244",ls="--",alpha=0.7)
-#<-------------------------Origen--------------------------->
-plt.scatter(0,0,c="#065a60",marker=".")
-#<-----------------------------Eliminacion de ejes--------------------->
-plt.xticks([]);plt.yticks([]);plt.axis("off")
-plt.subplots_adjust(left=0, bottom=0, right=1, top=1)
-#<----------------------Barra de proporción--------------------->
-plt.plot([5,5+prop*8.47],[-11,-11],color="black",lw="3")
-plt.text(prop*8.47/2+5,-10.5,"8.47 nm$^{-1}$")
-plt.savefig(dir_graphics+"distancia.png",dpi=200);plt.clf()
+plot_points(prop,dir_graphics,"distancia")
 #<----------------------Lectura de las propiedades del material--------------------------->
 spacing_list,h_list,k_list,l_list=np.loadtxt(dir_data+"data.csv",delimiter=",",usecols=[2,3,4,5],skiprows=1,unpack=True)
 latitce_list_h,latitce_list_k,latitce_list_l=[],[],[]
@@ -83,34 +79,15 @@ for x,y,dis in zip(coor_x,coor_y,dis_list):
     del h_new,k_new,l_new
 #<-----------------------------Ploteo de los indices de miller arriba de cada punto------------------------->
 for x,y,h,k,l,dis_list in zip(coor_x,coor_y,latitce_list_h,latitce_list_k,latitce_list_l,dis_list):
-    a="("+str(int(h))+str(int(k))+str(int(l))+")"
+    a="["+str(int(h))+str(int(k))+str(int(l))+"]"
     plt.text(x-0.5,y+0.5,a)
-#<-----------------------------Eliminacion de ejes--------------------->
-plt.xticks([]);plt.yticks([]);plt.axis("off")
-#<-------------------------Origen------------------------>
-plt.scatter(0,0,c="#065a60",marker=".")
-#<------------------------Puntos------------------------->
 plt.scatter(coor_x,coor_y,color="#065a60",marker=".")
-#<-----------------------Leyenda de proporción-------------------->
-plt.plot([5,5+prop*8.47],[-11,-11],color="black",lw="3")
-plt.text(prop*8.47/2+5,-10.5,"8.47 nm$^{-1}$")
-plt.subplots_adjust(left=0, bottom=0, right=1, top=0.97)
-plt.savefig(dir_graphics+"indices.png",dpi=200)
-plt.clf()
+plot_points(prop,dir_graphics,"indices.png")
+#<------------------------------Ploteo de los indices de MIller a partir de un archivo----------------------->
 h_list,k_list,l_list=np.loadtxt(dir_data+"lattice.csv",delimiter=",",unpack=True,skiprows=1)
 for x,y,h,k,l in zip(pos_x,pos_y,h_list,k_list,l_list):
     h_str=format(h);k_str=format(k);l_str=format(l)
-    string="["+h_str+k_str+l_str+"]"
+    string="("+h_str+k_str+l_str+")"
     plt.text(x-0.5,y+0.5,string)
-#<-----------------------------Eliminacion de ejes--------------------->
-plt.xticks([]);plt.yticks([]);plt.axis("off")
-#<-------------------------Origen------------------------>
-plt.scatter(0,0,c="#065a60",marker=".")
-#<------------------------Puntos------------------------->
 plt.scatter(coor_x,coor_y,color="#065a60",marker=".")
-#<-----------------------Leyenda de proporción-------------------->
-plt.plot([5,5+prop*8.47],[-11,-11],color="black",lw="3")
-plt.text(prop*8.47/2+5,-10.5,"8.47 nm$^{-1}$")
-plt.subplots_adjust(left=0, bottom=0, right=1, top=0.97)
-plt.savefig(dir_graphics+"lattice.png",dpi=200)
-plt.show()
+plot_points(prop,dir_graphics,"lattice.png")
