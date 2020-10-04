@@ -1,40 +1,30 @@
 \begin{thebibliography}{1}
 
-\bibitem{JHJeans1902}
-J.H.~Jeans B.A.
-\newblock Lxv. on the conditions necessary for equipartition of energy.
-\newblock {\em The London, Edinburgh, and Dublin Philosophical Magazine and
-  Journal of Science}, 4(23):585--596, 1902.
+\bibitem{FayyadU.Piatetsky-ShapiroG.&Smyth2007}
+P.~{Fayyad, U., Piatetsky-Shapiro, G.,Smyth}.
+\newblock {Python for Scientific Computing Python Overview}.
+\newblock {\em Computing in Science and Engineering}, pages 10--20, 2007.
 
-\bibitem{Eccarelli1996}
-C~Ecilia~C Eccarelli, D~Avid J~H Ollenbach, and A~Lexander G G M~T Ielens.
-\newblock {Received 1996 January 16 ; accepted 1996 May 13}.
-\newblock 1:400--426, 1996.
+\bibitem{Frank1965}
+F.~C. Frank.
+\newblock {On Miller–Bravais indices and four-dimensional vectors}.
+\newblock {\em Acta Crystallographica}, 18(5):862--866, 1965.
 
-\bibitem{Fixsen2002}
-D.~J. Fixsen and J.~C. Mather.
-\newblock { The Spectral Results of the Far‐Infrared Absolute
-  Spectrophotometer Instrument on COBE }.
-\newblock {\em The Astrophysical Journal}, 581(2):817--822, 2002.
+\bibitem{Ita2002}
+Antonio~De Ita and De~Torre.
+\newblock {Indices de MIller}.
+\newblock page~74, 2002.
 
-\bibitem{LordRayleigh1900}
-Lord~Rayleigh F.R.S.
-\newblock Liii. remarks upon the law of complete radiation.
-\newblock {\em The London, Edinburgh, and Dublin Philosophical Magazine and
-  Journal of Science}, 49(301):539--540, 1900.
+\bibitem{Mortensen2016}
+Mikael Mortensen and Hans~Petter Langtangen.
+\newblock {High performance Python for direct numerical simulations of
+  turbulent flows}.
+\newblock {\em Computer Physics Communications}, 203:53--65, 2016.
 
-\bibitem{Kr2011}
-Timm Kr.
-\newblock {Unit conversion in LBM}.
-\newblock {\em Metal Forming}, pages 1--4, 2011.
-
-\bibitem{unknown}
-Emiliano Muñoz.
-\newblock Revisión histórica del concepto del cuanto de luz, 07 2015.
-
-\bibitem{Planck1901}
-M.~Planck.
-\newblock {Ueber das Gesetx}.
-\newblock {\em Annalen der Physik}, 4(October):553--563, 1901.
+\bibitem{Nourine2002}
+Lhouari Nourine and Olivier Raynaud.
+\newblock {A fast incremental algorithm for building lattices}.
+\newblock {\em Journal of Experimental and Theoretical Artificial
+  Intelligence}, 14(2-3):217--227, 2002.
 
 \end{thebibliography}

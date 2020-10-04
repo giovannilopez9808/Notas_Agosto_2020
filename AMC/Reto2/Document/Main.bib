@@ -1,78 +1,61 @@
-@article{Eccarelli1996,
-  author = {Eccarelli, C Ecilia C and Ollenbach, D Avid J H and Ielens, A Lexander G G M T},
-  file   = {:home/giovanni/Downloads/Fixsen{\_}1996{\_}ApJ{\_}473{\_}576.pdf:pdf},
-  pages  = {400--426},
-  title  = {{Received 1996 January 16 ; accepted 1996 May 13}},
-  volume = {1},
-  year   = {1996}
+@article{FayyadU.Piatetsky-ShapiroG.&Smyth2007,
+  abstract = {Python is an interpreted language with ex- pressive syntax that some have compared to executable pseudocode. This might be part of the reason why I fell in love with the language in 1996, when I was seeking a way to prototype algorithms on very large data sets that overwhelmed the capabilities of the other inter- preted computing environments I was familiar with. My enjoyment of programming with Python in- creased as I quickly learned to express complicated ideas in the syntax and objects available with it. The idea that coding in a high-level language can greatly enhance productivity isn't new. Many scientists and engineers are typically exposed to one or more interpreted scientific computing en- vironments early in their careers because they help them write nontrivial computational programs without getting too bogged down in syntax and compilation time lags. Python can be used in ex- actly this way, but its unique features offer an en- vironment that makes it a better choice for scientists and engineers seeking a high-level lan- guage for writing scientific applications. In the rest of this special issue's articles, you'll find a feast of reasons why Python excels as a platform for scien- tific computing. As a small appetizer, consider this list of general features: • A liberal open source license lets you sell, use, or distribute your Python-based application as you see fit—no extra permission necessary. • The fact that Python runs on so many platforms means you don't have to worry about writing an application with limited portability, which also helps avoid vendor lock-in. • The language's clean syntax yet sophisticated con- structs let you write in either a procedural or fully object-oriented fashion, as the situation dictates. • A powerful interactive interpreter allows real- time code development and live experimenta- tion, thus eliminating the time-consuming and productivity-eating compile step from the code- then-test development process. • The ability to extend Python with your own com- piled code means that Python can be taught to do anything as fast as your hardware will allow. • You can embed Python into an existing applica- tion, which means you can instantly add an easy-to-use veneer on top of an older, trusted application. • The ability to interact with a wide variety of other software on your system helps you lever- age the software skills you've already acquired.},
+  author   = {{Fayyad, U., Piatetsky-Shapiro, G.,Smyth}, P.},
+  file     = {:home/giovanni/Pictures/oliphant2007.pdf:pdf},
+  journal  = {Computing in Science and Engineering},
+  pages    = {10--20},
+  title    = {{Python for Scientific Computing Python Overview}},
+  year     = {2007}
 }
-@article{Fixsen2002,
-  abstract = {The cosmic microwave background (CMB) spectral results of the Far-Infrared Absolute Spectrophotometer (FIRAS) instrument are summarized. Some questions that have been raised about the calibration accuracy are also addressed. Finally, we comment on the potential for major improvements with new measurement approaches. The measurement of the deviation of the CMB spectrum from a 2.725+/-0.001 K blackbody form made by the COBE-FIRAS could be improved by nearly 2 orders of magnitude.},
-  author   = {Fixsen, D. J. and Mather, J. C.},
-  doi      = {10.1086/344402},
-  file     = {:home/giovanni/Downloads/The{\_}Spectral{\_}Results{\_}of{\_}the{\_}Far-Infrared{\_}Absolute{\_}.pdf:pdf},
-  issn     = {0004-637X},
-  journal  = {The Astrophysical Journal},
-  number   = {2},
-  pages    = {817--822},
-  title    = {{ The Spectral Results of the Far‐Infrared Absolute Spectrophotometer Instrument on COBE }},
-  volume   = {581},
+@article{Frank1965,
+  abstract = {The Miller-Bravais and Weber symbols for planes and directions in hexagonal crystals can be interpreted as four-dimensional vectors, which are confined to a particular three-dimensional section of 4-space by the rule that the first three indices sum to zero. This is useful for the calculation of distances and angles in hexagonal crystals. The direction symbolized by [uvtw] is that of the cartesian 4-vector [u, v, t, 2w] and the normal to the plane (hkil) is the cartesian vector [h, k, i, l/2], where 2= (2/3)* (c/a). The angle between two of these 4-vectors is given by the usual formula cos a = (rl • r2)/rlr2, and other useful vector equations apply to these 4-vectors just as for the 3-vectors associated with Miller indices. Seeming inconsistencies in the naming of axes for the reciprocal lattice of a hexagonal structure are eliminated by regarding the direct lattice as the projection on to three dimensions and the reciprocal lattice as the three-dimensional section of four-dimensional lattices reciprocal to each other.},
+  author   = {Frank, F. C.},
+  doi      = {10.1107/s0365110x65002116},
+  file     = {:home/giovanni/Documents/Clases/AMC/Tarea2/Referencias/frank1965.pdf:pdf},
+  issn     = {0365110X},
+  journal  = {Acta Crystallographica},
+  number   = {5},
+  pages    = {862--866},
+  title    = {{On Miller–Bravais indices and four-dimensional vectors}},
+  volume   = {18},
+  year     = {1965}
+}
+@article{Ita2002,
+  author = {Ita, Antonio De and Torre, De},
+  file   = {:home/giovanni/Documents/Clases/AMC/Tarea2/Referencias/Indices{\_}de{\_}Miller{\_}ALTO{\_}Azcapotzalco.pdf:pdf},
+  pages  = {74},
+  title  = {{Indices de MIller}},
+  year   = {2002}
+}
+@article{Mortensen2016,
+  abstract      = {Direct Numerical Simulations (DNS) of the Navier Stokes equations is an invaluable research tool in fluid dynamics. Still, there are few publicly available research codes and, due to the heavy number crunching implied, available codes are usually written in low-level languages such as C/C++ or Fortran. In this paper we describe a pure scientific Python pseudo-spectral DNS code that nearly matches the performance of C++ for thousands of processors and billions of unknowns. We also describe a version optimized through Cython, that is found to match the speed of C++. The solvers are written from scratch in Python, both the mesh, the MPI domain decomposition, and the temporal integrators. The solvers have been verified and benchmarked on the Shaheen supercomputer at the KAUST supercomputing laboratory, and we are able to show very good scaling up to several thousand cores. A very important part of the implementation is the mesh decomposition (we implement both slab and pencil decompositions) and 3D parallel Fast Fourier Transforms (FFT). The mesh decomposition and FFT routines have been implemented in Python using serial FFT routines (either NumPy, pyFFTW or any other serial FFT module), NumPy array manipulations and with MPI communications handled by MPI for Python (mpi4py). We show how we are able to execute a 3D parallel FFT in Python for a slab mesh decomposition using 4 lines of compact Python code, for which the parallel performance on Shaheen is found to be slightly better than similar routines provided through the FFTW library. For a pencil mesh decomposition 7 lines of code is required to execute a transform.},
+  archiveprefix = {arXiv},
+  arxivid       = {1602.03638},
+  author        = {Mortensen, Mikael and Langtangen, Hans Petter},
+  doi           = {10.1016/j.cpc.2016.02.005},
+  eprint        = {1602.03638},
+  file          = {:home/giovanni/Pictures/mortensen2016.pdf:pdf},
+  issn          = {00104655},
+  journal       = {Computer Physics Communications},
+  keywords      = {CFD,Cython,DNS,FFT,MPI,Pencil,Python,Slab},
+  pages         = {53--65},
+  publisher     = {Elsevier B.V.},
+  title         = {{High performance Python for direct numerical simulations of turbulent flows}},
+  url           = {http://dx.doi.org/10.1016/j.cpc.2016.02.005},
+  volume        = {203},
+  year          = {2016}
+}
+@article{Nourine2002,
+  abstract = {This paper presents an incremental algorithm to compute the covering graph of the lattice generated by a family B of subsets of a totally ordered set X. The implementation of this algorithm has O(((|X|+|B|).|B|).|F|) time complexity, where F is the number of elements in the lattice. This improves the complexity of the previous algorithms which is roughly in O(Min(|X|, |B|)3.|F|). This algorithm may be used in many applications in computer sciences such as the computations of Galois (concept) lattice, the maximal antichains lattice or the Dedekind-MacNeille completion of a partial order. All these lattices can be computed incrementally using this algorithm without increasing time complexity.},
+  author   = {Nourine, Lhouari and Raynaud, Olivier},
+  doi      = {10.1080/09528130210164152},
+  file     = {:home/giovanni/Documents/Clases/AMC/Tarea2/Referencias/lattice-generation.pdf:pdf},
+  issn     = {0952813X},
+  journal  = {Journal of Experimental and Theoretical Artificial Intelligence},
+  keywords = {Data structure,Family of sets,Galois lattice,Incremental algorithm},
+  number   = {2-3},
+  pages    = {217--227},
+  title    = {{A fast incremental algorithm for building lattices}},
+  volume   = {14},
   year     = {2002}
-}
-@article{JHJeans1902,
-  author    = { J.H.   Jeans   B.A. },
-  title     = {LXV. On the conditions necessary for equipartition of energy},
-  journal   = {The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science},
-  volume    = {4},
-  number    = {23},
-  pages     = {585-596},
-  year      = {1902},
-  publisher = {Taylor & Francis},
-  doi       = {10.1080/14786440209462882},
-  url       = { 
-        https://doi.org/10.1080/14786440209462882
-    
-},
-  eprint    = { 
-        https://doi.org/10.1080/14786440209462882   
-}
-}
-@article{Kr2011,
-  author  = {Kr, Timm},
-  file    = {:home/giovanni/Downloads/unit{\_}conversion.pdf:pdf},
-  journal = {Metal Forming},
-  pages   = {1--4},
-  title   = {{Unit conversion in LBM}},
-  year    = {2011}
-}
-@article{Planck1901,
-  author  = {Planck, M.},
-  file    = {:home/giovanni/Downloads/andp.19013090310.pdf:pdf},
-  journal = {Annalen der Physik},
-  number  = {October},
-  pages   = {553--563},
-  title   = {{Ueber das Gesetx}},
-  volume  = {4},
-  year    = {1901}
-}
-@unknown{unknown,
-  author = {Muñoz, Emiliano},
-  year   = {2015},
-  month  = {07},
-  pages  = {},
-  title  = {Revisión Histórica del Concepto del Cuanto de Luz},
-  doi    = {10.13140/RG.2.1.4472.6888}
-}
-@article{LordRayleigh1900,
-author = { Lord   Rayleigh   F.R.S. },
-title = {LIII. Remarks upon the law of complete radiation},
-journal = {The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science},
-volume = {49},
-number = {301},
-pages = {539-540},
-year  = {1900},
-publisher = {Taylor & Francis},
-doi = {10.1080/14786440009463878},
-URL = {https://doi.org/10.1080/14786440009463878},
-eprint = {https://doi.org/10.1080/14786440009463878}
 }
