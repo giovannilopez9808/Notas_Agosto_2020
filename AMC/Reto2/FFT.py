@@ -10,6 +10,8 @@ def plot_image(image,path,name,cmap=None,bar=True):
         plt.text(2,238,"5  1nm$^{-1}$",fontsize=26)
     plt.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=0, hspace=0.188)
     plt.savefig(path+name,dpi=200)
+    if name=='hexa.png':
+        plt.show()
     plt.clf()
 
 dir_graphics="Graphics/"

@@ -18,6 +18,15 @@ def format(value):
     else:
         value="$\\bar{"+str(round(abs(value)))+"}$"
     return value
+
+def plot_image(image,path,name,cmap=None,bar=True):
+    plt.axis("off")
+    plt.imshow(image,cmap=cmap)
+    if bar:
+        plot_bar()
+    plt.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=0, hspace=0.188)
+    plt.savefig(path+name,dpi=200)
+    plt.clf()
 #<--------------------Funcion que grafica los puntos--------------------->
 def plot_points(prop,path,name):
     #<-------------------------Origen--------------------------->
@@ -26,10 +35,28 @@ def plot_points(prop,path,name):
     plt.xticks([]);plt.yticks([]);plt.axis("off")
     plt.subplots_adjust(left=0, bottom=0, right=1, top=0.97)
     #<----------------------Barra de proporción--------------------->
-    plt.plot([20,20+(63.3-6.5)/2],[-80,-80],color="black",lw="3")
+    plt.plot([6.5,63.3],[-80,-80],color="black",lw="3")
     plt.text(17+5,-75,"5  1 nm$^{-1}$",fontsize=16)
     plt.savefig(path+name,dpi=200)
     plt.clf()
+#<---------------------Funcion que grafica los indices de Miller-------------->
+def plot_indices(pos_x,pos_y,h_list,k_list,l_list,color):
+    for x,y,h,k,l in zip(pos_x,pos_y,h_list,k_list,l_list):
+        h_str=format(h);k_str=format(k);l_str=format(l)
+        string="("+h_str+k_str+l_str+")"
+        plt.text(x-5,y+3,string,color=color)
+
+def plot_hexa(hexa_x,hexa_y,color):
+    n=np.size(hexa_x)
+    for i in range(n):
+        j=i+1
+        if j==n: j=0
+        pos=[i,j]
+        plt.plot(hexa_x[pos],hexa_y[pos],lw=3,color=color)
+
+def plot_bar():
+    plt.plot([6.5,63.3],[247.4,247.4],color="black",lw=4)
+    plt.text(2,238,"5  1nm$^{-1}$",fontsize=26)
 #<-----------------Localización de carpetas------------------------->
 dir_data="Data/";dir_graphics="Graphics/"
 #<-------------------------Lectura de las posiciones---------------------->
@@ -88,10 +115,7 @@ plt.scatter(coor_x,coor_y,color="#065a60",marker=".")
 plot_points(prop,dir_graphics,"indices.png")
 #<------------------------------Ploteo de los indices de MIller a partir de un archivo----------------------->
 h_list,k_list,l_list=np.loadtxt(dir_data+"lattice.csv",delimiter=",",unpack=True,skiprows=1)
-for x,y,h,k,l in zip(pos_x,pos_y,h_list,k_list,l_list):
-    h_str=format(h);k_str=format(k);l_str=format(l)
-    string="("+h_str+k_str+l_str+")"
-    plt.text(x-5,y+3,string)
+plot_indices(pos_x,pos_y,h_list,k_list,l_list,'black')
 plt.scatter(coor_x,coor_y,color="#065a60",marker=".")
 plot_points(prop,dir_graphics,"lattice.png")
 #<----------------------------Ploteo de las caras del cristal------------------------------>
@@ -103,14 +127,20 @@ f=np.log(np.abs(f))
 pos_x=pos_x+129
 pos_y=pos_y+128.8
 plt.imshow(f)
-for x,y,h,k,l in zip(pos_x,pos_y,h_list,k_list,l_list):
-    h_str=format(h);k_str=format(k);l_str=format(l)
-    string="("+h_str+k_str+l_str+")"
-    plt.text(x-5,y+3,string)
+plot_indices(pos_x,pos_y,h_list,k_list,l_list,'black')
 #<-----------------------------Eliminacion de ejes--------------------->
 plt.xticks([]);plt.yticks([]);plt.axis("off")
 plt.subplots_adjust(left=0, bottom=0, right=1, top=1)
 #<----------------------Barra de proporción--------------------->
-plt.plot([180,180+(63.3-6.5)/1.5],[230,230],color="black",lw="3")
-plt.text(180,220,"5  1 nm$^{-1}$",fontsize=16)
+plot_bar()
 plt.savefig(dir_graphics+"caras.png")
+plt.clf()
+#<---------------Grafica del hexagono con los indices de miller------------------>
+hexa_x,hexa_y=np.loadtxt("Data/hexa.csv",delimiter=",",unpack=True)
+plot_hexa(hexa_x,hexa_y,'black')
+plot_indices(pos_x,pos_y,h_list,k_list,l_list,'black')
+plot_image(1000*f,dir_graphics,"hexa.png")
+#<------------Grafica de la nanoparticula con los indices de Miller---------->
+plot_indices(pos_x,pos_y,h_list,k_list,l_list,'white')
+plot_hexa(hexa_x,hexa_y,'white')
+plot_image(im,dir_graphics,'nano_ind.png',bar=False)

@@ -80,6 +80,24 @@ y determinar su longitud de onda antes de que interactúen con sla muestra a est
     \item Determinar la dirección cristalográfica en la que se esta estudiando la nanopartícula.
 \end{itemize}
 \section{Marco teórico}
+La difracción de electrones se basa en la teoría cuantica de la dualidad onda-partícula. El haz de electrones se comporta como un conjunto
+de ondas que inciden sobre el material cristalino y se difractam en los centros de dispersión, lugares donde la densidad electrónica es más alta
+esto quiere decir que en esa posición es más probable de encontrar a los átomos que conforman el material.\\ 
+La difracción de electrones es una técnica muy utilizada en Física de Materiales. La estructura periódica
+de un sólido cristalino actúa como una red de difracción para los electrones, pues la longitud de onda de
+los electrones tiene un tamaño parecido al espaciado interatómico. Esto lo convierte en una buena
+alternativa a la difracción de rayos X para
+estudiar la estructura cristalina de los
+materiales. En cada caso, los electrones cumplen una relación de interferencia constructiva distinta, aunque todos
+ellos son muy similares a la relación del ejercicio (donde, por simplicidad, en lugar de un material, se
+trata una cadena monoatómica con distancia interatómica similar al parámetro de red del Si) y se
+obtienen de la misma forma: a partir de imponer que la diferencia de caminos entre los haces
+difractados sea igual a un número entero de longitudes de onda. Se pueden sacar conclusiones del
+ejercicio válidas para todos los casos: los patrones son simétricos en torno a $\theta$=0 y $sin(\theta)$ es
+inversamente proporcional al parámetro de red a y proporcional a la raíz cuadrada de la energía de los
+electrones incidentes.\\
+Para este caso tenemos un material de oro, este material cristalino cumple con los parámetros 
+mostrados en la tabla \ref{tabla:parametros}.
 \begin{table}[H]
     \centering
     \begin{tabular}{ccccc}\hline
@@ -93,6 +111,9 @@ y determinar su longitud de onda antes de que interactúen con sla muestra a est
     \caption{Parámetros para las difracciones de una nanopartícula de oro.}
     \label{tabla:parametros}
 \end{table}
+Al realizar la difracción de electrones obtenemos una imagen de la partícula la cual nos da información acerca de la forma que puede tener. \\
+Al aplicar una transformada de Fourier a esta imagen, no arrojada las posiciones en donde existe una mayor densidad de difracción de electrones, los cuales podemos interpretar como las posiciones de los átomos
+de la estructura cristalina.
 \section{Resultados}
 La nanopartícula de oro estudiada es la que se muestra en la figura \ref{fig:nanoparticula}. Esta se encuentra a una resolución de 10 nm,
 la primera impresión que da la imagen es que se trata de una nanopartícula esferica, ya que, las sombras que capto el microscopio electrónico
@@ -129,22 +150,22 @@ Realizando una Transformación a la figura \ref{fig:fft} para obtenerla en la es
 \end{figure}
 A partir de la figura \ref{fig:fftbn}, se obtuvieron las posiciones de cada difracción en el espacio recíproco. Estas posiciones fueron guardadas en un archivo de datos para 
 calcular las distancias entre puntos, las cuales serán comparadas con la tabla \ref{tabla:parametros} y así realizar la asignación de los indices de Miller correspondiente a cada punto.\\
- Los puntos recolectados son los mostrados en la figura
+ Los puntos recolectados son los mostrados en la figura \ref{fig:puntosiniciales}.\\
+ Se definieron una serie de condiciones para que el programa decida que distanicas entre puntos tomara encuenta para la asignación de cada inidice de Miller.
+ Las condiciones que se impusieron son las 
+siguientes:\\
+Se definio al centro de la imagen como el órigen, por lo que al tomar dos puntos A y B, sus distancias serán guardadas si y solo si:
+\begin{itemize}
+   \item La diferencia entre la distancias hacia el centro de cada punto es menor a 8.75 pixeles.
+   \item La diferencia entre las pendientes de la recta de cada punto hacia el origen es menor a 1.7.\\
+   \item Los signos de las pendientes sean los mismos. 
+\end{itemize}
  \begin{figure}[H]
      \centering
      \includegraphics[scale=0.4]{../Graphics/inicial.png}
      \caption{Puntos de difracción recolectados de la figura \ref{fig:fftbn}}
      \label{fig:puntosiniciales}
  \end{figure}
- Se definieron una serie de condiciones para que el programa decida que distanicas entre puntos tomara encuenta para la asignación de cada inidice de Miller.
-  Las condiciones que se impusieron son las 
-siguientes:\\
-Se definio al centro de la imagen como el órigen, por lo que al tomar dos puntos A y B, sus distancias serán guardadas si y solo si:
-\begin{itemize}
-    \item La diferencia entre la distancias hacia el centro de cada punto es menor a 8.75 pixeles.
-    \item La diferencia entre las pendientes de la recta de cada punto hacia el origen es menor a 1.7.\\
-    \item Los signos de las pendientes sean los mismos. 
-\end{itemize}
 Con esto definido, el algoritmo realizo la siguiente selección de distancias entre puntos de difracción:
 \begin{figure}[H]
     \centering
@@ -170,6 +191,14 @@ Superponiendo los indices de Miller en cada punto con la transformada de Fourier
     \includegraphics[scale=0.4]{../Graphics/caras.png}
     \caption{Transformada de Fourier de la figura \ref{fig:nanoparticula} con sus respectivos indices de Miller en cada punto de difracción.}
 \end{figure}
+En la figura \ref{fig:nanoparticula} y \ref{fig:lattice} se puede encontrar una estructura hexagononal, por lo cual se procedio a delimitar la zona hexagonoal, por lo que el resultado que se obtuvo es el siguient3:
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{../Graphics/hexa.png}
+    \caption{Transformada de Fourier de la partícula de oro delimitada por la forma hexagonal.}
+    \includegraphics[scale=0.4]{../Graphics/nano_ind.png}
+    \caption{Imagen de la nanopartícula de oro con sus indices de Miller indexados delimitados por la forma hexagonal encontrada.}
+\end{figure}
+\section{Conclusiones}
 \section{Código}
 \begin{itemize}
     \item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/AMC/Reto2/FFT.py}{FFT.py}
