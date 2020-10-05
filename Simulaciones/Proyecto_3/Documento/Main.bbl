@@ -1,0 +1,33 @@
+\begin{thebibliography}{1}
+
+\bibitem{Cerutti2008}
+David~S. Cerutti, Robert Duke, Peter~L. Freddolino, Hao Fan, and Terry~P.
+  Lybrand.
+\newblock {A vulnerability in popular molecular dynamics packages concerning
+  Langevin and Andersen dynamics}.
+\newblock {\em Journal of Chemical Theory and Computation}, 4(10):1669--1680,
+  2008.
+
+\bibitem{E2008}
+Weinan E and Dong Li.
+\newblock {The Andersen thermostat in molecular dynamics}.
+\newblock {\em Communications on Pure and Applied Mathematics}, 61(1):96--136,
+  2008.
+
+\bibitem{Hunenberger2005}
+Philippe~H. H{\"{u}}nenberger.
+\newblock {Thermostat algorithms for molecular dynamics simulations}.
+\newblock {\em Advances in Polymer Science}, 173:105--147, 2005.
+
+\bibitem{Shell2009}
+M.S Shell.
+\newblock {Advanced Molecular Dynamics}.
+\newblock {\em Advanced molecular dynamics techniques}, pages 1--11, 2009.
+
+\bibitem{Stoyanov2005}
+Simeon~D. Stoyanov and Robert~D. Groot.
+\newblock {From molecular dynamics to hydrodynamics: A novel Galilean invariant
+  thermostat}.
+\newblock {\em Journal of Chemical Physics}, 122(11), 2005.
+
+\end{thebibliography}
