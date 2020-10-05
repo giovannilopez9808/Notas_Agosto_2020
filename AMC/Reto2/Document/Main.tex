@@ -21,8 +21,8 @@
 \begin{abstract}
 La estrucuta periódica de un sólido cristalino actúa como una red de difracción, dispersando los electrones de una manera predecible. Trabajando a partir del patrón de
 difracción observado, puede ser posible deducir la estructura cristalina que produce el patrón de difracción. En este reporte se obtuvo las posiciones de varios átomos difractados
-a partir de una simulación, se creo un algoritmo en python, el cual, a partir de las posiciones de los átomos se reconoce que distancias interatomicas guardar y
-asociarlas a una familia de indices de Miller dada.
+a partir de la aplicación de la transformada de Fourier a una imagen de la nanopartícula, se creo un algoritmo en python, el cual, a partir de las posiciones de los átomos se reconoce que distancias interatomicas guardar y
+asociarlas a una familia de indices de Miller dada para realizar la indexación a cada átomo y encontrar las direcciones cristalográficas.
 \end{abstract}
 \begin{titlepage}
 \begin{center}
@@ -73,12 +73,14 @@ se colocó un haz central que corresponde a la dirección incidente observando u
 del experimento, a dicho fenomeno se le denomino dispersión de Bragg. Los experimentos se realizan comunmente en los microscopios electrónico de transmisión (TEM)
 ,o un microscopio electrónico de barrido (SEM). En estos instrumentos, los electrones son acelerados por un potencial electrostático para obtener la energía deseada
 y determinar su longitud de onda antes de que interactúen con sla muestra a estudiar. 
+\vspace{-0.7cm}
 \section{Objetivo}
 \begin{itemize}
     \item Realizar una transformada de Fourier (FFT) de la nanopartícula capturada.
     \item Indexar la imagen FFT e identificar las caras cristalinas expuestas de la nanopartícula.
     \item Determinar la dirección cristalográfica en la que se esta estudiando la nanopartícula.
 \end{itemize}
+\vspace{-0.7cm}
 \section{Marco teórico}
 La difracción de electrones se basa en la teoría cuantica de la dualidad onda-partícula. El haz de electrones se comporta como un conjunto
 de ondas que inciden sobre el material cristalino y se difractam en los centros de dispersión, lugares donde la densidad electrónica es más alta
@@ -114,6 +116,7 @@ mostrados en la tabla \ref{tabla:parametros}.
 Al realizar la difracción de electrones obtenemos una imagen de la partícula la cual nos da información acerca de la forma que puede tener. \\
 Al aplicar una transformada de Fourier a esta imagen, no arrojada las posiciones en donde existe una mayor densidad de difracción de electrones, los cuales podemos interpretar como las posiciones de los átomos
 de la estructura cristalina.
+\vspace{-2cm}
 \section{Resultados}
 La nanopartícula de oro estudiada es la que se muestra en la figura \ref{fig:nanoparticula}. Esta se encuentra a una resolución de 10 nm,
 la primera impresión que da la imagen es que se trata de una nanopartícula esferica, ya que, las sombras que capto el microscopio electrónico
@@ -195,10 +198,21 @@ En la figura \ref{fig:nanoparticula} y \ref{fig:lattice} se puede encontrar una 
 \begin{figure}[H]
     \includegraphics[scale=0.4]{../Graphics/hexa.png}
     \caption{Transformada de Fourier de la partícula de oro delimitada por la forma hexagonal.}
+\end{figure}
+\begin{figure}[H]
     \includegraphics[scale=0.4]{../Graphics/nano_ind.png}
     \caption{Imagen de la nanopartícula de oro con sus indices de Miller indexados delimitados por la forma hexagonal encontrada.}
 \end{figure}
 \section{Conclusiones}
+Las direcciones critstalográficas de la nanopartícula son las siguientes:
+\begin{itemize}
+    \vspace{-1cm}
+    \item (220)
+    \vspace{-1cm}
+    \item (111)
+\end{itemize}
+La utilidad de la transformada de Fourier se pudo visualizar, ya que sin ella las posiciones de donde se encontraba una mayor difracción
+de electrones dentro de la imagen de la nanopartícula.
 \section{Código}
 \begin{itemize}
     \item \href{https://github.com/giovannilopez9808/Notas_Agosto_2020/blob/master/AMC/Reto2/FFT.py}{FFT.py}
