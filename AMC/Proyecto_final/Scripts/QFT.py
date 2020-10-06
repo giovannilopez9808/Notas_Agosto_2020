@@ -17,24 +17,18 @@ def apply_iqft(given_circuit, measurement_qubits, n,theta):
         given_circuit.h(j)    
     
 def qpe_program(n, theta):
-    
     # Create a quantum circuit on n+1 qubits (n measurement, 1 target)
     qc = QuantumCircuit(n+1, n)
-    
     # Initialize the qubits
     initialize_qubits(qc, range(n), n)
-    
     # Apply the controlled unitary operators in sequence
     for x in range(n):
         exponent = 2**(n-x)
-        unitary_operator_exponent(qc, x, n, theta, exponent)
-        
+        unitary_operator_exponent(qc, x, n, theta, exponent)   
     # Apply the inverse quantum Fourier transform
     apply_iqft(qc, range(n), n,theta)
-    
     # Measure all qubits
     qc.measure(range(n), range(n))
-  
     return qc
     
 import numpy as np
@@ -46,10 +40,13 @@ import matplotlib.pyplot as plt
 import operator
 n = 5; theta = 0.5;pi = np.pi
 mycircuit = qpe_program(n, theta)
-mycircuit.draw(output="text")
+print(mycircuit.draw(output="text"))
 simulator = Aer.get_backend('qasm_simulator')
 counts = execute(mycircuit, backend=simulator, shots=1000).result().get_counts(mycircuit)
 plot_histogram(counts)
+plt.xticks(fontsize=12)
+plt.subplots_adjust()
+
 plt.show()
 highest_probability_outcome = max(counts.items(), key=operator.itemgetter(1))[0][::-1]
 measured_theta = int(highest_probability_outcome, 2)/2**n

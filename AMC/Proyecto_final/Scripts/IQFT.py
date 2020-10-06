@@ -33,7 +33,7 @@ def modular_exponentiation(given_circuit, n, m, a):
     
 def apply_iqft(given_circuit, measurement_qubits):
     n=np.size(measurement_qubits)
-    given_circuit.append(QFT(n,do_swaps=False,inverse=True,name="iqft"),range(n))
+    given_circuit.append(QFT( len(measurement_qubits), do_swaps=False).inverse(), measurement_qubits)
 
 def shor_program(n, m, a):
     # set up quantum circuit
@@ -43,7 +43,7 @@ def shor_program(n, m, a):
     shor.barrier()
     # apply modular exponentiation
     modular_exponentiation(shor, n, m, a)
-    shor.draw(output="text")
+    print(shor.draw(output="text"))
     shor.barrier()
     # apply inverse QFT
     apply_iqft(shor, range(n))
@@ -55,14 +55,16 @@ from qiskit import QuantumCircuit
 from qiskit.circuit.library import QFT
 from qiskit.visualization import plot_histogram
 from qiskit import Aer, execute
+import matplotlib.pyplot as plt
 import numpy as np
 from math import gcd
-n = 4; m = 4; a = 7
+n = 4; m = 4; a = 13
 mycircuit = shor_program(n, m, a)
-mycircuit.draw(output='text')
+print(mycircuit.draw(output='text'))
 simulator = Aer.get_backend('qasm_simulator')
 counts = execute(mycircuit, backend=simulator, shots=1000).result().get_counts(mycircuit)
 plot_histogram(counts)
+plt.show()
 for measured_value in counts:
     print(f"Measured {int(measured_value[::-1], 2)}")
 for measured_value in counts:
