@@ -32,13 +32,13 @@
       real (kind=8) :: xi,yi
 !<------------------Información------------------>
       !Tcons - Temperatura constante de alrededor
-      real (kind=8) :: Tcons,tau,temp_walk
+      real (kind=8) :: tau,sigma
 
       character:: path*11,version*8
       path="../Results/"
 !<-------------------------------Lectura del input------------------>
       open(11,file='../Input/rho.txt',status='unknown')
-      read(11,*) rho,Tcons,version
+      read(11,*) rho,version
 
       open(0,file=path//'0_salida'//version//'.dat',status='unknown')
       open(2,file=path//'2_velo'//version//'.dat',status='unknown')
@@ -51,8 +51,8 @@
       open(8,file=path//'8_T_U_P'//version//'.dat',status='unknown')
       open(12,file=path//"temp"//version//".dat",status="unknown")
 
-      npasos=20000
-      iprint = npasos/1000
+      npasos=2000
+      iprint = npasos/100
       dum = 17367d0
       pi = 4d0 * datan(1d0)
 !<------------------------- Temperatura inicial-------------------------------->
@@ -96,6 +96,13 @@
           fx(i) = 0
           fy(i) = 0
         end do
+!<------------------Movimiento----------------------->
+        do i = 1, n
+          x(i) = x(i) + dt*vx(i) + dt**2*fx(i)/2
+          y(i) = y(i) + dt*vy(i) + dt**2*fy(i)/2
+          vx(i) = vx(i) + dt*fx(i)/2
+          vy(i) = vy(i) + dt*fy(i)/2
+        end do
 !<------------Inicializacion de la energia potencial--------------->
         epot=0
         do i = 1, n-1
@@ -106,52 +113,43 @@
             yy = yi-y(j)
             call mic(xx,yy,aL,aL)
             r2 = xx**2+yy**2
-  !<---------------Potencial de interacción---------------->
+!<---------------Potencial de interacción---------------->
             if (r2 .lt. cut2) then
               r1 = 1/r2
               r6 = r1**3
               pot=4*r6*(r6-1)
+              rr = 48*r6*r1*(r6-0.5d0)
               u = u+pot
               epot=epot+pot
-              rr = 48*r6*r1*(r6-0.5d0)
-
               fxx = rr*xx
               fyy = rr*yy
-
               ap = ap+rr*r2
-
-              fx(i) = fx(i)+fxx
-              fy(i) = fy(i)+fyy
-              fx(j) = fx(j)-fxx
-              fy(j) = fy(j)-fyy
+              fx(i) = fx(i)+fxx/r2
+              fy(i) = fy(i)+fyy/r2
+              fx(j) = fx(j)-fxx/r2
+              fy(j) = fy(j)-fyy/r2
             end if
           end do
         end do
 !<----------------Calculo de la energía cinetica------------------->
         ekin=0
         do i=1,n
-          vxi = vx(i)+dt*fx(i)
-          vyi = vy(i)+dt*fy(i)
-          vxx = 0.5d0*(vxi+vx(i))
-          vyy = 0.5d0*(vyi+vy(i))
-          en = vxx**2+vyy**2
-          ekin = ekin+en
-          ec = ec+en
-!<----------------------Isokinetic Termostato--------------------------->
-          if (mod(k,100).eq.0) then
-            tau=ec/(3*n*k)
-            vx(i)=(Tcons/tau)**(0.5)*vxi
-            vy(i)=(Tcons/tau)**(0.5)*vyi
-          else
-            vx(i)=vxi
-            vy(i)=vyi
-          end if
-!<-----------------Movimiento infinitedecimal------------------------>
-          x(i) = x(i)+dt*vx(i)
-          y(i) = y(i)+dt*vy(i)
+          vx(i)=vx(i)+dt*fx(i)/2
+          vy(i)=vy(i)+dt*fy(i)/2
+          en=vx(i)**2+vy(i)**2
+          ekin=ekin+en
+          ec=ec+en
         end do
-        temp_walk =ec/(3*n*k)
-        write(12,*) k, temp_walk
+        tau=ec/(3*n*k)
+        write(12,*) k,tau
+    !FALRA DEFINIR TEMP,NU,iseed
+        sigma=sqrt(temp)
+        do i=1,n
+          if (RANF(Iseed).lt.nu*dt) then
+            vx(i)=GASDEV(Sigma, Iseed)
+            vy(i)=GASDEV(Sigma, Iseed)
+          end if
+        end do
         if(mod(k,iprint).EQ.0) then
             write(3,*)k
             write(2,*)k
@@ -307,3 +305,67 @@
         end do
        end do
       end subroutine
+!<--------------------Normal distribution----------------------------->
+      DOUBLE PRECISION FUNCTION GASDEV(Sigma, Iseed)
+      IMPLICIT NONE
+      DOUBLE PRECISION r, v1, v2, fac, gset, RANF
+      DOUBLE PRECISION Sigma
+      INTEGER iset, Iseed 
+      SAVE gset, iset
+      DATA iset/0/
+ 100  IF (iset.EQ.0) THEN
+         v1 = 2.D0*RANF(Iseed) - 1.D0
+         v2 = 2.D0*RANF(Iseed) - 1.D0
+         r = v1**2 + v2**2
+         IF (r.GE.1) GOTO 100
+         fac = SQRT(-2.D0*LOG(r)/r)
+         gset = v1*fac
+         GASDEV = v2*fac
+         iset = 1
+      ELSE
+         GASDEV = gset
+         iset = 0
+      END IF
+      GASDEV = GASDEV*Sigma
+      RETURN
+c-------------------------------------------------------c
+      END
+**==ranf.spg  processed by SPAG 4.52O  at 18:54 on 27 Mar 1996
+      FUNCTION RANF(Idum)
+      IMPLICIT NONE
+      INTEGER Idum
+      DOUBLE PRECISION RANF, RCARRY
+      RANF = RCARRY()
+      RETURN
+C ----------------------------------------------------C
+      END
+      FUNCTION RCARRY()
+C----------------------------------------------------------------------C
+C       Random number generator from Marsaglia.
+C----------------------------------------------------------------------C
+      IMPLICIT NONE
+      DOUBLE PRECISION CARRY, RCARRY, SEED, TWOm24, TWOp24, uni
+      INTEGER I24, ISEED, J24
+      PARAMETER (TWOp24=16777216.D+0, TWOm24=1.D+0/TWOp24)
+      COMMON /RANDOM/ SEED(24), CARRY, I24, J24, ISEED
+c
+c       F. James Comp. Phys. Comm. 60, 329  (1990)
+c       algorithm by G. Marsaglia and A. Zaman
+c       base b = 2**24  lags r=24 and s=10
+c
+      uni = SEED(I24) - SEED(J24) - CARRY
+      IF (uni.LT.0.D+0) THEN
+          uni = uni + 1.D+0
+          CARRY = TWOm24
+      ELSE
+          CARRY = 0.D+0
+      END IF
+      SEED(I24) = uni
+      I24 = I24 - 1
+      IF (I24.EQ.0) I24 = 24
+      J24 = J24 - 1
+      IF (J24.EQ.0) J24 = 24
+      RCARRY = uni
+  
+      RETURN
+      END
