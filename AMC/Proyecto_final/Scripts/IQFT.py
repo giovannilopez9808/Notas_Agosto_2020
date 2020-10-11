@@ -58,9 +58,8 @@ from qiskit import Aer, execute
 import matplotlib.pyplot as plt
 import numpy as np
 from math import gcd
-n = 4; m = 4; a = 13
+n = 4; m = 4; a = 8
 mycircuit = shor_program(n, m, a)
-print(mycircuit.draw(output='text'))
 simulator = Aer.get_backend('qasm_simulator')
 counts = execute(mycircuit, backend=simulator, shots=1000).result().get_counts(mycircuit)
 plot_histogram(counts)
