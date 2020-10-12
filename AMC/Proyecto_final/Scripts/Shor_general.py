@@ -1,19 +1,17 @@
 import Functions as oq
 import math as m
 import random
-N = 25
+N = 55
 Q = m.ceil( m.log(N,2) )
 L = 2**Q
-a = int( 2+ (N-3)*random.random() )
+a = int(2+ (N-3)*random.random())
 r = oq.r_Finder(a,N)
 #=================================================
 print('N = ',N,'Q = ',Q,'a = ',a,'Searching For: r =',r)
 if( oq.Euclids_Alg(a,N) > 1 ):
-    print('\na happens to have a factor in common with N: ',oq.Euclids_Alg(a,N))
+    print('a happens to have a factor in common with N: ',oq.Euclids_Alg(a,N))
 else:
     from qiskit import ClassicalRegister, QuantumRegister, QuantumCircuit, Aer, execute
-    import matplotlib
-    import matplotlib.pyplot as plt
     import numpy as np
     q1 = QuantumRegister(Q,name='q1')
     q2 = QuantumRegister(Q,name='q2')
@@ -31,22 +29,22 @@ else:
     M = oq.Measurement(qc,shots=1,print_M=False,return_M=True)
     S = int(oq.From_Binary(list(list(M.keys())[0][0:Q]),'R'))
     #----------------------------------------------
-    print('\nSystem One Measurement:|'+list(M.keys())[0][0:Q]+'>')
-    print('\nS = ',S,'L = ',L)
+    print('System One Measurement:|'+list(M.keys())[0][0:Q]+'>')
+    print('S = ',S,'L = ',L)
     if( S!= 0):
         r = oq.Evaluate_S(S,L,a,N)
         if( r!=0 ):
-            print('\nFound the period r = ',r)
+            print('Found the period r = ',r)
             if( ((r)%2 == 0) and ( a**(int(r/2))%N != int(N-1) )):
                 f1 = oq.Euclids_Alg(int(a**(int(r/2))+1),N)
                 f2 = oq.Euclids_Alg(int(a**(int(r/2))-1),N)
-                print('\nFactors of N: ',int(f1),' ',int(f2))
+                print('Factors of N: ',int(f1),' ',int(f2))
             else:
                 if( (r)%2 != 0 ):
-                    print('\nr does not meet criteria for factoring N: r is not even')
+                    print('r does not meet criteria for factoring N: r is not even')
                 else:   
-                    print('\nr does not meet criteria for factoring N: a^(r/2) (mod N) = N-1')
+                    print('r does not meet criteria for factoring N: a^(r/2) (mod N) = N-1')
         else:
-            print('\nCould not find the period using S, start over')
+            print('Could not find the period using S, start over')
     else:
-        print('\nMeasured S = 0, start over')
+        print('Measured S = 0, start over')
