@@ -13,3 +13,4 @@
 *.DS_Store
 *.0
 *.6
+*_pycache__/
