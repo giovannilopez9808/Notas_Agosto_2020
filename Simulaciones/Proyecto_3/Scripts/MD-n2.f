@@ -146,8 +146,8 @@
         sigma=sqrt(temp)
         do i=1,n
           if (RANF(Iseed).lt.nu*dt) then
-            vx(i)=GASDEV(Sigma, Iseed)
-            vy(i)=GASDEV(Sigma, Iseed)
+            vx(i)=GASDEV(Sigma, dum)
+            vy(i)=GASDEV(Sigma, dum)
           end if
         end do
         if(mod(k,iprint).EQ.0) then
@@ -305,67 +305,13 @@
         end do
        end do
       end subroutine
-!<--------------------Normal distribution----------------------------->
-      DOUBLE PRECISION FUNCTION GASDEV(Sigma, Iseed)
-      IMPLICIT NONE
-      DOUBLE PRECISION r, v1, v2, fac, gset, RANF
-      DOUBLE PRECISION Sigma
-      INTEGER iset, Iseed 
-      SAVE gset, iset
-      DATA iset/0/
- 100  IF (iset.EQ.0) THEN
-         v1 = 2.D0*RANF(Iseed) - 1.D0
-         v2 = 2.D0*RANF(Iseed) - 1.D0
-         r = v1**2 + v2**2
-         IF (r.GE.1) GOTO 100
-         fac = SQRT(-2.D0*LOG(r)/r)
-         gset = v1*fac
-         GASDEV = v2*fac
-         iset = 1
-      ELSE
-         GASDEV = gset
-         iset = 0
-      END IF
-      GASDEV = GASDEV*Sigma
-      RETURN
-c-------------------------------------------------------c
-      END
-**==ranf.spg  processed by SPAG 4.52O  at 18:54 on 27 Mar 1996
-      FUNCTION RANF(Idum)
-      IMPLICIT NONE
-      INTEGER Idum
-      DOUBLE PRECISION RANF, RCARRY
-      RANF = RCARRY()
-      RETURN
-C ----------------------------------------------------C
-      END
-      FUNCTION RCARRY()
-C----------------------------------------------------------------------C
-C       Random number generator from Marsaglia.
-C----------------------------------------------------------------------C
-      IMPLICIT NONE
-      DOUBLE PRECISION CARRY, RCARRY, SEED, TWOm24, TWOp24, uni
-      INTEGER I24, ISEED, J24
-      PARAMETER (TWOp24=16777216.D+0, TWOm24=1.D+0/TWOp24)
-      COMMON /RANDOM/ SEED(24), CARRY, I24, J24, ISEED
-c
-c       F. James Comp. Phys. Comm. 60, 329  (1990)
-c       algorithm by G. Marsaglia and A. Zaman
-c       base b = 2**24  lags r=24 and s=10
-c
-      uni = SEED(I24) - SEED(J24) - CARRY
-      IF (uni.LT.0.D+0) THEN
-          uni = uni + 1.D+0
-          CARRY = TWOm24
-      ELSE
-          CARRY = 0.D+0
-      END IF
-      SEED(I24) = uni
-      I24 = I24 - 1
-      IF (I24.EQ.0) I24 = 24
-      J24 = J24 - 1
-      IF (J24.EQ.0) J24 = 24
-      RCARRY = uni
-  
-      RETURN
-      END
+      
+      subroutine gauss(temp,sd)
+        INTEGER, PARAMETER:: n=2
+        REAL*8 :: array(n), pi, temp, mean = 0, sd
+        pi = 4.0*ATAN(1.0)
+        CALL RANDOM_NUMBER(array) ! Uniform distribution
+      ! Now convert to normal distributio
+        temp = sd * SQRT(-2.0*LOG(array(1))) * 
+     & (COS(2*pi*array(2))+SIN(2*pi*array(2) ))+ mean
+      end subroutine 
