@@ -1,11 +1,7 @@
-from qiskit import ClassicalRegister, QuantumRegister, QuantumCircuit, Aer, execute
-import Our_Qiskit_Functions as oq
-import numpy as np
+import Functions as oq
 import math as m
 import random
-import matplotlib
-import matplotlib.pyplot as plt
-N = 55
+N = 25
 Q = m.ceil( m.log(N,2) )
 L = 2**Q
 a = int( 2+ (N-3)*random.random() )
@@ -15,6 +11,10 @@ print('N = ',N,'Q = ',Q,'a = ',a,'Searching For: r =',r)
 if( oq.Euclids_Alg(a,N) > 1 ):
     print('\na happens to have a factor in common with N: ',oq.Euclids_Alg(a,N))
 else:
+    from qiskit import ClassicalRegister, QuantumRegister, QuantumCircuit, Aer, execute
+    import matplotlib
+    import matplotlib.pyplot as plt
+    import numpy as np
     q1 = QuantumRegister(Q,name='q1')
     q2 = QuantumRegister(Q,name='q2')
     an = QuantumRegister(Q-1,name='a')
