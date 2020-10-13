@@ -1,6 +1,6 @@
 import numpy as np
 import os
-rho_values=np.round(np.array([0.3]),2)
+rho_values=np.round(np.arange(0.1,1,0.1),2)
 os.system("gfortran MD-n2.f -o MD-n2.out")
 for rho in rho_values:
     file=open("../Input/rho.txt","w")

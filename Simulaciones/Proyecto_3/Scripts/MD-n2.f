@@ -32,9 +32,9 @@
       real (kind=8) :: xi,yi
 !<------------------Información------------------>
       !Tcons - Temperatura constante de alrededor
-      real (kind=8) :: tau,sigma
+      real (kind=8) :: tau,sigma,rand,randc
 
-      character:: path*11,version*8
+      character:: path*11,version*4
       path="../Results/"
 !<-------------------------------Lectura del input------------------>
       open(11,file='../Input/rho.txt',status='unknown')
@@ -51,12 +51,14 @@
       open(8,file=path//'8_T_U_P'//version//'.dat',status='unknown')
       open(12,file=path//"temp"//version//".dat",status="unknown")
 
-      npasos=2000
-      iprint = npasos/100
-      dum = 17367d0
-      pi = 4d0 * datan(1d0)
+      npasos=20000
+      iprint = npasos/1000
+      dum=17367d0
+      pi=4d0*datan(1d0)
 !<------------------------- Temperatura inicial-------------------------------->
       T=0.6
+!<-------------------------------Numero aleatorio constante---------------------->
+      call RANDOM_NUMBER(randc)
 !<------------------Definicion de las coordenadas------------------>
       call fcc(n, rho, aL, aL)
       do i=1,n
@@ -72,6 +74,7 @@
       ngr = 1000
       hgr = aL2/ngr
       dt = 0.01d0
+      randc=randc*dt
       write(0,*) 'T-ini=',T
       write(0,*) 'N-step=',npasos
       write(0,*) 'Dens=',rho
@@ -95,13 +98,6 @@
         do i = 1, n
           fx(i) = 0
           fy(i) = 0
-        end do
-!<------------------Movimiento----------------------->
-        do i = 1, n
-          x(i) = x(i) + dt*vx(i) + dt**2*fx(i)/2
-          y(i) = y(i) + dt*vy(i) + dt**2*fy(i)/2
-          vx(i) = vx(i) + dt*fx(i)/2
-          vy(i) = vy(i) + dt*fy(i)/2
         end do
 !<------------Inicializacion de la energia potencial--------------->
         epot=0
@@ -134,22 +130,27 @@
 !<----------------Calculo de la energía cinetica------------------->
         ekin=0
         do i=1,n
-          vx(i)=vx(i)+dt*fx(i)/2
-          vy(i)=vy(i)+dt*fy(i)/2
-          en=vx(i)**2+vy(i)**2
+          vxi=vx(i)+dt*fx(i)
+          vyi=vy(i)+dt*fy(i)
+          vxx = 0.5d0*(vxi+vx(i))
+          vyy = 0.5d0*(vyi+vy(i))
+          en=vxx**2+vyy**2
           ekin=ekin+en
           ec=ec+en
         end do
-        tau=ec/(3*n*k)
-        write(12,*) k,tau
-    !FALRA DEFINIR TEMP,NU,iseed
-        sigma=sqrt(temp)
         do i=1,n
-          if (RANF(Iseed).lt.nu*dt) then
-            vx(i)=GASDEV(Sigma, dum)
-            vy(i)=GASDEV(Sigma, dum)
+          call RANDOM_NUMBER(rand)
+          if (rand.lt.randc) then
+            call gauss(vxi)
+            call gauss(vyi)
           end if
+          vx(i)=vxi
+          vy(i)=vyi
+          x(i) = x(i) + dt*vx(i) + dt**2*fx(i)/2
+          y(i) = y(i) + dt*vy(i) + dt**2*fy(i)/2
         end do
+        tau=ec/(2*n*k)
+        write(12,*) k,tau
         if(mod(k,iprint).EQ.0) then
             write(3,*)k
             write(2,*)k
@@ -260,27 +261,29 @@
 ! **********************************************************************
 !      Periodic boundary conditions
 ! **********************************************************************
-       subroutine pbc(rx,ry,xl,yl)
-       use coor
-       implicit none
-       real (kind=8) :: rx,ry
-       real (kind=8) :: xl,yl
-       if (abs(rx).gt.xl) rx=rx-xl*dnint(rx/xl)
-       if (abs(ry).gt.yl) ry=ry-yl*dnint(ry/yl)
-        end subroutine
+      subroutine pbc(rx,ry,xl,yl)
+        use coor
+        implicit none
+        real (kind=8) :: rx,ry
+        real (kind=8) :: xl,yl
+ 
+        rx=rx-xl*dnint(rx/xl)
+        ry=ry-yl*dnint(ry/yl)
+ 
+         end subroutine
         
 ! **********************************************************************
 !      Minimum image convention
 ! **********************************************************************
-       subroutine mic(xx,yy,xl,yl)
-       use coor
-       implicit none
-       real (kind=8) :: xx,yy
-       real (kind=8) :: xl,yl
-
-         xx=xx-xl*dnint(xx/xl)
-         yy=yy-yl*dnint(yy/yl)
-       end subroutine
+         subroutine mic(xx,yy,xl,yl)
+          use coor
+          implicit none
+          real (kind=8) :: xx,yy
+          real (kind=8) :: xl,yl
+   
+            xx=xx-xl*dnint(xx/xl)
+            yy=yy-yl*dnint(yy/yl)
+          end subroutine
        
 ! **********************************************************************
 ! Histogram for g(r)
@@ -295,7 +298,7 @@
         do j = i + 1,m
          xx = x(i) - x(j)
          yy = y(i) - y(j)
-       call mic (xx,yy,xl,yl)
+         call mic (xx,yy,xl,yl)
          r = xx*xx + yy*yy
          rr = dsqrt(r)
          if (rr .lt. xl/2) then
@@ -305,13 +308,14 @@
         end do
        end do
       end subroutine
-      
-      subroutine gauss(temp,sd)
-        INTEGER, PARAMETER:: n=2
-        REAL*8 :: array(n), pi, temp, mean = 0, sd
-        pi = 4.0*ATAN(1.0)
-        CALL RANDOM_NUMBER(array) ! Uniform distribution
-      ! Now convert to normal distributio
-        temp = sd * SQRT(-2.0*LOG(array(1))) * 
-     & (COS(2*pi*array(2))+SIN(2*pi*array(2) ))+ mean
+
+      subroutine gauss(temp)
+        integer, parameter:: n=2
+        real*8 :: array(n), pi, temp, mean = 0, sd=1
+        pi = 4.0*atan(1.0)
+!<-----------Distrobucion uniforme------------------->
+        call RANDOM_NUMBER(array)
+!<-------------Distribucion gaussiana----------------->
+        temp=sd*sqrt(-2.0*log(array(1)))* 
+     & (cos(2*pi*array(2))+sin(2*pi*array(2)))+mean
       end subroutine 
