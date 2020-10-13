@@ -1,0 +1,30 @@
+% 3) Implementacion de metodos numericos 
+% 4) Categorizacion de eficiencia de algoritmos
+% 5) Algoritmos de eficiencia
+% 6) Surgimiento de la computación cuantica por parte de IBM y Qiskit
+En el área de la matemáticas, la factorización es una técnica que consiste en la descomposición en factores de una expresión algebraica
+en forma de un producto. El teorema fundamental de la aritmética cubre la factorización de números enteros, este teorema pertenece a la teoría
+de números. El teorema de factorización afirma lo siguiente:
+\begin{center}
+    \textit{Cada entero positivo tiene una única descomposición en números primos.}
+\end{center}
+El teorema fue demostrado por primera vez por Euclides, aunque la primer demostración completa apareció en las \textit{Disquisitiones Arithmeticae}
+de Carl Friedrich Gauss.\\
+\begin{center}
+AÑADIR HISTORIA DE LOS METODOS MATEMATICOS
+\end{center}
+La mayor parte de los algoritmos de factorización elementales son de proposito general, es decir, permiten descomponer cualquier
+número introducido, la diferencia entre algortimos es el tiempo que se toman para encontrar la factorización del número dado. El problema de 
+factorizar enteros de tiempo polinómico no ha sido resulto en computación clásica. Esto puede ser de gran ayuda al avance en el ambito de la 
+criptografía, ya que muchos sistemas criptográficos dependen de la imposibilidad de ser resueltos en un tiempo corto.\\
+La complejidad de este problema se encuentra en el núcleo de varios sistemas criptográficos importantes. Un algoritmo veloz para la factorización
+de enteros significaría que el algoritmo de clave pública RSA es inseguro. Si un número grande, de $b$ bits es el producto de dos primos
+de aproximadamente el mismo tamaño, no existe algoritmo conocido capaz de factorizarlo en tiempo polinómico. Esto significa que ningún algoritmo
+conocido puede factorizarlo en tiempo O$(b^K)$, para cualquier constante $k$. Aunque, existen algoritmos que son más rápidos que O$(a^b)$ para cualquier a 
+mayor que 1. En otras palabras, los mejores algoritmos son súper-polinomiales, pero sub-exponenciales. En particular, el mejor tiempo
+asintótico de ejecución lo contiene el algoritmo de \textit{criba general del cuerpo de números (CGCN)}, que para un número n es:
+\begin{equation}
+    O\left(exp\left(\left(\frac{64}{9}b\right)^\frac{1}{3} \left(log b\right)^\frac{2}{3} \right) \right).
+    \label{eq:O(clasico)}
+\end{equation}
+Para una computadora ordinaria, la CGCN es el mejor algoritmo conocido para números grandes. 
