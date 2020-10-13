@@ -9,7 +9,7 @@
 *.toc
 *..bbl
 *.blg
-*.synctex(bysy)
+*.synctex(busy)
 *.DS_Store
 *.0
 *.6
