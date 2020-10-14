@@ -30,20 +30,19 @@ reescribiendo las ecuaciones \ref{Potencial de Lennard-Jones} y \ref{eq:fuerzate
 \end{equation}
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.45]{../Graphics/Potencial.png}
+    \includegraphics[scale=0.42]{../Graphics/Potencial.png}
     \caption{Potencial y fuerza de Lennard-Jones}
     \label{fig:pot-len-jones}
 \end{figure}
 \begin{table*}
     \centering
-    \begin{tabular}{ccp{1cm}p{0.5cm}cccc}
+    \begin{tabular}{cp{1cm}p{0.5cm}ccccc}
         \hline
-        Dimensión & Número de átomos & $\epsilon$ & $\sigma $ & $\rho $ & Número de pasos & T\textsubscript{0} & T\textsubscript{IT}\\ \hline
-        \multirow{2}{*}{2} &\multirow{2}{*}{784} &\multirow{2}{*}{1} &\multirow{2}{*}{1}  &\multirow{2}{*}{Variable$^{*}$}  &\multirow{2}{*}{$2x10^{3}$} & \multirow{2}{*}{0.6} & \multirow{2}{*}{Variable}\\
-         & & & & & & \\ \hline
+        Número de átomos & $\epsilon_{LJ}$ & $\sigma_{LJ} $ & $\rho $ & Número de pasos & T\textsubscript{0} & $\mu$ &$\sigma^2$\\ \hline
+        \multirow{2}{*}{784} &\multirow{2}{*}{1} &\multirow{2}{*}{1}  &\multirow{2}{*}{Variable$^{*}$}  &\multirow{2}{*}{$2x10^{3}$} & \multirow{2}{*}{0.6} & \multirow{2}{*}{0}  & \multirow{2}{*}{1}\\
+          & & & & & \\ \hline
     \end{tabular}
-    \caption{Parámetros para las diferentes simulaciones, los valores tomados para las densidades fueron: 0.3, 0.6, 0.8; y
-     para la temperatura del termostato isocinético (T\textsubscript{IT}) fueron 0.3, 0.5, 0.7, 0.9 y 1.1.}
+    \caption{Parámetros para las diferentes simulaciones, los valores tomados para las densidades fueron: 0.4, 0.5, 0.6, 0.7}
     \label{table:parametros}
 \end{table*}
 Teniendo ya la dinámica se este sistema podemos ir monitoreando la energía cinética de la siguiente manera:
@@ -71,6 +70,8 @@ La cual se asemeja a una distribución normal, la implementación de esta funci�
 donde la variable $\chi_i$ es un número aleatorio de una distribución uniforme. Comprobando que esta función nos regresa una distribución normal
 se probo con 100,000 valores y se obtuvó el siguiente histograma:
 \begin{figure}[H]
+    \centering
     \includegraphics[scale=0.4]{../Graphics/norm.png}
     \caption{Distribución de valores que arroja la función \ref{eq:gauss} junto con su fit a una distribución normal.}
+    \label{fig:gauss}
 \end{figure}
