@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Berman2000}
 G.~P. Berman, G.~D. Doolen, G.~V. L{\'{o}}pez, and V.~I. Tsifrinovich.
@@ -6,6 +6,11 @@ G.~P. Berman, G.~D. Doolen, G.~V. L{\'{o}}pez, and V.~I. Tsifrinovich.
   algorithm}.
 \newblock {\em Physical Review A - Atomic, Molecular, and Optical Physics},
   61(4):7, 2000.
+
+\bibitem{Cohen1998}
+Luanne~S. Cohen and Tanya Wendling.
+\newblock {T{\'{e}}cnicas de dise{\~{n}}o}.
+\newblock {\em T{\'{e}}cnicas de dise{\~{n}}o}, pages 15--18, 1998.
 
 \bibitem{Gerjuoy2005}
 Edward Gerjuoy.

@@ -5,14 +5,48 @@
 En el área de la matemáticas, la factorización es una técnica que consiste en la descomposición en factores de una expresión algebraica
 en forma de un producto. El teorema fundamental de la aritmética cubre la factorización de números enteros, este teorema pertenece a la teoría
 de números. El teorema de factorización afirma lo siguiente:
-\begin{center}
-    \textit{Cada entero positivo tiene una única descomposición en números primos.}
-\end{center}
+\begin{teor}
+    Cada entero positivo tiene una única descomposición en números primos.
+    \label{teo:enterosprimos}
+\end{teor}
 El teorema fue demostrado por primera vez por Euclides, aunque la primer demostración completa apareció en las \textit{Disquisitiones Arithmeticae}
 de Carl Friedrich Gauss.\\
-\begin{center}
-AÑADIR HISTORIA DE LOS METODOS MATEMATICOS
-\end{center}
+El análisis numérico es el estudio de algoritmos, el cual consiste en un conjunto de instrucciones o reglas ordenadas y finitas que permiten
+realizar una actividad mediante pasos sucesivos con el proposito de resolver problemas matemáticos dentro de la matemática continua, esto da 
+una aproximación numérica. Hay problemas sencillos de calcular como una raiz cuadrada, no tienen soluciones exactas o son costosas en tiempo
+para obtenerlas.\\
+Para obtener una aproximación útil, se debe conocer la presición de los resultados y cuantos recursos se necesita para lograrlo, estos conceptos
+cuantificados son conocidos como \textit{presición, convergencia, estabilidad y complejidad.}\\\\
+La complejidad algorítmica, informalmente, es una medida que permite a los programadores conocer la cantidad de recursos que necesita un algoritmo para resolver un problema en función de su tamaño. El objetivo es
+comparar la eficiencia de algoritmos a la hora de resolver un problema conocido\cite{Cohen1998}. Para realizar una clasificación en la complejidad de un algoritmo
+se usa normalmente la notación asintótica, la cual es que por el número de operaciones básicas ejecutadas por un algirtmo se obtiene una función. Cada
+una se ve denotada por $T(N)$, donde $N$ es el número de elementos numéricos dentro del algoritmo. Para valores pequeños de N, las constantes 
+que acompañan a los términos de la función $T$ pueden influir de manera significativa al coste tota y con ello obtener conclusiones erroneas respecto
+a la eficiencia del algoritmo. En cambio este tipo de análisis se realiza con números grandes de $N$. Deendiendo del análisis que se realice, podemos
+encontrar diferentes tipos de notaciones. La notación más usada es la llamada O grande y se denota por $O$.
+\begin{defi}
+Se dice que un algoritmo F tiene una complejidad $O(G(N))$ si existen dos constantes $C$ y $N_0$ para las que se cumpla $|F(N)|<C\cdot G(N)$ para todo
+$N>N_0$
+\end{defi}
+En otras palabras, que el algoritmo F tiene una complejidad $O(G)$ si el número de operaciones necesarias es constante para un número grande de N. Un ejemplo
+de esta clasificación puede observarse en la siguiente tabla:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lll}
+        \hline
+        Notación & Nombre & Ejemplo de algoritmo \\
+        \hline
+        $O(1)$ & Constante & Acceso a un elemento de un vector\\ 
+        $O(log N)$ & Logarítmica& Búsqueda binaria\\
+        $O(N)$ & Lineal & Búsqueda secuencial\\
+        $O(N log N)$ & Lineal-Logarítmica& Algoritmo de ordenamiento \textit{quicksort}\\
+        $O(N^2)$ &Cuadrática & Algoritmo de ordenamiento simple\\
+        $O(N^3)$ &Cúbica & Multiplicación de matrices\\
+        $O(2^N)$ &Exponencial & Partición de conjuntos\\ \hline
+    \end{tabular}
+    \caption{Ejemplos de algortimos numéricos con su clasificación $O$ de complejidad}
+    \label{tabla:notacion-O}
+\end{table}
 La mayor parte de los algoritmos de factorización elementales son de proposito general, es decir, permiten descomponer cualquier
 número introducido, la diferencia entre algortimos es el tiempo que se toman para encontrar la factorización del número dado. El problema de 
 factorizar enteros de tiempo polinómico no ha sido resulto en computación clásica. Esto puede ser de gran ayuda al avance en el ambito de la 
