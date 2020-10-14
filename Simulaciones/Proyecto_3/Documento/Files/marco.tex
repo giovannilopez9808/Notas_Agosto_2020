@@ -56,22 +56,21 @@ por lo tanto, la energía total para un tiempo t será:
     \label{eq:e-tot}
     E_t=T_t+U_t
 \end{equation}
-El control de temperatura isocinético es un método el cual las velocidades son escalonadas por un parámetros $\lambda$ a intervalos regulares,
-el objetivo de esto es obtener una simulación estable con energía cinética media adecuada a la establecida con el termostato.\\
-Este parámetro $\lambda$ es igual a lo siguiente:
+El termostato de Andersen introduce un elemento estocastico a la temperatura teniendo colisiones aleatorias en las moleculas dentro de un 
+entorno imaginario con una temperatura dada. En la aproximación para una partícula, se toma su velocidad y es reasignada por un valor aleatorio
+de la distribución Maxwell-Boltzmann para una temperatura dada:
 \begin{equation}
-    \lambda = \sqrt{\frac{T_0}{\tau}}
-    \label{eq:lambda}
+    \wp(v_{qi})= \left(\frac{m_i}{2\pi k_\beta T} \right)^\frac{1}{2} exp\left(- \frac{m_i v_{qi}^2}{2k_\beta T} \right)
 \end{equation}
-donde $\tau$ esta definido como:
+La cual se asemeja a una distribución normal, la implementación de esta función dentro de la simulación se realizó con la siguiente ecuación:
 \begin{equation}
-    \tau = \left\langle T \right\rangle
+    \changefontsizes{8pt}
+    {v}'_i= \sigma^2 \sqrt{-2log(\chi_1)} \left(cos(2\pi \chi_2) + sin(2\pi \chi_2) \right) + \mu 
+    \label{eq:gauss}
 \end{equation}
-Y la manera que actuará el termostato a lo largo de la simulación es el siguiente:
-\begin{equation}
-    {p}'_i(t+\Delta t) = \lambda p_i(t+\Delta t)
-\end{equation}
-en nuestro caso, como la masa de cada atómo es constante, la ecuación se reescribe como lo siguiente:
-\begin{equation*}
-    {v}'_i(t+ \Delta t) = \lambda v_i(t+\Delta t)
-\end{equation*}
+donde la variable $\chi_i$ es un número aleatorio de una distribución uniforme. Comprobando que esta función nos regresa una distribución normal
+se probo con 100,000 valores y se obtuvó el siguiente histograma:
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{../Graphics/norm.png}
+    \caption{Distribución de valores que arroja la función \ref{eq:gauss} junto con su fit a una distribución normal.}
+\end{figure}
