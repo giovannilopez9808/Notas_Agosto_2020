@@ -1,11 +1,22 @@
 \begin{thebibliography}{10}
 
+\bibitem{Agrios2003}
+Agrios.
+\newblock {\em {Introducci{\'{o}}n a La Introducci{\'{o}}n a La Teoría de
+  Números.}}, volume~3.
+\newblock 2003.
+
 \bibitem{Berman2000}
 G.~P. Berman, G.~D. Doolen, G.~V. L{\'{o}}pez, and V.~I. Tsifrinovich.
 \newblock {Nonresonant effects in the implementation of the quantum Shor
   algorithm}.
 \newblock {\em Physical Review A - Atomic, Molecular, and Optical Physics},
   61(4):7, 2000.
+
+\bibitem{Bonillo2013}
+Vicente~Moret Bonillo.
+\newblock {Principios Fundamentales De Computaci{\'{o}}n Cu{\'{a}}ntica}.
+\newblock {\em universidad de A Coru{\~{n}}a}, pages 1--181, 2013.
 
 \bibitem{Cohen1998}
 Luanne~S. Cohen and Tanya Wendling.
@@ -40,6 +51,13 @@ Peter~W. Shor.
 \newblock {Polynomial-time algorithms for prime factorization and discrete
   logarithms on a quantum computer}.
 \newblock {\em SIAM Journal on Computing}, 26(5):1484--1509, 1997.
+
+\bibitem{Telecomunicacion2003}
+D~E Ingenieros D~E Telecomunicaci{\'{o}}n.
+\newblock {N{\'{u}}meros primos especiales y sus aplicaciones
+  criptogr{\'{a}}ficas N{\'{u}}meros primos especiales y sus aplicaciones
+  criptogr{\'{a}}ficas TRIBUNAL CALIFICADOR}.
+\newblock 2003.
 
 \bibitem{Vandersypen2001}
 Lieven~M.K. Vandersypen, Matthias Breyta, Gregory Steffen, Costantino~S.
