@@ -1,16 +1,19 @@
 import Functions as oq
 import math as m
 import random
-N = 55
+N = int(55*34)
 Q = m.ceil( m.log(N,2) )
 L = 2**Q
-a = int(2+ (N-3)*random.random())
-r = oq.r_Finder(a,N)
-#=================================================
-print('N = ',N,'Q = ',Q,'a = ',a,'Searching For: r =',r)
-if( oq.Euclids_Alg(a,N) > 1 ):
-    print('a happens to have a factor in common with N: ',oq.Euclids_Alg(a,N))
-else:
+result=False
+while result==False:
+    var=False
+    while var==False:
+        a = int(2+ (N-3)*random.random())
+        r = oq.r_Finder(a,N)
+        #================================================
+        if( oq.Euclids_Alg(a,N) <= 1 ):
+            var=True
+            print('N = ',N,'Q = ',Q,'a = ',a,'Searching For: r =',r)
     from qiskit import ClassicalRegister, QuantumRegister, QuantumCircuit, Aer, execute
     import numpy as np
     q1 = QuantumRegister(Q,name='q1')
@@ -19,7 +22,7 @@ else:
     c1 = ClassicalRegister(Q,name='c1')
     c2 = ClassicalRegister(Q,name='c2')
     qc = QuantumCircuit(q1,q2,an,c1,c2,name='qc')
-#----------------------------------------------
+    #----------------------------------------------
     for i in np.arange(Q):
         qc.h(q1[int(i)])
     oq.Mod_Op(Q,qc,q1,q2,an,a,N)
@@ -39,6 +42,7 @@ else:
                 f1 = oq.Euclids_Alg(int(a**(int(r/2))+1),N)
                 f2 = oq.Euclids_Alg(int(a**(int(r/2))-1),N)
                 print('Factors of N: ',int(f1),' ',int(f2))
+                result=True
             else:
                 if( (r)%2 != 0 ):
                     print('r does not meet criteria for factoring N: r is not even')
