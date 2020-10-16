@@ -2,6 +2,9 @@
 En física cuántica, el estado cuántico es cualquier estado posible en el que puede estar un sistema mecánico cuántico. Un estado cuántico completamente especificado puede describirse mediante un vector de estado, una función de onda o un conjunto completo de números cuánticos para un sistema específico. Un estado cuántico parcialmente conocido, como un conjunto con algunos números cuánticos fijos, puede ser descrito por un operador de densidad.\\\\
 Una mezcla de estados cuánticos es nuevamente un estado cuántico. Los estados cuánticos que no se pueden escribir como una mezcla de otros estados se denominan estados cuánticos puros, mientras que todos los demás estados se denominan estados cuánticos mixtos. Un estado cuántico puro se puede representar mediante un rayo en un espacio de Hilbert sobre los números complejos, mientras que los estados mixtos se representan mediante matrices de densidad, que son operadores semidefinitos positivos que actúan en el espacio de Hilbert.\\\\
 Un bit cuántico, qbit o qubit es la unidad básica de información cuántica, es la versión cuántica del clásico bit binario.
+\begin{center}
+    NOTA: AGREGAR NOTACION DE 00010 to 4
+\end{center}
 \subsection{Puertas lógicas clásicas y cuánticas}
 \subsection{Operador de Hadamart}
 \subsubsection{Transformada de Fourier clásica y cuántica}
@@ -63,5 +66,27 @@ donde cada fase del k-esimo es proporcional a k, de tal manera que:
     \label{eq:ua1}
     U\left| u_1 \right\rangle &= e^{\frac{2\pi i}{r}} \left| u_1 \right\rangle.
 \end{align}
-Teniendo así un único eigenestado para cada valor entero en $s$ donde $0\leq s \leq r-1 $
+Teniendo así un único eigenestado para cada valor entero en $s$ donde $0\leq s \leq r-1$. Esto es muy conveniente, ya que realizando la suma de los eigenestados, las diferencias de fases
+serán canceladas, obteniendo así el estado $ \left| 1 \right\rangle$.
+\begin{equation*}
+    \frac{1}{\sqrt{r}} \sum\limits_{s=0}^{r-1} \left|u_s \right\rangle =  \left| 1 \right\rangle.
+\end{equation*}
+Siendo así que el estado $ \left| 1 \right\rangle$ es una superposición de estos eigenestados, lo cual indica que podemos realizar 
+QPE al opeeador U usando el estado $ \left| 1 \right\rangle$, para así obtener la medición de la fase:
+\begin{equation*}
+    \phi = \frac{s}{r}
+\end{equation*}
+Realizando del algoritmo de fracciones continuas sobre $\phi$ podemos encontrar el valor de ra. El circuito cuántico que realiza esta tarea es el siguiente:
+\begin{figure}[H]
+    \includegraphics[scale=0.4]{../Graphics/qpe.png}
+    \label{fig:qpe}
+    \caption{Circuito cuántico que realiza el algortimo QPE sobre una serie de qubits.}
+\end{figure}
 \subsection{Implementación con Qiskit}
+Para mostrar de forma detallada se trabajara con el problema cuando $a=7$ y $N=15$. Con esto, realizamos el operador U aplicado al estado $\left|y \right\rangle$ de la siguiente manera:
+\begin{equation}
+    U\left| y \right\rangle = \left|aymod15 \right\rangle 
+    \label{eq:ua15}
+\end{equation}
+Para crear las operaciones acumulativas $U^x$, se creará una repetición del circuito $x$ veces, por lo que la función \textit{c\_amod15}
+ regresará la compuerta U al valor de a, repetida x veces como lo siguiente:
