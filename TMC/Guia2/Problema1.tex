@@ -1,0 +1,45 @@
+\section{Obtener la ecuación de Schr\"odinger y su forma compleja conjugada con las ecuaciones de Euler-Lagrange.}
+Se tiene que la ecuación de Schr\"odinger normal y compleja conjugada son las siguientes:
+\begin{equation}
+    \frac{\partial \mathcal{L}}{\partial \psi^*}= \frac{\partial}{\partial x} \left(\frac{\partial \mathcal{L}}{\partial\left(\dfrac{\partial \psi^*}{\partial x}\right)} \right).
+    \label{eq:psi_n}
+\end{equation}
+\begin{equation}
+    \frac{\partial \mathcal{L}}{\partial \psi}= \frac{\partial}{\partial x} \left(\frac{\partial \mathcal{L}}{\partial\left(\dfrac{\partial \psi}{\partial x}\right)} \right).
+    \label{eq:psi_con}
+\end{equation}
+Y la densidad lagrangiana de Schr\"odinger es:
+\begin{equation}
+    \changefontsizes{10pt}
+    \mathcal{L}\left(\psi,\psi^*,\frac{\partial \psi}{\partial x},\frac{\partial \psi^*}{\partial x},\frac{\partial \psi}{\partial t},\frac{\partial \psi^*}{\partial t},x\right) = -\frac{\hbar^2}{2m} \frac{\partial \psi}{\partial x} \frac{\partial \psi^*}{\partial x}+i\hbar \left[ \psi^* \frac{\partial \psi}{\partial t} - \psi \frac{\partial \psi^*}{\partial t} \right] -V(x)\psi \psi^*.
+    \label{eq:den_lan}
+\end{equation}
+Para calcular la ecuación de Schr\"odinger usando  \ref{eq:psi_n} con \ref{eq:den_lan}, calculando la parte izquierda de la ecuación \ref{eq:psi_n} se tiene lo siguiente:
+\begin{align*}
+    \frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi^*}{\partial x}\right)}&= -\frac{\hbar^2}{2m} \frac{\partial \psi}{\partial x}\\
+    \frac{\partial}{\partial x}\left( \frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi^*}{\partial x}\right)}\right) &= -\frac{\hbar^2}{2m} \frac{\partial^2 \psi}{\partial x^2}.\\
+\end{align*}
+Calculando la parte derecha de la ecuación \ref{eq:psi_n} se tiene lo siguiente:
+\begin{equation*}
+    \frac{\partial \mathcal{L} } {\partial \psi^*}= i\hbar \frac{\partial \psi}{\partial t} - V(x)\psi
+\end{equation*}
+por lo tanto, se obtiene lo siguiente:
+\begin{equation}
+    i\hbar \frac{\partial \psi}{\partial t} - V(x)\psi = -\frac{\hbar^2}{2m} \frac{\partial^2 \psi}{\partial x^2}
+    \label{eq:schro_n}
+\end{equation}
+Para calcular la ecuación de Schr\"odinger usando  \ref{eq:psi_con} con \ref{eq:den_lan}, calculando la parte izquierda de la ecuación \ref{eq:psi_con} se tiene lo siguiente:
+\begin{align*}
+    \frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x}\right)}&= -\frac{\hbar^2}{2m} \frac{\partial \psi^*}{\partial x}\\
+    \frac{\partial}{\partial x}\left( \frac{\partial \mathcal{L}}{\partial\left(\frac{\partial \psi}{\partial x}\right)}\right) &= -\frac{\hbar^2}{2m} \frac{\partial^2 \psi^*}{\partial x^2}.\\
+\end{align*}
+Calculando la parte derecha de la ecuación \ref{eq:psi_n} se tiene lo siguiente:
+\begin{equation*}
+    \frac{\partial \mathcal{L} } {\partial \psi^*}= -i\hbar \frac{\partial \psi^*}{\partial t} - V(x)\psi^*
+\end{equation*}
+por lo tanto, se obtiene lo siguiente:
+\begin{equation}
+    -i\hbar \frac{\partial \psi^*}{\partial t} - V(x)\psi^* = -\frac{\hbar^2}{2m} \frac{\partial^2 \psi^*}{\partial x^2}
+    \label{eq:schro_con}
+\end{equation}
+Por lo tanto, la ecuación \ref{eq:schro_n} y \ref{eq:schro_con} son las ecuaciones de Schr\"odinger normal y compleja conjugada respectivamente. 

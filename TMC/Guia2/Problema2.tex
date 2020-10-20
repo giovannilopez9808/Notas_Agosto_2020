@@ -1,0 +1,19 @@
+\section{Demostrar que la ecuación de Schr\"odinger es invariante ante el grupo de transformaciones globales U(1).}
+Se tiene que las transformaciones U(1) estan definidas como:
+\begin{equation}
+   {\psi}'= U\psi \equiv e^{i\theta}\psi
+   \label{eq:operador_u}
+\end{equation}
+\begin{equation}
+    {\psi}'^*= U\psi^* \equiv e^{-i\theta}\psi^*
+\end{equation}
+tal que $\theta \varepsilon \mathcal{R}$, entonces realizando el calculo con con la ecuación \ref{eq:den_lan}, se tiene que:
+\begin{eqnarray*}
+    \changefontsizes{10pt}
+    \mathcal{L}\left({\psi}',{\psi}'^*,\frac{\partial {\psi}'}{\partial x},\frac{\partial {\psi}'^*}{\partial x},\frac{\partial {\psi}'}{\partial t},\frac{\partial {\psi}'^*}{\partial t},x\right) = -\frac{\hbar^2}{2m} \frac{\partial {\psi}'}{\partial x} \frac{\partial {\psi}'^*}{\partial x}+i\hbar \left[ {\psi}'^* \frac{\partial {\psi}'}{\partial t} - {\psi}' \frac{\partial {\psi}'^*}{\partial t} \right] -V(x){\psi}' {\psi}'^*\\
+    =\left(- \frac{\hbar^2}{2m} \frac{\partial \left(e^{i\theta}\right)\psi}{\partial x}\frac{\partial \left(e^{-i\theta}\right)\psi^*}{\partial x}\right) +i\hbar \left[ \left(e^{-i\theta}\right)\psi^* \frac{\partial \left(e^{i\theta}\right)\psi}{\partial t} - \left(e^{i\theta}\right)\psi \frac{\partial \left(e^{-i\theta}\right)\psi^*}{\partial t} \right] - V(x) e^{i\theta}\psi \left(e^{-i\theta}\right)\psi^*\\
+    =(e^{i\theta})\left(e^{-i\theta}\right)\left(-\frac{\hbar^2}{2m} \frac{\partial \psi}{\partial x} \frac{\partial \psi^*}{\partial x}\right)+i\hbar \left[\left(e^{i\theta}\right)\left(e^{-i\theta}\right) \psi^* \frac{\partial \psi}{\partial t} -\left(e^{i\theta}\right)\left(e^{-i\theta}\right) \psi \frac{\partial \psi^*}{\partial t} \right] -V(x)\left(e^{i\theta}\right)\left(e^{-i\theta}\right)\psi \psi^*.\\
+    =-\frac{\hbar^2}{2m} \frac{\partial \psi}{\partial x} \frac{\partial \psi^*}{\partial x}+i\hbar \left[ \psi^* \frac{\partial \psi}{\partial t} - \psi \frac{\partial \psi^*}{\partial t} \right] -V(x)\psi \psi^*\\
+    =\mathcal{L}\left(\psi,\psi^*,\frac{\partial \psi}{\partial x},\frac{\partial \psi^*}{\partial x},\frac{\partial \psi}{\partial t},\frac{\partial \psi^*}{\partial t},x\right)
+\end{eqnarray*}
+Por lo tanto, el grupo de las transformaciones U(1) deja invariante a la ecuación de Schr\"odinger.
