@@ -1,2 +1,34 @@
 \section{Demostrar que la lagrangiana de interacción de Schrödinger es invariante ante
 transformaciones de norma}
+A partir de la ecuación \ref{eq:den_lag_a} aplicaremos las transformaciones de norma, las cuales son las siguientes:
+\begin{align*}
+    \psi &\rightarrow \hat{G}\psi\\
+    \psi^* & \rightarrow \hat{G}^* \psi^* \\
+    A_0 & \rightarrow A_0+\frac{1}{g} \partial_t \lambda \\
+    \vec{A} & \rightarrow \vec{A}+ \frac{1}{g} \nabla \lambda
+\end{align*}
+por lo tanto, aplicando estas transformaciones en la ecuación \ref{eq:den_lag_a} se obtiene lo siguiente:
+\begin{align*}
+    \mathcal{L}&= -\frac{\hbar^2}{2m}\left[ \left(\nabla - ig\left(\vec{A}+ \frac{1}{g} \nabla \lambda \right)\right)\hat{G}\psi \left( \nabla + ig\left(\vec{A}+ \frac{1}{g} \nabla \lambda \right)\right)\hat{G}^* \psi^*\right] \\
+    &+ i\hbar \left[\hat{G}^* \psi^* \left(\partial_t -ig\left(\vec{A}+ \frac{1}{g} \nabla \lambda \right)+ \frac{1}{g} \nabla \lambda\right) \hat{G}\psi - \hat{G}\psi \left(\partial_t +ig\left(\vec{A}+ \frac{1}{g} \nabla \lambda \right)\right) \hat{G}^* \psi^*\right]\\
+    \mathcal{L}&= - \frac{\hbar^2}{2m}\left[\left(\nabla \left(\hat{G}\psi\right)-ig \left(\vec{A}+\frac{1}{g}\nabla \lambda \right)\hat{G}\psi \right)\left(\nabla \left(\hat{G}^*\psi^*\right)+ig \left(\vec{A}+\frac{1}{g}\nabla\lambda\right)\hat{G}^*\psi^*\right) \right]\\
+    & +i \hbar \left[\hat{G}^* \psi^* \left(\partial_t \left[\hat{G}\psi\right]-ig\left(A_0+\frac{1}{g}\partial_t \lambda\right)\hat{G}\psi \right)- \hat{G}\psi \left(\partial_t \left(\hat{G}^* \psi^* \right)+ig \left(A_0 + \frac{1}{g}\partial_t \lambda\right)\hat{G}^*\psi^*\right) \right]\\
+    \mathcal{L}&= -\frac{\hbar^2}{2m} \left[\left(\hat{G}\nabla \psi + \psi \nabla \hat{G}- ig\vec{A}\hat{G}\psi - i \nabla \lambda \hat{G}\psi\right)\left(\hat{G}^*\nabla\psi^* + \psi^* \nabla\hat{G}^* + ig \vec{A}\hat{G}^*\psi^* + i\nabla \lambda \hat{G}^*  \psi^* \right) \right]\\
+    &+ i\hbar \left[\hat{G}^* \psi^* \left(\hat{G}\partial_t \psi +\psi \partial_t \hat{G}-igA_0\hat{G}\psi-i\partial_t \lambda \hat{G}\psi -i \partial_t \lambda \hat{G}\psi \right)\right.\\ 
+    &\left. -\hat{G}\psi \left(\hat{G}^* \partial_t \psi^* + \psi^* \partial_t \hat{G}^*+ igA_0 \hat{G}^* \psi^* +i\partial_t \lambda \hat{G}^* \psi^*  \right) \right]\\
+    \mathcal{L}&= -\frac{\hbar^2}{2m} \left[\left(\hat{G}\nabla \psi + i\hat{G}\psi \nabla \lambda - ig\vec{A}\hat{G}\psi - i \nabla \lambda \hat{G}\psi\right)\left(\hat{G}^*\nabla\psi^* -i\hat{G}^*\psi^* \nabla \lambda + ig \vec{A}\hat{G}^*\psi^* + i\nabla \lambda \hat{G}^*  \psi^* \right) \right]\\
+    &+ i\hbar \left[\hat{G}^* \psi^* \left(\hat{G}\partial_t \psi +i\psi \hat{G}\partial_t \lambda -igA_0\hat{G}\psi-i\partial_t \lambda \hat{G}\psi -i \partial_t \lambda \hat{G}\psi \right)\right.\\ 
+    &\left. -\hat{G}\psi \left(\hat{G}^* \partial_t \psi^* -i\hat{G}^* \psi^* \partial_t \lambda + igA_0 \hat{G}^* \psi^* +i\partial_t \lambda \hat{G}^* \psi^*  \right) \right]\\
+    \mathcal{L}& = -\frac{\hbar^2}{2m} \left[\left(\hat{G}\nabla\psi - ig\vec{A}\hat{G}\psi\right)\left(\hat{G}\nabla \psi^* + ig \vec{A}\hat{G}^* \psi^* \right)\right] \\ 
+    &+ i\hbar \left[\hat{G}^* \psi^* \left(\hat{G}\partial_t \psi - igA_0 \hat{G}\psi  \right)-\hat{G}\psi\left(\partial_t \psi^* + igA_0 \hat{G}^* \psi^*\right)\right]\\
+    \mathcal{L} & = -\frac{\hbar^2}{2m} \left[\hat{G}\left(\nabla \psi - ig\vec{A}\psi \right)\hat{G}^* \left(\nabla \psi^* + ig\vec{A}\psi^*\right) \right] \\
+    & i \hbar \left[\hat{G}^* \psi^* \hat{G}\partial_t \psi-i\hat{G}^* \psi^* gA_0 \hat{G}\psi - \hat{G}\psi \hat{G}^* \partial_t \psi^* - i\hat{G}\psi g A_0 \hat{G}^* \psi^*\right]\\
+    \mathcal{L} &= -\frac{\hbar^2}{2m} \left[\left(\nabla \psi -ig\vec{A} \psi \right)\left(\nabla \psi^* +ig\vec{A} \psi^*\right) \right]  + i\hbar \left[\psi^* \partial_t \psi -i \psi^* g A_0 \psi - \psi \partial_t \psi^* - i\psi g A_0 \psi^* \right]\\
+    \mathcal{L} &= -\frac{\hbar^2}{2m} \left[\left(\nabla \psi -ig\vec{A} \psi \right)\left(\nabla \psi^* +ig\vec{A} \psi^*\right) \right] + i\hbar \left[\psi^*\left( \partial_t - igA_0\right)\psi  - \psi \left(\partial_t + igA_0 \right)\psi^* \right]
+\end{align*}
+por lo tanto:
+\begin{equation}
+    \mathcal{L} = -\frac{\hbar^2}{2m} \left[\left(\nabla \psi -ig\vec{A} \psi \right)\left(\nabla \psi^* +ig\vec{A} \psi^*\right) \right] + i\hbar \left[\psi^*\left( \partial_t - igA_0\right)\psi  - \psi \left(\partial_t + igA_0 \right)\psi^* \right]
+    \label{eq:den_l_norma}
+\end{equation}
+la cual se logra visualizar que tiene la misma forma que la ecuación \ref{eq:den_lan}, por lo tanto la lagrangiana de interacción de Schr\"odinger es invariante ante las transformaciones de norma.
