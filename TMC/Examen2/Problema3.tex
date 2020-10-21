@@ -1,5 +1,11 @@
-\section{Calcular la lagrangiana de interacción de Schr\"odinger en términos del cuadrivector de potencial.}
-Se tiene que la lagrangiana de Schro\"odinger es la ecuación \ref{eq:den_lan} y tomando en consideración que:
+\section*{3. Calcular la lagrangiana de interacción de Schr\"odinger en términos del cuadrivector de potencial.}
+Se tiene que la lagrangiana de Schro\"odinger es:
+\begin{equation}
+    \changefontsizes{11pt}
+    \mathcal{L}\left(\psi,\psi^*,\frac{\partial \psi}{\partial x},\frac{\partial \psi^*}{\partial x},\frac{\partial \psi}{\partial t},\frac{\partial \psi^*}{\partial t},x\right) = -\frac{\hbar^2}{2m} \frac{\partial \psi}{\partial x} \frac{\partial \psi^*}{\partial x}+i\hbar \left[ \psi^* \frac{\partial \psi}{\partial t} - \psi \frac{\partial \psi^*}{\partial t} \right] -V(x)\psi \psi^*.
+    \label{eq:den_lan}
+\end{equation}
+y tomando en consideración que:
 \begin{align*}
     \partial_t &\rightarrow\partial_t -igA_0\\
     \partial_t^* &\rightarrow\partial_t +igA_0\\
@@ -8,7 +14,7 @@ Se tiene que la lagrangiana de Schro\"odinger es la ecuación \ref{eq:den_lan} y
 \end{align*}
 Esto para obtener los terminos de interacción dentro de la lagrangiana, introduciendo estos terminos en la ecuación \ref{eq:den_lan}, se obtiene lo siguiente:
 \begin{align*}
-    \mathcal{L} &= -\frac{\hbar^2}{2m}\left[ {\nabla}'\psi \cdot {\nabla}' \psi^*\right] + i\hbar \left[\psi^* {\partial}'_t \psi - \psi {\partial}'_t \psi^*\right]\\
+    &\mathcal{L} = -\frac{\hbar^2}{2m}\left[ {\nabla}'\psi \cdot {\nabla}' \psi^*\right] + i\hbar \left[\psi^* {\partial}'_t \psi - \psi {\partial}'_t \psi^*\right]\\
     &= -\frac{\hbar^2}{2m}\left[ \left(\nabla - ig\vec{A}\right)\psi \cdot \left( \nabla + ig\vec{A}\right) \psi^*\right] + i\hbar \left[\psi^* \left(\partial_t -igA_0\right) \psi - \psi \left(\partial_t +igA_0\right) \psi^*\right]\\
     &=- \frac{\hbar^2}{2m} \nabla \psi \cdot \nabla \psi^* -\frac{\hbar^2}{2m}\left[\nabla \psi \cdot ig\vec{A} \psi^* - ig \vec{A}\psi \cdot \nabla \psi^* + g^2 \vec{A}\psi \cdot \vec{A} \psi^* \right]\\
     &+ i\hbar \left[\psi^*\partial_t \psi - \psi \partial_t \psi^* -2igA_0 \psi \psi^* \right]\\

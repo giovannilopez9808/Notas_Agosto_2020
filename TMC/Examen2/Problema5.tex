@@ -1,0 +1,49 @@
+\section*{5. Calcular la ecuación de Klein-Gordon (para la partícula libre) a partir de la relación energía-
+momento de Einstein y las definiciones de los operadores en mecánica cuántica.}
+A partir de la mecánica cuántica elemental conocemos la ecuación de Schr\"odinger:
+ \begin{equation}
+     \left[-\frac{\hbar^2}{2m_0} \nabla^2+V(x) \right]\psi = i\hbar \frac{\partial \psi}{\partial t}
+ \end{equation}
+ la relación de la energía no relativista en forma de operdor corresponde a lo siguiente:
+ \begin{equation}
+     E= -\frac{\hat{p}^2}{2m_0}+V(x)
+ \end{equation}
+ donde: 
+ \begin{align*}
+     \hat{p}=i\hbar \nabla\\
+     \hat{E}=i\hbar \frac{\partial}{\partial t}
+ \end{align*}
+ por lo que teniendo definidos los operadores de la energía y momento  podemos obtener una ecuación para la onda relativista, es por ello que 
+ consideramos a las partículas libres de modo que su relación relativista es la siguiente:
+ \begin{equation}
+     p^\mu p_\mu = \frac{E^2}{c^2}- p\cdot p = m_0^2c^2
+ \end{equation}
+por lo tanto, la ecuación de Klein-Gordon para las partículas libres es:
+\begin{equation}
+    p^\mu p_\mu \psi = m_0^2c^2 \psi
+    \label{eq:kg_antes}
+\end{equation}
+tomando en cuenta que:
+\begin{equation}
+    p^\mu p_\mu = -\hbar^2 \frac{\partial }{\partial x_\mu}\frac{\partial }{\partial x^\mu} = -\hbar^2 \left(\frac{1}{c^2}\frac{\partial^2 }{\partial t^2} - \left(\frac{\partial^2 }{\partial x^2}+\frac{\partial^2 }{\partial y^2}+\frac{\partial^2 }{\partial z^2} \right) \right)
+\end{equation}
+y renombrando a:
+\begin{equation*}
+    \frac{1}{c^2}\frac{\partial^2 }{\partial t^2} - \left(\frac{\partial^2 }{\partial x^2}+\frac{\partial^2 }{\partial y^2}+\frac{\partial^2 }{\partial z^2} \right) = \square
+\end{equation*}
+se tiene que:
+\begin{equation*}
+    p^\mu p_\mu = -\hbar^2 \square
+\end{equation*}
+por lo tanto la ecuación \ref{eq:kg_antes} se escribe como:
+\begin{align*}
+    p^\mu p_\mu \psi &= m_0^2c^2 \psi \\
+    -\hbar^2 \square \psi &= m_0^2c^2  \psi\\
+    \square \psi &=-\frac{m_0^2c^2}{\hbar^2} \psi\\
+    \left(\square+ \frac{m_0^2c^2}{\hbar^2}\right)\psi &=0
+\end{align*}
+por lo tanto, la ecuación de Klein-Gordon es:
+\begin{equation}
+    \left(\square+ \frac{m_0^2c^2}{\hbar^2}\right)\psi=0
+    \label{eq:KG}
+\end{equation}
