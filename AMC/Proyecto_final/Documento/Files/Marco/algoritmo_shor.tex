@@ -29,6 +29,7 @@ la base de Fourier $\lbrace \left| \tilde{0} \right\rangle,\left| \tilde{1} \rig
         \caption{Qubit con el estado cuántico $\left|\tilde{1} \right\rangle$ representado en la esfera de Bloch.}
     \end{subfigure}
 \caption{Representación en la esfera de Bloch de los estados bases computacionales cuánticos y las bases de Fourier.}
+\label{fig:QFT_bloch}
 \end{figure}
 Si se tienen n qubits, entonces existiran 2\textsuperscript{n} bases de estados. Definiendo a N como $N\equiv 2^n$, entonces:
 \begin{align*}
@@ -54,7 +55,7 @@ Con lo cual observamos que el estado $\left| 1\right\rangle$ al final queda mult
 k qubits, se tiene lo siguiente:
 \begin{align*}
     \left|\tilde{x} \right\rangle &= \frac{1}{\sqrt{N}} \sum\limits_{y=0}^{N-1} e^{\frac{2\pi i xy}{N} }\left|y \right\rangle.\\
-    &=\frac{1}{\sqrt{N}}  \sum\limits{y_1=0}^1\sum\limits{y_2=0}^1 \cdots \sum\limits{y_k=0}^1 exp\left[\frac{2\pi i x}{N} \sum\limits_{k=1}^n y_k 2^{n-k}\right] \left| y_k \right\rangle.\\
+    &=\frac{1}{\sqrt{N}}  \sum\limits_{y_1=0}^1\sum\limits_{y_2=0}^1 \cdots \sum\limits_{y_k=0}^1 exp\left[\frac{2\pi i x}{N} \sum\limits_{k=1}^n y_k 2^{n-k}\right] \left| y_k \right\rangle.\\
     &= \frac{1}{\sqrt{N}} \sum\limits_{y_1,y_2,\cdots, y_k} \bigotimes\limits_{k=1}^n e^{\frac{2\pi i x}{N}y_k} \left| y_k \right\rangle.\\
     &=\frac{1}{\sqrt{N}} \bigotimes\limits_{k=1}^n \left[\left|0 \right\rangle+e^{\frac{2\pi i x}{N} 2^{n-k}} \left| 1\right\rangle  \right].\\
     &=\frac{1}{\sqrt{N}} \bigotimes\limits_{k=1}^N \left[\left|0 \right\rangle+e^{2\pi i x 2^{-k}} \left| 1\right\rangle  \right].\\
