@@ -53,7 +53,7 @@ conocido puede factorizarlo en tiempo O$(b^K)$, para cualquier constante $k$. Au
 mayor que 1. En otras palabras, los mejores algoritmos son súper-polinomiales, pero sub-exponenciales. En particular, el mejor tiempo
 asintótico de ejecución lo contiene el algoritmo de \textit{criba general del cuerpo de números\cite{Agrios2003} (CGCN)}, que para un número n es:
 \begin{equation}
-    O\left(exp\left(\left(c+\epsilon_n\right) \left(\ln p\right)^\frac{1}{3} \left(\ln(\ln p)\right)^\frac{2}{3} \right) \right).
+    O\left(exp\left[c n^{1/3} \left(log n\right)^{2/3} \right] \right)
     \label{eq:O(clasico)}
 \end{equation}
 Para una computadora ordinaria, la CGCN es el mejor algoritmo conocido para números grandes.\\
@@ -81,7 +81,8 @@ el tele-transporte cuántico, que abre una nueva vía de investigación dirigida
 Entre 1994 y 1995 Peter Shor definió el algortimo que permite calcular los factores primos de números a un tiempo menor a cualquier computadora clásica. En el año 2000, IBM diseña un computador cuántico de 5 qubits capaz de 
 ejecutar un algoritmo de búsqueda de orden que forma parte del algoritmo de Shor. El algoritmo de Shor tiene una complejidad algorítmica \cite{Shor1997}
 \begin{equation}
-    O(logN)^3.
+    O(n^2(logn)(log(logn)))
+    \label{eq:compledidad_cuantica}
 \end{equation}
  En 2001, nuevamente, IBM en conjunto con la Universidad de 
 Standford, consiguen ejecutar por primera vez el algoritmo de Shor en el primer computador cuántico de 7-qubits, en el experimento se calcularon los factores primos de 15, dando como resultado 3 y 5 utilizando para ello 1018 moléculas, cada una de ellas con 7 átomos.\\\\

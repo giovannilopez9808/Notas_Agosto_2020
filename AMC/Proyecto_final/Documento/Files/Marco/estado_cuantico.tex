@@ -1,0 +1,22 @@
+\subsection{Estados cuánticos y el término Qubit}
+En física cuántica, el estado cuántico es cualquier estado posible en el que puede estar un sistema mecánico cuántico. Un estado cuántico completamente especificado puede describirse mediante un vector de estado, una función de onda o un conjunto completo de números cuánticos para un sistema específico. Un estado cuántico parcialmente conocido, como un conjunto con algunos números cuánticos fijos, puede ser descrito por un operador de densidad.\\\\
+Una mezcla de estados cuánticos es nuevamente un estado cuántico. Los estados cuánticos que no se pueden escribir como una mezcla de otros estados se denominan estados cuánticos puros, mientras que todos los demás estados se denominan estados cuánticos mixtos. Un estado cuántico puro se puede representar mediante un rayo en un espacio de Hilbert sobre los números complejos, mientras que los estados mixtos se representan mediante matrices de densidad, que son operadores semidefinitos positivos que actúan en el espacio de Hilbert.\\\\
+Un bit cuántico, qbit o qubit es la unidad básica de información cuántica, es la versión cuántica del clásico bit binario.\\\\
+Los dos estados básicos de un qbit son  $|0\rangle$  y  $|1\rangle$ , que corresponden al 0 y 1 del bit clásico. Pero además, el qbit puede encontrarse en un estado de superposición cuántica combinación de esos dos estados ($\alpha |0\rangle +\beta |1\rangle)$. En esto es significativamente distinto al estado de un bit clásico, que puede tomar solamente los valores 0 o 1.\\\\
+ Los algoritmos cuánticos que operan sobre estados de superposición realizan simultáneamente las operaciones sobre todas las combinaciones de las entradas. Por ejemplo, los dos qbits
+ \begin{equation*}
+   \frac{1}{2}(|0\rangle+|1\rangle)(|0\rangle+|1\rangle)=\frac{1}{2}(|0\rangle|0\rangle+|0\rangle|1\rangle+|1\rangle|0\rangle+|1\rangle|1\rangle)
+ \end{equation*}
+representan simultáneamente las combinaciones 00, 01, 10 y 11. En este "paralelismo cuántico" se cifra la potencia del cómputo cuántico.\\\\
+Una característica importante que distingue al qbit del bit clásico es que múltiples qbits pueden presentarse en un estado de entrelazamiento cuántico. En el estado no entrelazado
+\begin{equation*}
+    \frac {1}{2}\left(|0\rangle |0\rangle +|0\rangle |1\rangle +|1\rangle |0\rangle +\left|1\right\rangle \left|1\right\rangle \right)
+\end{equation*}
+pueden darse las cuatro posibilidades: que la medida del primer cúbit dé 0 o 1 y que la medida del segundo cúbit dé 0 o 1. Esto es posible porque los dos cúbits de la combinación son separables (factorizables), pues la expresión anterior puede escribirse como el producto
+\begin{equation*}
+    \left(\left|0\right\rangle +\left|1\right\rangle \right)\times \left(\left|0\right\rangle +\left|1\right\rangle \right)
+\end{equation*}
+Por convención existe que los estados cuánticos descritos por números binarios pueden ser escritos como un número en base decimal, como por ejemplo:
+\begin{equation*}
+    \left| 1100\right\rangle \rightarrow \left|12 \right\rangle
+\end{equation*}
