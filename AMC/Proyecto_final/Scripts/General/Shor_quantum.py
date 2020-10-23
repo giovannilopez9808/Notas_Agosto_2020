@@ -1,7 +1,8 @@
 import Functions as oq
 import math as m
 import random
-N = int(55*34)
+import timeit
+N = 21
 Q = m.ceil( m.log(N,2) )
 L = 2**Q
 result=False
@@ -16,6 +17,7 @@ while result==False:
             print('N = ',N,'Q = ',Q,'a = ',a,'Searching For: r =',r)
     from qiskit import ClassicalRegister, QuantumRegister, QuantumCircuit, Aer, execute
     import numpy as np
+    t_i=timeit.default_timer()
     q1 = QuantumRegister(Q,name='q1')
     q2 = QuantumRegister(Q,name='q2')
     an = QuantumRegister(Q-1,name='a')
@@ -41,6 +43,8 @@ while result==False:
             if( ((r)%2 == 0) and ( a**(int(r/2))%N != int(N-1) )):
                 f1 = oq.Euclids_Alg(int(a**(int(r/2))+1),N)
                 f2 = oq.Euclids_Alg(int(a**(int(r/2))-1),N)
+                t_t=timeit.default_timer()
+                print(t_f-t_i)
                 print('Factors of N: ',int(f1),' ',int(f2))
                 result=True
             else:
