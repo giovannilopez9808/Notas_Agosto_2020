@@ -6,31 +6,7 @@ La razones por las cuales el algoritmo de Shor es mas eficiente (ecuación \ref{
 \end{itemize}
 \subsubsection{Transformada de Fourier Cuántica (QFT)}
 La Transformada de Fourier Cuántica es una forma efectiva para realizar un cambio de base, este lo realiza de la base computacional $\lbrace \left|0 \right\rangle,\left|1 \right\rangle \rbrace$ hacia 
-la base de Fourier $\lbrace \left| \tilde{0} \right\rangle,\left| \tilde{1} \right\rangle \rbrace$.
-\begin{figure}[H]
-    \begin{subfigure}{0.5\linewidth}
-        \centering
-        \includegraphics[scale=0.3]{images/0.png}
-        \caption{Qubit con el estado cuántico $\left|0 \right\rangle$ representado en la esfera de Bloch.}
-    \end{subfigure}
-    \begin{subfigure}{0.5\linewidth}
-        \centering
-        \includegraphics[scale=0.3]{images/1.png}
-        \caption{Qubit con el estado cuántico $\left|1 \right\rangle$ representado en la esfera de Bloch.}
-    \end{subfigure}
-    \begin{subfigure}{0.5\linewidth}
-        \centering
-        \includegraphics[scale=0.3]{images/2.png}
-        \caption{Qubit con el estado cuántico $\left|\tilde{0} \right\rangle$ representado en la esfera de Bloch.}
-    \end{subfigure}
-    \begin{subfigure}{0.5\linewidth}
-        \centering
-        \includegraphics[scale=0.3]{images/3.png}
-        \caption{Qubit con el estado cuántico $\left|\tilde{1} \right\rangle$ representado en la esfera de Bloch.}
-    \end{subfigure}
-\caption{Representación en la esfera de Bloch de los estados bases computacionales cuánticos y las bases de Fourier.}
-\label{fig:QFT_bloch}
-\end{figure}
+la base de Fourier $\lbrace \left| \tilde{0} \right\rangle,\left| \tilde{1} \right\rangle \rbrace$.\\
 Si se tienen n qubits, entonces existiran 2\textsuperscript{n} bases de estados. Definiendo a N como $N\equiv 2^n$, entonces:
 \begin{align*}
     \left|\tilde{x} \right\rangle &\equiv QFT\left| x \right\rangle\\
@@ -60,6 +36,30 @@ k qubits, se tiene lo siguiente:
     &=\frac{1}{\sqrt{N}} \bigotimes\limits_{k=1}^n \left[\left|0 \right\rangle+e^{\frac{2\pi i x}{N} 2^{n-k}} \left| 1\right\rangle  \right].\\
     &=\frac{1}{\sqrt{N}} \bigotimes\limits_{k=1}^N \left[\left|0 \right\rangle+e^{2\pi i x 2^{-k}} \left| 1\right\rangle  \right].\\
 \end{align*}
+\begin{figure}[H]
+    \begin{subfigure}{0.5\linewidth}
+        \centering
+        \includegraphics[scale=0.3]{images/0.png}
+        \caption{Qubit con el estado cuántico $\left|0 \right\rangle$ representado en la esfera de Bloch.}
+    \end{subfigure}
+    \begin{subfigure}{0.5\linewidth}
+        \centering
+        \includegraphics[scale=0.3]{images/1.png}
+        \caption{Qubit con el estado cuántico $\left|1 \right\rangle$ representado en la esfera de Bloch.}
+    \end{subfigure}
+    \begin{subfigure}{0.5\linewidth}
+        \centering
+        \includegraphics[scale=0.3]{images/2.png}
+        \caption{Qubit con el estado cuántico $\left|\tilde{0} \right\rangle$ representado en la esfera de Bloch.}
+    \end{subfigure}
+    \begin{subfigure}{0.5\linewidth}
+        \centering
+        \includegraphics[scale=0.3]{images/3.png}
+        \caption{Qubit con el estado cuántico $\left|\tilde{1} \right\rangle$ representado en la esfera de Bloch.}
+    \end{subfigure}
+\caption{Representación en la esfera de Bloch de los estados bases computacionales cuánticos y las bases de Fourier.}
+\label{fig:QFT_bloch}
+\end{figure}
 Para obtener la transformada de Fouruier en base a los circuitos cuánticos, tenemos que realizar una serie de operaciones con la compuerta de Hadamard y la compuerta de rotaciones, en donde la 
 fase de cada rotación es $exp(2\pi i / 2^k)$. La transformada de Fourier Cuática por si sola no nos ayuda en mucho, es por ello que se propuso un proceso en el cual
 se pueda medir en que fase se encuentra el estado cuántico, esto lo lleva el proeso de estimación de fase cuántico (QPE).
@@ -92,19 +92,19 @@ Usando como ejemplos $a=3$ y $N=35$, se tiene el siguiente periodo:
 \end{figure}
 Para realizar esta operación dentro del Algoritmo de Shor se propusó un operador unitario tal que:
 \begin{equation}
-    U \left| y \right\rangle \equiv \left| ay mod N \right\rangle 
+    \mathcal{U} \left| y \right\rangle \equiv \left| ay mod N \right\rangle 
     \label{eq:umod}
 \end{equation}
 Para visualizar el funcionamiento de este operador se usará el ejemplo de $a=3$ y $N=35$, trabajando con los eigenestados de U empezando con el estado 
 $\left|1\right\rangle$ podemos visualizar que la transformación sucesiva del operador U estariasmos multiplicando el estado por $amodN$, por lo tanto, después de
 r transformaciones regresaremos al estado $\left|1\right\rangle$.
 \begin{align*}
-    U\left| 1 \right\rangle &= \left|3\right\rangle \\
-    U^2\left| 1 \right\rangle &= \left|9\right\rangle \\
-    U^3\left| 1 \right\rangle &= \left|12\right\rangle \\ 
-                    & \vdots  \\ 
-    U^{r-1}\left| 1 \right\rangle &= \left|12\right\rangle \\
-    U^r\left| 1 \right\rangle &= \left|1\right\rangle \\
+    \mathcal{U}\left| 1 \right\rangle &= \left|3\right\rangle \\
+    \mathcal{U}^2\left| 1 \right\rangle &= \left|9\right\rangle \\
+    \mathcal{U}^3\left| 1 \right\rangle &= \left|12\right\rangle \\ 
+    \mathcal{U}               & \vdots  \\ 
+    \mathcal{U}^{r-1}\left| 1 \right\rangle &= \left|12\right\rangle \\
+    \mathcal{U}^r\left| 1 \right\rangle &= \left|1\right\rangle \\
 \end{align*}
 Utilizando una superposición de estos estados, obtendremos lo siguiente:
 \begin{equation}

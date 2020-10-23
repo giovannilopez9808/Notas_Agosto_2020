@@ -1,4 +1,4 @@
-% 6) Surgimiento de la computación cuantica por parte de IBM y Qiskit
+\subsection{Historia de la factorización de números}
 En el área de la matemáticas, la factorización es una técnica que consiste en la descomposición en factores de una expresión algebraica
 en forma de un producto. El teorema fundamental de la aritmética cubre la factorización de números enteros, este teorema pertenece a la teoría
 de números. El teorema de factorización afirma lo siguiente:
@@ -12,7 +12,8 @@ El análisis numérico es el estudio de algoritmos, el cual consiste en un conju
 realizar una actividad mediante pasos sucesivos con el proposito de resolver problemas matemáticos dentro de la matemática continua, esto da 
 una aproximación numérica. Hay problemas sencillos de calcular como una raiz cuadrada, no tienen soluciones exactas o son costosas en tiempo
 para obtenerlas.Para obtener una aproximación útil, se debe conocer la presición de los resultados y cuantos recursos se necesita para lograrlo, estos conceptos
-cuantificados son conocidos como \textit{presición, convergencia, estabilidad y complejidad.}\\\\
+cuantificados son conocidos como \textit{presición, convergencia, estabilidad y complejidad.}\\
+\subsection{Complejidad algorítmica}
 La complejidad algorítmica, informalmente, es una medida que permite a los programadores conocer la cantidad de recursos que necesita un algoritmo para resolver un problema en función de su tamaño. El objetivo es
 comparar la eficiencia de algoritmos a la hora de resolver un problema conocido\cite{Cohen1998}. Para realizar una clasificación en la complejidad de un algoritmo
 se usa normalmente la notación asintótica, la cual es que por el número de operaciones básicas ejecutadas por un algirtmo se obtiene una función. Cada
@@ -57,12 +58,12 @@ asintótico de ejecución lo contiene el algoritmo de \textit{criba general del 
     \label{eq:O(clasico)}
 \end{equation}
 Para una computadora ordinaria, la CGCN es el mejor algoritmo conocido para números grandes.\\
+\subsection{Origen de la computación cuántica}
 Al inicio de la decada de 1960, Rolf Landauer se cuestionaba acerca de si las leyes físicas determinaban limites a los procesos de computo. En concreto
 se interesó por el origen del calor disipado por los ordenadores. Uno de los problemas actuales de los ordenadores de alta velocidad
 es el calor que se produce durante su funcionamiento. Cada vez se fabrican más microchips más pequeños en el cual se administra una mayor cantidad de transistores, sin embargo, 
 existe un límite en el cual podemos ir disminuyendo el tamaño de cada transistor debido a que los canales donde circulan los electrones pueden escaparse por el fenómeno del 
-efecto tunel, es por ello que la computación digital clásica no debe estar muy lejos del límite.\\\\
-
+efecto tunel, es por ello que la computación digital clásica no debe estar muy lejos del límite.\\
 Las ideas esenciales de la computación cuántica surgieron en los primeros años de la decada 1980, esto de la mente de Paul Beinoff, quien hacia operar computadoras clásicas
 con operaciones cuánticas. Entre 1981 y 1982, Richard Feymann propusó el uso de fenónemos cuánticos para realizar cálculos computacionales exponiendo la idea que, dada la naturaleza
 de la mecánica cuántica algunos procesos se realizarian en un menor periodo de tiempo a comparación de una computadora clásica. En 1985, David Deutsch describió el primer computador cuántico
@@ -85,7 +86,11 @@ ejecutar un algoritmo de búsqueda de orden que forma parte del algoritmo de Sho
     \label{eq:compledidad_cuantica}
 \end{equation}
  En 2001, nuevamente, IBM en conjunto con la Universidad de 
-Standford, consiguen ejecutar por primera vez el algoritmo de Shor en el primer computador cuántico de 7-qubits, en el experimento se calcularon los factores primos de 15, dando como resultado 3 y 5 utilizando para ello 1018 moléculas, cada una de ellas con 7 átomos.\\\\
+Standford, consiguen ejecutar por primera vez el algoritmo de Shor en el primer computador cuántico de 7-qubits, en el experimento se calcularon los factores primos de 15, dando como resultado 3 y 5 utilizando para ello 1018 moléculas, cada una de ellas con 7 átomos.
+\subsubsection{Qiskit - IBM}
+
+En el año 2017, IBM lanzo su primer version de la libreria \href{https://qiskit.org/}{Qiskit}, la cual, es un framework de libre acceso para computación cuántica. El framework te provee de herramientas para la creación y manipulación de programas cuánticos
+y correrlos en los prototipos de dispositivos cuánticos llamados \href{https://quantum-computing.ibm.com/}{\textit{IBM Q Experience}}. Este framework esta desarrollado en el lenguaje \textit{Python}. 
 \begin{figure}[H]
     \begin{subfigure}{0.5\textwidth}
         \centering
@@ -101,5 +106,3 @@ Standford, consiguen ejecutar por primera vez el algoritmo de Shor en el primer 
     \end{subfigure}
     \caption{(a) Logo de Qiskitl, (b) Ejemplo de un circuito cuántico implementado dentro de Jupyter Notebook de Python.}
 \end{figure}
-En el año 2017, IBM lanzo su primer version de la libreria \href{https://qiskit.org/}{Qiskit}, la cual, es un framework de libre acceso para computación cuántica. El framework te provee de herramientas para la creación y manipulación de programas cuánticos
-y correrlos en los prototipos de dispositivos cuánticos llamados \href{https://quantum-computing.ibm.com/}{\textit{IBM Q Experience}}. Este framework esta desarrollado en el lenguaje \textit{Python}. 
