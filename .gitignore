@@ -16,3 +16,5 @@
 *_pycache__/
 *.dvi
 *.bbl
+*.ipynb_check*
+
