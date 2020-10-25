@@ -37,8 +37,8 @@ for walk,walk_real in zip(range(n_walks),walks):
     plt.yticks([]);plt.xticks([])
     plt.title("Walk N="+str(int(walk_real)))
     plt.scatter(pos_x,pos_y,c="#2d6a4f",marker=".")
+    plt.plot(pos_x,pos_y)
     plt.savefig(str(walk)+".png")
-    plt.show()
     plt.clf()
 print("Creando gif")
 duration = 0.1

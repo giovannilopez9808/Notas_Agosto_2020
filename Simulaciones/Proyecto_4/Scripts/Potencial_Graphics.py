@@ -1,13 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
 #<-----------------------------Potencial--------------------->
-def potential(r,e,sigma):
+def potential_lj(r,e,sigma):
     v=4*e*((sigma/r)**12-(sigma/r)**6)
     return v
 #<----------------------------Fuerza--------------------->
-def force(r,e,sigma):
+def force_lj(r,e,sigma):
     f=4*e*(12*sigma**12/r**13-6*sigma**6/r**7)
     return f
+#
+def potencial_atrac(r,e,ra):
+    k=e
+    v=4*e*(ra/r)**2*log(1-(ra/r)**2)
+    return v
+#
+def force_atrac():
+
 #<----------------------------Direcciones de los archivos-------------------->
 dir_graphics="../Graphics/"
 #<------------------------Parametros-------------------->

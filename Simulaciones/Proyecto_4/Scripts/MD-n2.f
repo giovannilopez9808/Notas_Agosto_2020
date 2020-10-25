@@ -14,7 +14,7 @@
       Integer (kind=8) :: npasos
       Integer (kind=8) :: i,k,j,iprint
 
-      real (kind=8) :: pi,dum,random,r,ra
+      real (kind=8) :: pi,dum,random,ra
       real (kind=8) :: cut2,cutr2,dt
       real (kind=8) :: ec,u
       real (kind=8) :: epot
@@ -35,7 +35,6 @@
       open(3,file=path//'3_coor_'//version//'.dat',status='unknown')
       open(5,file=path//'5_Cor_in_'//version//'.dat',status='unknown')
       open(8,file=path//'8_T_U_P_'//version//'.dat',status='unknown')
-      r=1
       ra=2
       npasos=2000000
       iprint = npasos/1000
@@ -46,20 +45,10 @@
       y(1)=0
       write(5,*) 1,x(1),y(1)
       do i=2,n
-        call RANDOM_NUMBER(random)
-        random=random*2-1
-        do while (abs(random).le.0.5) 
-          call RANDOM_NUMBER(random)
-          random=random*10-5
-        end do
-        x(i)=x(1)+(random*2-1)*r
-        call RANDOM_NUMBER(random)
-        random=random*2-1
-        do while (abs(random).le.0.5) 
-          call RANDOM_NUMBER(random)
-          random=random*2-1
-        end do
-        y(i)=y(i)+(random*2-1)*r
+        call limits(random)
+        x(i)=x(i-1)+1+random
+        call limits(random)
+        y(i)=y(i-1)+1+random
         write(5,*) i,x(i),y(i)
       end do
       cut2 = (2.5d0)**2
@@ -86,7 +75,7 @@
           yy = yi-y(j)
           r2 = xx**2+yy**2
   !<---------------------Potencial atractivo--------------->
-          if (r2.ge.ra) then
+          if (r2.Le.ra) then
             r1=(ra/r2)**2
             pot=-r1*log(1-r1)/2
             u=u+pot
@@ -172,4 +161,10 @@
         fy(i) = fy(i)+fyy
         fx(j) = fx(j)-fxx
         fy(j) = fy(j)-fyy
+      end subroutine
+
+      subroutine limits(random)
+        real (kind=8) :: random
+        call RANDOM_NUMBER(random)
+        random=random*0.2-0.1
       end subroutine
