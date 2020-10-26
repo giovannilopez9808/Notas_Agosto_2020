@@ -1,0 +1,145 @@
+\subsection{Potencia radiada por un sistema binario}
+Considerando el casi en que un sistema binario está conformado por masas compactas, que modelaremos como puntuales,
+orbitando una respecto a la otra por efecto de su atracción gravitacional mutua. Para esto, realizaremos los cálculos en el sistema de referencia del centro de masa, es por ello
+que requeriremos del tensor momento de inercia del sistema, el cual puede mostrarse que el momento de inercia total del sistema binario se reduce al de una partícula con masa reducida $\mu$, realizando un movimiento
+descrito por la coordenada relativa $\vec{r}$.
+\begin{equation*}
+    M_{ij}=m_1x_i^{(1)}x_{j}^{(1)}+m_2x_i^{(2)}x_{j}^{(2)}=\mu r_ir_j
+\end{equation*}
+Si las coordenadas son elegidas de modo que el movimiento del sistema est'a confinado al plano $xy$, tendremos que s'olo $M_{11}$, $M_{12}$ y $M_{22}$ ser'an distintos de cero. De este modo, encontramos que
+\begin{align*}
+M_{11} & = \mu\, x^2\\
+& = \mu r^2\cos^2\varphi \\
+& = \mu a^2(1-e^2)^2\frac{\cos^2\varphi}{\left[1+e\cos(\varphi-\varphi_0)\right]^2},
+\end{align*}
+y, similarmente,
+\begin{align*}
+M_{12} & = \mu\, xy \\
+& = \mu r^2\cos\varphi\sen\varphi \\
+& = \mu a^2(1-e^2)^2\frac{\sen\varphi\cos\varphi}{\left[1+e\cos(\varphi-\varphi_0)\right]^2},
+\end{align*}
+\begin{align*}
+M_{22} & = \mu\, y^2 \\
+& = \mu r^2\sen^2\varphi \\
+& = \mu a^2(1-e^2)^2\frac{\sen^2\varphi}{\left[1+e\cos(\varphi-\varphi_0)\right]^2}.
+\end{align*}
+A continuación requerimos determinar las terceras derivadas $\dddot{I}_{ij}$. Para esto, introducimos la coordenada angular $\varphi$ y usamos las ecuaciones \ref{eq:Ln} y \ref{eq:rphi}, de modo que podamos escribir
+\begin{align*}
+\dot{M}_{ij} &= \frac{dM_{ij}}{d\varphi}\dot{\varphi} \\
+&= \frac{dM_{ij}}{d\varphi}\frac{L}{\mu r^2} \\
+&= \frac{L}{\mu a^2(1-e^2)^2}\left[1+e\cos(\varphi-\varphi_0)\right]^2 \frac{dI_{ij}}{d\varphi}\\
+&= \frac{\omega_0}{(1-e^2)^{3/2}}\left[1+e\cos(\varphi-\varphi_0)\right]^2 \frac{dI_{ij}}{d\varphi}.
+\end{align*}
+Con lo que encontrariamos que 
+\begin{equation*}
+\dot{M}_{11}=(-2)\mu a^2\omega_0\left(1-e^2\right)^{1/2}\frac{\cos\varphi(\sen\varphi+e\sen\varphi_0)}{1+e\cos(\varphi-\varphi_0)},
+\end{equation*}
+\begin{equation*}
+\dot{M}_{22}=(+2)\mu a^2\omega_0\left(1-e^2\right)^{1/2}\frac{\sen\varphi(\cos\varphi+e\cos\varphi_0)}{1+e\cos(\varphi-\varphi_0)},
+\end{equation*}
+\begin{equation*}
+    \dot{M}_{12}=\mu a^2\omega_0\left(1-e^2\right)^{1/2}\frac{(\cos2\varphi+e\cos(\varphi+\varphi_0))}{1+e\cos(\varphi-\varphi_0)}.
+\end{equation*}
+Análogamente, encontramos que
+\begin{equation}\label{eq:I11}
+    \changefontsizes{10.5pt}
+\dddot{M}_{11}=\alpha\left[1+e\cos(\varphi-\varphi_0)\right]^2 \left[4\sen(2\varphi)+3e\sen(2\varphi)\cos(\varphi-\varphi_0)
++2e\cos\varphi\sen\varphi_0\right],
+\end{equation}
+\begin{equation}\label{eq:I22}
+    \changefontsizes{10.5pt}
+\dddot{M}_{22}=\alpha\left[1+e\cos(\varphi-\varphi_0)\right]^2 \left[-4\sen(2\varphi)-3e\sen(2\varphi)\cos(\varphi-\varphi_0)
+-2e\sen\varphi\cos\varphi_0\right],
+\end{equation}
+\begin{equation}\label{eq:I12}
+    \changefontsizes{10.5pt}
+\dddot{M}_{12}=\alpha\left[1+e\cos(\varphi-\varphi_0)\right]^2 \left[-4\cos(2\varphi)-3e\cos(2\varphi)\cos(\varphi-\varphi_0)
+-e\cos(\varphi+\varphi_0)\right],
+\end{equation}
+con
+\begin{equation*}
+\alpha:=\frac{\mu a^2\omega_0^3}{\left(1-e^2\right)^{5/2}}.
+\end{equation*}
+En términos del tensor momento de inercia con traza, la potencia promedio radiada es dada por \ref{eq:PII}, y se reduce en este caso a
+\begin{align*}
+\left\langle P\right\rangle &=\frac{G}{5c^5}\, \left\langle \dddot{M}^{ij}\dddot{M}^{ij}-\frac{1}{3}\left(\dddot{M}^{ii}\right)^2\right\rangle \\
+&=\frac{G}{5c^5}\, \left\langle \left(\dddot{M}_{11}\right)^2+ \left(\dddot{M}_{22}\right)^2+2 \left(\dddot{M}_{12}\right)^2-\frac{1}{3}\left(\dddot{M}_{11}+\dddot{M}_{22}\right)^2\right\rangle \\
+&=\frac{2G}{15c^5}\, \left\langle \left(\dddot{M}_{11}\right)^2+ \left(\dddot{M}_{22}\right)^2+3\left(\dddot{M}_{12}\right)^2 -\dddot{M}_{11}\dddot{M}_{22}\right\rangle .
+\end{align*}
+Luego de reemplazar las ecuaciones \ref{eq:I11} y \ref{eq:I12}, y usando la ecuación \ref{eq:Kepler3}, obtenemos
+\begin{equation*}
+\left\langle P\right\rangle = \frac{2G^4\mu^2M^3}{15c^5a^5\left(1-e^2\right)^{5}}\left\langle g(\varphi)\right\rangle ,
+\end{equation*}
+donde hemos introducido la función angular
+\begin{equation}\label{eq:Pphi}
+g(\varphi):=2\left[1+e\cos(\varphi-\varphi_0)\right]^4
+\left[24+13e^2+48e\cos(\varphi-\varphi_0) +11e^2\cos(2\varphi-2\varphi_0)\right].
+\end{equation}
+Para calcular el promedio $\left\langle g(\varphi)\right\rangle$, transformamos la integral temporal en una integral sobre el 'angulo $\varphi$:
+\begin{align*}
+\left\langle g(\varphi)\right\rangle &= \frac{1}{T}\int_0^T g(t)\,dt \\
+&= \frac{1}{T}\int_0^{2\pi} g(\varphi)\frac{dt}{d\varphi}\,d\varphi \\
+&= \frac{1}{T}\int_0^{2\pi} g(\varphi)\frac{1}{\dot{\varphi}}\,d\varphi \\
+&= \frac{1}{T}\frac{\mu}{L}\int_0^{2\pi} r^2(\varphi)g(\varphi)\,d\varphi \\
+&= \frac{\mu a^2(1-e^2)^2}{TL}\int_0^{2\pi} \frac{g(\varphi)}{\left[1+e\cos(\varphi-\varphi_0)\right]^2}\,d\varphi \\
+&= \frac{(1-e^2)^{3/2}}{2\pi}\int_0^{2\pi} \frac{g(\varphi)}{\left[1+e\cos(\varphi-\varphi_0)\right]^2}\,d\varphi.
+\end{align*}
+Luego de reemplazar \ref{eq:Pphi} en la expresión anterior, se obtiene una integral de simples funciones trigonométricas, que al ser evaluada se reduce a
+\begin{equation*}
+\left\langle g(\varphi)\right\rangle= 48(1-e^2)^{3/2}\left(1+\frac{73}{24}e^2+\frac{37}{96}e^4\right).
+\end{equation*}
+Con esto, encontramos la expresión de la potencia total promedio radiada por un sistema binario, de masa total $M$, masa reducida $\mu$, describiendo una órbita (relativa) con semieje mayor $a$, y excentricidad $e$ 
+\begin{center}
+PONER CITA
+\end{center}
+% \cite{PM63}
+% \bibitem{PM63}
+% P. Peters and J. Mathews, {\em Gravitational Radiation from Point Masses in a Keplerian Orbit}, {\sl Phys. Rev.} {\bf 131} (1963), 435-440. \url{http://link.aps.org/doi/10.1103/PhysRev.131.435}.
+\begin{equation}\label{eq:PSbin}
+\left\langle P\right\rangle =\frac{32}{5}\frac{G^4\mu^2M^3}{c^5a^5}\,f(e),
+\end{equation}
+\begin{equation*}
+f(e):=\frac{1}{\left(1-e^2\right)^{7/2}}\left(1+\frac{73}{24}e^2+\frac{37}{96}e^4\right).
+\end{equation*}
+Análogamente, el momentum angular promedio radiado es
+\begin{equation*}
+\langle\dot{L}\rangle=\frac{32}{5}\frac{G^{7/2}\mu^{2}M^{5/2}}{c^5a^{7/2}}\frac{1}{(1-e^{2})^{2}}\left[1+\displaystyle\frac{7}{8}e^{2}\right].
+\end{equation*}
+A partir de \ref{eq:PSbin} podemos encontrar una predicción de cómo irá ``colapsando'' el sistema binario, es decir, 
+cómo irá disminuyendo el tamaño de las órbitas ($a$) y el periodo orbital correspondiente ($T$). Para esto, usamoos las ecuaciones
+ \ref{eq:aE} y \ref{eq:Kepler3} que permiten relacionar el cambio $\dot{E}=-\left\langle P\right\rangle$ de la energía del sistema binario con los correspondientes cambios del semieje mayor ($\dot{a}$) y del periodo orbital ($\dot{T}$), obteniendo
+\begin{equation*}
+\frac{\dot{E}}{E}=-\frac{\dot{a}}{a}=-\frac{2}{3}\frac{\dot{T}}{T}.
+\end{equation*}
+De aquí encontramos la predicción de la \textit{Teoría de Relatividad General para la disminución del periodo orbital de un sistema binario debido a la emisión de radiación gravitacional}:
+\begin{align*}
+\frac{\dot{T}}{T} &= -\frac{3}{2}\frac{\dot{E}}{E} \\
+&= -\frac{96}{5} \frac{G^3\mu M^2}{c^5a^4}f(e) \\
+&= -\frac{96}{5} \frac{G^{5/3}\mu M^{2/3}}{c^5}\left(\frac{T}{2\pi}\right)^{-8/3}f(e).
+\end{align*}
+\begin{align}
+\frac{da}{dt} &= -\frac{64}{5}\frac{G^3\mu M^2}{c^5a^3}\frac{1}{\left(1-e^2\right)^{7/2}}\left(1+\frac{73}{24}e^2+\frac{37}{96}e^4\right) \label{eq:dadt},\\
+\frac{de}{dt} &= -\frac{304}{15}\frac{G^3\mu M^2}{c^5a^4}\frac{e}{\left(1-e^2\right)^{5/2}}\left(1+\frac{121}{304}e^2\right). \label{eq:dedt}
+\end{align}
+
+En el caso de una órbita circular, $e=0$, la ecuación se reduce a
+\begin{equation}
+\frac{da}{dt} = -\frac{64}{5}\frac{G^3\mu M^2}{c^5a^3},
+\end{equation}
+cuya solución es
+\begin{equation}
+a(t) = \left[a_0^4-\frac{256}{5}\frac{G^3\mu M^2}{c^5}(t-t_0)\right]^{1/4}.
+\end{equation}
+
+Dividiendo las ecuaciones \ref{eq:dadt} y \ref{eq:dedt} para $\dot{a}$ y $\dot{e}$ podemos eliminar el tiempo de estas expresiones y encontrar una ecuación que relaciona directamente $a$ con $e$:
+\begin{equation*}
+\frac{da}{de}=\frac{12}{19}a\frac{1+(73/24)e^2+(37/96)e^4}{e(1-e^2)[1+(121/304)e^2]}.
+\end{equation*}
+La solución de esta ecuación es de la forma
+\begin{equation*}
+a(e)=a_{0}\frac{g(e)}{g(e_{0})},
+\end{equation*}
+con 
+\begin{equation*}
+g(e):= \frac{e^{12/19}}{1-e^2}\left(1+\frac{121}{304} \right)^{870/2299}.
+\end{equation*}
