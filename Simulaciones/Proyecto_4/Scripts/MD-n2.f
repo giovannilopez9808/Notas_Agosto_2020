@@ -1,6 +1,6 @@
 !======================================================================
       module coor
-       integer, parameter :: n=6  ! debe ser n=4*a*a*a
+       integer, parameter :: n=1000  ! debe ser n=4*a*a*a
        real (kind=8) :: x(n), y(n)
        real (kind=8) :: vx(n),vy(n)
        real (kind=8) :: fx(n),fy(n)
@@ -14,7 +14,7 @@
       Integer (kind=8) :: npasos
       Integer (kind=8) :: i,k,j,iprint
 
-      real (kind=8) :: pi,dum,random,ra
+      real (kind=8) :: pi,dum,random,ra,klj,ra2
       real (kind=8) :: cut2,cutr2,dt
       real (kind=8) :: ec,u
       real (kind=8) :: epot
@@ -35,20 +35,24 @@
       open(3,file=path//'3_coor_'//version//'.dat',status='unknown')
       open(5,file=path//'5_Cor_in_'//version//'.dat',status='unknown')
       open(8,file=path//'8_T_U_P_'//version//'.dat',status='unknown')
-      ra=2
-      npasos=2000000
-      iprint = npasos/1000
+      ra=1.3
+      klj=10
+      npasos=1000
+      iprint = 1
       dum = 17367d0
       pi = 4d0 * datan(1d0)
+      ra2=ra**2
 !<------------------Definicion de las coordenadas------------------>
-      x(1)=0
-      y(1)=0
-      write(5,*) 1,x(1),y(1)
-      do i=2,n
+      do i=1,n
         call limits(random)
-        x(i)=x(i-1)+1+random
+        x(i)=(i-1)+1+random
         call limits(random)
-        y(i)=y(i-1)+1+random
+        if (mod(i,2).eq.0) then
+          u=1
+        else
+          u=0
+        end if
+        y(i)=u+random
         write(5,*) i,x(i),y(i)
       end do
       cut2 = (2.5d0)**2
@@ -75,12 +79,12 @@
           yy = yi-y(j)
           r2 = xx**2+yy**2
   !<---------------------Potencial atractivo--------------->
-          if (r2.Le.ra) then
-            r1=(ra/r2)**2
-            pot=-r1*log(1-r1)/2
+          if (r2.le.ra2) then
+            r1=r2/(ra2)
+            pot=-ra2*klj*log(1-r1)/2
             u=u+pot
             epot=epot+pot
-            rr=r1/r2*(log(1-r1)+1/(1/r1-1))
+            rr=klj/(1-r1)
             fxx = rr*xx
             fyy = rr*yy
             fx(i) = fx(i)+fxx

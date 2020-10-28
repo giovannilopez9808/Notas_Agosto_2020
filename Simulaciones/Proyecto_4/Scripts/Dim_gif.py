@@ -3,20 +3,30 @@ import matplotlib.pyplot as plt
 import datetime
 from os import listdir
 import matplotlib.pyplot as plt
+import moviepy.editor as mp
 import math
 import imageio
 import os,sys
 import time
+def image(walk_real,pos_x,pos_y,walk):
+    plt.yticks([]);plt.xticks([])
+    plt.title("Walk N="+str(int(walk_real)))
+    plt.scatter(pos_x,pos_y,c="#2d6a4f",marker=".")
+    plt.plot(pos_x,pos_y)
+    plt.savefig(str(walk+1)+".png")
+    plt.clf()
 #<------------------------Funcion para generar el gif---------------------------->
 def create_gif(filenames, duration):
 	images = []
 	for filename in filenames:
 		images.append(imageio.imread(filename))
-	output_file='../Graphics/dim.gif'
+	output_file='dim.gif'
 	imageio.mimsave(output_file, images, duration=duration)
 #<---------------------Direccion de los archivos-------------------------->
 dir_results="../Results/";dir_graphics="../Graphics/"
 #<---------------------------------Numero de particulas------------------------->
+pos_x,pos_y=np.loadtxt(dir_results+"5_Cor_in_0.dat",usecols=[1,2],unpack=True)
+image(0,pos_x,pos_y,-1)
 n_part=np.size(np.loadtxt(dir_results+"5_Cor_in_0.dat",usecols=0))
 #<----------------------------------Pasos-------------------------------->
 walks=np.loadtxt(dir_results+"8_T_U_P_0.dat",usecols=0)
@@ -30,16 +40,7 @@ print("Creando graficas")
 for walk,walk_real in zip(range(n_walks),walks):
     #<--------------------------------Lectura de las posiciones------------------------------------->
     pos_x,pos_y=np.loadtxt(dir_results+"3_coor_0.dat",unpack=True,usecols=[0,1],skiprows=walk*(n_part+1)+1,max_rows=n_part)
-    #<------------------------------Limites de la caja--------------------------------->
-    #plt.ylim(-30,30);plt.xlim(-30,30)
-    #<----------------------------Renombramiento de los bordes--------------------------_>
-    #plt.yticks(lim,lim_real);plt.xticks(lim,lim_real)
-    plt.yticks([]);plt.xticks([])
-    plt.title("Walk N="+str(int(walk_real)))
-    plt.scatter(pos_x,pos_y,c="#2d6a4f",marker=".")
-    plt.plot(pos_x,pos_y)
-    plt.savefig(str(walk)+".png")
-    plt.clf()
+    image(walk_real,pos_x,pos_y,walk)
 print("Creando gif")
 duration = 0.1
 #<-------------------------Nombres de las graficas--------------------------------->
@@ -48,3 +49,6 @@ filenames = sorted(filter(os.path.isfile, [x for x in os.listdir() if x.endswith
 create_gif(filenames, duration)
 #<----------------------------Eliminacion de las grafias residuales--------------->
 os.system("rm *.png")
+clip = mp.VideoFileClip("dim.gif")
+os.system("rm *.gif")
+clip.write_videofile(dir_graphics+"video.mp4")

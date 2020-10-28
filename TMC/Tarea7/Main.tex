@@ -1,0 +1,105 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Tópicos de Mécanica Cuántica}}\\
+\textbf{Tarea 7}\\
+Enrique Valbuena Ordonez\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt}
+Matricula:\\
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+Un espacio de Hilber $\mathcal{H}$ es un conjunto de elementos vectoriales y escalares
+que satisfacen la siguientes propiedades:
+\begin{enumerate}
+    \item $\mathcal{H}$ es un espacio lineal.
+    \item $\mathcal{H}$ tiene un producto escalar definido que es estrictamente positivo.\\
+    El producto escalar de un elemento $\varphi$ con otro elemento $\phi$ es en general un número complejo, denotado producto
+    $(\varphi,\phi)$. El producto escalar satisface las siguientes propiedades:
+    \begin{itemize}
+        \item El producto escalar de $\varphi$ con $\phi$ es igual al complejo conjugado de $\phi$ por $\varphi$
+        \begin{equation*}
+            (\varphi,\phi)=(\phi,\varphi)^*
+        \end{equation*}
+        \item El producto escalar de $\phi$ con $\varphi$ es lineal con respecto al segundo factor si $\varphi=a\varphi_1+b\varphi_2$
+        \begin{equation*}
+            (\phi,a\varphi_1+b\varphi_2) =a (\phi,\varphi_1)+b(\phi,\varphi_2)
+        \end{equation*}
+        y antilineal con respecto al primer factor si $\phi=a\phi_1+b\phi_2$
+        \begin{equation*}
+            (\phi=a\phi_1+b\phi_2)=a^*(\phi,\varphi)+b^* (\phi,\varphi)
+        \end{equation*}
+        \item El producto escalar de un vector $\varphi$ consigo mismo es un número real y positivo.
+        \begin{equation*}
+            (\varphi,\varphi)=|\varphi| \geq 0
+                \end{equation*}
+        donde la igualdad sostiene sólo para $\varphi=0$.
+    \end{itemize}
+    \item $\mathcal{H}$ es separable.\\
+    Existe una secuencia Cauchy $\varphi_n \epsilon \mathcal{H}(n=1,2,\cdots)$ tal que para cada $\varphi$ de $\mathcal{H}$ y $\epsilon > 0$, existe
+    al menos una $\varphi_n$ para la cual:
+    \begin{equation*}
+        |\varphi-\varphi|<\epsilon
+    \end{equation*}
+    \item $\mathcal{H}$ es completo.\\
+    Toda secuencia de Cauchy $\varphi_n \epsilon \mathcal{H}$ converge a un elemento de $\mathcal{H}$. Esto es, para cualquier $\varphi_n$, la relación 
+    \begin{equation*}
+        \lim_{n,m\rightarrow \infty} |\varphi_m-\varphi_n|=0,
+    \end{equation*}
+    define un límite único $\varphi$ de $\mathcal{H}$ tal que
+    \begin{equation*}
+        \lim_{n\rightarrow \infty} |\varphi-\varphi_n|=0
+    \end{equation*}
+\end{enumerate}
+\end{document}
