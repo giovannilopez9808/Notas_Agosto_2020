@@ -1,6 +1,6 @@
 !======================================================================
       module coor
-       integer, parameter :: n=1000  ! debe ser n=4*a*a*a
+       integer, parameter :: n=50  ! debe ser n=4*a*a*a
        real (kind=8) :: x(n), y(n)
        real (kind=8) :: vx(n),vy(n)
        real (kind=8) :: fx(n),fy(n)
@@ -21,7 +21,7 @@
       real (kind=8) :: xx,yy,r2
       real (kind=8) :: r1,r6,pot,rr,fxx,fyy
       real (kind=8) :: ekin,en
-      real (kind=8) :: vxi,vyi,vxx,vyy
+      real (kind=8) :: vxi,vyi,vxx,vyy,vr
       real (kind=8) :: xi,yi
 
       character:: path*11,version*1
@@ -38,25 +38,29 @@
       ra=1.3
       klj=10
       npasos=1000
-      iprint = 1
+      iprint = npasos/100
+      cut2 = (2.5d0)**2
+      dt = 0.01d0
       dum = 17367d0
       pi = 4d0 * datan(1d0)
       ra2=ra**2
 !<------------------Definicion de las coordenadas------------------>
       do i=1,n
         call limits(random)
-        x(i)=(i-1)+1+random
+        x(i)=(i-1)*1+random
         call limits(random)
         if (mod(i,2).eq.0) then
-          u=1
+          u=1.5
         else
-          u=0
+          u=-1.5
         end if
         y(i)=u+random
         write(5,*) i,x(i),y(i)
+
+        call RANDOM_NUMBER(vr)
+        vx(i) = vr*cos(vr*2*pi)*5
+        vy(i) = vr*sin(vr*2*pi)*5
       end do
-      cut2 = (2.5d0)**2
-      dt = 0.01d0
       write(0,*) 'N-step=',npasos
       write(0,*) 'N-step=',npasos
       write(0,*) 'corte=',cut2
@@ -73,40 +77,29 @@
         epot=0
         do i=1,n-1
           j=i+1
-          xi = x(i)
-          yi = y(i)
-          xx = xi-x(j)
-          yy = yi-y(j)
-          r2 = xx**2+yy**2
-  !<---------------------Potencial atractivo--------------->
-          if (r2.le.ra2) then
-            r1=r2/(ra2)
-            pot=-ra2*klj*log(1-r1)/2
+          call distance(x,y,xx,yy,r2,n,i,j)
+  !<---------------------Potencial FENE--------------->
+          if (r2.lt.ra2) then
+            r1=1-r2/ra2
+            pot=-ra2*klj*log(r1)/2
             u=u+pot
             epot=epot+pot
-            rr=klj/(1-r1)
-            fxx = rr*xx
-            fyy = rr*yy
-            fx(i) = fx(i)+fxx
-            fy(i) = fy(i)+fyy
-            fx(j) = fx(j)-fxx
-            fy(j) = fy(j)-fyy
+            rr=klj/r1
+            call forces(fx,fy,fxx,fyy,xx,yy,rr,i,j)
           end if
-  !<---------------Potencial de Lennard-Jones---------------->
-          if (r2 .le. cut2) then
-            r1 = 1/r2
-            r6 = r1**3
-            pot=4*r6*(r6-1)
-            u = u+pot
-            epot=epot+pot
-            rr = 48*r6*r1*(r6-0.5d0)
-            fxx = rr*xx
-            fyy = rr*yy
-            fx(i) = fx(i)+fxx
-            fy(i) = fy(i)+fyy
-            fx(j) = fx(j)-fxx
-            fy(j) = fy(j)-fyy
-          end if
+!<---------------Potencial de Lennard-Jones---------------->
+          do j=i+1,n
+            call distance(x,y,xx,yy,r2,n,i,j)
+            if (r2 .le. cut2) then
+              r1 = 1/r2
+              r6 = r1**3
+              pot=4*r6*(r6-1)
+              u = u+pot
+              epot=epot+pot
+              rr = 48*r6*r1*(r6-0.5d0)
+              call forces(fx,fy,fxx,fyy,xx,yy,rr,i,j)
+            end if
+          end do
         end do
 !<----------------Calculo de la energía cinetica------------------->
         ekin=0
@@ -120,16 +113,16 @@
           ec = ec+en
           vx(i) = vxi
           vy(i) = vyi
-!<-----------------Movimiento infinitedecimal------------------------>
           x(i) = x(i)+dt*vx(i)
           y(i) = y(i)+dt*vy(i)
         end do
+        write(*,*)k,ekin/(3*n),epot/(n*n)
         if(mod(k,iprint).EQ.0) then
-          write(3,*)k
           write(2,*)k
+          write(3,*)k
           do i=1,n
-            write(3,*)SNGL(x(i)),SNGL(y(i))
             write(2,*)SNGL(vx(i)),SNGL(vy(i))
+            write(3,*)SNGL(x(i)),SNGL(y(i))
           end do
           write(8,*)k,ekin/(3*n),epot/(n*n)
         endif
@@ -141,34 +134,32 @@
       Close(8)
       Close(11)
       end program MD
-      
-! **********************************************************************
-!      P1: Random number generator
-! **********************************************************************
-      subroutine ggub(dseed,r)
-      real*8 z,d2p31m,d2pn31,dseed,r
-      data d2p31m/2147483647./,d2pn31/2147483648./
-       z = dseed
-       z = dmod(16807.*z,d2p31m)
-       r = z / d2pn31
-       dseed = z
+
+      subroutine limits(random)
+      real (kind=8) :: random
+      call RANDOM_NUMBER(random)
+        random=random*0.2-0.1
       end subroutine
 
-      subroutine moving(fx,fy,rr,xx,yy,i)
-        real (kind=8) ::fx(n),fy(n)
-        real (kind=8) :: xx,yy,rr
-        integer*8 i
-        j=i+1
+      subroutine distance(x,y,xx,yy,r2,n,i,j)
+      real (kind=8) :: xx,yy,r2
+      real (kind=8) :: x(n), y(n)
+      integer (kind=8) :: i,j
+        xi = x(i) 
+        yi = y(i)
+        xx = xi-x(j)
+        yy = yi-y(j)
+        r2 = xx**2+yy**2
+      end subroutine
+
+      subroutine forces(fx,fy,fxx,fyy,xx,yy,rr,i,j)
+      real (kind=8) :: rr,fxx,fyy,xx,yy
+      real (kind=8) :: fx(n),fy(n)
+      integer (kind=8):: i,j
         fxx = rr*xx
         fyy = rr*yy
         fx(i) = fx(i)+fxx
         fy(i) = fy(i)+fyy
         fx(j) = fx(j)-fxx
         fy(j) = fy(j)-fyy
-      end subroutine
-
-      subroutine limits(random)
-        real (kind=8) :: random
-        call RANDOM_NUMBER(random)
-        random=random*0.2-0.1
       end subroutine

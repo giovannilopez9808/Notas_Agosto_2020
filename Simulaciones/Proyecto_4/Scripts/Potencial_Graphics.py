@@ -16,50 +16,38 @@ def potencial_fene(r,e,ra):
 #
 def force_fene(r,e,ra):
     k=10*e
-    f=k*r/(1-(r/ra)**2)
+    f=k*r/((1-(r/ra)**2))
     return f
-#<----------------------------Direcciones de los archivos-------------------->
-dir_graphics="../Graphics/"
+#
+def graphic(r,sum,lj,fene,ylim,label,name):
+    #<----------------------------Direcciones de los archivos-------------------->
+    dir_graphics="../Graphics/"
+    plt.xlim(r[0],1.3);plt.ylim(-5,ylim)
+    plt.plot(r,sum,lw=3,color="#7400b8",label=label+"$(r)$")
+    plt.plot(r,lj,lw=3,color="#5390d9",label=label+"$_{LJ}$",ls="--")
+    plt.plot(r,fene,lw=3,color="#64dfdf",label=label+"$_{FENE}$",ls="--")
+    plt.ylabel(label+"(r)");plt.xlabel("Distancia radial (r)")
+    plt.legend(frameon=False,ncol=1,loc="upper center",fontsize=12)
+    plt.subplots_adjust(left=0.121,bottom=0.11,right=0.924,top=0.943)
+    plt.savefig(dir_graphics+name+".png")
+    plt.clf()
+
 #<------------------------Parametros-------------------->
 sigma=1;e=1;ra=1.3
 #<------------------------------Valores para el radio---------------------->
-r=np.arange(0.6,1.2+0.01,0.01)
-n=np.size(r)
-v=np.zeros(np.size(r))
-f=np.zeros(np.size(r))
+r=np.arange(0.8,1.29+0.01,0.01);n=np.size(r)
+v=np.zeros(np.size(r));v_lj=np.zeros(np.size(r));v_fene=np.zeros(np.size(r))
+f=np.zeros(np.size(r));f_lj=np.zeros(np.size(r));f_fene=np.zeros(np.size(r))
 #<----------------------------Potencial-------------------->
 for i in range(n):
     r_i=r[i]
-    if r_i<ra:
-        v[i]+=potencial_fene(r_i,e,ra)
-    # if r_i<2.5:
-    #     v[i]+=potential_lj(r_i,e,sigma)
-#<--------------------------------Fuerza------------------->
-for i in range(n):
-    r_i=r[i]
-    if r_i<ra:
-        f[i]+=force_fene(r_i,e,ra)
-    # if r_i<2.5:
-    #     f[i]+=force_lj(r_i,e,sigma)
-#<----------------------------Limites y posiciones caracteristicas------------>
-v_min=np.min(v)
-r_min=r[np.where(v_min==v)]
-y_min,y_max=np.round(np.min(v))-0.5,np.round(np.max(v))+0.5
-# #<---------------------------------Sigma-------------------------------------->
-# plt.plot([r[0],sigma],[0,0],ls="--",color="#06d6a0",lw=3,label="$\sigma=1$")
-# #<-------------------------------Epsilon---------------------------------------->
-# plt.plot([r_min,r_min],[v_min,0],ls="--",color="#5390d9",lw=3,label="$\epsilon=1$")
-#<-------------------------Grafica del potencial--------------------------->
-plt.plot(r,v,lw=3,color="#6930c3",label="$V(r)$")
-#<-------------------------Grafica de la fuerza--------------------------->
-plt.plot(r,f,lw=3,color="#9d0208",label="$F(r)$",alpha=0.5)
-# #<-----------------------------------Eje x----------------------------------------->
-# plt.plot([r[0],r[-1]],[0,0],ls="--",color="black",lw=1,alpha=0.5)
-# #<-----------------------------------Limites de la grafica---------------------------------_>
-# plt.xlim(r[0],r[-1]);plt.ylim(-2.5,2.5)
-#<---------------------------------Leyendas de los ejes-------------------->
-plt.ylabel("V(r)");plt.xlabel("Distancia radial (r)")
-plt.legend(frameon=False,ncol=2,loc="upper right",fontsize=12)
-# plt.yticks(np.arange(-2.5,2.5+0.5,0.5))
-#plt.savefig(dir_graphics+"Potencial.png",dpi=200)
-plt.show()
+    if r_i<2.5:
+        v_lj[i]+=potential_lj(r_i,e,sigma)
+        f_lj[i]+=force_lj(r_i,e,sigma)
+        if r_i<ra:
+            v_fene[i]+=potencial_fene(r_i,e,ra)
+            f_fene[i]+=force_fene(r_i,e,ra)
+v=v_lj+v_fene
+f=f_lj+f_fene
+graphic(r,v,v_lj,v_fene,30,"V","potential")
+graphic(r,f,f_lj,f_fene,150,"F","force")
