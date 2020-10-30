@@ -1,1 +1,32 @@
 \section*{Ejercicio 15}
+Mostrar que el tensor de energía momento para la densidad lagrangiana es 
+\begin{equation*}
+    T_\mu^\nu = \frac{\hbar^2}{2m_0} \left[g^{\sigma \nu} \frac{\partial \psi^*}{\partial x^\sigma}
+    \frac{\partial \psi}{\partial x^\mu}+g^{\sigma \nu} \frac{\partial \psi}{\partial x^\sigma}
+    \frac{\partial \psi^*}{\partial x^\mu}-\left(g^{\sigma \rho} \frac{\partial \psi^*}{\partial x^\sigma}
+    \frac{\partial \psi}{\partial x^\rho}-\frac{m_0^2 c^2}{\hbar}\psi^*\psi\right)g_\mu^\nu\right]
+\end{equation*}
+Sea el ternsor energía momento definido por:
+\begin{equation*}
+    T_\mu^\nu = \sum\limits_{\sigma} \frac{\partial \psi_\sigma}{\partial x^\mu} \frac{\partial \mathcal{L}}{\partial \left[\partial \psi_\sigma / \partial x^\nu\right]}- \mathcal{L} g_\mu^\nu 
+\end{equation*}
+Utilizando la siguiente densidad lagrangiana
+\begin{equation*}
+    \mathcal{L}\left(\psi,\psi^*, \frac{\partial \psi}{\partial x^\beta},\frac{\partial \psi^*}{\partial x^\alpha} \right)= \frac{\hbar^2}{2m_0} \left[g^{\beta \nu}\frac{\partial \psi^*}{\partial x^\alpha}\frac{\partial \psi}{\partial x^\beta}-\frac{m_0^2c^2}{\hbar^2}\psi^*\psi \right]
+\end{equation*}
+Calculando $\partial \mathcal{L}/ \partial (\partial \psi / \partial x^\mu )$
+\begin{align*}
+    \frac{\partial \mathcal{L}}{\partial (\partial \psi / \partial x^\mu)} &= \frac{\hbar^2}{2m_0}\left(g^{\sigma \beta} \frac{\partial \psi^*}{\partial x^{\sigma}} \delta_\nu^\beta\right)\\
+    & =\frac{\hbar^2}{2m_0}\left( g^{\sigma \nu } \frac{\partial \psi^*}{\partial x^{\sigma}}\right)\\
+\end{align*}
+Calculando $\partial \mathcal{L}/ \partial (\partial \psi^* / \partial x^\mu )$
+\begin{align*}
+    \frac{\partial \mathcal{L}}{\partial (\partial \psi^* / \partial x^\mu)} &= \frac{\hbar^2}{2m_0}\left(g^{\sigma \beta} \frac{\partial \psi}{\partial x^{\sigma}} \delta_\nu^\beta\right)\\
+    & =\frac{\hbar^2}{2m_0}\left( g^{\sigma \nu } \frac{\partial \psi}{\partial x^{\sigma}}\right)\\
+\end{align*}
+    \begin{equation*}
+        T_\mu^\nu = \frac{\hbar^2}{2m_0} \left[g^{\sigma \nu} \frac{\partial \psi^*}{\partial x^\sigma}
+        \frac{\partial \psi}{\partial x^\mu}+g^{\sigma \nu} \frac{\partial \psi}{\partial x^\sigma}
+        \frac{\partial \psi^*}{\partial x^\mu}-\left(g^{\sigma \rho} \frac{\partial \psi^*}{\partial x^\sigma}
+        \frac{\partial \psi}{\partial x^\rho}-\frac{m_0^2 c^2}{\hbar}\psi^*\psi\right)g_\mu^\nu\right]
+    \end{equation*}
