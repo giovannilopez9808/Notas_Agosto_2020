@@ -1,2 +1,32 @@
 \section*{Ejercicio 14}
-Usar la ecuación de Euler-Lagrande para $\psi^*$ y obtener la ecuación de Klein Gordon para $\psi$
+Usar la ecuación de Euler-Lagrande para $\psi^*$ y obtener la ecuación de Klein Gordon para $\psi$.\\
+Sea
+\begin{equation*}
+    \frac{\mathcal{L}}{\partial \psi_0} - \frac{\partial}{\partial x_\beta }\left[\frac{\partial \mathcal{L}}{\partial \left(\frac{\partial \psi_\sigma}{\partial x_\mu} \right)} \right]=0
+\end{equation*}
+y la densidad lagrangiana
+\begin{equation*}
+    \mathcal{L}\left(\psi,\psi^*, \frac{\partial \psi}{\partial x^\beta},\frac{\partial \psi^*}{\partial x^\beta} \right)= \frac{\hbar^2}{2m_0} \left[g^{\beta \nu}\frac{\partial \psi^*}{\partial x^\mu}\frac{\partial \psi}{\partial x^\nu}-\frac{m_0^2c^2}{\hbar^2}\psi^*\psi \right]
+\end{equation*}
+Para el campo $\psi_\sigma=\psi^*$, calculando $\frac{\mathcal{L}}{\partial \psi^*}$
+\begin{equation*}
+    \frac{\partial \mathcal{L}}{\partial \psi^*}=\frac{\hbar^2}{2m_0}\left[- \frac{m_0^2c^2}{\hbar}\psi \right]
+\end{equation*}
+calculando $\frac{\partial \mathcal{L}}{\partial \left(\frac{\partial \psi^*}{\partial x_\mu}\right)}$
+\begin{align*}
+    \frac{\partial \mathcal{L}}{\partial \left(\frac{\partial \psi^*}{\partial x_\mu}\right)}&= \frac{\hbar^2}{2m_0}\frac{\partial}{\partial \left(\frac{\partial \psi^*}{\partial x_\mu}\right)}\left(g^{\mu \nu}\frac{\partial \psi}{\partial x^\nu} \frac{\partial \psi^*}{\partial x^\mu}\right)\\
+    &=\frac{\hbar^2}{2m_0}\left(g^{\mu \nu} \frac{\partial \psi}{\partial x^\nu} \delta_\beta^\mu\right) \\
+    &=\frac{\hbar^2}{2m_0}\left(g_{\mu \nu} \frac{\partial \psi}{\partial x_\nu} \delta_\beta^\mu\right) \\
+    &=\frac{\hbar^2}{2m_0}\left(g_{\beta \nu} \frac{\partial \psi}{\partial x_\nu}\right)
+\end{align*}
+calculando $\frac{\partial}{\partial x_\beta}\left(\frac{\partial \mathcal{L}}{\partial \left(\frac{\partial \psi^*}{\partial x_\mu}\right)}\right)$:
+\begin{align*}
+    \frac{\partial}{\partial x_\beta}\left(\frac{\partial \mathcal{L}}{\partial \left(\frac{\partial \psi^*}{\partial x_\mu}\right)}\right)&= \frac{\partial}{\partial x_\beta} \left(\frac{\hbar^2}{2m_0} \left(g_{\beta \nu} \frac{\partial \psi}{\partial x_\nu}\right) \right)\\
+    &=\frac{\hbar^2}{2m_0}\left(\partial^\beta \left(g_{\beta \nu} \frac{\partial \psi}{\partial x_\nu} \right)\right)\\
+    &=\frac{\hbar^2}{2m_0}\partial^\beta \left(g_{\beta \nu} \partial^\mu \psi \right)\\
+    &=\frac{\hbar^2}{2m_0} \partial_\mu \partial^\mu \psi
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    \left[\frac{m_0^2c^2}{\hbar^2}+\partial_\mu \partial^\mu \right]\psi=0
+\end{equation*}
