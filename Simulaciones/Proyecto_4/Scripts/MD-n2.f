@@ -1,6 +1,6 @@
 !======================================================================
       module coor
-       integer, parameter :: n=50  ! debe ser n=4*a*a*a
+       integer, parameter :: n=100  ! debe ser n=4*a*a*a
        real (kind=8) :: x(n), y(n)
        real (kind=8) :: vx(n),vy(n)
        real (kind=8) :: fx(n),fy(n)
@@ -14,7 +14,7 @@
       Integer (kind=8) :: npasos
       Integer (kind=8) :: i,k,j,iprint
 
-      real (kind=8) :: pi,dum,random,ra,klj,ra2
+      real (kind=8) :: pi,dum,random,r0,klj,r02,nr02
       real (kind=8) :: cut2,cutr2,dt
       real (kind=8) :: ec,u
       real (kind=8) :: epot
@@ -29,42 +29,37 @@
 
       open(11,file='../Input/rho.txt',status='unknown')
       read(11,*) version
-
-      open(0,file=path//'0_salida_'//version//'.dat',status='unknown')
       open(2,file=path//'2_velo_'//version//'.dat',status='unknown')
       open(3,file=path//'3_coor_'//version//'.dat',status='unknown')
       open(5,file=path//'5_Cor_in_'//version//'.dat',status='unknown')
       open(8,file=path//'8_T_U_P_'//version//'.dat',status='unknown')
-      ra=1.3
+      r0=1.3
       klj=10
-      npasos=1000
-      iprint = npasos/100
+      npasos=200000
+      iprint = npasos/1000
       cut2 = (2.5d0)**2
       dt = 0.01d0
       dum = 17367d0
       pi = 4d0 * datan(1d0)
-      ra2=ra**2
+      r02=r0**2
+      nr02=1/r02
 !<------------------Definicion de las coordenadas------------------>
       do i=1,n
         call limits(random)
-        x(i)=(i-1)*1+random
+        x(i)=(i-1)*0.9+random
         call limits(random)
         if (mod(i,2).eq.0) then
-          u=1.5
+          u=0.5
         else
-          u=-1.5
+          u=0
         end if
         y(i)=u+random
         write(5,*) i,x(i),y(i)
 
         call RANDOM_NUMBER(vr)
-        vx(i) = vr*cos(vr*2*pi)*5
-        vy(i) = vr*sin(vr*2*pi)*5
+        vx(i) = vr*cos(vr*2*pi)
+        vy(i) = vr*sin(vr*2*pi)
       end do
-      write(0,*) 'N-step=',npasos
-      write(0,*) 'N-step=',npasos
-      write(0,*) 'corte=',cut2
-      write(0,*) 'dt=',dt
       ec = 0
       u = 0
       do k = 1,npasos
@@ -79,27 +74,21 @@
           j=i+1
           call distance(x,y,xx,yy,r2,n,i,j)
   !<---------------------Potencial FENE--------------->
-          if (r2.lt.ra2) then
-            r1=1-r2/ra2
-            pot=-ra2*klj*log(r1)/2
+          if (r2.lt.r02) then
+            pot=-r02*klj*log(1-r2*nr02)/2
             u=u+pot
             epot=epot+pot
-            rr=klj/r1
+            rr=-klj*r0**2/(r0**2-r2)
+            call forces(fx,fy,fxx,fyy,xx,yy,rr,i,j)
+!<---------------Potencial de Lennard-Jones---------------->
+            r1 = 1/r2
+            r6 = r1**3
+            pot=4*r6*(r6-1)
+            u = u+pot
+            epot=epot+pot
+            rr = 48*r6*r1*(r6-0.5d0)
             call forces(fx,fy,fxx,fyy,xx,yy,rr,i,j)
           end if
-!<---------------Potencial de Lennard-Jones---------------->
-          do j=i+1,n
-            call distance(x,y,xx,yy,r2,n,i,j)
-            if (r2 .le. cut2) then
-              r1 = 1/r2
-              r6 = r1**3
-              pot=4*r6*(r6-1)
-              u = u+pot
-              epot=epot+pot
-              rr = 48*r6*r1*(r6-0.5d0)
-              call forces(fx,fy,fxx,fyy,xx,yy,rr,i,j)
-            end if
-          end do
         end do
 !<----------------Calculo de la energía cinetica------------------->
         ekin=0
@@ -127,7 +116,6 @@
           write(8,*)k,ekin/(3*n),epot/(n*n)
         endif
       end do
-      Close(0)
       Close(2)
       Close(3)
       Close(5)

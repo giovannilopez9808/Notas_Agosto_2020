@@ -12,7 +12,7 @@ def image(walk_real,pos_x,pos_y,walk):
     plt.yticks([]);plt.xticks([])
     plt.title("Walk N="+str(int(walk_real)))
     plt.scatter(pos_x,pos_y,c="#2d6a4f",marker=".")
-    #plt.plot(pos_x,pos_y)
+    plt.plot(pos_x,pos_y)
     plt.savefig(str(walk+1)+".png")
     plt.clf()
 #<------------------------Funcion para generar el gif---------------------------->
