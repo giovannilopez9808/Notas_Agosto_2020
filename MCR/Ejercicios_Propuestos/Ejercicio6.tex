@@ -1,0 +1,214 @@
+\section*{Ejercicio 6}
+Probar que las matrices $S_1^2,S_2^2,S_3^2$ son diagonales con -1 y que las matrices $K_1^2,K_2^2,K_3^2$ son diagonales con 1:
+    Se tiene la matriz $S_1$ igual a:
+    \begin{equation*}
+        S_1 =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & -1 \\
+            0 & 0 & 1 & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    entonces, calculando $S_1^2$, se tiene que:
+    \begin{align*}
+        S_1^2 &=\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & -1 \\
+            0 & 0 & 1 & 0 \\
+        \end{matrix}\right)^2 \\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & -1 \\
+            0 & 0 & 1 & 0 \\
+        \end{matrix}\right)\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & -1 \\
+            0 & 0 & 1 & 0 \\
+        \end{matrix}\right)\\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & -1 & 0 \\
+            0 & 0 & 0 & -1 \\
+        \end{matrix}\right)
+    \end{align*}
+    Se tiene la matriz $S_2$ igual a:
+    \begin{equation*}
+        S_2 =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & -1 \\
+            0 & 0 & 1 & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    entonces, calculando $S_2^2$, se tiene que:
+    \begin{align*}
+        S_2^2 &=\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & -1 & 0 & 0 \\
+        \end{matrix}\right)^2 \\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & -1 & 0 & 0 \\
+        \end{matrix}\right)\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & -1 & 0 & 0 \\
+        \end{matrix}\right)\\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & -1 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & -1 \\
+        \end{matrix}\right)
+    \end{align*}
+    Se tiene la matriz $S_3$ igual a:
+    \begin{equation*}
+        S_3 =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & -1 & 0 \\
+            0 & 1 & 0 & -0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    entonces, calculando $S_3^2$, se tiene que:
+    \begin{align*}
+        S_3^2 &=\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & -1 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)^2 \\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & -1 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & 0 & -1 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)\\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 0 \\
+            0 & -1 & 0 & 0 \\
+            0 & 0 & -1 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{align*}
+    por lo tanto las matrices $S_\mu^2$ son diagonales con -1
+    Se tiene la matriz $K_1$ igual a:
+    \begin{equation*}
+        S_1 =\left( \begin{matrix}
+            0 & 1 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    entonces, calculando $K_1^2$, se tiene que:
+    \begin{align*}
+        K_1^2 &=\left( \begin{matrix}
+            0 & 1 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)^2 \\
+        & =\left( \begin{matrix}
+            0 & 1 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)\left( \begin{matrix}
+            0 & 1 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)\\
+        & =\left( \begin{matrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{align*}
+    Se tiene la matriz $K_2$ igual a:
+    \begin{equation*}
+        K_2 =\left( \begin{matrix}
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    entonces, calculando $k_2^2$, se tiene que:
+    \begin{align*}
+        K_2^2 &=\left( \begin{matrix}
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)^2 \\
+        & =\left( \begin{matrix}
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)\left( \begin{matrix}
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)\\
+        & =\left( \begin{matrix}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{align*}
+    Se tiene la matriz $K_3$ igual a:
+    \begin{equation*}
+        K_3 =\left( \begin{matrix}
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    entonces, calculando $K_3^2$, se tiene que:
+    \begin{align*}
+        K_3^2 &=\left( \begin{matrix}
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+        \end{matrix}\right)^2 \\
+        & =\left( \begin{matrix}
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+        \end{matrix}\right)\left( \begin{matrix}
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            1 & 0 & 0 & 0 \\
+        \end{matrix}\right)\\
+        & =\left( \begin{matrix}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+        \end{matrix}\right)
+    \end{align*}
+    por lo tanto las matrices $K_\mu^2$ son diagonales con 1

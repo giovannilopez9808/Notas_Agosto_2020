@@ -1,0 +1,81 @@
+\section*{Ejercicio 7}
+Mostrar que $F_{\alpha\gamma}=g_{\alpha\gamma}F^{\gamma \delta}g_{\delta \beta }$\\
+    Se sabe que:\\
+    \begin{minipage}{0.5\linewidth}
+    \begin{equation*}
+        F^{\gamma \delta} = \left( \begin{matrix}
+            0 & -Ex & -Ey   & -Ez \\
+            E_x &  0  & -B_z & B_y \\
+            E_y & B_z & 0 &-B_x \\
+            E_z & -B_y & B_x & 0  
+        \end{matrix}\right)
+    \end{equation*}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\begin{equation*}
+    g_{\alpha \gamma} = g_{\delta \beta} =\left(\begin{matrix}
+        1 & 0 & 0 & 0\\
+        0 & -1 & 0 & 0\\
+        0 & 0 & -1 & 0\\
+        0 & 0 & 0 & -1\\
+    \end{matrix}\right)
+\end{equation*}
+\end{minipage}
+realizando la multiplicacion $F^{\gamma \delta}g_{\delta \beta }$
+\begin{align*}
+    F^{\gamma \delta}g_{\delta \beta }&= \left( \begin{matrix}
+        0 & -Ex & -Ey   & -Ez \\
+        E_x &  0  & -B_z & B_y \\
+        E_y & B_z & 0 &-B_x \\
+        E_z & -B_y & B_x & 0  
+    \end{matrix}\right)\left(\begin{matrix}
+        1 & 0 & 0 & 0\\
+        0 & -1 & 0 & 0\\
+        0 & 0 & -1 & 0\\
+        0 & 0 & 0 & -1\\
+    \end{matrix}\right)\\
+    & =\left( \begin{matrix}
+        0 & Ex & Ey   & Ez \\
+        E_x &  0  & B_z & -B_y \\
+        E_y & -B_z & 0 &B_x \\
+        E_z & B_y & -B_x & 0  
+    \end{matrix}\right)
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    F^{\gamma}_\beta = \left( \begin{matrix}
+        0 & Ex & Ey   & Ez \\
+        E_x &  0  & B_z & -B_y \\
+        E_y & -B_z & 0 &B_x \\
+        E_z & B_y & -B_x & 0  
+    \end{matrix}\right)
+\end{equation*}
+realizando la multiplicacion $g_{\alpha\gamma}F^{\gamma}_\beta$ se obtiene que:
+\begin{align*}
+    g_{\alpha\gamma}F^{\gamma}_\beta &= \left(\begin{matrix}
+        1 & 0 & 0 & 0\\
+        0 & -1 & 0 & 0\\
+        0 & 0 & -1 & 0\\
+        0 & 0 & 0 & -1\\
+    \end{matrix}\right)\left( \begin{matrix}
+        0 & Ex & Ey   & Ez \\
+        E_x &  0  & B_z & -B_y \\
+        E_y & -B_z & 0 &B_x \\
+        E_z & B_y & -B_x & 0  
+    \end{matrix}\right) \\
+    & = \left( \begin{matrix}
+        0 & Ex & Ey   & Ez \\
+        -E_x &  0  & -B_z & B_y \\
+        -E_y & B_z & 0 &-B_x \\
+        -E_z & -B_y & B_x & 0  
+    \end{matrix}\right)
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    F_{\alpha \beta} = \left( \begin{matrix}
+        0 & Ex & Ey   & Ez \\
+        -E_x &  0  & -B_z & B_y \\
+        -E_y & B_z & 0 &-B_x \\
+        -E_z & -B_y & B_x & 0  
+    \end{matrix}\right)
+\end{equation*}

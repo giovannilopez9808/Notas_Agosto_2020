@@ -1,0 +1,50 @@
+\section*{Ejercicio 9}
+Formule la matriz de rotación respecto a $\hat{z}$ por medio de la transformación de Lorentz partiendo de la invarianza de $S^2$ se obtiene la 
+forma (dependiente de 6 parámetros) de L, tal que $A=e^L$ es la transformación de Lorentz.\\
+Se tiene la base, $S_\mu , K_\mu$, donde $L=-\vec{\omega}\cdot \vec{s}- \vec{\xi}\cdot \vec{k}$, para rotar con respecto $\hat{z}$, se tiene que cumplir que:
+$\vec{\xi}=0 , \vec{\omega}=\omega_z \hat{z}$, entonces:
+\begin{equation*}
+    L=-\vec{\omega}\cdot \vec{s}=-\omega_z s_3
+\end{equation*}
+por lo tanto:
+\begin{align*}
+    A&=e^L \\
+    &=e^{-\omega s_3}\\
+    &=\sum_{i=0}^\infty \frac{(-1)^i(\omega s_3)^i}{i!} 
+\end{align*}
+donde se cumple que: 
+\begin{align*}
+    s^3_3&=-s_3\\
+s^4_3&=-s_3^2\\
+s_3^5&=s_3
+\end{align*}
+entonces:
+\begin{align*}
+    A&=1-\omega s_3 + \frac{\omega^2}{2!}s_3^2 + \frac{\omega^3}{3!}s_3 - \frac{\omega^4}{4!}s_3^2\\
+    &=(1+s_3^2)-s_3^2\left[1-\frac{\omega^2}{2!}+\frac{\omega^4}{4!}-\dots \right] - s_3 \left[\omega - \frac{\omega^3}{3!}+\frac{\omega^5}{5!}-\dots \right]\\
+    &= \left(\begin{matrix}
+        1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+    \end{matrix}\right) - \left(\begin{matrix}
+        0 & 0 & 0 & 0 \\
+        0 &-1 & 0 & 0 \\
+        0 & 0 & -1 & 0 \\
+        0 & 0 & 0 & 0 \\
+    \end{matrix}\right) cos(\omega) - \left(\begin{matrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & -1 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\
+    \end{matrix}\right) sen(\omega)
+\end{align*}
+entonces:
+\begin{equation*}
+    A=\left(\begin{matrix}
+        1 & 0 & 0 & 0 \\
+        0 & cos(\omega) & sen(\omega) & 0 \\
+        0 & -sen(\omega) & cos(\omega) & 0 \\
+        0 & 0 & 0 & 1 \\
+    \end{matrix}\right) 
+\end{equation*}

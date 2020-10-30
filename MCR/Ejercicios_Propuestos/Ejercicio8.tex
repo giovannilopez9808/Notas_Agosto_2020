@@ -1,0 +1,37 @@
+\section*{Ejercicio 8}
+Compruebe la forma de L, que cumple $L^Tg=-gL$ donde L tiene diagonal de ceros y g es la representación matricial de $g_{\mu \nu \rho}$
+    Se tiene que:
+    \begin{equation*}
+        g=diag(1,-1,-1,-1)
+    \end{equation*}
+    y que
+    \begin{equation*}
+        g^T=g=g^{-1}
+    \end{equation*}
+    por lo tanto:
+    \begin{align*}
+        c^T&= (gL)^T \\
+        &=L^T g \\
+        &=-gL\\
+        &=-c
+    \end{align*}
+    por lo tanto:
+    \begin{equation*}
+        c_{ij}=-c_{ji}
+    \end{equation*}
+    si $i=j$, entonces $c_{ii}=0$, por lo tanto:
+    \begin{equation*}
+        gL=C=\left(\begin{matrix}
+            0 & C_{12} & C_{13} & C_{14} \\
+            -C_{12} & 0 & C_{23} & C_{24} \\
+            -C_{13} & -C_{23} & 0 & C_{34} \\
+            -C_{14} & -C_{24} & -C_{34} & 0 \\
+        \end{matrix}\right)
+    \end{equation*}
+    realizando la operación $gc=ggL$, se tiene que:
+    \begin{align*}
+        gc&=g(gL)\\
+        &=(gg)L\\
+        &=L
+    \end{align*}
+    por lo tanto $gc=L$

@@ -1,0 +1,43 @@
+\section*{Ejercicio 13}
+Mostrar que:
+\begin{align*}
+    {\rho}'_+&=\frac{e|E_p|}{m_0c^2} \psi_+^* \psi_+\\
+    {\rho}'_-&=\frac{e|E_p|}{m_0c^2} \psi_-^* \psi_-\\
+\end{align*}
+considerando que:
+\begin{align*}
+    \psi_+ &= A_+ exp\left[\frac{i}{\hbar} \left(\vec{p}\cdot \vec{x} - |E_pt| \right)\right]\\
+    \psi_- &= A_- exp\left[\frac{i}{\hbar} \left(\vec{p}\cdot \vec{x} + |E_pt| \right)\right]\\
+\end{align*}
+ Sea 
+ \begin{equation*}
+     {\rho}' =\frac{i\hbar e}{2m_0 c^2} \left[\psi^* \frac{\partial }{\partial t} \psi -\psi \frac{\partial }{\partial t} \psi^*\right]
+ \end{equation*}
+ Usando a $\psi_+$ se calcularan las derivadas partiales 
+ \begin{align*}
+    \frac{\partial }{\partial t} \psi_+= -\frac{|E_p|i}{\hbar}\psi_+ &\qquad \frac{\partial }{\partial t} \psi_+^*= \frac{|E_p|i}{\hbar}\psi_+^* \\
+    \psi_+^* \frac{\partial }{\partial t} \psi_+= -\frac{|E_p|i}{\hbar}\psi_+ \psi_+^*&\qquad \psi_+\frac{\partial }{\partial t} \psi_+^*= \frac{|E_p|i}{\hbar}\psi_+^*\psi_+ \\
+ \end{align*}
+entonces:
+\begin{align*}
+    \psi^* \frac{\partial }{\partial t} \psi -\psi \frac{\partial }{\partial t} \psi^*&=-\frac{2|E_p|i}{\hbar} \psi_+^*\psi_+\\
+    \frac{i\hbar e}{2m_0 c^2} \left[\psi^* \frac{\partial }{\partial t} \psi -\psi \frac{\partial }{\partial t} \psi^*\right]&=\frac{e|E_p|}{m_0c^2} \psi_+^* \psi_+
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    {\rho}'_+=\frac{e|E_p|}{m_0c^2} \psi_+^* \psi_+
+\end{equation*}
+Usando a $\psi_-$ se calcularan las derivadas partiales 
+\begin{align*}
+   \frac{\partial }{\partial t} \psi_-= \frac{|E_p|i}{\hbar}\psi_- &\qquad \frac{\partial }{\partial t} \psi_-^*= -\frac{|E_p|i}{\hbar}\psi_-^* \\
+   \psi_-^* \frac{\partial }{\partial t} \psi_-= \frac{|E_p|i}{\hbar}\psi_- \psi_-^*&\qquad \psi_-\frac{\partial }{\partial t} \psi_-^*= -\frac{|E_p|i}{\hbar}\psi_-^*\psi_- \\
+\end{align*}
+entonces:
+\begin{align*}
+   \psi^* \frac{\partial }{\partial t} \psi -\psi \frac{\partial }{\partial t} \psi^*&=\frac{2|E_p|i}{\hbar} \psi_-^*\psi_-\\
+   \frac{i\hbar e}{2m_0 c^2} \left[\psi^* \frac{\partial }{\partial t} \psi -\psi \frac{\partial }{\partial t} \psi^*\right]&=-\frac{e|E_p|}{m_0c^2} \psi_-^* \psi_-
+\end{align*}
+por lo tanto:
+\begin{equation*}
+   {\rho}'_-=-\frac{e|E_p|}{m_0c^2} \psi_-^* \psi_-
+\end{equation*}
