@@ -23,7 +23,7 @@ def create_gif(filenames, duration):
 	imageio.mimsave(output_file, images, duration=duration)
 #<---------------------Direccion de los archivos-------------------------->
 dir_results="../Results/";dir_graphics="../Graphics/"
-n=9
+n=1
 for i in range(n):
     #<---------------------------------Numero de particulas------------------------->
     pos_x,pos_y=np.loadtxt(dir_results+"5_Cor_in_"+str(i)+".dat",usecols=[1,2],unpack=True)
