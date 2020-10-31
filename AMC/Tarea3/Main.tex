@@ -1,0 +1,89 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Tópicos de Mécanica Cuántica}}\\
+\textbf{Tarea 3}\\
+Dr. Carlos Luna Criado\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt}
+Matricula:\\
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+Sea el vector 
+\begin{equation*}
+    \left| \psi \right\rangle = \left(\begin{matrix}
+        x+3i \\ x\\ -2x
+    \end{matrix} \right)
+\end{equation*}
+donde $x\in \Re $. Encuentre $x$ tal que la norma del vector es igual a 1.\\
+Calculando $\left\langle \psi | \psi \right\rangle $:
+\begin{align*}
+    \left\langle \psi | \psi \right\rangle &= \left(\begin{matrix}
+        x-3i & x & -2x
+    \end{matrix} \right)\left(\begin{matrix}
+        x+3i \\ x \\ -2x
+    \end{matrix} \right)\\
+    & = x^2+9+x^2+4x^2 \\
+    & = 6x^2+9 
+\end{align*}
+como $\left\langle \psi | \psi \right\rangle=1$, entonces:
+\begin{align*}
+    6x^2+9&=1\\
+    6x^2+8&=0\\
+    \left(\sqrt{6}x-i2\sqrt{2}\right)\left(\sqrt{6}x+i2\sqrt{2}\right)&=0 \\
+    \left(\sqrt{3}x-i2\right)\left(\sqrt{3}x+i2\right)&=0 \\
+    x=\frac{2i}{\sqrt{3}} \qquad x=\frac{-2i}{\sqrt{3}}
+\end{align*}
+Como los valores de x son complejos, entonces no existe x tal que $\left\langle \psi | \psi \right\rangle =1$
+\end{document}

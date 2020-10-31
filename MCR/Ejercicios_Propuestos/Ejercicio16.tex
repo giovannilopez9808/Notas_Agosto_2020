@@ -3,3 +3,29 @@ Mostrar que:
 \begin{equation*}
     T_0^0 = \frac{\hbar^2}{2m_0} \left[\frac{1}{c^2} \frac{\partial \psi^*}{\partial t}\frac{\partial \psi}{\partial t}+ \left(\nabla \psi^*\right)\cdot \left(\nabla \psi \right)+ \frac{m_0^2c^2}{\hbar^2} \psi^* \psi \right]  
 \end{equation*}
+Sea el tensor energía momento:
+\begin{equation*}
+    T_\mu^\nu = \frac{\hbar^2}{2m_0} \left[g^{\sigma \nu} \frac{\partial \psi^*}{\partial x^\sigma}
+    \frac{\partial \psi}{\partial x^\mu}+g^{\sigma \nu} \frac{\partial \psi}{\partial x^\sigma}
+    \frac{\partial \psi^*}{\partial x^\mu}-\left(g^{\sigma \rho} \frac{\partial \psi^*}{\partial x^\sigma}
+    \frac{\partial \psi}{\partial x^\rho}-\frac{m_0^2 c^2}{\hbar}\psi^*\psi\right)g_\mu^\nu\right]
+\end{equation*}
+Tomando el caso de $\mu=0,\nu=0$ y el tensor metrico $g_{\mu\nu}$ tal que
+\begin{equation*}
+    g^{\mu\nu}= \left[\begin{matrix}
+        \frac{1}{c^2} & 0 & 0 & 0 \\
+        0 & -1 & 0 & 0 \\
+        0 &  0& -1 & 0 \\
+        0 & 0 & 0 & -1 \\
+    \end{matrix}\right]
+\end{equation*}
+entonces:% \frac{\partial}{\partial}
+\begin{align*}
+    T_0^0   & =\frac{\hbar^2}{2m_0}\left[\frac{1}{c^2} \frac{\partial \psi^*}{\partial t}\frac{\partial \psi}{\partial t}+\frac{1}{c^2} \frac{\partial \psi^*}{\partial t}\frac{\partial \psi}{\partial t}-\frac{1}{c^2} \frac{\partial \psi^*}{\partial t}\frac{\partial \psi}{\partial t}+\frac{\partial \psi^*}{\partial x^1} \frac{\partial \psi}{\partial x^1}+\frac{\partial \psi^*}{\partial x^2} \frac{\partial \psi}{\partial x^2}+\frac{\partial \psi^*}{\partial x^3} \frac{\partial \psi}{\partial x^3}+\frac{m_0^2 c^2}{\hbar^2}\psi^* \psi \right]\\
+            & =\frac{\hbar^2}{2m_0}\left[ \frac{1}{c^2} \frac{\partial \psi^*}{\partial t}\frac{\partial \psi}{\partial t} ,\left(\frac{\partial \psi^*}{\partial x^1},\frac{\partial \psi^*}{\partial x^2},\frac{\partial \psi^*}{\partial x^3}\right) \cdot \left(\frac{\partial \psi}{\partial x^1},\frac{\partial \psi}{\partial x^2},\frac{\partial \psi}{\partial x^3}\right), \frac{m_0^2 c^2}{\hbar^2} \psi^* \psi\right]\\
+            & =\frac{\hbar^2}{2m_0}\left[\frac{1}{c^2} \frac{\partial \psi^*}{\partial t}\frac{\partial \psi}{\partial t} +\left(\nabla \psi^*\right) \cdot \left(\nabla \psi\right)+ \frac{m_0^2 c^2}{\hbar^2} \psi^* \psi\right]\\
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    T_0^0 = \frac{\hbar^2}{2m_0} \left[\frac{1}{c^2} \frac{\partial \psi^*}{\partial t}\frac{\partial \psi}{\partial t}+ \left(\nabla \psi^*\right)\cdot \left(\nabla \psi \right)+ \frac{m_0^2c^2}{\hbar^2} \psi^* \psi \right]  
+\end{equation*}
