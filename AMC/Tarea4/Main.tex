@@ -1,0 +1,97 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Tópicos de Mécanica Cuántica}}\\
+\textbf{Tarea 4}\\
+Dr. Carlos Luna Criado\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\                                                                                                                                                                                                                                                           
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt} 
+Matricula:\\                                                                                                                        
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+Sean los vectores 
+\begin{equation*}
+\left|a \right\rangle = \left(\begin{matrix}
+        x+iy \\ 3 \\ 2 
+    \end{matrix} \right)
+    \qquad \left|b \right\rangle =\left(\begin{matrix}
+        1+2i \\ 0\\ 1+2i \\ 
+    \end{matrix} \right) \qquad 
+    \left|c \right\rangle = \left(\begin{matrix}
+        0 \\ 1 \\ 3i
+    \end{matrix} \right)
+\end{equation*}
+siendo $x,y \in \Re$. ¿Que valores puede tomar x e y para que $\left|a \right\rangle, \left|b \right\rangle,\left|c \right\rangle$ sean linealmente independientes?\\
+Si un sistema de vectores son linealmente independientes se tiene que cumplir que el determinante de la matriz conformado por cada vector tiene que ser distinto de cero, por lo que 
+se procedera a igualar este determinante para obtener que valores no pueden ser tomados por x e y.
+\begin{align*}
+    \left|\begin{matrix}
+        x+iy & 1+2i & 0\\ 
+        3 & 0 & 1 \\ 
+        2 & 1+2i & 3i 
+    \end{matrix} \right| & = 0 \\
+    (-1-2i)x+(2-i)y+(20-5i)&=0+0i\\
+    (-x+2y+20) + i( -2x-y-5)&=0+0i\\
+\end{align*}
+por lo que ahora resolveremos el sistema de ecuaciones
+\begin{align*}
+    -x+2y+20&=0\\
+    -2x-y-5&=0
+\end{align*}
+dndo como resultado $x=2,y=-9$, por lo que los valores que pueden tomar x e y para que los estados $\left|a \right\rangle, \left|b \right\rangle,\left|c \right\rangle$
+sean linealmente independientes es:
+\begin{equation*}
+    x\neq 2 \qquad y\neq -9
+\end{equation*}
+\end{document}

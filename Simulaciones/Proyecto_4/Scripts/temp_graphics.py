@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 dir_results="../Results/";dir_graphics="../Graphics/"
 colors=["b76935","a56336","935e38","6f523b","5c4d3c","4a473e","38413f","263c41","143642"]
 n_part=50;n=9
-fig,axs=plt.subplots(3,3,figsize=(9,9))
+fig,axs=plt.subplots(3,3,figsize=(12,8))
 axs=np.reshape(axs,9)
 for i,ax,color in zip(range(n),axs,colors):
     print("Calculando temperatura de "+str(i))
@@ -41,4 +41,4 @@ fig.text(0.5, 0.04, 'Walks (10$^{5}$)', ha='center',fontsize=13)
 #<--------------------------Label en el eje y-------------------------------------------->
 fig.text(0.04, 0.5, 'Temperatura', va='center', rotation='vertical',fontsize=13)
 plt.subplots_adjust(left=0.107,bottom=0.11,right=0.945,top=0.952,wspace=0.105,hspace=0.214)
-plt.savefig("temp.png",dpi=200)
+plt.savefig(dir_graphics+"temp.png",dpi=200)
