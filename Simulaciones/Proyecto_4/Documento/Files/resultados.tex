@@ -1,37 +1,24 @@
 \section{Resultados}
-Realizando la simulación del sistema bajo los parámetros usados en la tabla \ref{table:parametros} se obtuvó que la energía total de cada sistema
-se encuentra en un estado oscilatorio, para cada densidad es diferente el valor al cual oscila y en situaciones la energía llega a subir, pero nuevamente 
-decae y vuelbe a oscilar. Esto se puede apreciar en la figura \ref{fig:energiatotal}.
+La configuración inicial que se le dio a cada sistema esta dado por las siguientes ecuaciones:
+\begin{align*}
+    x_{i+1}&=(i-1)*0.9+a\\
+    y_{i+1}&=\left\lbrace\begin{matrix}
+        0.5+a & mod(i,2)=0 \\
+        a & mod(i,2)\neq 0
+    \end{matrix} \right.
+\end{align*}
+donde a representa un número aleatorio entre -0.1 y 0.1. Con ello, las configuraciones iniciales de cada ejecución del modelo estan
+mostradas en la figura \ref{fig:posini}.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.35]{../Graphics/Energy.png}
-    \caption{Energía total del sistema a lo largo de la simulación para las densidades utilizadas.}
-    \label{fig:energiatotal}
+    \includegraphics[scale=0.27]{../Graphics/pos_ini.png}
+    \caption{Configuración inicial de las cadenas de moleculas.}
+    \label{fig:posini}
 \end{figure}
-Al estar calculando la energía cinetica y potencial del sistema, se pudo obtener la temperatura a cada paso de la simulación. En la figura
-\ref{fig:temp} se aprecia como la temperatura toma un valor constante a lo largo de la simulación realizando pequeñas fluctuaciones alrededor
-de un valor, en este caso todas alrededor de $T=2$.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.35]{../Graphics/Temp.png}
-    \caption{Temperatura del sistema a lo largo de la simulación para las densidades utilizadas.}
-    \label{fig:temp}
-\end{figure}
-Del mismo proceso, se obtuvo la figura \ref{fig:temp} la cual muestra la distribución radial del sistema para las diferentes densidades usadas para la simulación, 
-en esta se puede observar que los átomos tienden a estar a una distancia cercana entre todos, en las mismas distribuciones se aprecia que presenta
-fluctuaciones a diferentes distancias.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.35]{../Graphics/Dis_rad.png}
-    \caption{Distribución radial del sistema obtenida para las densidades utilizadas.}
-    \label{fig:disrad}
-\end{figure}
-Durante la simulación se grabaron las velocidades en x y y de todas las partículas, por lo que al agruparlas en un arreglo, uno para cada densidad, se obtuvo
-la figura \ref{fig:disvel}. A cada conjunto de velocidades se le realizó un fit con la distribución normal, mostrando asi que estas velocidades
-se encuentran dentro de una distribución normal. 
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.35]{../Graphics/vel.png}
-    \caption{Distribución de las velocidades de los diferentes sistemas junto con un fit de una distribución normal.}
-    \label{fig:disvel}
-\end{figure}
+Las velocidades de cada molecula fueron dada siguiendo las siguientes ecuaciones:
+\begin{align*}
+    v_{xi}&=v_{0}\cos(2v_0\pi)\\
+    v_{yi}&=v_{0}\sin(2v_0\pi)\\
+\end{align*}
+donde $v_0$ es un número aleatorio entre 0 y 1. Los parámetros usados para cada simulación son los que se muestran en la tabla \ref{table:parametros},
+la dinámica que presento cada simulación estan guardadas en el siguiente link
