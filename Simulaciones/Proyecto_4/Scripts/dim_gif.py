@@ -11,8 +11,7 @@ import time
 def image(walk_real,pos_x,pos_y,walk):
     plt.yticks([]);plt.xticks([])
     plt.title("Walk N="+str(int(walk_real)))
-    plt.scatter(pos_x,pos_y,c="#2d6a4f",marker=".")
-    plt.plot(pos_x,pos_y)
+    plt.scatter(pos_x,pos_y,c="#560bad",marker=".")
     plt.savefig(str(walk+1)+".png")
     plt.clf()
 #<------------------------Funcion para generar el gif---------------------------->
@@ -24,7 +23,7 @@ def create_gif(filenames, duration):
 	imageio.mimsave(output_file, images, duration=duration)
 #<---------------------Direccion de los archivos-------------------------->
 dir_results="../Results/";dir_graphics="../Graphics/"
-n=1
+n=9
 for i in range(n):
     #<---------------------------------Numero de particulas------------------------->
     pos_x,pos_y=np.loadtxt(dir_results+"5_Cor_in_"+str(i)+".dat",usecols=[1,2],unpack=True)
@@ -34,10 +33,6 @@ for i in range(n):
     walks=np.loadtxt(dir_results+"8_T_U_P_0.dat",usecols=0)
     #<---------------------------Numero de pasos---------------------------->
     n_walks=np.size(walks)
-    # #<----------------------------Limite de las posiciones------------------------->
-    # lim=np.arange(-30,35,5)
-    # #<--------------------------------Reposicion de las particulas---------------------->
-    # lim_real=np.arange(0,65,5)
     print("Creando graficas")
     for walk,walk_real in zip(range(n_walks),walks):
         #<--------------------------------Lectura de las posiciones------------------------------------->

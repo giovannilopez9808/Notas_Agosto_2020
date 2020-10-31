@@ -20,6 +20,7 @@ for i,ax,color in zip(range(n),axs,colors):
     temp=np.loadtxt(dir_results+"temp_"+str(i)+".dat",usecols=1)
     ax.set_ylim(0.004,0.01)
     ax.set_xlim(0,2e5)
+    ax.set_title("Simulacion N$^{\circ}$"+str(i+1))
     for j in np.arange(0.004,0.01+0.001,0.001):
         ax.plot([0,2e5],[j,j],ls="--",color="grey")
     for j in np.arange(0,2e5+0.4e5,0.4e5):
@@ -39,5 +40,5 @@ for i,ax,color in zip(range(n),axs,colors):
 fig.text(0.5, 0.04, 'Walks (10$^{5}$)', ha='center',fontsize=13)
 #<--------------------------Label en el eje y-------------------------------------------->
 fig.text(0.04, 0.5, 'Temperatura', va='center', rotation='vertical',fontsize=13)
-plt.subplots_adjust(left=0.107,bottom=0.11,right=0.945,top=0.952,wspace=0.105,hspace=0.138)
-plt.show()
+plt.subplots_adjust(left=0.107,bottom=0.11,right=0.945,top=0.952,wspace=0.105,hspace=0.214)
+plt.savefig("temp.png",dpi=200)
