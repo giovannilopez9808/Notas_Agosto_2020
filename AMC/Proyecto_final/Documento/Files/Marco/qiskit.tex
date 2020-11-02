@@ -5,7 +5,7 @@ Para mostrar de forma detallada se trabajara con el problema cuando $a=7$ y $N=1
     \label{eq:ua15}
 \end{equation}
 Para crear las operaciones acumulativas $U^x$, se creará una repetición del circuito $x$ veces, por lo que la función \textcolor{def}{\textit{c\_amod15}}
- regresará la compuerta U al valor de a y la añadira al circuito cuántico con la función \textcolor{def}{\textit{modular\_exponentiation}}, repetida x veces como lo siguiente:
+ regresará la compuerta U al valor de a y la añadirá al circuito cuántico con la función \textcolor{def}{\textit{modular\_exponentiation}}, repetida x veces como lo siguiente:
  \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
     \prompt{In}{incolor}{}{\boxspacing}
     \begin{Verbatim}[commandchars=\\\{\}]
@@ -78,7 +78,7 @@ Ya con estas funciones preestablecidas, el algoritmo de Shor es construido de un
     \PY{n}{mycircuit}\PY{o}{.}\PY{n}{draw}\PY{p}{(}\PY{n}{output}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{text}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
     \end{Verbatim}
     \end{tcolorbox}
-Al termino de estas lineas de código tendremos la serie de posibles factores primos del número 15, por lo que con ayuda de un algoritmo clásico se podra comprobar si los cálculos 
+Al termino de estas líneas de código tendremos la serie de posibles factores primos del número 15, por lo que con ayuda de un algoritmo clásico se podra comprobar si los cálculos 
 antes realizados son correctos, este algoritmo es el siguiente:
 \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
     \prompt{In}{incolor}{}{\boxspacing}
@@ -111,7 +111,7 @@ Dando como resultado lo siguiente:
     Medición 12
     (5, 3)
         \end{Verbatim}
-En donde se puede observar que no necesariamente el algoritmo cuántico encontrará la factorización que nosotros esperariamos, si no que necesita ayuda de una computadora clásica para comprobar sus resultados. Este circuito esta hecho Especificamente
+En donde se puede observar que no necesariamente el algoritmo cuántico encontrará la factorización que nosotros esperaríamos, si no que necesita ayuda de una computadora clásica para comprobar sus resultados. Este circuito esta hecho Especificamente
 para factorizar el número 15, el circuito cuántico que factoriza cualquier número N es el siguiente:
 \begin{figure}[H]
     \centering

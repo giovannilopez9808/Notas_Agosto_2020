@@ -1,79 +1,60 @@
 \begin{thebibliography}{10}
 
-\bibitem{Agrios2003}
-Agrios.
-\newblock {\em {Introducci{\'{o}}n a La Introducci{\'{o}}n a La Teoría de
-  Números.}}, volume~3.
-\newblock 2003.
-
-\bibitem{Berman2000}
-G.~P. Berman, G.~D. Doolen, G.~V. L{\'{o}}pez, and V.~I. Tsifrinovich.
-\newblock {Nonresonant effects in the implementation of the quantum Shor
-  algorithm}.
-\newblock {\em Physical Review A - Atomic, Molecular, and Optical Physics},
-  61(4):7, 2000.
-
-\bibitem{Bonillo2013}
-Vicente~Moret Bonillo.
-\newblock {Principios Fundamentales De Computaci{\'{o}}n Cu{\'{a}}ntica}.
-\newblock {\em univerasidad de A Coru{\~{n}}a}, pages 1--181, 2013.
-
 \bibitem{Cohen1998}
-Luanne~S. Cohen and Tanya Wendling.
-\newblock {T{\'{e}}cnicas de dise{\~{n}}o}.
-\newblock {\em T{\'{e}}cnicas de dise{\~{n}}o}, pages 15--18, 1998.
+L.~S. Cohen and T.~Wendling, ``{T{\'{e}}cnicas de dise{\~{n}}o},'' {\em
+  T{\'{e}}cnicas de dise{\~{n}}o}, pp.~15--18, 1998.
 
-\bibitem{Gerjuoy2005}
-Edward Gerjuoy.
-\newblock {Shor's factoring algorithm and modern cryptography. An illustration
-  of the capabilities inherent in quantum computers}.
-\newblock {\em American Journal of Physics}, 73(6):521--540, 2005.
-
-\bibitem{Ghisi2000}
-F.~Ghisi and S.~V. Ulyanov.
-\newblock {The information role of entanglement and interference operators in
-  Shor quantum algorithm gate dynamics}.
-\newblock {\em Journal of Modern Optics}, 47(12):2079--2090, 2000.
-
-\bibitem{Koch2020}
-Daniel Koch, Saahil Patel, Laura Wessing, and Paul~M. Alsing.
-\newblock {Fundamentals In Quantum Algorithms: A Tutorial Series Using Qiskit
-  Continued}.
-\newblock 2020.
-
-\bibitem{Lomonaco2005}
-Samuel~J. Lomonaco and Louis~H. Kauffman.
-\newblock {A continuous variable Shor algorithm}.
-\newblock pages 97--108, 2005.
-
-\bibitem{Shor1997}
-Peter~W. Shor.
-\newblock {Polynomial-time algorithms for prime factorization and discrete
-  logarithms on a quantum computer}.
-\newblock {\em SIAM Journal on Computing}, 26(5):1484--1509, 1997.
+\bibitem{Agrios2003}
+Agrios, {\em {Introducci{\'{o}}n a La Introducci{\'{o}}n a La Teoría de
+  Números.}}, vol.~3.
+\newblock 2003.
 
 \bibitem{Telecomunicacion2003}
-D~E Ingenieros D~E Telecomunicaci{\'{o}}n.
-\newblock {N{\'{u}}meros primos especiales y sus aplicaciones
-  criptogr{\'{a}}ficas N{\'{u}}meros primos especiales y sus aplicaciones
-  criptogr{\'{a}}ficas TRIBUNAL CALIFICADOR}.
-\newblock 2003.
+D.~E. I. D.~E. Telecomunicaci{\'{o}}n, ``{N{\'{u}}meros primos especiales y sus
+  aplicaciones criptogr{\'{a}}ficas},'' 2003.
 
-\bibitem{Vandersypen2001}
-Lieven~M.K. Vandersypen, Matthias Breyta, Gregory Steffen, Costantino~S.
-  Yannoni, Mark~H. Sherwood, and Isaac~L. Chuang.
-\newblock {Experimental realization of Shor's quantum factoring algorithm using
-  nuclear magnetic resonance}.
-\newblock {\em Nature}, 414(6866):883--887, 2001.
+\bibitem{Shor1997}
+P.~W. Shor, ``{Polynomial-time algorithms for prime factorization and discrete
+  logarithms on a quantum computer},'' {\em SIAM Journal on Computing},
+  vol.~26, no.~5, pp.~1484--1509, 1997.
 
-\bibitem{Yimsiriwattana2004}
-Anocha Yimsiriwattana and Samuel~J. {Lomonaco Jr.}
-\newblock {Distributed quantum computing: a distributed Shor algorithm}.
-\newblock {\em Quantum Information and Computation II}, 5436:360, 2004.
+\bibitem{Bonillo2013}
+V.~M. Bonillo, ``{Principios Fundamentales De Computaci{\'{o}}n
+  Cu{\'{a}}ntica},'' {\em univerasidad de A Coru{\~{n}}a}, pp.~1--181, 2013.
+
+\bibitem{Koch2020}
+D.~Koch, S.~Patel, L.~Wessing, and P.~M. Alsing, ``{Fundamentals In Quantum
+  Algorithms: A Tutorial Series Using Qiskit Continued},'' 2020.
 
 \bibitem{Zhou2017}
-S.~S. Zhou, T.~Loke, J.~A. Izaac, and J.~B. Wang.
-\newblock {Quantum Fourier transform in computational basis}.
-\newblock {\em Quantum Information Processing}, 16(3):1--19, 2017.
+S.~S. Zhou, T.~Loke, J.~A. Izaac, and J.~B. Wang, ``{Quantum Fourier transform
+  in computational basis},'' {\em Quantum Information Processing}, vol.~16,
+  no.~3, pp.~1--19, 2017.
+
+\bibitem{Lomonaco2005}
+S.~J. Lomonaco and L.~H. Kauffman, ``{A continuous variable Shor algorithm},''
+  pp.~97--108, 2005.
+
+\bibitem{Vandersypen2001}
+L.~M. Vandersypen, M.~Breyta, G.~Steffen, C.~S. Yannoni, M.~H. Sherwood, and
+  I.~L. Chuang, ``{Experimental realization of Shor's quantum factoring
+  algorithm using nuclear magnetic resonance},'' {\em Nature}, vol.~414,
+  no.~6866, pp.~883--887, 2001.
+
+\bibitem{Berman2000}
+G.~P. Berman, G.~D. Doolen, G.~V. L{\'{o}}pez, and V.~I. Tsifrinovich,
+  ``{Nonresonant effects in the implementation of the quantum Shor
+  algorithm},'' {\em Physical Review A - Atomic, Molecular, and Optical
+  Physics}, vol.~61, no.~4, p.~7, 2000.
+
+\bibitem{Yimsiriwattana2004}
+A.~Yimsiriwattana and S.~J. {Lomonaco Jr.}, ``{Distributed quantum computing: a
+  distributed Shor algorithm},'' {\em Quantum Information and Computation II},
+  vol.~5436, p.~360, 2004.
+
+\bibitem{Gerjuoy2005}
+E.~Gerjuoy, ``{Shor's factoring algorithm and modern cryptography. An
+  illustration of the capabilities inherent in quantum computers},'' {\em
+  American Journal of Physics}, vol.~73, no.~6, pp.~521--540, 2005.
 
 \end{thebibliography}

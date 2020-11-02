@@ -1,5 +1,5 @@
 \subsection{Algoritmo de Shor}
-La razones por las cuales el algoritmo de Shor es mas eficiente (ecuación \ref{eq:compledidad_cuantica}) que el algortimo de criba general del cuerpo de números (ecuación \ref{eq:O(clasico)}) son las siguientes:
+La razones por las cuales el algoritmo de Shor es más eficiente (ecuación \ref{eq:compledidad_cuantica}) que el algortimo de criba general del cuerpo de números (ecuación \ref{eq:O(clasico)}) son las siguientes:
 \begin{itemize}
     \item Transformada de Fourier Cuántica.
     \item Periodo de la función a\textsuperscript{x}mod N.
@@ -12,7 +12,7 @@ Si se tienen n qubits, entonces existiran 2\textsuperscript{n} bases de estados.
     \left|\tilde{x} \right\rangle &\equiv QFT\left| x \right\rangle\\
     &= \frac{1}{\sqrt{N}} \sum\limits_{y=0}^{N-1} e^{\frac{2\pi i x y}{N}} \left|y \right\rangle
 \end{align*}
-Para el caso de un quibit, se tendria lo siguiente:\\
+Para el caso de un quibit \cite{Zhou2017,Lomonaco2005} , se tendria lo siguiente:\\
 \begin{minipage}{0.5\linewidth}
     \begin{align*}
         \left|\tilde{0} \right\rangle &= \frac{1}{\sqrt{2}} \sum\limits_{y=0}^1 e^{\frac{2\pi i (0)y}{2}} \left|y \right\rangle \\
@@ -60,13 +60,13 @@ k qubits, se tiene lo siguiente:
 \caption{Representación en la esfera de Bloch de los estados bases computacionales cuánticos y las bases de Fourier.}
 \label{fig:QFT_bloch}
 \end{figure}
-Para obtener la transformada de Fouruier en base a los circuitos cuánticos, tenemos que realizar una serie de operaciones con la compuerta de Hadamard y la compuerta de rotaciones, en donde la 
-fase de cada rotación es $exp(2\pi i / 2^k)$. La transformada de Fourier Cuática por si sola no nos ayuda en mucho, es por ello que se propuso un proceso en el cual
+Para obtener la transformada de Fourier en base a los circuitos cuánticos, tenemos que realizar una serie de operaciones con la compuerta de Hadamard y la compuerta de rotaciones, en donde la 
+fase de cada rotación es $exp(2\pi i / 2^k)$ \cite{Vandersypen2001}. La transformada de Fourier Cuática por si sola no nos ayuda en mucho, es por ello que se propuso un proceso en el cual
 se pueda medir en que fase se encuentra el estado cuántico, esto lo lleva el proeso de estimación de fase cuántico (QPE).
 \subsubsection{Estimación de Fase Cuántica (QPE).}
 
 Al tener aplicada la transformada de Fourier Cuántica al estado de los qubits este contiene información en sus eigenvalores, ya que tienen la forma de
-$e^{i\theta}$ y esto es que cada eigenvector forma una base ortonormal, es por ello que se tiene lo siguiente:
+$e^{i\theta}$ y esto es que cada eigenvector forma una base ortonormal \cite{Berman2000}, es por ello que se tiene lo siguiente:
 \begin{equation*}
     \mathcal{U} \left|\psi \right\rangle = e^{i\theta_\psi}\left|\psi \right\rangle.
 \end{equation*}
@@ -96,7 +96,7 @@ Para realizar esta operación dentro del Algoritmo de Shor se propusó un operad
     \label{eq:umod}
 \end{equation}
 Para visualizar el funcionamiento de este operador se usará el ejemplo de $a=3$ y $N=35$, trabajando con los eigenestados de U empezando con el estado 
-$\left|1\right\rangle$ podemos visualizar que la transformación sucesiva del operador U estariasmos multiplicando el estado por $amodN$, por lo tanto, después de
+$\left|1\right\rangle$ podemos visualizar que la transformación sucesiva del operador U estariamos multiplicando el estado por $amodN$, por lo tanto, después de
 r transformaciones regresaremos al estado $\left|1\right\rangle$.
 \begin{align*}
     \mathcal{U}\left| 1 \right\rangle &= \left|3\right\rangle \\
@@ -135,11 +135,11 @@ serán canceladas, obteniendo así el estado $ \left| 1 \right\rangle$.
     \frac{1}{\sqrt{r}} \sum\limits_{s=0}^{r-1} \left|u_s \right\rangle =  \left| 1 \right\rangle.
 \end{equation*}
 Siendo así que el estado $ \left| 1 \right\rangle$ es una superposición de estos eigenestados, lo cual indica que podemos realizar 
-el algoritmo de estimación de fase (QPE)  al operador U usando el estado $ \left| 1 \right\rangle$, para así obtener la medición de la fase:
+el algoritmo de estimación de fase (QPE) \cite{Yimsiriwattana2004,Gerjuoy2005} al operador U usando el estado $ \left| 1 \right\rangle$, para así obtener la medición de la fase:
 \begin{equation*}
     \phi = \frac{s}{r}
 \end{equation*}
-Realizando del algoritmo de fracciones continuas sobre $\phi$ podemos encontrar el valor de ra. El circuito cuántico que realiza esta tarea es el siguiente:
+Realizando del algoritmo de fracciones continuas sobre $\phi$ podemos encontrar el valor de r. El circuito cuántico que realiza esta tarea es el siguiente:
 \begin{figure}[H]
     \includegraphics[scale=0.4]{../Graphics/qpe.png}
     \caption{Circuito cuántico que realiza el algortimo QPE (Quantum Phase Estimation) sobre una serie de qubits.}
