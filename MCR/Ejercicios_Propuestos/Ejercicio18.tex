@@ -1,2 +1,40 @@
 \section*{Ejercicio 18}
-Obtener la constante de la función de onda para $E=-E_p$
+Obtener la constante de la función de onda para $E=-E_p$.\\
+Se tiene que:
+\begin{equation*}
+    \psi^{(-)}(\rho) = A_{(-)}\left(\begin{matrix}
+        \varphi_0^{(-)} \\ \chi_{0}^{(-)}
+    \end{matrix} \right) exp\left[i\left(\vec{p}\cdot\vec{x}+Et\right)\right] \equiv \left[\begin{matrix}
+        \varphi^{(-)}(\rho) \\ \chi^{(-)}(\rho)
+    \end{matrix}\right]
+\end{equation*}
+con 
+\begin{equation*}
+    \left[\begin{matrix}
+        \rho_0^{(-)} \\ \chi_0^{(-)}
+    \end{matrix}\right] = \left[\begin{matrix}
+        m_0c^2-E_\rho \\ m_0c^2+E_\rho
+    \end{matrix}\right]
+\end{equation*}
+como se sabe que esta función se encuentra normalizada, entonces se tiene que cumplir que:
+\begin{equation*}
+    \int{\psi^{(-)}}^* \hat{\tau}_3 \psi^{(-)} dx^3 =-1
+\end{equation*}
+realizando la integral se tiene que:
+\begin{align*}
+    \int{\psi^{(-)}}^* \hat{\tau}_3 \psi^{(-)} dx^3 &= \int \left(\varphi\varphi^*-\chi\chi^*\right) dV \\
+    &=\int \left(A_{(-)}\varphi_0e^{i\xi}A_{(-)}^*\varphi_0^*e^{-i\xi}-A_{(-)}\chi_0e^{i\xi}A_{(-)}^*\chi_0^*e^{-i\xi}\right)dV\\
+    &=\int \left(|A_{(-)}|^2 \varphi_0 \varphi_0^* -|A_{(-)}|^2 \xi_0\xi_0^*\right)dV\\
+    &=|A_{(-)}|^2 \int \left(\varphi_0 \varphi_0^* -\xi_0\xi_0^*\right)\\
+    &=|A_{(-)}|^2  \int \left((m_0c^2-E_\rho)^2-(m_0c^2+E_\rho)^2\right)dV\\
+    &=|A_{(-)}|^2 (-4m_0c^2E_\rho) \int dV\\
+    &=|A_{(-)}|^2 (-4m_0c^2E_\rho) L^3
+\end{align*}
+entonces:
+\begin{equation*}
+    |A_{(-)}|^2 (-4m_0c^2E_\rho) L^3 = -1
+\end{equation*}
+por lo tanto
+\begin{equation*}
+    A_{(-)}= \frac{1}{\sqrt{4m_0c^2}} \frac{1}{\sqrt{L^3 E_\rho}}
+\end{equation*}

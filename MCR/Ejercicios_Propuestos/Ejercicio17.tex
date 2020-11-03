@@ -4,3 +4,77 @@ Mostras que
     \item $H(+)=E_{pn}$
     \item $H(-)=E_{pn}$
 \end{itemize}
+Se tiene que:
+\begin{equation*}
+    \psi_n (\pm) = \sqrt{\frac{m_0c^2}{L^3E_{\rho m}}} exp\left[\frac{i}{\hbar}\left(\vec{p}\cdot \vec{x}\mp E_{\rho n}t\right)\right]
+\end{equation*}
+y la operación H es definida como:
+\begin{equation*}
+    H=\int\limits_{L^B} T_0^0(n,\pm) dx^3
+\end{equation*}
+donde 
+\begin{equation*}
+    T_0^0 = \frac{\hbar^2}{2m_0} \left[\frac{1}{c^2} \frac{\partial \psi^*}{\partial t}\frac{\partial \psi}{\partial t}+ \left(\nabla \psi^*\right)\cdot \left(\nabla \psi \right)+ \frac{m_0^2c^2}{\hbar^2} \psi^* \psi \right]  
+\end{equation*}
+Para $H(+)$, calculando $ \frac{\partial \psi^*}{\partial t}$  y $ \frac{\partial \psi}{\partial t}$:
+\begin{align*}
+    \frac{\partial \psi^*}{\partial t} = \frac{i}{\hbar} E_{\rho n} \psi^* &\qquad  \frac{\partial \psi}{\partial t} = \frac{-i}{\hbar} E_{\rho n} \psi\\
+    \frac{1}{c^2}  \frac{\partial \psi^*}{\partial t} \frac{\partial \psi}{\partial t} &= \frac{E_{\rho n}^2}{\hbar^2c^2} \psi^* \psi\\
+    &= \frac{E_{\rho n}m_0}{\hbar^2 L^3}
+\end{align*}
+Calculando $\nabla \psi^*$ y $\nabla \psi$
+\begin{align*}
+    \nabla \psi^* = \frac{-i\vec{P}}{\hbar}\psi^* &\qquad \nabla \psi = \frac{i\vec{P}}{\hbar} \psi\\
+    \left(\nabla \psi^*\right) \cdot \left(\nabla \psi\right) &=\frac{\vec{p}\cdot \vec{p}}{\hbar^2} \psi^* \psi \\
+    &= \frac{P^2}{\hbar^2} \left(\frac{m_0c^2}{L^3 E_{\rho n}}\right)\\
+    &= \frac{1}{c^2 \hbar^2} \left(\frac{m_0c^2}{L^3 E_{\rho n}}\right) (E_{\rho n}^2-m_0^2c^4)\\
+    &= \left(\frac{m_0}{L^3 E_{\rho n }\hbar^2}\right) (E_{\rho n}^2-m^2c^4)
+\end{align*}
+por lo tanto
+\begin{align*}
+    T_0^0 &= \frac{\hbar^2}{2m_0} \left[\frac{1}{c^2} \frac{\partial \psi^*}{\partial t}\frac{\partial \psi}{\partial t}+ \left(\nabla \psi^*\right)\cdot \left(\nabla \psi \right)+ \frac{m_0^2c^2}{\hbar^2} \psi^* \psi \right]  \\
+    &= \frac{\hbar^2}{2m_0} \left[\frac{E_{\rho n}m_0}{\hbar^2 L^3} + \left(\frac{m_0}{L^3 E_{\rho n }\hbar^2}\right) (E_{\rho n}^2-m_0^2c^4)+\left(\frac{m_0}{L^3 E_{\rho n }\hbar^2}\right)(m_0^2c^4)\right]\\
+    & = \frac{E_{\rho n}}{L^3}
+\end{align*}
+entonces
+\begin{align*}
+    \int\limits_{L^B}   T_0^0(n,+) dx^3 &= \int\limits_{L^B}  \frac{E_{\rho n}}{L^3} dV \\
+    &= \frac{E_{\rho n}}{L^3} \int\limits_{L^B} dV \\
+    &= E_{\rho n}
+\end{align*}
+por lo tanto
+\begin{equation*}
+    H(+)= E_{\rho n}
+\end{equation*}
+
+
+Para $H(-)$, calculando $ \frac{\partial \psi^*}{\partial t}$  y $ \frac{\partial \psi}{\partial t}$:
+\begin{align*}
+    \frac{\partial \psi^*}{\partial t} = \frac{-i}{\hbar} E_{\rho n} \psi^* &\qquad  \frac{\partial \psi}{\partial t} = \frac{i}{\hbar} E_{\rho n} \psi\\
+    \frac{1}{c^2}  \frac{\partial \psi^*}{\partial t} \frac{\partial \psi}{\partial t} &= \frac{E_{\rho n}^2}{\hbar^2c^2} \psi^* \psi\\
+    &= \frac{E_{\rho n}m_0}{\hbar^2 L^3}
+\end{align*}
+Calculando $\nabla \psi^*$ y $\nabla \psi$
+\begin{align*}
+    \nabla \psi^* = \frac{-i\vec{P}}{\hbar}\psi^* &\qquad \nabla \psi = \frac{i\vec{P}}{\hbar} \psi\\
+    \left(\nabla \psi^*\right) \cdot \left(\nabla \psi\right) &=\frac{\vec{p}\cdot \vec{p}}{\hbar^2} \psi^* \psi \\
+    &= \frac{P^2}{\hbar^2} \left(\frac{m_0c^2}{L^3 E_{\rho n}}\right)\\
+    &= \frac{1}{c^2 \hbar^2} \left(\frac{m_0c^2}{L^3 E_{\rho n}}\right) (E_{\rho n}^2-m_0^2c^4)\\
+    &= \left(\frac{m_0}{L^3 E_{\rho n }\hbar^2}\right) (E_{\rho n}^2-m^2c^4)
+\end{align*}
+por lo tanto
+\begin{align*}
+    T_0^0 &= \frac{\hbar^2}{2m_0} \left[\frac{1}{c^2} \frac{\partial \psi^*}{\partial t}\frac{\partial \psi}{\partial t}+ \left(\nabla \psi^*\right)\cdot \left(\nabla \psi \right)+ \frac{m_0^2c^2}{\hbar^2} \psi^* \psi \right]  \\
+    &= \frac{\hbar^2}{2m_0} \left[\frac{E_{\rho n}m_0}{\hbar^2 L^3} + \left(\frac{m_0}{L^3 E_{\rho n }\hbar^2}\right) (E_{\rho n}^2-m_0^2c^4)+\left(\frac{m_0}{L^3 E_{\rho n }\hbar^2}\right)(m_0^2c^4)\right]\\
+    & = \frac{E_{\rho n}}{L^3}
+\end{align*}
+entonces
+\begin{align*}
+    \int\limits_{L^B}   T_0^0(n,-) dx^3 &= \int\limits_{L^B}  \frac{E_{\rho n}}{L^3} dV \\
+    &= \frac{E_{\rho n}}{L^3} \int\limits_{L^B} dV \\
+    &= E_{\rho n}
+\end{align*}
+por lo tanto
+\begin{equation*}
+    H(-)= E_{\rho n}
+\end{equation*}
