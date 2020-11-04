@@ -1,0 +1,148 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Tópicos de Mécanica Cuántica}}\\
+\textbf{Tarea 5}\\
+Dr. Carlos Luna Criado\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\                                                                                                                                                                                                                                                           
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt} 
+Matricula:\\                                                                                                                        
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+Un operador importante en computación cuántica es el operador "puerta de Hadamard" $(\hat{H})$, que representa una de las puestas lógicas cuánticas más comúnmente empleadas.\\
+La puerta lógica cuántica de Hadamard viene representada con la matriz:
+\begin{equation*}
+    H=\frac{1}{\sqrt{2}}\left(\begin{matrix}1 & 1 \\ 
+    1 & -1\end{matrix}\right)
+\end{equation*}
+\begin{enumerate}
+    \item ¿Es esta matriz hermitica?\\
+    Una matriz es hermitica si $H=H^\dagger$, por lo que calculando $H^\dagger = (H^T)^*$, se tiene que:
+    \begin{equation*}
+        H^T= \frac{1}{\sqrt{2}} \left(\begin{matrix}
+            1 & 1 \\
+            1 & -1
+        \end{matrix}\right)
+    \end{equation*}
+    realizando la compleja conjugada de $H^T$ se obtiene lo siguiente:
+    \begin{equation*}
+        (H^T)^*= \frac{1}{\sqrt{2}} \left(\begin{matrix}
+            1 & 1 \\
+            1 & -1
+        \end{matrix}\right)
+    \end{equation*}
+    como $H=(H^T)^*$, entonces H es hermitica.
+    \item ¿Es unitaria?\\
+    Para que una matriz sea unitaria se tiene que cumplir que $AA^*=A^*A=I$, calculando $H^*$ se tiene que:
+    \begin{equation*}
+        H^*= \frac{1}{\sqrt{2}} \left(\begin{matrix}
+            1 & 1 \\
+            1 & -1
+        \end{matrix}\right)
+    \end{equation*}
+    entonces calculando $HH^*$:
+    \begin{align*}
+        HH^*&= \frac{1}{\sqrt{2}} \left(\begin{matrix}
+            1 & 1 \\
+            1 & -1
+        \end{matrix}\right)\frac{1}{\sqrt{2}} \left(\begin{matrix}
+            1 & 1 \\
+            1 & -1
+        \end{matrix}\right)  \\
+        & =\frac{1}{2} \left(\begin{matrix}
+            2 & 0 \\
+            0 & 2
+        \end{matrix}\right)\\
+        & = \left(\begin{matrix}
+            1 & 0 \\
+            0 & 1
+        \end{matrix}\right)
+    \end{align*}
+    calculando $H^*H$:
+    \begin{align*}
+        H^*H&= \frac{1}{\sqrt{2}} \left(\begin{matrix}
+            1 & 1 \\
+            1 & -1
+        \end{matrix}\right)\frac{1}{\sqrt{2}} \left(\begin{matrix}
+            1 & 1 \\
+            1 & -1
+        \end{matrix}\right)  \\
+        & =\frac{1}{2} \left(\begin{matrix}
+            2 & 0 \\
+            0 & 2
+        \end{matrix}\right)\\
+        & = \left(\begin{matrix}
+            1 & 0 \\
+            0 & 1
+        \end{matrix}\right)
+    \end{align*}
+    como $H^*H=HH^*=I$, entonces H es unitaria.
+    \item Encuentre los eigenvalores y eigenvectores de $\hat{H}$.\\
+    Haciendo uso del código () que fue escrito por el estudiante, se obtiene que los eigenvalores del operador H son:
+    \begin{equation*}
+        \lambda = \left(\begin{matrix}
+            1 & 0\\
+            0 &-1
+        \end{matrix}\right) \qquad \lambda_1 = 1 \qquad \lambda_2=-1
+    \end{equation*}
+    y los eigenvectores son
+    \begin{equation*}
+        v_1=\left[\begin{matrix}
+                1+\sqrt{2} \\ 1 
+        \end{matrix}\right] \qquad v_2=\left[\begin{matrix}
+            1-\sqrt{2} \\ 1 
+    \end{matrix}\right]
+    \end{equation*}
+\end{enumerate}
+\end{document}
