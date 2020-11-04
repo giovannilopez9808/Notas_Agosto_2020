@@ -7,3 +7,30 @@ es invariante ante la transformacion
 \begin{equation*}
     {A}'_\mu = A_\mu +\partial_\mu \xi(x)
 \end{equation*}
+Se tiene que:
+\begin{equation*}
+    {F}'_{\mu\nu}= \partial_\mu {A}'_\nu -\partial_\nu {A}'_\mu
+\end{equation*}
+entonces:
+\begin{align*}
+    {F}'_{\mu\nu}&= \partial_\mu {A}'_\nu -\partial_\nu {A}'_\mu\\
+    &=\partial_\mu\left[A_\nu +\partial_\nu \xi(x)\right] - \partial_\nu  \left[A_\mu+\partial_\mu \xi(x)\right]\\
+    &=\partial_\mu A_\nu +\partial_\mu \partial_\nu \xi(x) - \partial_\nu A_\mu -\partial_\nu \partial_\mu \xi(x)\\
+    &=\partial_\mu A_\nu +\partial_\mu \partial_\nu \xi(x) - \partial_\nu A_\mu -\partial_\mu \partial_\nu \xi(x)\\
+    &=\partial_\mu A_\nu - \partial_\nu A_\mu \\
+    &= F_{\mu \nu}
+\end{align*}
+\begin{align*}
+    {F}'^{\mu\nu}&= \partial^\mu {A}'^\nu -\partial^\nu {A}'^\mu\\
+    &=\partial^\mu\left[A^\nu +\partial^\nu \xi(x)\right] - \partial^\nu  \left[A^\mu+\partial^\mu \xi(x)\right]\\
+    &=\partial^\mu A^\nu +\partial^\mu \partial^\nu \xi(x) - \partial^\nu A^\mu -\partial^\nu \partial^\mu \xi(x)\\
+    &=\partial^\mu A^\nu +\partial^\mu \partial^\nu \xi(x) - \partial^\nu A^\mu -\partial^\mu \partial^\nu \xi(x)\\
+    &=\partial^\mu A^\nu - \partial^\nu A^\mu \\
+    &= F^{\mu \nu}
+\end{align*}
+por lo tanto:
+\begin{align*}
+    -\frac{1}{4}{F}'_{\mu\nu}{F}'^{\mu\nu}&=-\frac{1}{4}F_{\mu \nu}F^{\mu \nu}\\
+    {\mathcal{L}}' &= \mathcal{L}
+\end{align*}
+por lo tanto $\mathcal{L}$ es invariante ante la transformacion.
