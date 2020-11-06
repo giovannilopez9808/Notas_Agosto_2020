@@ -1,13 +1,13 @@
 \section*{Ejercicio 20}
 Sea 
-\begin{equation*}
+\begin{equation}\label{eq:l}
     \mathcal{L } = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} \qquad F_{\mu \nu}= \partial_\mu A_\nu - \partial_\nu A_\mu
-\end{equation*}
+\end{equation}
 \begin{itemize}
     \item Determinar las ecuaciones que satisface el campo $A_\nu$\\
     Se tiene que la ecuación de Euler-Lagrande para campos es la siguiente:
 \begin{equation}
-  \nabla_\nu \left( \frac{\partial \mathcal{L}}{\partial (\nabla_\nu A_\mu)}\right) = \frac{\partial \mathcal{L}}{\partial A_\mu}
+  \partial_\nu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\nu A_\mu)}\right) = \frac{\partial \mathcal{L}}{\partial A_\mu}
   \label{eq:euler}
 \end{equation}
 Como la ecuación \ref{eq:l} no depende del campo $A_\mu$, entonces:
@@ -16,23 +16,23 @@ Como la ecuación \ref{eq:l} no depende del campo $A_\mu$, entonces:
 \end{equation*}
 por lo tanto, la ecuación \ref{eq:euler} se escribe de la siguiente manera:
 \begin{equation}
-  \nabla_\nu \left( \frac{\partial \mathcal{L}}{\partial (\nabla_\nu A_\mu)}\right) = 0
+  \partial_\nu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\nu A_\mu)}\right) = 0
   \label{eq:euler2}
 \end{equation}
-Calculando $ \frac{\partial \mathcal{L}}{\partial (\nabla_\nu A_\mu)}$ se tiene que :
+Calculando $ \frac{\partial \mathcal{L}}{\partial (\partial_\nu A_\mu)}$ se tiene que :
   \begin{align*}
-    \frac{\partial \mathcal{L}}{\partial (\nabla_\nu A_\mu)} &=   \frac{\partial }{\partial (\nabla_\nu A_\mu)} \left(\frac{1}{4}F_{\mu \nu} F^{\mu \nu} \right)\\
-    &= \frac{\partial }{\partial (\nabla_\nu A_\mu)}(\left(\partial_\mu A_\nu - \partial_\nu A_\mu\right) F^{\mu \nu})\\
+    \frac{\partial \mathcal{L}}{\partial (\partial_\nu A_\mu)} &=   \frac{\partial }{\partial (\partial_\nu A_\mu)} \left(\frac{1}{4}F_{\mu \nu} F^{\mu \nu} \right)\\
+    &= \frac{\partial }{\partial (\partial_\nu A_\mu)}(\left(\partial_\mu A_\nu - \partial_\nu A_\mu\right) F^{\mu \nu})\\
     & = F^{\mu \nu }
   \end{align*}
   entonces
   \begin{align*}
-      \nabla_\nu \left( \frac{\partial \mathcal{L}}{\partial (\nabla_\nu A_\mu)}\right)=
-      \nabla_\nu F^{\mu \nu} 
+      \partial_\nu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\nu A_\mu)}\right)=
+      \partial_\nu F^{\mu \nu} 
   \end{align*}
   por lo tanto el campo $A_\nu$ debe cumplir la siguiente ecuación:
   \begin{equation*}
-    \nabla_\nu F^{\mu \nu} =0
+    \partial_\nu F^{\mu \nu} =0
   \end{equation*} 
     \item Determinar el tensor $T^\mu_\nu T^{\mu\nu}$\\
     Se tiene que 
