@@ -1,0 +1,32 @@
+\section*{Ejercicio 24}
+Mostrar que al desarrollar 
+\begin{equation*}
+    \left[i\hbar \vec{\nabla} + \frac{e}{c}\vec{A}\right]^2 \varphi 
+\end{equation*}
+de la ecuación:
+\begin{equation*}
+    i\hbar \frac{\partial}{\partial t} \varphi = \left[\frac{1}{2m_0} \left[i\hbar \vec{\nabla} + \frac{e}{c}\vec{A}\right]^2
+    + \frac{i\hbar e}{2m_0 c^2}\frac{\partial }{\partial t}A_0 +e A_0 \right] \varphi
+\end{equation*}
+se escribe como:
+\begin{equation*}
+    i\hbar \frac{\partial}{\partial t} \varphi = \left[\frac{{\vec{P}^2}}{2m}-\frac{e}{m_0c}\vec{A}\cdot \vec{P}+eA_0 + \frac{i\hbar e}{2m_0}\left[\vec{\nabla \cdot \vec{A}}\right]+ \frac{i\hbar e}{2m_0c^2}\frac{\partial }{\partial t}A_0\right] \varphi
+\end{equation*}
+Desarrollando el termino $\left[i\hbar \vec{\nabla} + \frac{e}{c}\vec{A}\right]^2 \varphi $, se tiene que:
+\begin{align*}
+    \frac{1}{2m_0}\left[i\hbar \vec{\nabla} + \frac{e}{c}\vec{A}\right]^2 \varphi =& \frac{1}{2m_0}\left[-\hbar^2 \vec{\nabla}^2 + \frac{i\hbar e}{c} \vec{\nabla} \cdot \vec{A} + \frac{ei\hbar}{c}\vec{A}\cdot \vec{\nabla} + \frac{e^2}{c^2}(\vec{A}\cdot\vec{A})\right]\\
+    =& \frac{\vec{P}}{2m_0}+ \frac{i\hbar e}{2m_0c} \vec{\nabla} \cdot \vec{A} + \frac{e^2}{2m_0c^2}\vec{A}\cdot \vec{A} + \frac{ei\hbar}{2m_0c}\vec{A}\cdot \vec{\nabla} \\
+    =& \frac{\vec{P}}{2m_0}+ \frac{i\hbar e}{2m_0c} \vec{\nabla} \cdot \vec{A} + \frac{e^2}{2m_0c^2}\vec{A}\cdot \vec{A} - \frac{e}{2m_0c}\vec{A}\cdot \vec{P} 
+\end{align*}
+entonces:
+\begin{align*}
+    \frac{1}{2m_0} \left[i\hbar \vec{\nabla} + \frac{e}{c}\vec{A}\right]^2
+    + \frac{i\hbar e}{2m_0 c^2}\frac{\partial }{\partial t}A_0 +e A_0 =&
+    \frac{\vec{P}}{2m_0}+ \frac{i\hbar e}{2m_0c} \vec{\nabla} \cdot \vec{A} + \frac{e^2}{2m_0c^2}\vec{A}\cdot \vec{A} - \frac{e}{2m_0c}\vec{A}\cdot \vec{P} +\frac{i\hbar e}{2m_0c^2}\frac{\partial}{\partial t}A_0+eA_0\\
+    =&\frac{\vec{P}}{2m_0}- \frac{e}{2m_0c}\vec{A}\cdot \vec{P} +\frac{i\hbar e}{2m_0c}\left(\frac{\partial}{\partial t}A_0+\vec{\nabla} \cdot \vec{A} \right)+eA_0\\
+    =&\frac{\vec{P}}{2m_0}- \frac{e}{2m_0c}\vec{A}\cdot \vec{P}+eA_0\\
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    i\hbar \frac{\partial}{\partial t} \varphi=\left[\frac{\vec{P}}{2m_0}- \frac{e}{2m_0c}\vec{A}\cdot \vec{P}+eA_0\right]\varphi
+\end{equation*}
