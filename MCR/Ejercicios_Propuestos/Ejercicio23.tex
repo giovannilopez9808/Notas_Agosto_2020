@@ -1,0 +1,31 @@
+\section*{Ejercicio 23}
+Mostrar que 
+\begin{equation*}
+    \left[i\hbar \frac{\partial}{\partial t} -eA_0\right]^2 \psi \approx \left[-i e \hbar \frac{\partial }{\partial t} A_0 \varphi+2i\hbar m_0c^2 \frac{\partial}{\partial t}\varphi-2eA_0m_0c^2\varphi +m_0^2c^4 \varphi \right]e^{\frac{-im_0c^2t}{\hbar}}
+\end{equation*}
+se han omitido 
+\begin{equation*}
+    (i\hbar A_0 \frac{\partial}{\partial t}\varphi) << A_0 m_0c^2 |\varphi| \qquad |A_0\varphi_e| << m_0c^2 |\varphi|
+\end{equation*}
+tomando en cuenta que:
+\begin{equation*}
+    \psi=\varphi e^{\frac{-i}{\hbar}m_0c^2t}
+\end{equation*}
+Calculando $\left[i\hbar \frac{\partial}{\partial t} -eA_0\right]^2$
+\begin{align*}
+    \left[i\hbar \frac{\partial}{\partial t} -eA_0\right]^2\psi &=\left[-\hbar^2\frac{\partial^2}{\partial t^2}-2i\hbar e A_0 \frac{\partial}{\partial t}+e^2A_0\right]\psi
+\end{align*}
+calculando $\frac{\partial \psi }{\partial t}$
+\begin{align*}
+    \frac{\partial \psi }{\partial t} &= \left[\frac{-i}{\hbar}m_0c^2 \varphi+ \frac{\partial \varphi}{\partial t}\right] e^{\frac{-i}{\hbar}m_0c^2t}
+\end{align*}
+calculando $\frac{\partial^2 \psi }{\partial t^2}$
+\begin{align*}
+    \frac{\partial^2 \psi }{\partial t^2} &= \left[\frac{\partial^2 \varphi}{ \partial t^2}-\frac{2i}{\hbar}m_0c^2\frac{\partial \varphi}{\partial t}-\frac{1}{\hbar^2}m_0^2c^4 \varphi\right] e^{\frac{-i}{\hbar}m_0c^2t}
+\end{align*}
+por lo tanto:
+\begin{align*}
+    \left[i\hbar \frac{\partial}{\partial t} -eA_0\right]^2\psi &=\left[-\hbar^2\frac{\partial^2}{\partial t^2}-2i\hbar e A_0 \frac{\partial}{\partial t}+e^2A_0\right]\psi\\
+    &=\left[-\hbar^2\frac{\partial^2 \varphi}{ \partial t^2}+2i\hbar m_0c^2\frac{\partial \varphi}{\partial t}+m_0^2c^4 \varphi -2m_0c^2eA_0\varphi - 2i \hbar e A_0 \frac{\partial \varphi}{\partial t}\right] e^{\frac{-i}{\hbar}m_0c^2t}\\
+    & \approx \left[2i\hbar m_0c^2\frac{\partial \varphi}{\partial t}+m_0^2c^4 \varphi -2m_0c^2eA_0\varphi - 2i \hbar e A_0 \frac{\partial \varphi}{\partial t}\right] e^{\frac{-i}{\hbar}m_0c^2t}
+\end{align*}

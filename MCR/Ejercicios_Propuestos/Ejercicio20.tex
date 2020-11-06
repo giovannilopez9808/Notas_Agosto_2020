@@ -4,6 +4,52 @@ Sea
     \mathcal{L } = -\frac{1}{4}F_{\mu\nu}F^{\mu\nu} \qquad F_{\mu \nu}= \partial_\mu A_\nu - \partial_\nu A_\mu
 \end{equation*}
 \begin{itemize}
-    \item Determinar las ecuaciones que satisface el campo $A_\nu$
-    \item Determinar el tensor $T^\mu_\nu T^{\mu\nu}$
+    \item Determinar las ecuaciones que satisface el campo $A_\nu$\\
+    Se tiene que la ecuación de Euler-Lagrande para campos es la siguiente:
+\begin{equation}
+  \nabla_\nu \left( \frac{\partial \mathcal{L}}{\partial (\nabla_\nu A_\mu)}\right) = \frac{\partial \mathcal{L}}{\partial A_\mu}
+  \label{eq:euler}
+\end{equation}
+Como la ecuación \ref{eq:l} no depende del campo $A_\mu$, entonces:
+\begin{equation*}
+  \frac{\partial \mathcal{L}}{\partial A_\mu} = 0
+\end{equation*}
+por lo tanto, la ecuación \ref{eq:euler} se escribe de la siguiente manera:
+\begin{equation}
+  \nabla_\nu \left( \frac{\partial \mathcal{L}}{\partial (\nabla_\nu A_\mu)}\right) = 0
+  \label{eq:euler2}
+\end{equation}
+Calculando $ \frac{\partial \mathcal{L}}{\partial (\nabla_\nu A_\mu)}$ se tiene que :
+  \begin{align*}
+    \frac{\partial \mathcal{L}}{\partial (\nabla_\nu A_\mu)} &=   \frac{\partial }{\partial (\nabla_\nu A_\mu)} \left(\frac{1}{4}F_{\mu \nu} F^{\mu \nu} \right)\\
+    &= \frac{\partial }{\partial (\nabla_\nu A_\mu)}(\left(\partial_\mu A_\nu - \partial_\nu A_\mu\right) F^{\mu \nu})\\
+    & = F^{\mu \nu }
+  \end{align*}
+  entonces
+  \begin{align*}
+      \nabla_\nu \left( \frac{\partial \mathcal{L}}{\partial (\nabla_\nu A_\mu)}\right)=
+      \nabla_\nu F^{\mu \nu} 
+  \end{align*}
+  por lo tanto el campo $A_\nu$ debe cumplir la siguiente ecuación:
+  \begin{equation*}
+    \nabla_\nu F^{\mu \nu} =0
+  \end{equation*} 
+    \item Determinar el tensor $T^\mu_\nu T^{\mu\nu}$\\
+    Se tiene que 
+    \begin{equation*}
+      {T^\mu}_\nu =\frac{\partial \mathcal{L}}{\partial(\partial_\mu A_\nu)} - g^{\mu}_\nu \mathcal{L} \qquad
+      T^{\mu\nu} =\frac{\partial \mathcal{L}}{\partial(\partial_\mu A_\nu)} - g^{\mu\nu} \mathcal{L}
+    \end{equation*}
+    Calculando ${T^{\mu}}_\nu(T^{\mu \nu})$
+    \begin{align*}
+      {T^{\mu}}_\nu(T^{\mu \nu}) =& \left(\frac{\partial \mathcal{L}}{\partial(\partial_\mu A_\nu)} - g^{\mu}_\nu \mathcal{L}\right)\left(
+        \frac{\partial \mathcal{L}}{\partial(\partial_\mu A_\nu)} - g^{\mu\nu} \right)\\
+        =&({F^\mu}_\nu \partial_\nu A_\mu )(F^{\mu \nu} \partial_\nu A_\mu) - ({F^\mu}_\nu \partial_\nu A_\mu )(g^{\mu \nu} \mathcal{L})
+        \\ &-({g^{\mu}}_\nu\mathcal{L})(F^{\mu \nu} \partial_\nu A_\mu)  + ({g^\mu}_\nu \mathcal{L})(g^{\mu \nu}\mathcal{L}) \\
+         =& ({F^\mu}_\nu \partial_\nu A_\mu )(F^{\mu \nu} \partial_\nu A_\mu) 
+    \end{align*}
+    por lo tanto
+    \begin{equation*}
+      {T^{\mu}}_\nu(T^{\mu \nu})=({F^\mu}_\nu \partial_\nu A_\mu )(F^{\mu \nu} \partial_\nu A_\mu) 
+    \end{equation*}
 \end{itemize}
