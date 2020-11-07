@@ -19,6 +19,7 @@ for i,ax,color in zip(range(n),axs,colors):
         file.write(str(walk)+" "+str(temp)+"\n")
     file.close()
     temp=np.loadtxt(dir_results+"temp_"+str(i)+".dat",usecols=1)
+    temp=temp*1e3
     ax.set_xlim(0,2e5)
     ax.set_title("Número de partículas: "+str(n_particle[i]))
     if ax in [axs[6],axs[7],axs[8]]:
@@ -30,6 +31,6 @@ for i,ax,color in zip(range(n),axs,colors):
 #<------------------------Label eje x---------------------------------------->
 fig.text(0.5, 0.04, 'Walks (10$^{5}$)', ha='center',fontsize=13)
 #<--------------------------Label en el eje y-------------------------------------------->
-fig.text(0.03, 0.5, 'Temperatura (10$^{-3}$)', va='center', rotation='vertical',fontsize=13)
+fig.text(0.03, 0.5, 'Temperatura (10$^{3}$)', va='center', rotation='vertical',fontsize=13)
 plt.subplots_adjust(left=0.107,bottom=0.11,right=0.945,top=0.952,wspace=0.275,hspace=0.214)
 plt.savefig(dir_graphics+"temp.png",dpi=200)

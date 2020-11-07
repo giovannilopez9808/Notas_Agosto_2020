@@ -10,6 +10,7 @@ axs=np.reshape(axs,9)
 for i,ax,color in zip(range(n),axs,colors):
     #<------------------Lectura de los datos------------------------->
     walks,e_pot=np.loadtxt(dir_results+"8_T_U_P_"+str(i)+".dat",unpack=True,usecols=[0,2])
+    e_pot=e_pot*1e2
     ax.plot(walks,e_pot,color="#"+color)
     ax.set_xlim(0,2e5)
     ax.set_title("Número de partículas "+str(n_particle[i]))
@@ -22,6 +23,6 @@ for i,ax,color in zip(range(n),axs,colors):
 #<------------------------Label eje x---------------------------------------->
 fig.text(0.5, 0.04, 'Walks (10$^{5}$)', ha='center',fontsize=13)
 #<--------------------------Label en el eje y-------------------------------------------->
-fig.text(0.04, 0.5, 'U(10$^{-2}$)', va='center', rotation='vertical',fontsize=13)
+fig.text(0.04, 0.5, 'U(10$^{2}$)', va='center', rotation='vertical',fontsize=13)
 plt.subplots_adjust(left=0.107,bottom=0.11,right=0.945,top=0.952,wspace=0.28,hspace=0.214)
 plt.savefig(dir_graphics+"energy.png",dpi=200)
