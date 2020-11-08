@@ -19,7 +19,7 @@ Calculando la integral en la expresión anterior con la libreria \textit{sympy} 
 \end{equation}
 Si definimos a 
 \begin{equation}
-    g(e):= \frac{e^{\frac{12}{19}}}{1-e^2} \left(1+\frac{121}{304}\right)^{\frac{870}{2299}}
+    g(e)= \frac{e^{\frac{12}{19}}}{1-e^2} \left(1+\frac{121}{304}\right)^{\frac{870}{2299}}
     \label{eq:g(e)}
 \end{equation}
 entonces, la solución puede escribirse como 
@@ -28,13 +28,13 @@ entonces, la solución puede escribirse como
     \label{eq:a(e)}
 \end{equation}
 \subsection{Solución numérica de la función a(e)}
-Usando la siguiente adimencionalización \cite{Vito2008,Gonzalez2018,Gonz2019} de las variables
+Usando la siguiente adimensionalización \cite{Vito2008,Gonzalez2018,Gonz2019} de las variables
 \begin{equation*}
-    \tilde{a}:= \frac{a}{R_*}, \qquad  \tilde{t}:=\frac{ct}{R_*}.
+    \tilde{a}= \frac{a}{R_*}, \qquad  \tilde{t}=\frac{ct}{R_*}.
 \end{equation*}
 donde
 \begin{equation*}
-    R_*^3 := \frac{4G^3\mu M^2}{c^6}.
+    R_*^3 = \frac{4G^3\mu M^2}{c^6}.
 \end{equation*}
 Por lo tanto, las ecuaciones \ref{eq:dadt} y \ref{eq:dedt} son:
 \begin{align}
@@ -43,7 +43,7 @@ Por lo tanto, las ecuaciones \ref{eq:dadt} y \ref{eq:dedt} son:
     \label{eq:dedt2}
 \frac{de}{d\tilde{t}} &= -\frac{76}{15}\frac{1}{\tilde{a}^4}\frac{e}{\left(1-e^2\right)^{5/2}}\left(1+\frac{121}{304}e^2\right) .
 \end{align}
-Como el sistema de ecuaciones es de primer orden, basta con definir el vector solución $x$ por medio de $x[0]:=\tilde{a}, x[1]=e$. Por lo tanto, 
+Como el sistema de ecuaciones es de primer orden, basta con definir el vector solución $x$ por medio de $x[0]=\tilde{a}, x[1]=e$. Por lo tanto, 
 la ecuación \ref{eq:dadt2} es dada por la función \textcolor{def}{dotx}.
 \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
     \prompt{In}{incolor}{*}{\boxspacing}
