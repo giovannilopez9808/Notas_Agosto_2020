@@ -1,0 +1,147 @@
+\documentclass[12pt,letterpaper]{report}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage[usenames]{color}
+\definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+    \definecolor{def}{rgb}{0.00,0.27,0.87}
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+\parindent=0mm
+\pagestyle{empty}
+\definecolor{miorange}{rgb}{0.91, 0.43, 0.0}
+\begin{document}
+\setmargins{2.5cm}      
+{1.5cm}                     
+{2cm}  
+{24cm}                    
+{10pt}                          
+{1cm}                          
+{0pt}                             
+{2cm}
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.40]{../../Logos/uanl.png} 
+\hspace{2.5cm}
+\includegraphics[scale=0.40]{../../Logos/fcfm.png}
+\end{center}
+\vspace{2cm}
+\begin{center}
+\textbf{
+UNIVERSIDAD AUTÓNOMA DE NUEVO LEÓN\\
+FACULTAD DE CIENCIAS
+    FÍSICO MATEMÁTICAS}\\
+\vspace*{2cm}
+\begin{large}
+\vspace{1cm}
+\large{\textbf{Tópicos de Mécanica Cuántica}}\\
+\textbf{Tarea 6}\\
+Dr. Carlos Luna Criado\\
+\end{large}
+\vspace{3.5cm}
+\begin{minipage}{0.6\linewidth}
+\vspace{0.5cm}
+\changefontsizes{14pt}
+Nombre:\\                                                                                                                                                                                                                                                           
+Giovanni Gamaliel López Padilla\\
+\end{minipage}
+\begin{minipage}{0.2\linewidth}
+\changefontsizes{14pt} 
+Matricula:\\                                                                                                                        
+1837522
+\end{minipage}
+\end{center}
+\vspace{4cm}
+\begin{flushright}
+\today
+\end{flushright}
+\end{titlepage}
+Razone si los siguientes pares tienen estructura de grupo o no:
+\begin{itemize}
+    \item $(\mathbb{R},+)$\\
+    Sean $a,b,c \in \mathbb{R}$, entonces:
+    \begin{itemize}
+        \item Cerradura\\
+        Proponiendo la operación $a+b$, esto nos da como resultado un elemento, el cual esta dentro del conjunto $\mathbb{R}$
+        \item Elemento neutro\\
+        El elemento neutro en este conjunto con la operación $+$ es el número 0, el cual es elemento del conjunto $\mathbb{R}$
+        \item Elemento inverso\\
+        El elemento inverso para cada número en este conjunto es el mismo múmero pero de signo opuesto, para obtener que $a+(-a)=(-a)+a=0$
+        \item Propiedad asociativa\\
+        Se tiene que:
+        \begin{align*}
+            a+(b+c)=(a+b)+c
+        \end{align*}
+    \end{itemize}
+    por todo lo anterior, se tiene que el conjunto $\mathbb{R}$ con la operación +, forman un grupo.
+    \item $(\mathbb{Z},\times)$\\
+    Sea $a,b,c \in \mathbb{Z}$, entonces
+    \begin{itemize}
+        \item Cerradura
+        Usando la operación $\times$, se tiene que $a\times b \in \mathbb{Z}$.
+        \item Elemento neutro
+        El elemento neutro de este conjunto con esta operación sería el 1, ya que $a\times 1 = 1\times a = a$
+        \item Elemento inverso
+        El elemento inverso para este conjunto no existe, ya que para que esto sea necesario este deberia ser $1/a$ y al no estar dentro del conjunto $\mathbb{Z}$, no existe.
+    \end{itemize}
+    Por lo tanto, el conjunto $\mathbb{Z}$ con la operación $\times$ no es un grupo
+    \item El conjunto de matrices de $n\times n$ construidas con los números reales y determinante no nulo, junto a la operación producto de matrices.\\
+    Sean $a,b,c$ elemento de $M_{n\times n}$, entonces
+    \begin{itemize}
+        \item Cerradura\\
+        Calculando el determinante de ab, se tiene que:
+        \begin{align*}
+            det(ab)=det(a)det(b)
+        \end{align*}
+        como $det(a),det(b)\neq 0$ entonces $det(a)det(b)\neq 0$, por lo tanto $ab \in M_{n\times n}$
+        \item Elemento neutro\\
+        El elemento neutro en este conjunto sería la matriz identidad ya que: $a\mathbb{I}=\mathbb{I}a=a$, como $det(\mathbb{I})=1$, entonces $\mathbb{I}\in M_{n\times n}$
+        \item Elemento inverso\\
+        El elemento inverso de cada elemento del conjunto sería $a^{-1}$, el cual contiene numeros reales en sus elementos y 
+        \begin{equation*}
+            det(a^{-1})=1/det(a)\neq 0,    
+        \end{equation*}
+        es por ello que $a^{-1}\in M_{n\times n}$
+        \item Propiedad asociativa\\
+        Se tiene que se cumple que 
+        \begin{equation*}
+            a(bc)=(ab)c
+        \end{equation*}
+    \end{itemize}
+    por lo tanto el conjunto $M_{n\times n}$ es un conjunto con la operación de multiplicación.
+    \item $(V,\cdot$ siendo $V$ el conjunto de vectores de un espacio vectorial y $\cdot$ el producto escalar o producto interno
+    \begin{itemize}
+        \item Cerradura\\
+        Como la operación del producto interno nos llevaria al grupo de los reales, entonces no cumpliria la condición de cerradura, por lo tanto
+        el conjunto V no es un grupo bajo el producto interno.
+    \end{itemize}
+    \item $(V,\times)$ siendo V el conjunto de vectores de un espacio vectorial y $\times$ el prodcuto vectorial.\\
+    Sea $a,b,c \in V$
+    \begin{itemize}
+        \item Propiedad asociativa\\
+        En este conjunto, la propiedad asociativa no se llega a cumplir ya que, 
+        \begin{align*}
+            a\times (b\times c) &= (a\times b) \times c\\
+            a\times \hat{d} |b||c|sin(\theta_{d}) &= |a||b|sin(\theta_{f}) \hat{f} \times c\\
+            |a||b||c| sin(\theta_{d})sin(\theta_{g}) &= |a||b||c| sin(\theta_f) sin(\theta_h)
+        \end{align*}
+    como los argumentos de las funciones seno no necesariamente son iguales, entonces las dos expresions son diferentes, es por esto que el conjunto V no forma un grupo con el producto vectorial.
+    \end{itemize}
+\end{itemize}
+\end{document}
