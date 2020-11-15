@@ -3,3 +3,191 @@ Mostrar que se cumple:
 \begin{equation*}
     \alpha_i \alpha_j + \alpha_j \alpha_i = 2 \delta_{ij} \mathbb{I}
 \end{equation*}
+Calculando $\alpha_i\alpha_j$
+\begin{equation*}
+    \alpha_i\alpha_j = \left[\begin{matrix}
+        0 & \sigma_i \\
+        \sigma_i & 0 
+    \end{matrix}\right]
+    \left[\begin{matrix}
+        0 & \sigma_j \\
+        \sigma_j & 0 
+    \end{matrix}\right] = 
+    \left[\begin{matrix}
+        \sigma_i\sigma_j &0 \\
+        0&\sigma_i\sigma_j  
+    \end{matrix}\right]
+\end{equation*}
+Calculando $\alpha_j\alpha_i$
+\begin{equation*}
+    \alpha_j\alpha_i = \left[\begin{matrix}
+        0 & \sigma_j \\
+        \sigma_j& 0 
+    \end{matrix}\right]
+    \left[\begin{matrix}
+        0 & \sigma_i \\
+        \sigma_i & 0 
+    \end{matrix}\right] = 
+    \left[\begin{matrix}
+        \sigma_j\sigma_i &0 \\
+        0&\sigma_j\sigma_i  
+    \end{matrix}\right]
+\end{equation*}
+entonces
+\begin{equation*}
+    \alpha_i\alpha_j + \alpha_j\alpha_i = 
+    \left[\begin{matrix}
+        \sigma_i\sigma_j+\sigma_j\sigma_i &0 \\
+        0&\sigma_i\sigma_j+\sigma_j\sigma_i  
+    \end{matrix}\right]
+\end{equation*}
+donde 
+\begin{equation*}
+    \sigma_1 =\left[\begin{matrix}
+        0 & 1\\
+        1 & 0
+    \end{matrix}\right] \qquad 
+    \sigma_2 =\left[\begin{matrix}
+        0 & -i\\
+        i & 0
+    \end{matrix}\right] \qquad
+    \sigma_3 =\left[\begin{matrix}
+        1 & 0\\
+        0 & -1
+    \end{matrix}\right] 
+\end{equation*}
+Calculando todas las permutaciones se tiene que:
+\begin{align*}
+    \sigma_1 \sigma_2 &= \left[\begin{matrix}
+        0 & 1\\
+        1 & 0
+    \end{matrix}\right]
+    \left[\begin{matrix}
+        0 & -i\\
+        i & 0
+    \end{matrix}\right] = 
+    \left[\begin{matrix}
+        i & 0\\
+        0 & -i
+    \end{matrix}\right] \\
+    \sigma_2 \sigma_1 &= \left[\begin{matrix}
+        0 & -i\\
+        i & 0
+    \end{matrix}\right]
+    \left[\begin{matrix}
+        0 & 1\\
+        1 & 0
+    \end{matrix}\right] = 
+    \left[\begin{matrix}
+        -i & 0\\
+        0 & i
+    \end{matrix}\right] \\
+    \sigma_1 \sigma_3 &= \left[\begin{matrix}
+        0 & 1\\
+        1 & 0
+    \end{matrix}\right]
+    \left[\begin{matrix}
+        1 & 0\\
+        0 & -1
+    \end{matrix}\right] = 
+    \left[\begin{matrix}
+        0 & -1\\
+        1 & 0
+    \end{matrix}\right] \\
+    \sigma_3 \sigma_1 &= 
+    \left[\begin{matrix}
+        1 & 0\\
+        0 & -1
+    \end{matrix}\right]
+    \left[\begin{matrix}
+        0 & 1\\
+        1 & 0
+    \end{matrix}\right] = 
+    \left[\begin{matrix}
+        0 & 1\\
+        -1 & 0
+    \end{matrix}\right] \\
+    \sigma_2 \sigma_3 &= \left[\begin{matrix}
+        0 & -i\\
+        i & 0
+    \end{matrix}\right]
+    \left[\begin{matrix}
+        1 & 0\\
+        0 & -1
+    \end{matrix}\right] = 
+    \left[\begin{matrix}
+        0 & i\\
+        i & 0
+    \end{matrix}\right] \\
+    \sigma_3 \sigma_2 &= 
+    \left[\begin{matrix}
+        1 & 0\\
+        0 & -1
+    \end{matrix}\right]
+    \left[\begin{matrix}
+        0 & -i\\
+        i & 0
+    \end{matrix}\right] = 
+    \left[\begin{matrix}
+        0 & -i\\
+        -i & 0
+    \end{matrix}\right] \\
+    \sigma_1\sigma_1&=
+    \left[\begin{matrix}
+        0 & 1\\
+        1 & 0
+    \end{matrix}\right] 
+    \left[\begin{matrix}
+        0 & 1\\
+        1 & 0
+    \end{matrix}\right] =
+    \left[\begin{matrix}
+        1 & 0\\
+        0 & 1
+    \end{matrix}\right] \\
+    \sigma_2\sigma_2&=
+    \left[\begin{matrix}
+        0 & -i\\
+        i & 0
+    \end{matrix}\right] 
+    \left[\begin{matrix}
+        0 & -i\\
+        i & 0
+    \end{matrix}\right]  =
+    \left[\begin{matrix}
+        1 & 0\\
+        0 & 1
+    \end{matrix}\right] \\
+    \sigma_3\sigma_3&=
+    \left[\begin{matrix}
+        1 & 0\\
+        0 & -1
+    \end{matrix}\right]
+    \left[\begin{matrix}
+        1 & 0\\
+        0 & -1
+    \end{matrix}\right] =
+    \left[\begin{matrix}
+        1 & 0\\
+        0 & 1
+    \end{matrix}\right] 
+\end{align*}
+con lo cual se puede observar que :
+\begin{equation*}
+    \sigma_i\sigma_j = -\sigma_j\sigma_i 
+\end{equation*}
+para $i\neq j$, y 
+\begin{equation*}
+    \sigma_i\sigma_j = \mathbb{I}
+\end{equation*}
+para $i=j$, por lo tanto:
+\begin{equation*}
+    \alpha_i\alpha_j + \alpha_j\alpha_i = 
+    \left[\begin{matrix}
+        \sigma_i\sigma_j+\sigma_j\sigma_i &0 \\
+        0&\sigma_i\sigma_j+\sigma_j\sigma_i  
+    \end{matrix}\right] = \left[\begin{matrix}
+        2\delta_{ij} \mathbb{I} & 0\\
+        0&  2\delta_{ij} \mathbb{I}
+    \end{matrix}\right] =  2\delta_{ij} \mathbb{I} 
+\end{equation*}
