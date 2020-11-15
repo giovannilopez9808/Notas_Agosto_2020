@@ -3,3 +3,84 @@ Mostrar que
 \begin{equation*}
     \left[\hat{\Sigma}\cdot \hat{P}, \hat{\vec{H}}\right] \psi_{p,\lambda} = 0
 \end{equation*}
+Reescribiendo se tiene que:
+\begin{align*}
+    \left[\hat{\Sigma}\cdot \hat{P}, \hat{\vec{H}}\right]&=\left[\delta_{ij} \Sigma_iP_j , c\delta_{ij}\alpha_iP_j+m_0c^2\beta\right]\\
+    &= c \left[\delta_{ij} \Sigma_iP_j,\delta_{ij}\alpha_iP_j\right]+m_0c^2\left[\delta_{ij} \Sigma_iP_j,\beta\right]
+\end{align*}
+calculando $\left[\delta_{ij} \Sigma_iP_j,\beta\right]$:
+\begin{align*}
+    \left[\delta_{ij} \Sigma_iP_j,\beta\right] & =\delta_{ij} \Sigma_iP_j\beta -\beta \delta_{ij} \Sigma_iP_j \\
+    &=\left(\Sigma_i\beta - \beta \Sigma_i\right) P_i
+\end{align*}
+calculando $\Sigma_i \beta $, se tiene que:
+\begin{equation*}
+    \Sigma_i \beta = \left[\begin{matrix}
+        \sigma_i &0 \\
+        0 & \sigma_i 
+    \end{matrix}\right]\left[\begin{matrix}
+        \mathbb{I} & 0\\
+        0 & -\mathbb{I}
+    \end{matrix}\right] = \left[\begin{matrix}
+        \sigma_i &0 \\
+        0 & -\sigma_i 
+    \end{matrix}\right]
+\end{equation*}
+calculando $\beta\Sigma_i $, se tiene que:
+\begin{equation*}
+    \beta \Sigma_i =\left[\begin{matrix}
+        \mathbb{I} & 0\\
+        0 & -\mathbb{I}
+    \end{matrix}\right]
+     \left[\begin{matrix}
+        \sigma_i &0 \\
+        0 & \sigma_i 
+    \end{matrix}\right] = \left[\begin{matrix}
+        \sigma_i &0 \\
+        0 & -\sigma_i 
+    \end{matrix}\right]
+\end{equation*}
+por lo tanto:
+\begin{equation*}
+    \left[\delta_{ij} \Sigma_iP_j,\beta\right] =0
+\end{equation*}
+calculando $\left[\delta_{ij} \Sigma_iP_j,\delta_{ij}\alpha_iP_j\right]$
+\begin{align*}
+    \left[\delta_{ij} \Sigma_iP_j,\delta_{ij}\alpha_iP_j\right] &= \Sigma_i  P_i  \alpha_i P_i -\alpha_i P_i  \Sigma_i  P_i\\
+    &= \left(\Sigma_i  \alpha_i -\alpha_i   \Sigma_i\right)  P_i^2\\
+\end{align*}
+calculando $\Sigma_i  \alpha_i$:
+\begin{equation*}
+    \Sigma_i  \alpha_i = \left[\begin{matrix}
+        \sigma_i & 0 \\
+        0 & \sigma_i 
+    \end{matrix}\right]
+    \left[\begin{matrix}
+       0 & \sigma_i  \\
+         \sigma_i & 0
+    \end{matrix}\right] = \left[\begin{matrix}
+       0& \mathbb{I}\\\mathbb{I} &0
+    \end{matrix}\right]
+\end{equation*}
+calculando $\alpha_i  \Sigma_i$:
+\begin{equation*}
+    \alpha_i\Sigma_i  = \left[\begin{matrix}
+        0 & \sigma_i  \\
+          \sigma_i & 0
+     \end{matrix}\right]
+    \left[\begin{matrix}
+        \sigma_i & 0 \\
+        0 & \sigma_i 
+    \end{matrix}\right]= 
+    \left[\begin{matrix}
+       0& \mathbb{I}\\\mathbb{I} &0
+    \end{matrix}\right]
+\end{equation*}
+entonces:
+\begin{equation*}
+    \left[\delta_{ij} \Sigma_iP_j,\delta_{ij}\alpha_iP_j\right]= 0
+\end{equation*}
+por lo tanto:
+\begin{equation*}
+    \left[\hat{\Sigma}\cdot \hat{P}, \hat{\vec{H}}\right] \psi_{p,\lambda} = 0
+\end{equation*}

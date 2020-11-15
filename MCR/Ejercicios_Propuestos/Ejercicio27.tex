@@ -1,10 +1,49 @@
 \section*{Ejercicio 27}
 A partir de la ecuación 
 \begin{equation*}
-    i\hbar \frac{\partial \psi}{\partial t} = \left\lbrace \frac{\hbar c}{i}
-    \sum \alpha_i \frac{\partial}{\partial x_i}+\beta m_0c^2\right\rbrace \psi
+    i\hbar \frac{\partial \psi}{\partial t} = \left[ \frac{\hbar c}{i}
+    \sum \alpha_i \frac{\partial}{\partial x_i}+\beta m_0c^2\right] \psi
 \end{equation*}
 mostrar que 
 \begin{equation*}
     \frac{\partial \rho}{\partial t} + \sum \frac{\partial}{\partial x_i} \left[c\psi^* \alpha_i \psi \right] = 0
+\end{equation*}
+Multiplicando a la ecuación de Schr\"odinger que propuso Dirac por $\psi^*$ por la izquierda, se tiene que:
+\begin{equation*}
+    i\hbar \psi^*\frac{\partial \psi}{\partial t} = \psi^*\left[ \frac{\hbar c}{i}
+    \sum \alpha_i \frac{\partial}{\partial x_i}+\beta m_0c^2\right] \psi
+\end{equation*}
+Multiplicando $\psi$ por la izquierda a la ecuación de Schr\"odinger para $\psi^*$, se tiene que:
+\begin{equation*}
+    i\hbar \psi\frac{\partial \psi^*}{\partial t} = \psi\left[ \frac{\hbar c}{i}
+    \sum \alpha_i \frac{\partial}{\partial x_i}+\beta m_0c^2\right] \psi^*
+\end{equation*}
+restando estas dos ecuaciones se tiene que:
+\begin{equation*}
+    i\hbar \left[\psi^* \frac{\partial \psi}{\partial t}- \psi \frac{\partial \psi^*}{\partial t}\right]= \frac{\hbar c}{i} \left[\sum \alpha_i \psi^* \frac{\partial \psi}{\partial x_i}- \alpha_i \psi \frac{\partial \psi^*}{\partial x_i}\right]+ \beta m_0c^2\left[\psi^* \psi - \psi \psi^*\right]
+\end{equation*}
+de la ecuación de Schr\"odinger se tiene que:
+\begin{equation*}
+    \psi \frac{\partial \psi^*}{\partial t} =\frac{\psi }{\hbar i }\left[ \frac{\hbar c}{i}
+    \sum \alpha_i \frac{\partial}{\partial x_i}+\beta m_0c^2\right] \psi^* 
+\end{equation*}
+y tomando en cuenta que:
+\begin{equation*}
+    \frac{\partial \rho}{\partial t} = \psi \frac{\partial \psi^*}{\partial t} +  \psi^* \frac{\partial \psi}{\partial t}
+\end{equation*}
+entonces:
+\begin{equation*}
+    i\hbar \left[\frac{\partial \rho}{\partial t} -2 \psi \frac{\partial \psi^*}{\partial t} \right] = \frac{\hbar c}{i} \left[\sum \alpha_i \psi^* \frac{\partial \psi}{\partial x_i}- \alpha_i \psi \frac{\partial \psi^*}{\partial x_i}\right]+ \beta m_0c^2\left[\psi^* \psi - \psi \psi^*\right]
+\end{equation*}
+\begin{equation*}
+    i\hbar \frac{\partial \rho}{\partial t} = \frac{\hbar c}{i} \left[\sum \alpha_i \psi^* \frac{\partial \psi}{\partial x_i}- \alpha_i \psi \frac{\partial \psi^*}{\partial x_i}\right]+ \beta m_0c^2\left[\psi^* \psi - \psi \psi^*\right] + 2 i\hbar \psi \frac{\partial \psi^*}{\partial t}
+\end{equation*}
+\begin{align*}
+    i\hbar \frac{\partial \rho}{\partial t}  &= \frac{\hbar c}{i} \left[\sum \psi^* \alpha_i\frac{\partial \psi}{\partial x_i}+ \psi \alpha_i\frac{\partial \psi^*}{\partial x_i}\right]\\
+    \frac{\partial \rho}{\partial t} &= -\sum c\alpha_i\left( \psi^*\alpha_i \frac{\partial \psi}{\partial x_i}+\psi \alpha_i\frac{\partial \psi^*}{\partial x_i}\right)\\
+    \frac{\partial \rho}{\partial t} & = - \sum \frac{\partial c\psi^* \alpha_i \psi}{\partial x_i}
+\end{align*}
+por lo tanto
+\begin{equation*}
+    \frac{\partial \rho}{\partial t} + \sum \frac{\partial}{\partial x_i}\left[ c\psi^* \alpha_i \psi\right]=0
 \end{equation*}
