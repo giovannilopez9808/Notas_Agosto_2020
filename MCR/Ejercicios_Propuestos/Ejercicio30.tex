@@ -3,3 +3,37 @@ Mostrar que
 \begin{equation*}
     {T^i}_j = -\psi^* \alpha^i \hat{P}_j c \psi
 \end{equation*}
+Se tiene que el lagrangiano es:
+\begin{equation*}
+    \mathcal{L} = \psi^* \left[i\hbar c \gamma^\mu \partial_\mu + m_0 c^2\right] \psi
+\end{equation*}
+y el tensor energía momento es
+\begin{equation*}
+    {T^\mu}_\nu = \frac{\partial \mathcal{L}}{\partial (\partial_\mu \psi)} \partial_\nu \psi + 
+    \frac{\partial \mathcal{L}}{\partial (\partial_\mu \psi^*)} \partial_\nu \psi^* -\delta_{\nu}^\mu \mathcal{L}
+\end{equation*}
+calculando $\frac{\partial \mathcal{L}}{\partial (\partial_\mu \psi)} \partial_\nu \psi $:
+\begin{equation*}
+    \frac{\partial \mathcal{L}}{\partial (\partial_\mu \psi)} \partial_\nu \psi  = \psi^* ci \hbar \gamma^\mu \psi
+\end{equation*}
+como la lagrangiana no depende de $\partial_\mu \psi^*$, entonces 
+\begin{equation*}
+    \frac{\partial \mathcal{L}}{\partial (\partial_\mu \psi^*)} \partial_\nu \psi^*  =0
+\end{equation*}
+por lo tanto, el tensor energía momento es
+\begin{equation*}
+    {T^\mu}_\nu = \psi^* ci \hbar \gamma^\mu \delta_\nu\psi - \delta^\mu_\nu \left[\psi^* \left[i\hbar c \gamma^\mu \partial_\mu + m_0 c^2\right] \psi\right]
+\end{equation*}
+Tomando el caso de $\mu=i , \nu=j$, se tiene que:
+\begin{equation*}
+    {T^i}_j= \psi^* ci \hbar \alpha^i \partial_j\psi
+\end{equation*}
+Como el operador del momento lineal es $\hat{P}_j = -i\hbar \partial_j$, entonces
+\begin{align*}
+    {T^i}_j &= -\psi^* c \alpha^i (-i\hbar \partial_j) \psi \\
+    &=\psi^* c\alpha^i \hat{P}_j \psi
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    {T^i}_j = -\psi^* \alpha^i \hat{P}_j c \psi
+\end{equation*}
