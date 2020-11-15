@@ -4,3 +4,33 @@ Mostrar la identidad
     \left(\vec{\sigma}\cdot \vec{A}\right)\left(\vec{\sigma}\cdot\vec{B}\right) = \vec{A}\cdot \vec{B} \mathbb{I} + i 
     \vec{\sigma} \cdot \left(\vec{A}\times \vec{B}\right)
 \end{equation*}
+tomando en cuenta que
+\begin{equation*}
+    \left\lbrace \sigma_i \sigma_j \right\rbrace= 2 \delta_{ij}\mathbb{I} \qquad
+    \left[\sigma_i,\sigma_j\right] = 2i \epsilon_{ijk} \sigma_k
+\end{equation*}
+calculando $\left\lbrace \sigma_i \sigma_j \right\rbrace +\left[\sigma_i,\sigma_j\right]$, se tiene que:
+\begin{align*}
+    \left[\sigma_i,\sigma_j\right]  &= 2 \delta_{ij}\mathbb{I}  +  2i \epsilon_{ijk} \sigma_k \\
+    2 \sigma_i \sigma_j &=  2 \delta_{ij}\mathbb{I}  +  2i \epsilon_{ijk} \sigma_k \\
+ \sigma_i \sigma_j &=  \delta_{ij}\mathbb{I}  +  i \epsilon_{ijk} \sigma_k \\
+\end{align*}
+multiplicando por $a_ib_j$
+\begin{align*}
+    \sigma_i \sigma_j a_ib_j& =  \left(\delta_{ij}\mathbb{I}  +  i \epsilon_{ijk} \sigma_k\right) a_i b_j\\
+    \sigma_i a_i\sigma_j b_j& =  \delta_{ij}\mathbb{I} a_ib_j +  i \epsilon_{ijk} \sigma_k a_i b_j\\
+    \sigma_i a_i\sigma_j b_j& =  \delta_{ij}a_ib_j\mathbb{I}  +  i \epsilon_{ijk}a_i b_j \sigma_k\\
+\end{align*}
+tomando en cuenta que 
+\begin{align*}
+    \sigma_i a_i &=\vec{\sigma}\cdot \vec{A}\\
+    \sigma_j B_j &=\vec{\sigma}\cdot \vec{B}\\
+    \delta_{ij}a_ib_j &= \vec{A}\cdot \vec{B} \\
+    \epsilon_{ijk}a_i b_j &= \vec{A}\times \vec{B} \\ 
+    \epsilon_{ijk}a_i b_j \sigma_k & =\vec{A}\times \vec{B} \cdot \vec{\sigma}
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    \left(\vec{\sigma}\cdot \vec{A}\right)\left(\vec{\sigma}\cdot\vec{B}\right) = \vec{A}\cdot \vec{B} \mathbb{I} + i 
+    \vec{\sigma} \cdot \left(\vec{A}\times \vec{B}\right)
+\end{equation*}
