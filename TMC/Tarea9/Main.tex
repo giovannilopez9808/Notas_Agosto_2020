@@ -63,11 +63,76 @@ Matricula:\\
 Encontrar la eecuaciones de Maxwell a partir del lagrangiano con la interacción electromagnética y la ecuación de euler-lagrange para campos.\\
 Sea el lagrangiano:
 \begin{equation*}
-    \mathcal{L}=-\frac{1}{4}F_{\mu \nu}F^{\mu\nu}, \qquad
+    \mathcal{L}=-\frac{1}{4\mu_0}F_{\mu \nu}F^{\mu\nu}, \qquad
     F_{\mu \nu}=\partial_\mu A_\nu - \partial_\nu A_\mu
 \end{equation*}
 y las ecuaciones de euler-lagrange para campos:
 \begin{equation*}
-    \frac{\partial \mathcal{L}}{\partial (\partial_\mu A_\nu)} \partial_\nu A_\nu - \frac{\partial \mathcal{L}}{\partial A_\mu} = 0
+    \partial_\nu \frac{\partial \mathcal{L}}{\partial (\partial_\nu A_\mu)}  - \frac{\partial \mathcal{L}}{\partial A_\mu} = 0
+\end{equation*}
+Calculando $\frac{\partial \mathcal{L}}{\partial (\partial_\nu A_\mu)} $
+\begin{align*}
+    \frac{\partial \mathcal{L}}{\partial (\partial_\nu A_\mu)}  &= \frac{\partial }{\partial (\partial_\nu A_\mu)} \left(-\frac{1}{4\mu_0}F_{\mu \nu}F^{\mu\nu}\right)\\
+    &= \frac{1}{4\mu_0}\frac{\partial }{\partial (\partial_\nu A_\mu)} \left(\partial_\nu A_\mu-\partial_\mu A_\nu \right) F^{\mu \nu}\\
+    &= \frac{1}{4\mu_0} \frac{\partial }{\partial (\partial_\nu A_\mu)} \left(\partial_\nu A_\mu F^{\mu \nu}\right) \\
+    & = \frac{1}{4\mu_0} F^{\mu \nu}
+\end{align*}
+entonces:
+\begin{equation*}
+    \frac{\partial \mathcal{L}}{\partial (\partial_\nu A_\mu)}  = \frac{1}{4\mu_0} F^{\mu \nu}
+\end{equation*}
+como la lagrangiana no depende el término $A_\mu$, entonces
+\begin{equation*}
+    \frac{\partial \mathcal{L}}{\partial A_\mu} =0
+\end{equation*}
+por lo que tenemos el siguiente resultado para la ecuación de euler-lagrange
+\begin{equation*}
+    \frac{1}{4\mu_0}\partial_\nu F^{\mu \nu }=0
+\end{equation*}
+donde 
+\begin{equation*}
+    F^{\mu \nu} = \left(\begin{matrix}
+        0 & B_x & B_y & B_z \\
+        -B_x & 0 & \frac{E_z}{c} & -\frac{E_y}{c} \\
+        -B_y & -\frac{E_z}{c}& 0 & \frac{E_x}{c} \\
+        -B_z & \frac{E_y}{c} & -\frac{E_x}{c} & 0
+    \end{matrix}\right) \qquad 
+    *F^{\mu \nu} = \left(\begin{matrix}
+        0 & \frac{E_x}{c} & \frac{E_y}{c} & \frac{E_z}{c} \\
+        -\frac{E_x}{c} & 0 & B_z & -B_y \\
+        -\frac{E_y}{c} & -B_z& 0 & B_x \\
+        -\frac{E_z}{c} & B_y & -B_x & 0
+    \end{matrix}\right)
+\end{equation*}
+tomando a $F^{\mu \nu}$, se tiene que:
+\begin{equation*}
+    \partial_\nu F^{0 \nu} = 0 \qquad \partial_\nu F^{1 \nu} = 0 \qquad \partial_\nu F^{2 \nu} = 0 \qquad \partial_\nu F^{3 \nu} = 0
+\end{equation*}
+de $\partial_\nu F^{0 \nu} = 0$, se obtiene la siguiente ecuación de Maxwell:
+\begin{equation*}
+    \nabla \cdot E = 0
+\end{equation*}
+realizando la suma de $\partial_\nu F^{1 \nu} +\partial_\nu F^{2 \nu}+\partial_\nu F^{3 \nu}=0$, se obtiene que:
+\begin{equation*}
+    \nabla \times B = \frac{1}{c^2}\partial_t E
+\end{equation*}
+tomando a $*F^{\mu \nu}$, se tiene que:
+\begin{equation*}
+    \partial_\nu F^{0 \nu} = 0 \qquad \partial_\nu F^{1 \nu} = 0 \qquad \partial_\nu F^{2 \nu} = 0 \qquad \partial_\nu F^{3 \nu} = 0
+\end{equation*}
+de $\partial_\nu F^{0 \nu} = 0$, se obtiene la siguiente ecuación de Maxwell:
+\begin{equation*}
+    \nabla \cdot B = 0
+\end{equation*}
+realizando la suma de $\partial_\nu F^{1 \nu} +\partial_\nu F^{2 \nu}+\partial_\nu F^{3 \nu}=0$, se obtiene que:
+\begin{equation*}
+    \nabla \times E = -\partial_t B
+\end{equation*}
+por lo que llegamos a obtener las cuatro ecuaciones de Maxwell
+\begin{equation*}
+    \nabla \cdot E = 0  \qquad 
+    \nabla \times B = \frac{1}{c^2}\partial_t E  \qquad
+    \nabla \cdot B = 0 \qquad
+    \nabla \times E = -\partial_t B
 \end{equation*}
 \end{document}
