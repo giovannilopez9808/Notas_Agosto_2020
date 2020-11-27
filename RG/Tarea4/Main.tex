@@ -65,4 +65,147 @@ Calcule los símbolos de Christoffel para las coordenadas esfericas $(r,\theta,\
 \begin{equation*}
     dS^2=dr^2+r^2d\theta^2 +r^2\sin^2(\theta)d\phi^2
 \end{equation*}
+A partir del elemento diferencial de desplazamiento se tiene que el tensor metrico es:
+\begin{equation*}
+    g_{ij} = \left(\begin{matrix}
+        1 & 0 & 0 \\
+        0 & r^2 & 0 \\ 
+        0 & 0 & r^2\sin^2(\theta)
+    \end{matrix}\right), \qquad
+    g^{ij} = \left(\begin{matrix}
+        1 & 0 & 0 \\
+        0 & \frac{1}{r^2} & 0 \\ 
+        0 & 0 & \frac{1}{r^2\sin^2(\theta)}
+    \end{matrix}\right)
+\end{equation*}
+Se tiene que los símbolos de Christoffel estan definidos por:
+\begin{equation*}
+    \Gamma^{i}_{kl} = \frac{1}{2}g^{im} \left(\frac{\partial g_{mk}}{\partial x^l}+\frac{\partial g_{ml}}{\partial x^k}-\frac{\partial g_{kl}}{\partial x^m} \right)
+\end{equation*}
+como el tensor metrico $g$ es diferente de cero en su diagonal, entonces, los símbolos de Christoffel puede ser distinto de cero para $i=m$, y para $i\neq m$ iguales a cero, calculando para $i=1$, se tiene que:
+\begin{equation*}
+    \Gamma^{i}_{kl}= \frac{1}{2} g^{ii}\left(\frac{\partial g_{ik}}{\partial x^l}+\frac{\partial g_{il}}{\partial x^k}-\frac{\partial g_{kl}}{\partial x^i} \right)
+\end{equation*}
+calculando sus permutaciones, se tiene que:\\
+\begin{minipage}{0.3\linewidth}
+    \begin{align*}
+        \Gamma^{1}_{11} &= \frac{1}{2} \left(\frac{\partial 1}{\partial r}+ \frac{\partial 1}{\partial r} - \frac{\partial 1}{\partial r}\right)\\
+        &=0\\
+        \Gamma^{1}_{12} &= \frac{1}{2} \left(\frac{\partial 1}{\partial \theta}+\frac{\partial 0}{\partial r}-\frac{\partial 0}{\partial r} \right)\\
+        &=0\\
+        \Gamma^{1}_{13} &= \frac{1}{2} \left(\frac{\partial 1}{\partial \phi}+\frac{\partial 0}{\partial r}-\frac{\partial 0}{\partial r} \right)\\
+        &=0\\
+    \end{align*}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}{0.3\linewidth}
+    \begin{align*}
+        \Gamma^{1}_{21} &= \frac{1}{2} \left(\frac{\partial 0}{\partial r}+ \frac{\partial 1}{\partial \theta} - \frac{\partial 1}{\partial r}\right)\\
+&=0\\
+\Gamma^{1}_{22} &= \frac{1}{2} \left(\frac{\partial 0}{\partial \theta}+\frac{\partial 0}{\partial \theta}-\frac{\partial r^2}{\partial r} \right)\\
+&=-r\\
+\Gamma^{1}_{23} &= \frac{1}{2} \left(\frac{\partial 0}{\partial \phi}+\frac{\partial 0}{\partial \theta}-\frac{\partial 0}{\partial r} \right)\\
+&=0\\
+    \end{align*}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}{0.3\linewidth}
+    \begin{align*}
+        \Gamma^{1}_{31} &= \frac{1}{2} \left(\frac{\partial 0}{\partial r}+ \frac{\partial 1}{\partial \phi} - \frac{\partial 1}{\partial r}\right)\\
+        &=0\\
+        \Gamma^{1}_{32} &= \frac{1}{2} \left(\frac{\partial 0}{\partial \theta}+\frac{\partial 0}{\partial \phi}-\frac{\partial 0}{\partial r} \right)\\
+        &=0\\
+        \Gamma^{1}_{33} &= \frac{1}{2} \left(\frac{\partial 0}{\partial \phi}+\frac{\partial 0}{\partial \phi}-\frac{\partial r^2\sin^2(\theta)}{\partial r} \right)\\
+        &=-2r\sin^2(\theta)\\  
+    \end{align*}
+\end{minipage}
+calculando para $i=2$, se tiene que:\\
+\begin{minipage}{0.3\linewidth}
+    \begin{align*}
+        \Gamma^{2}_{11} &= \frac{1}{2r^2} \left(\frac{\partial 0}{\partial r}+ \frac{\partial 0}{\partial r} - \frac{\partial 1}{\partial \theta}\right)\\
+        &=0\\
+        \Gamma^{2}_{12} &= \frac{1}{2r^2} \left(\frac{\partial 0}{\partial \theta}+\frac{\partial r^2}{\partial r}-\frac{\partial 0}{\partial \theta} \right)\\
+        &=\frac{1}{r}\\
+        \Gamma^{2}_{13} &= \frac{1}{2r^2} \left(\frac{\partial 0}{\partial \phi}+\frac{\partial 0}{\partial r}-\frac{\partial 0}{\partial \theta} \right)\\
+        &=0\\
+    \end{align*}
+\end{minipage}
+\hspace{0.25cm}
+\begin{minipage}{0.3\linewidth}
+    \begin{align*}
+        \Gamma^{2}_{21} &= \frac{1}{2r^2} \left(\frac{\partial r^2}{\partial r}+ \frac{\partial 0}{\partial \theta} - \frac{\partial 1}{\partial \theta}\right)\\
+&=\frac{1}{r}\\
+\Gamma^{2}_{22} &= \frac{1}{2r^2} \left(\frac{\partial r^2}{\partial \theta}+\frac{\partial r^2}{\partial \theta}-\frac{\partial r^2}{\partial \theta} \right)\\
+&=0\\
+\Gamma^{2}_{23} &= \frac{1}{2r^2} \left(\frac{\partial r^2}{\partial \phi}+\frac{\partial 0}{\partial \theta}-\frac{\partial 0}{\partial \theta} \right)\\
+&=0\\
+    \end{align*}
+\end{minipage}
+\hspace{0.25cm}
+\begin{minipage}{0.3\linewidth}
+    \begin{align*}
+        \Gamma^{2}_{31} &= \frac{1}{2r^2} \left(\frac{\partial 0}{\partial r}+ \frac{\partial 0}{\partial \phi} - \frac{\partial 1}{\partial \theta}\right)\\
+        &=0\\
+        \Gamma^{2}_{32} &= \frac{1}{2r^2} \left(\frac{\partial 0}{\partial \theta}+\frac{\partial r^2}{\partial \phi}-\frac{\partial 0}{\partial \theta} \right)\\
+        &=0\\
+        \Gamma^{2}_{33} &= \frac{1}{2r^2} \left(\frac{\partial 0}{\partial \phi}+\frac{\partial 0}{\partial \phi}-\frac{\partial r^2\sin^2(\theta)}{\partial \theta} \right)\\
+        &=-2\sin(\theta)\cos(\theta)\\  
+    \end{align*}
+\end{minipage}
+calculando para $i=3$, se tiene que:\\
+\begin{minipage}{0.3\linewidth}
+    \begin{align*}
+        \Gamma^{3}_{11} &= \frac{1}{2r^2\sin^2(\theta)} \left(\frac{\partial 0}{\partial r}+ \frac{\partial 0}{\partial r} - \frac{\partial 1}{\partial \phi}\right)\\
+        &=0\\
+        \Gamma^{3}_{12} &= \frac{1}{2r^2\sin^2(\theta)} \left(\frac{\partial 0}{\partial \theta}+\frac{\partial 0}{\partial r}-\frac{\partial 0}{\partial \phi} \right)\\
+        &=0\\
+        \Gamma^{3}_{13} &= \frac{1}{2r^2\sin^2(\theta)} \left(\frac{\partial 0}{\partial \phi}+\frac{\partial r^2\sin^2(\theta)}{\partial r}-\frac{\partial 0}{\partial \phi} \right)\\
+        &=\frac{1}{r}\\
+    \end{align*}
+\end{minipage}
+\hspace{0.25cm}
+\begin{minipage}{0.3\linewidth}
+    \begin{align*}
+        \Gamma^{3}_{21} &= \frac{1}{2r^2\sin^2(\theta)} \left(\frac{\partial 0}{\partial r}+ \frac{\partial 0}{\partial \theta} - \frac{\partial 1}{\partial \phi}\right)\\
+&=0\\
+\Gamma^{3}_{22} &= \frac{1}{2r^2\sin^2(\theta)} \left(\frac{\partial 0}{\partial \theta}+\frac{\partial 0}{\partial \theta}-\frac{\partial r^2}{\partial \phi} \right)\\
+&=0\\
+\Gamma^{3}_{23} &= \frac{1}{2r^2\sin^2(\theta)} \left(\frac{\partial 0}{\partial \phi}+\frac{\partial r^2\sin^2(\theta)}{\partial \theta}-\frac{\partial 0}{\partial \phi} \right)\\
+&=\cot(\theta)\\
+    \end{align*}
+\end{minipage}\\
+\begin{minipage}{0.3\linewidth}
+    \begin{align*}
+        \Gamma^{3}_{31} &= \frac{1}{2r^2\sin^2(\theta)} \left(\frac{\partial r^2\sin^2(\theta)}{\partial r}+ \frac{\partial 0}{\partial \phi} - \frac{\partial 1}{\partial \phi}\right)\\
+        &=\frac{1}{r}\\
+        \Gamma^{3}_{32} &= \frac{1}{2r^2\sin^2(\theta)} \left(\frac{\partial r^2\sin^2(\theta)}{\partial \theta}+\frac{\partial 0}{\partial \phi}-\frac{\partial 0}{\partial \phi} \right)\\
+        &=\cot(\theta)\\
+        \Gamma^{3}_{33} &= \frac{1}{2r^2\sin^2(\theta)} \left(\frac{\partial r^2\sin^2(\theta)}{\partial \phi}+\frac{\partial r^2\sin^2(\theta)}{\partial \phi}-\frac{\partial r^2\sin^2(\theta)}{\partial \phi} \right)\\
+        &=0\\  
+    \end{align*}
+\end{minipage}\\
+dando asi como resultado que los símbolos de Christoffel diferentes a cero son:
+\begin{minipage}{0.3\linewidth}
+    \begin{align*}
+        \Gamma^{1}_{22} &= -r \\
+        \Gamma^1_{33} &= -2r\sin^2(\theta)
+    \end{align*}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}{0.3\linewidth}
+    \begin{align*}
+        \Gamma^2_{12}&= \frac{1}{r}\\
+        \Gamma^2_{32}&= \frac{1}{r}\\
+        \Gamma^2_{33}&=-2\sin(\theta)\cos(\theta)
+    \end{align*}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}{0.3\linewidth}
+    \begin{align*}
+        \Gamma^3_{13} &= \frac{1}{r}\\
+        \Gamma^3_{31}&= \frac{1}{r}\\
+         \Gamma^3_{23} &=\cot(\theta)\\
+         \Gamma^3_{32} &=\cot(\theta)
+    \end{align*}
+\end{minipage}
 \end{document}
