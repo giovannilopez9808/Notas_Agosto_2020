@@ -1,0 +1,43 @@
+\section*{Ejercicio 31}
+Comprobar que 
+\begin{equation*}
+    \sigma_{\alpha \beta} = \frac{i}{2} \left[\gamma_\alpha , \gamma_\beta\right]
+\end{equation*}
+satisface
+\begin{equation*}
+    \left[\sigma_{\alpha \beta} , \gamma^\nu \right]=-2i \left[ \delta_\alpha^\nu \gamma_\beta - \delta_\beta^\nu \gamma_\alpha\right]
+\end{equation*}
+se tiene que:
+\begin{align*}
+    \left[\sigma_{\alpha \beta} , \gamma^\nu \right] =& \sigma_{\alpha \beta} \gamma^\nu - \gamma^\nu \sigma_{\alpha \beta} \\
+    =& \frac{i}{2} \left[\gamma_\alpha \gamma_\beta - \gamma_\beta \gamma_\alpha , \gamma^\nu \right] \\
+    =& \frac{i}{2} \left(\left(\gamma_\alpha \gamma_\beta - \gamma_\beta \gamma_\alpha  \right)\gamma^\nu - \gamma^\nu \left(\gamma_\alpha \gamma_\beta - \gamma_\beta \gamma_\alpha\right)\right)\\
+    =& \frac{i}{2} \left(\gamma_\alpha \gamma_\beta \gamma^\nu- \gamma_\beta \gamma_\alpha\gamma^\nu - \gamma^\nu \gamma_\alpha \gamma_\beta + \gamma^\nu\gamma_\beta \gamma_\alpha\right)
+\end{align*}
+se tiene que 
+\begin{equation*}
+    \gamma^\nu \gamma_\alpha \gamma_\beta = -4\delta_\alpha^\nu \gamma_\beta 
+\end{equation*}
+y que
+\begin{align*}
+    \gamma_\alpha \gamma_\beta \gamma^\nu =& \gamma_\alpha g_{\theta \beta} \gamma^{\theta} g^{\theta \alpha }  \gamma_{\theta}\\
+    =& \gamma_\alpha g_{\theta \beta} g^{\theta \alpha} \gamma^{\theta} g_{\theta} \\
+    =& \gamma_\alpha \delta_{\beta}^\alpha \gamma^{\theta} g_{\theta} \\ 
+    =& 4\gamma_\alpha \delta_{\beta}^\alpha
+\end{align*}
+entonces
+\begin{align*}
+    \gamma_\alpha \gamma_\beta \gamma^\nu - \gamma_\beta \gamma_\alpha \gamma^\nu =& 4\gamma_\alpha \delta_{\beta}^\alpha - 4\gamma_\beta \delta_{\beta}^\alpha \\
+    =& 4\gamma_\alpha - 4\gamma_\alpha \\
+    =& 0
+\end{align*}
+y tambien
+\begin{align*}
+    - \gamma^\nu \gamma_\alpha \gamma_\beta + \gamma^\nu\gamma_\beta \gamma_\alpha =& 4\delta_\beta^\nu  \gamma_\alpha - 4\delta_\alpha^\nu
+\end{align*}
+por lo tanto
+\begin{align*}
+    \left[\sigma_{\alpha \beta} , \gamma^\nu \right] =& \frac{i}{2} \left(\gamma_\alpha \gamma_\beta \gamma^\nu- \gamma_\beta \gamma_\alpha\gamma^\nu - \gamma^\nu \gamma_\alpha \gamma_\beta + \gamma^\nu\gamma_\beta \gamma_\alpha\right)\\
+    =& \frac{i}{2} \left(4\delta_\beta^\nu  \gamma_\alpha - 4\delta_\alpha^\nu \right) \\
+    =& -2i \left(\delta_\alpha^\nu \gamma_\beta-\delta_\beta^\nu  \gamma_\alpha\right)
+\end{align*}
