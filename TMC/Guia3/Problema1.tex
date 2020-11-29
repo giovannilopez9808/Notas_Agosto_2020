@@ -4,35 +4,79 @@ las corrientes de Noether asociadas a las respectivas transformaciones}
     \item Invariante de norma.\\
     Se tiene que:
     \begin{equation*}
-        \mathcal{L}= \left(\partial^\mu \phi \right)^* \left(\partial_\mu \phi\right)
+        \mathcal{L}= \left(\partial_\mu \phi \right)^* \left(\partial^\mu \phi\right) - m^2\phi^*\phi
     \end{equation*}
     aplicando la transformaciónes:
     \begin{equation*}
-        \partial^\mu \rightarrow \partial^\mu-igA^\mu \qquad \phi \rightarrow e^{i\alpha}\phi
+        \partial^\mu \rightarrow \partial^\mu-igA^\mu 
     \end{equation*}
     se tiene lo siguiente:
     \begin{equation*}
-        \mathcal{L}= \left(\partial^\mu(e^{i\theta}\phi)-ig\left(A^\mu +\frac{1}{g} \partial^\mu \theta \right)e^{i\theta} \right)^*
-        \left(\partial_\mu(e^{i\theta}\phi)-ig\left(A_\mu +\frac{1}{g} \partial_\mu \theta \right)e^{i\theta} \right)
+        \mathcal{L}= \left(\partial_\mu\phi^*+igA_\mu  \phi^*\right)
+        \left(\partial^\mu \phi-igA^\mu \phi \right)-m^2 \phi^* \phi .
     \end{equation*}
-    como:
+    Realizando las operaciones se tiene que:
+    \begin{equation*}
+        {\mathcal{L}}'= \partial_\mu \phi^* \partial^\mu \phi -m^2 \phi^* \phi -ig A_\mu \phi \partial^\mu \phi +ig A^\mu \phi \partial_\mu \phi^* + g^2 A^\mu A_\mu \phi^* \phi
+    \end{equation*}
+    nombrando así al lagrangiano de interacción como:
+    \begin{equation*}
+        \mathcal{L}_{interaction}=-ig A_\mu \phi^* \partial^\mu \phi +ig A^\mu \phi \partial_\mu \phi^* + g^2 A^\mu A_\mu \phi^* \phi
+    \end{equation*}
+    tomando en cuenta las transformaciones de norma, tales que:
+    \begin{equation*}
+        \phi \rightarrow e^{i\theta} \phi \qquad A_\mu \rightarrow A_\mu- \frac{1}{g}\partial_\mu \theta
+    \end{equation*}
+    se tiene que
+    \begin{equation*}
+        {\mathcal{L}}'_{interaction}=-ig \left(A_\mu- \partial_\mu \theta\right) {\phi}'^* \partial^\mu {\phi}' +ig \left(A^\mu- \partial^\mu \theta\right) {\phi}'^* \partial_\mu {\phi}' + g^2 \left(A^\mu- \frac{1}{g}\partial^\mu \theta\right) \left(A_\mu- \frac{1}{g}\partial_\mu \theta\right) {\phi}'^* {\phi}'
+    \end{equation*}
+    calculando $-ig \left(A_\mu- \frac{1}{g}\partial_\mu \theta\right) {\phi}'^* \partial^\mu {\phi}'$
     \begin{align*}
-        \partial^\mu &= \left\langle\partial^0,\partial^j \right\rangle = \left\langle\partial_{ct},-\nabla \right\rangle\\
-        \partial_\mu &= \left\langle\partial_0,\partial_j \right\rangle = \left\langle\partial_{ct},\nabla \right\rangle\\
+        -ig \left(A_\mu- g^{-1}\partial_\mu \theta\right) {\phi}'^* \partial^\mu {\phi}' =& -igA_\mu {\phi}'^* \partial^\mu {\phi}'+i {\phi}'^* \partial^\mu {\phi}' \partial_\mu \theta \\
+        =& -ig A_\mu e^{-i\theta} \phi \left(e^{i\theta} \partial^\mu \phi +i \phi e^{i\theta} \partial^\mu \theta \right) +ie^{-i\theta}\phi \left(e^{i\theta} \partial^\mu \phi +i \phi e^{i\theta} \partial^\mu \theta \right) \partial_\mu \theta\\
+        =& -igA_\mu\phi^* \left(\partial^\mu \phi + i\phi\partial^\mu \theta\right) + i \phi^* \left(\partial^\mu \phi + i\phi\partial^\mu \theta\right) \partial_\mu \theta\\
     \end{align*}
-    entonces:
+    teniendo asi:
+    \begin{equation*}
+        -ig \left(A_\mu- g^{-1}\partial_\mu \theta\right) {\phi}' \partial^\mu {\phi}'^*= 
+        -igA_\mu \phi^* \partial^\mu \phi
+         + g\phi \phi A_\mu \partial^\mu \theta 
+         + i \phi \partial^\mu \phi \partial_\mu \theta^*
+         - \phi \phi^* \partial^\mu \theta \partial_\mu \theta
+    \end{equation*}
+    calculando $ig \left(A^\mu- \frac{1}{g}\partial^\mu \theta\right) {\phi}' \partial_\mu {\phi}'^*$
     \begin{align*}
-        \mathcal{L}=&\left(\left\langle \partial_{ct}e^{-i\theta}\phi^* , -\nabla(e^{-i\theta}\phi^*) \right\rangle +ig \left\langle A^0,A^j \right\rangle e^{-i\theta} \phi^* +i \left\langle \partial_{ct}\theta ,-\nabla \theta  \right\rangle e^{-i\theta}\phi^*\right)\\
-        &\left(\left\langle \partial_{ct}e^{i\theta}\phi , \nabla(e^{i\theta}\phi) \right\rangle -ig \left\langle A_0,A_j \right\rangle e^{i\theta} \phi^* -i \left\langle \partial_{ct}\theta ,\nabla \theta  \right\rangle e^{i\theta}\phi\right)\\
-        =&\left(\left\langle \frac{1}{c}(e^{-i\theta}\partial_{t}\phi^*-ie^{-i\theta}\phi^*\partial_{t}\theta ), -e^{-i\theta}\nabla\phi^*+ie^{-i\theta}\phi^*\nabla\theta \right\rangle +ig \left\langle A^0,A^j \right\rangle e^{-i\theta} \phi^* \right.\\
-        &\left.+i \left\langle \frac{1}{c}\partial_{t}\theta ,-\nabla \theta  \right\rangle e^{-i\theta}\phi^*\right)\\
-        &\left(\left\langle \frac{1}{c}(e^{i\theta}\partial_{t}\phi+ie^{i\theta}\phi\partial_{t}\theta ), e^{i\theta}\nabla\phi+ie^{i\theta}\phi\nabla\theta \right\rangle -ig \left\langle A_0,A_j \right\rangle e^{i\theta} \phi \right.\\
-        &\left.+i \left\langle \frac{1}{c}\partial_{t}\theta ,\nabla \theta  \right\rangle e^{i\theta}\phi\right)\\
-        =&\left(\left\langle\frac{1}{c}e^{-i\theta}\partial_t \phi^*, -e^{-i\theta}\nabla \phi^* \right\rangle+ig\left\langle A^0,A^j \right\rangle e^{-i\theta} \phi^*\right) \left(\left\langle\frac{1}{c}e^{i\theta}\partial_t \phi, e^{i\theta}\nabla \phi \right\rangle-ig\left\langle A_0,A_j \right\rangle e^{i\theta} \phi\right)\\
-        =&\left(\left\langle\frac{1}{c}\partial_t \phi^*,- \nabla \phi^* \right\rangle+ig\left\langle A^0,A^j \right\rangle\phi^*\right) \left(\left\langle\frac{1}{c}\partial_t \phi,\nabla \phi \right\rangle-ig\left\langle A_0,A_j \right\rangle\phi\right)\\
-        =&\left(\partial^\mu \phi^* +igA^\mu \phi^*\right)\left(\partial_\mu \phi - ig A_\mu \phi\right)\\
-        =&\left(D^\mu \phi\right)^* \left(D_\mu \phi\right)
+        ig \left(A^\mu- \frac{1}{g}\partial^\mu \theta\right) {\phi}' \partial_\mu {\phi}'^*=&ig \left(A^\mu- \frac{1}{g}\partial^\mu \theta\right) e^{i\theta}{\phi} \left(e^{-i\theta}\partial_\mu \phi^* - i\phi^* e^{-i\theta} \partial_\mu \theta\right)\\
+        =& ig \left(A^\mu- \frac{1}{g}\partial^\mu \theta\right) {\phi}^* \left(\partial_\mu \phi - i \phi \partial_\mu \theta \right)\\
+        =&ig A^\mu \phi \left(\partial_\mu \phi^* - i \phi^* \partial_\mu \theta \right) - i\partial^\mu \theta \phi \left(\partial_\mu \phi^* - i\phi^* \partial_\mu \theta \right)
     \end{align*}
+    teniendo asi:
+    \begin{equation*}
+        \mathcal{L}_,=ig \left(A^\mu- \frac{1}{g}\partial^\mu \theta\right) {\phi}'^* \partial_\mu {\phi}' = igA^\mu \phi \partial_\mu \phi^* + g\phi^* \phi A^\mu \partial_\mu \theta -i \phi \partial^\mu \theta\partial_\mu \phi^* - \phi^* \phi \partial^\mu \theta\partial_\mu \theta
+    \end{equation*}
+    por lo que
+    \begin{align*}
+        -ig \left(A_\mu- g^{-1}\partial_\mu \theta\right) {\phi}' \partial^\mu {\phi}'^* +ig \left(A^\mu- \frac{1}{g}\partial^\mu \theta\right) {\phi}'^* \partial_\mu {\phi}' &= \\
+        &-igA_\mu \phi^* \partial^\mu \phi \\
+        &+igA^\mu \phi \partial_\mu \phi^* \\
+        &+ g\phi \phi^* A_\mu \partial^\mu \theta\\
+        &+ g\phi \phi^* A^\mu \partial_\mu \theta\\
+        &-2\phi \phi^* \partial^\mu \theta \partial_\mu \theta
+    \end{align*}
+    calculando $g^2 \left(A^\mu- \frac{1}{g}\partial^\mu \theta\right) \left(A_\mu- \frac{1}{g}\partial_\mu \theta\right) {\phi}'^* {\phi}'$
+    \begin{align*}
+        g^2 \left(A^\mu- \frac{1}{g}\partial^\mu \theta\right) \left(A_\mu- \frac{1}{g}\partial_\mu \theta\right) {\phi}'^* {\phi}' =& g^2 \left(A^\mu A_\mu - \frac{1}{g}A^\mu \partial_\mu \theta - \frac{1}{g}A_\mu \partial^\mu \theta + \frac{1}{g^2}\partial^\mu \theta \partial_\mu \theta \right) \phi^* \phi \\
+        =&\left(g^2A^\mu A_\mu - gA^\mu \partial_\mu \theta - gA_\mu \partial^\mu \theta + \partial^\mu \theta \partial_\mu \theta \right) \phi^* \phi 
+    \end{align*}
+    por lo tanto:
+    \begin{equation*}
+        \mathcal{L}_,+g^2 \left(A^\mu- \frac{1}{g}\partial^\mu \theta\right) \left(A_\mu- \frac{1}{g}\partial_\mu \theta\right) {\phi}'^* {\phi}' = -igA_\mu \phi^* \partial^\mu \phi +igA^\mu \phi \partial_\mu \phi^* +g^2A^\mu A_\mu\phi \phi^*
+    \end{equation*}
+    por lo que, se puede que observar que la lagrangiana de interacción es invarinate bajo transformaciones de norma.
+    \begin{equation*}
+        \mathcal{L}_{interaction}={\mathcal{L}}'_{interaction}
+    \end{equation*}
     \item Corrientes de Noether.\\
     Se tiene que:
     \begin{equation*}
@@ -40,15 +84,18 @@ las corrientes de Noether asociadas a las respectivas transformaciones}
     \end{equation*}
     entonces:
     \begin{equation*}
-        \delta \mathcal{L} = \frac{\partial \mathcal{L}}{\partial \phi} \delta \phi + \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)} \delta (\partial^\mu \phi)  +\frac{\partial \mathcal{L}}{\partial (\partial^\mu {\phi}^*)} \delta (\partial^\mu {\phi}^*)
+        \delta \mathcal{L} = \frac{\partial \mathcal{L}}{\partial \phi} \delta \phi \frac{\partial \mathcal{L}}{\partial \phi^*} \delta \phi^*+ \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)} \delta (\partial^\mu \phi)  +\frac{\partial \mathcal{L}}{\partial (\partial^\mu {\phi}^*)} \delta (\partial^\mu {\phi}^*)
     \end{equation*}
     donde \begin{equation*}
         \delta \phi = i\alpha \phi \qquad \delta (\partial^\mu\phi) = i\alpha \partial_\mu  \phi
     \end{equation*}
+    \begin{equation*}
+        \delta \phi = -i\alpha \phi \qquad \delta (\partial^\mu\phi) = -i\alpha \partial_\mu  \phi
+    \end{equation*}
     entonces\begin{align*}
-        \delta \mathcal{L} =& i\alpha \frac{\partial \mathcal{L}}{\partial \phi} \phi + i\alpha \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)} \partial_\mu \phi - i\alpha \frac{\partial \mathcal{L}}{\partial (\partial^\mu {\phi}^*)} \partial_\mu {\phi}^*\\
-        =& i\alpha \frac{\partial \mathcal{L}}{\partial \phi } \phi -i\alpha \partial_\mu \left(\frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)}\right) \phi + i\alpha \partial^\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)} \phi \right) - i\alpha\partial^\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial^\mu {\phi}^*)} {\phi}^* \right) \\
-        =& i\alpha \left[ \frac{\partial \mathcal{L}}{\partial \phi} - \partial_\mu \left(\frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)}\right) \right] \phi + i\alpha \partial^\mu \left[ \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)} \phi  - \frac{\partial \mathcal{L}}{\partial (\partial^\mu {\phi}^*)} {\phi}^* \right]\\
+        \delta \mathcal{L} =& i\alpha \frac{\partial \mathcal{L}}{\partial \phi} \phi-i\alpha \frac{\partial \mathcal{L}}{\partial \phi^*} \phi^* + i\alpha \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)} \partial_\mu \phi - i\alpha \frac{\partial \mathcal{L}}{\partial (\partial^\mu {\phi}^*)} \partial_\mu {\phi}^*\\
+        =& i\alpha \frac{\partial \mathcal{L}}{\partial \phi } \phi -i\alpha \frac{\partial \mathcal{L}}{\partial \phi^* } \phi^* -i\alpha \partial_\mu \left(\frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)}\right) \phi + i\alpha \partial^\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)} \phi \right) - i\alpha\partial^\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial^\mu {\phi}^*)} {\phi}^* \right) \\
+        =& i\alpha \left[ \frac{\partial \mathcal{L}}{\partial \phi} - \partial_\mu \left(\frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)}\right) \right] \phi-i\alpha \left[ \frac{\partial \mathcal{L}}{\partial \phi^*} - \partial_\mu \left(\frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi^*)}\right) \right] \phi^*  + i\alpha \partial^\mu \left[ \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)} \phi  - \frac{\partial \mathcal{L}}{\partial (\partial^\mu {\phi}^*)} {\phi}^* \right]\\
         =& \partial^\mu \left(i\alpha\left[ \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)} \phi  - \frac{\partial \mathcal{L}}{\partial (\partial^\mu {\phi}^*)} {\phi}^* \right]\right)
     \end{align*}
     con lo cual obtenemos que:
@@ -61,10 +108,10 @@ las corrientes de Noether asociadas a las respectivas transformaciones}
      \end{equation*}
      calculando las derivadas parciales se tiene que:
      \begin{equation*}
-        \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)} = -\partial_\mu \phi^* \qquad \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi^*)} = -\partial_\mu \phi
+        \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi)} = -igA_\mu \phi^*  \qquad \frac{\partial \mathcal{L}}{\partial (\partial^\mu \phi^*)} = i g A^\mu \phi
      \end{equation*}
      por lo tanto:
      \begin{equation*}
-         j_\mu = i\alpha \left[\phi^* \partial_\mu \phi - \phi \partial \phi^* \right]
+         j_\mu = g\alpha \left[A_\mu +A^\mu \right] \phi^*\phi
      \end{equation*}
 \end{itemize}

@@ -1,2 +1,57 @@
 \textbf{3. Obtener la expresión cuántica para el campo electromagnético a partir de la lagrangiana
 electromagnética clásica.}\\
+Se tiene que el campo eléctrico y magnético puedes obtenerse a partir de las siguientes operaciones:
+\begin{equation*}
+    E=-\frac{1}{c}\frac{\partial \vec{A}}{\partial t} \qquad \vec{B}= - \left(\vec{\nabla}\times\vec{A}\right)
+\end{equation*}
+donde $\vec{A}$, es el potencial vector, el cual cumple la ecuación de onda:
+\begin{equation*}
+    \nabla^2 \vec{A} - \frac{1}{c^2} \frac{\partial^2 \vec{A}}{\partial t^2}=0
+\end{equation*}
+es por ello que se propone que el potencial vector $\vec{A}$, puede escribirse como una serie de Fourier tal que:
+\begin{equation*}
+    A(\vec{r},t) =\sum_k\left[\vec{a}_{\vec{p}} e^{i\left(\vec{k}\cdot \vec{r}-\omega_k t \right)}+\vec{a}_{\vec{p}}^* e^{-i\left(\vec{k}\cdot \vec{r}-\omega_k t \right)}\right]
+\end{equation*}
+donde $\vec{a}_{\vec{p}}$ es un operador tal que contiene la infomación de la polarización y depende unicamente del tiempo, $\vec{k}$ es el número de onda asociado al momento, $\omega_k$, es la frecuencia 
+que contiene cada onda asociada a la energía de De Broglie. Reescribiendo esta expresión podemos separar la dependencia temporal en la forma
+\begin{equation*}
+    A(\vec{r},t) =\sum_k \left[ \vec{\epsilon}_{k} e^{-i\left(\vec{k}\cdot \vec{r}\right)}+\vec{\epsilon}_{k}^* e^{i\left(\vec{k}\cdot \vec{r}\right)}\right]
+\end{equation*}
+donde 
+\begin{equation*}
+    \vec{\epsilon}_k= \vec{a}_{\vec{p}}  e^{i\omega_k t} \qquad {\vec{\epsilon}_k}^*= \vec{a}^*_{\vec{p}}  e^{-i\omega_k t}
+\end{equation*}
+por lo mismo, las expresiones del campo electríco y magnetico las podemos escribir de la siguiente manera:
+\begin{align*}
+    \vec{E}&=\sum_k \left(\vec{E}_k(t)e^{i\vec{k}\cdot \vec{r}}+\vec{E}_k^*(t)e^{-i\vec{k}\cdot \vec{r}}\right)\\
+    \vec{B}&=\sum_k \left(\vec{B}_k(t)e^{i\vec{k}\cdot \vec{r}}+\vec{B}_k^*(t)e^{-i\vec{k}\cdot \vec{r}}\right)
+\end{align*}
+calculando $\partial \vec{A}/\partial t$, se tiene que
+\begin{align*}
+    \frac{1}{c}\frac{\partial \vec{A}}{\partial t} =&\frac{1}{c}\frac{\partial}{\partial t}\sum_k\left[\vec{\epsilon}_k e^{-i\left(\vec{k}\cdot \vec{r}\right)}+\vec{\epsilon}_{\vec{p}}^* e^{i\left(\vec{k}\cdot \vec{r}\right)}\right]\\
+    =& \frac{1}{c}\sum_k\left[ e^{-i\left(\vec{k}\cdot \vec{r}\right)}\frac{\partial \vec{\epsilon_k}}{\partial t}+ e^{i\left(\vec{k}\cdot \vec{r}\right) }\frac{\partial \vec{\epsilon}_{\vec{p}}^*}{\partial t}\right]\\
+    =& \frac{1}{c}\sum_k\left[ e^{-i\left(\vec{k}\cdot \vec{r}\right)}(i\omega_k)\vec{\epsilon_k}+ e^{i\left(\vec{k}\cdot \vec{r}\right) }(i\omega_k \vec{\epsilon}_k)^*\right]\\
+    =&\sum_k\left[ e^{-i\left(\vec{k}\cdot \vec{r}\right)}(i|\vec{k}|)\vec{\epsilon_k}+ e^{i\left(\vec{k}\cdot \vec{r}\right) }(i|\vec{k}| \vec{\epsilon}_k)^*\right]\\
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    \sum_k \left(\vec{E}_k(t)e^{i\vec{k}\cdot \vec{r}}+\vec{E}_k^*(t)e^{-i\vec{k}\cdot \vec{r}}\right)=\sum_k\left[ e^{-i\left(\vec{k}\cdot \vec{r}\right)}(ik)\vec{\epsilon_k}+ e^{i\left(\vec{k}\cdot \vec{r}\right) }(ik \vec{\epsilon}_k)^*\right]
+\end{equation*}
+donde se apreia que:
+\begin{equation*}
+    \vec{E}_k = i|\vec{k}|\vec{\epsilon}_k
+\end{equation*}
+calculando $\vec{\nabla}\times \vec{A}$ se tiene que:
+\begin{align*}
+    \left(\vec{\nabla}\times\vec{A}\right)_k =&\epsilon_{xyz} \partial_y A_z\\
+    =& i \epsilon_{xyz} k_y A_z \\
+    =& i\vec{k}\times\vec{A}_k
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    \vec{B}_k=i\vec{k}\times\vec{A}_k
+\end{equation*}
+por lo tanto, el campo electromagnético es
+\begin{equation*}
+    EM=\sum_k i\left(|\vec{k}|\vec{\epsilon}_k+\vec{k}\times\vec{A}_k\right) e^{i\vec{k}\cdot \vec{r}}-i\left(|\vec{k}|\vec{\epsilon}_k^*(t)+\vec{k}\times\vec{A}_k^*\right)e^{-i\vec{k}\cdot \vec{r}}
+\end{equation*}
