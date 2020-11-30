@@ -1,0 +1,27 @@
+\section*{Ejercicio 41}
+\begin{equation*}
+    {\bar{\psi}}' ({x}') \sigma^{\mu\nu} {\psi}'({x}')= {a^\mu}_\alpha {a^\nu}_\beta \bar{\psi} \sigma^{\alpha\beta} \psi
+\end{equation*}
+Se tiene que:
+\begin{equation*}
+    {\bar{\psi}}'({x}') = \bar{\psi} \hat{S}^{-1} \qquad {\psi}'({x}')=\hat{S}\psi(x) 
+    \qquad \sigma^{\mu \nu} = \gamma^\mu \gamma^\nu -\gamma^\nu \gamma^\mu 
+\end{equation*}
+entonces 
+\begin{align*}
+    {\bar{\psi}}' ({x}') \sigma^{\mu\nu} {\psi}'({x}')=& \bar{\psi}(x)\hat{S}^{-1} \sigma^{\mu\nu} \hat{S} \psi(x)
+\end{align*}
+calculando $\hat{S}^{-1} \sigma^{\mu\nu} \hat{S}$ , se tiene que
+\begin{align*}
+    \hat{S}^{-1} \sigma^{\mu\nu} \hat{S} =& \hat{S}^{-1} \left( \gamma^\mu \gamma^\nu -\gamma^\nu \gamma^\mu \right) \hat{S}\\
+    =& \hat{S}^{-1} \gamma^\mu \hat{S}\hat{S}^{-1}\gamma^\nu \hat{S}- \hat{S}^{-1}\gamma^\nu \hat{S}\hat{S}^{-1}\gamma^\mu \hat{S}\\
+    =& {a^\mu}_\alpha \gamma^\alpha {a^\nu}_\beta \gamma^\beta - {a^\nu}_\beta \gamma^\beta {a^\mu}_\alpha \gamma^\alpha \\
+    =& {a^\mu}_\alpha {a^\nu}_\beta \gamma^\alpha \gamma^\beta - {a^\mu}_\alpha {a^\nu}_\beta \gamma^\beta \gamma^\alpha\\
+    =& {a^\mu}_\alpha {a^\nu}_\beta  \left(\gamma^\alpha \gamma^\beta-\gamma^\beta \gamma^\alpha \right)\\
+    =& {a^\mu}_\alpha {a^\nu}_\beta \sigma^{\alpha \beta}
+\end{align*}
+por lo tanto:
+\begin{align*}
+    {\bar{\psi}}' ({x}') \sigma^{\mu\nu} {\psi}'({x}') =& \bar{\psi}(x) {a^\mu}_\alpha {a^\nu}_\beta \sigma^{\alpha \beta} \psi(x)\\
+    =&  {a^\mu}_\alpha {a^\nu}_\beta \bar{\psi}(x) \sigma^{\alpha \beta} \psi(x)
+\end{align*}

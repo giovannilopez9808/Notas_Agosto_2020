@@ -1,5 +1,30 @@
 \section*{Ejercicio 34}
-Tomar $\varphi=2\pi,4\pi$ y obtener ${\psi}'({x}')$ a partir de la ecuación
+Obtener que 
 \begin{equation*}
-    {\psi}'({x}') = exp\left[i\frac{\varphi}{z}\hat{\Sigma}_3\right] \psi(x)
+    {\psi}'({x}')=exp\left[\frac{i}{2}\varphi \sigma_{12} \right]\psi(x)
+\end{equation*}
+Se tiene que:
+\begin{equation*}
+    {\psi}'({x}') = exp\left[-\frac{i}{4}\varphi \sigma_{\mu\nu}\left(I_3\right)^{\mu\nu} \right] \psi(x)
+\end{equation*}
+donde 
+\begin{equation*}
+    {\left(I_3\right)^\nu}_\mu = \left(\begin{matrix}
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 1 &0 \\ 
+        0 & -1 & 0 & 0 \\
+        0 & 0 & 0 & 0 \\  
+    \end{matrix}\right)
+\end{equation*}
+entonces
+\begin{align*}
+    \sigma_{\mu \nu} \left(I_3\right)^{\mu\nu} =& \sigma_{\mu \nu} {\left(I_3\right)^{\nu}}_{\alpha} g^{\beta\mu }\\
+    =& \sigma_{\mu \nu } \left(-\delta_{2}^{\nu}g^{1\beta} +\delta_1^\nu g^{2\beta}\right)\\
+    =& - \left(-\sigma_{21}+\sigma_{12}\right)\\
+    =& - \left(\sigma_{12}+\sigma_{12}\right) \\
+    =& -2 \sigma_{12}
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    {\psi}'({x}')=exp\left[\frac{i}{2}\varphi \sigma_{12} \right]\psi(x)
 \end{equation*}
