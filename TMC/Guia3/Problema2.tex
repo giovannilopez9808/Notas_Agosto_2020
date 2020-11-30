@@ -1,2 +1,58 @@
 \textbf{2. Obtener la expresión para los términos de la energía de un sistema descrito por la ecuación de
 Schrödinger originalmente degenerado al primer orden de la teoría de perturbaciones.}\\
+Se tiene que la energía de un sistema es:
+\begin{equation*}
+    \left\langle \psi_a^0 \left|H^1 \right|\psi_b^0\right\rangle = E' \delta_{ab}
+\end{equation*}
+entonces definiendo 
+\begin{equation*}
+    \left\langle \psi_a^0 \left|H^1 \right|\psi_b^0\right\rangle =W_{ab}
+\end{equation*}
+y se obtiene que:
+\begin{align*}
+    \alpha \left\langle \psi_m^0 \left|H^1 \right|\psi_m^0\right\rangle + \beta \left\langle \psi_m^0 \left|H^1 \right|\psi_n^0\right\rangle &= \alpha E'\\
+    \alpha \left\langle \psi_n^0 \left|H^1 \right|\psi_m^0\right\rangle + \beta \left\langle \psi_n^0 \left|H^1 \right|\psi_n^0\right\rangle &= \beta E'
+\end{align*}
+lo cual lo podemos escribir como
+\begin{align}
+    \label{eq:wmm}
+    \alpha W_{mm}+ \beta W_{mn} &= \alpha E' \\
+    \label{eq:wnn}
+    \alpha W_{nm}+ \beta W_{nn} &= \beta E' 
+\end{align}
+en donde se puede obtener que
+\begin{equation*}
+    W_{nm}=W_{mn}^*
+\end{equation*}
+de la ecuación \ref{eq:wmm} se tiene que
+\begin{equation}
+    W_{mn}=\frac{\alpha}{\beta} \left(E'-W_{mm}\right)
+    \label{eq:wmn}
+\end{equation}
+multiplicando por la derecha $W_{mn}$ en la ecuación \ref{eq:wnn}, se tiene que
+\begin{align*}
+    \alpha W_{mn}W_{nm}+ \beta W_{mn}W_{nn} =& \beta E' W_{mn}
+    \alpha W_{mn}W_{mn}^* = \beta W_{mm} \left(E'-W_{mn}\right)
+\end{align*}
+mutlplicando la ecuación \ref{eq:wmn}
+\begin{align*}
+    \alpha \left| W_{mn}\right|^2 =& \alpha \left(E'-W_{mm}\right)\left(E'-W_{nn}\right)\\
+    =& {E}'^2 - (W_{mm}+W_{nn})E' +W_{mm}W_{nn}\\
+    =& \left(E'-\frac{\left(W_{mm}+W_{nn}\right)^2}{2}\right)^2- \frac{\left(W_{mm}+W_{nn}\right)^2}{4}+ W_{mm}W_{nn}
+\end{align*}
+por lo que se tiene la expresión:
+\begin{equation*}
+    \alpha \left| W_{mn}\right|^2 -W_{mm}W_{nn} =\left(E'-\frac{\left(W_{mm}+W_{nn}\right)^2}{2}\right)^2- \frac{\left(W_{mm}+W_{nn}\right)^2}{4}
+\end{equation*}
+despejando el término $E'$
+\begin{align*}
+    \alpha \left| W_{mn}\right|^2-W_{mm}W_{nn}  + \frac{\left(W_{mm}+W_{nn}\right)^2}{4} =& \left(E'-\frac{\left(W_{mm}+W_{nn}\right)^2}{2}\right)^2\\
+    \frac{\sqrt{4\left(\alpha \left| W_{mn} \right|^2-W_{mm}W_{nn}\right)  + \left(W_{mm}+W_{nn}\right)^2}}{2}=&E' -\frac{\left(W_{mm}+W_{nn}\right)^2}{2}\\
+\end{align*}
+\begin{equation*}
+    E'= \frac{\left(W_{mm}+W_{nn}\right)^2}{2}+\frac{\sqrt{4\left(\alpha \left| W_{mn} \right|^2-W_{mm}W_{nn}\right)  + \left(W_{mm}+W_{nn}\right)^2}}{2}
+\end{equation*}
+por lo tanto, la expresión para los términos de la energía de un sistema degenerado al primer orden de la teoría de perturbaciones es
+\begin{equation*}
+    E'= \frac{\left(W_{mm}+W_{nn}\right)^2+\sqrt{4\left(\alpha \left| W_{mn} \right|^2-W_{mm}W_{nn}\right)  + \left(W_{mm}+W_{nn}\right)^2}}{2}
+\end{equation*}
