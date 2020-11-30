@@ -1,0 +1,128 @@
+\textbf{Obtener la expresión cuántica para el campo electromagnético a partir de la lagrangiana
+electromagnética clásica.}\\
+Se tiene que la lagrangiana del electromagnétismo clásico es
+\begin{equation*}
+    \mathcal{L}=-\frac{1}{4\mu_0}F_{\mu\nu}F^{\mu\nu}
+\end{equation*}
+donde
+\begin{equation*}
+    F^{\mu\nu}=F_{\mu\nu} = \left(\begin{matrix}
+        0 & -\frac{Ex}{c} & -\frac{Ey}{c}   & -\frac{Ez}{c} \\
+        \frac{E_x}{c} &  0  & -B_z & B_y \\
+        \frac{E_y}{c} & B_z & 0 &-B_x \\
+        \frac{E_z}{c} & -B_y & B_x & 0 
+    \end{matrix}\right)
+\end{equation*}
+por lo que el lagrangiano puede ser descrito de la siguiente manera:
+\begin{equation*}
+    \mathcal{L}=\frac{1}{2\mu_0}\left(\frac{E^2}{c^2}+B^2\right)= \frac{1}{2}\left(\epsilon_0E^2+\frac{B^2}{\mu_0}\right)
+\end{equation*}
+Se tiene que el campo eléctrico y magnético puedes obtenerse a partir de las siguientes operaciones:
+\begin{equation*}
+    E=-\nabla V-\frac{1}{c}\frac{\partial \vec{A}}{\partial t} \qquad \vec{B}=  \left(\vec{\nabla}\times\vec{A}\right)
+\end{equation*}
+sustituyendo el campo eléctrico y magnético en la lagrangiana se obtiene lo siguiente:
+\begin{equation*}
+    \mathcal{L}=\frac{1}{2}\left(\epsilon_0 \left(\left(\nabla V\right)^2 +\frac{2}{c}\nabla V \frac{\partial \vec{A}}{\partial t}+\frac{1}{c^2}\left(\frac{\partial \vec{A}}{\partial t}\right)^2\right)+\frac{1}{\mu_0}\left(\nabla \times \vec{A}\right)^2\right)
+\end{equation*}
+donde se puede obtener las coordenasas generalizadas y momento generalizado es
+\begin{equation*}
+    q= \left\langle v,\vec{A} \right\rangle \qquad p=\left\langle 0,-\frac{\epsilon_0}{c}\vec{E}\right\rangle
+\end{equation*}
+calculando el hamiltoniano se tiene que
+\begin{align*}
+    \mathcal{H}=&\sum p_i\dot{q}_i - \mathcal{L}\\
+    =& -\frac{\epsilon_0}{c}\vec{E}\cdot \frac{\partial \vec{A}}{\partial t}+ \frac{B^2}{\mu_0}- \epsilon E^2\\
+    =& -\frac{\epsilon_0}{c}\vec{E}\cdot \left[-c \left[\vec{E}+\nabla V\right]\right]+\frac{B^2}{\mu_0}-\epsilon_0 E^2   \\
+    =& \epsilon_0 E^2 + \epsilon \vec{E}\cdot \nabla V + \frac{B^2}{2\mu_0}-\frac{\epsilon_0}{2}E^2\\   
+    =& \epsilon_0 \vec{E}\cdot \nabla V + \frac{1}{2}\left(\frac{B^2}{\mu_0}+\epsilon_0 \vec{E}^2\right)
+\end{align*}
+usando la norma de Coulomb, que son las siguientes
+\begin{equation*}
+    V=0 \qquad \nabla \cdot \vec{A} = 0
+\end{equation*}
+por lo que el hamiltoniano del sistema es
+\begin{equation*}
+    \mathcal{H}= \frac{1}{2}\left(\epsilon_0 E^2 + \frac{B^2}{\mu_0}\right)
+\end{equation*}
+y los campos eléctricos y magnético pasan a tener la siguiente forma
+\begin{equation*}
+    E=-\frac{1}{c}\frac{\partial \vec{A}}{\partial t} \qquad \vec{B}=  \left(\vec{\nabla}\times\vec{A}\right)
+\end{equation*}
+de las expresión del campo eléctrico podemos obtener que
+\begin{equation*}
+    \dot{q}= \frac{\partial \vec{A}}{\partial t}= -cE
+\end{equation*}
+y de la expresión para p, se puede obtener que
+\begin{equation*}
+    \frac{c^2}{\epsilon_0} p= -c \vec{E}
+\end{equation*}
+por lo tanto
+\begin{equation*}
+    \dot{q}= \frac{c^2}{\epsilon_0} p
+\end{equation*}
+de otra manera:
+\begin{align*}
+    p=& -\frac{\epsilon_0}{c} \vec{E} \\
+    =& -\frac{\epsilon_0}{c}\left(-\frac{1}{c}\frac{\partial \vec{A}}{\partial t}\right)\\
+    =& \frac{\epsilon_0}{c^2}\frac{\partial \vec{A}}{\partial t}
+\end{align*}
+por lo tanto
+\begin{equation*}
+    \frac{\partial p}{\partial t} = \frac{\epsilon_0}{c^2} \frac{\partial^2 \vec{A}}{\partial t^2}
+\end{equation*}
+donde
+\begin{equation*}
+    \dot{p}= \epsilon_0\ddot{q} = \epsilon_0\nabla^2 A    
+\end{equation*}
+al igualar estas dos expresiones obtenemos la siguiente ecuación
+\begin{equation*}
+    \nabla^2 \vec{A} - \frac{1}{c^2} \frac{\partial^2 \vec{A}}{\partial t^2}=0
+\end{equation*}
+la cual es la ecuación diferencial de una onda, es por ello que se propone que el potencial vector $\vec{A}$, puede escribirse como una serie de Fourier tal que:
+\begin{equation*}
+    A(\vec{r},t) =\sum_k\left[\vec{a}_{p} e^{i\left(\vec{k}\cdot \vec{r}-\omega_k t \right)}+\vec{a}_{p}^* e^{-i\left(\vec{k}\cdot \vec{r}-\omega_k t \right)}\right]
+\end{equation*}
+donde $\vec{a}_{p}$ es un operador tal que contiene la infomación de la polarización y depende unicamente del tiempo, $\vec{k}$ es el número de onda asociado al momento, $\omega_k$, es la frecuencia 
+que contiene cada onda asociada a la energía de De Broglie. Reescribiendo esta expresión podemos separar la dependencia temporal en la forma
+\begin{equation*}
+    A(\vec{r},t) =\sum_k \left[ \vec{\epsilon}_{k} e^{-i\left(\vec{k}\cdot \vec{r}\right)}+\vec{\epsilon}_{k}^* e^{i\left(\vec{k}\cdot \vec{r}\right)}\right]
+\end{equation*}
+donde 
+\begin{equation*}
+    \vec{\epsilon}_k= \vec{a}_{p}  e^{i\omega_k t} \qquad {\vec{\epsilon}_k}^*= \vec{a}^*_{p}  e^{-i\omega_k t}
+\end{equation*}
+por lo mismo, las expresiones del campo eléctrico y magnético las podemos escribir de la siguiente manera:
+\begin{align*}
+    \vec{E}&=\sum_k \left(\vec{E}_k(t)e^{i\vec{k}\cdot \vec{r}}+\vec{E}_k^*(t)e^{-i\vec{k}\cdot \vec{r}}\right)\\
+    \vec{B}&=\sum_k \left(\vec{B}_k(t)e^{i\vec{k}\cdot \vec{r}}+\vec{B}_k^*(t)e^{-i\vec{k}\cdot \vec{r}}\right)
+\end{align*}
+calculando $\partial \vec{A}/\partial t$, se tiene que
+\begin{align*}
+    \frac{1}{c}\frac{\partial \vec{A}}{\partial t} =&\frac{1}{c}\frac{\partial}{\partial t}\sum_k\left[\vec{\epsilon}_k e^{-i\left(\vec{k}\cdot \vec{r}\right)}+\vec{\epsilon}_{p}^* e^{i\left(\vec{k}\cdot \vec{r}\right)}\right]\\
+    =& \frac{1}{c}\sum_k\left[ e^{-i\left(\vec{k}\cdot \vec{r}\right)}\frac{\partial \vec{\epsilon_k}}{\partial t}+ e^{i\left(\vec{k}\cdot \vec{r}\right) }\frac{\partial \vec{\epsilon}_{p}^*}{\partial t}\right]\\
+    =& \frac{1}{c}\sum_k\left[ e^{-i\left(\vec{k}\cdot \vec{r}\right)}(i\omega_k)\vec{\epsilon_k}+ e^{i\left(\vec{k}\cdot \vec{r}\right) }(i\omega_k \vec{\epsilon}_k)^*\right]\\
+    =&\sum_k\left[ e^{-i\left(\vec{k}\cdot \vec{r}\right)}(i|\vec{k}|)\vec{\epsilon_k}+ e^{i\left(\vec{k}\cdot \vec{r}\right) }(i|\vec{k}| \vec{\epsilon}_k)^*\right]\\
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    \sum_k \left(\vec{E}_k(t)e^{i\vec{k}\cdot \vec{r}}+\vec{E}_k^*(t)e^{-i\vec{k}\cdot \vec{r}}\right)=\sum_k\left[ e^{-i\left(\vec{k}\cdot \vec{r}\right)}(ik)\vec{\epsilon_k}+ e^{i\left(\vec{k}\cdot \vec{r}\right) }(ik \vec{\epsilon}_k)^*\right]
+\end{equation*}
+donde se apreia que:
+\begin{equation*}
+    \vec{E}_k = i|\vec{k}|\vec{\epsilon}_k
+\end{equation*}
+calculando $\vec{\nabla}\times \vec{A}$ se tiene que:
+\begin{align*}
+    \left(\vec{\nabla}\times\vec{A}\right)_k =&\epsilon_{xyz} \partial_y A_z\\
+    =& i \epsilon_{xyz} k_y A_z \\
+    =& i\vec{k}\times\vec{A}_k
+\end{align*}
+por lo tanto:
+\begin{equation*}
+    \vec{B}_k=i\vec{k}\times\vec{A}_k
+\end{equation*}
+por lo tanto, el campo electromagnético es
+\begin{equation*}
+    EM=\sum_k i\left(|\vec{k}|\vec{\epsilon}_k+\vec{k}\times\vec{A}_k\right) e^{i\vec{k}\cdot \vec{r}}-i\left(|\vec{k}|\vec{\epsilon}_k^*(t)+\vec{k}\times\vec{A}_k^*\right)e^{-i\vec{k}\cdot \vec{r}}
+\end{equation*}
