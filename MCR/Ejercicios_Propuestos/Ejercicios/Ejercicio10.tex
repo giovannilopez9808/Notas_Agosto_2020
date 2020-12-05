@@ -1,9 +1,52 @@
 \section*{Ejercicio 10}
 Determina la energía threshold para las siguientes reacciones, asumiendo que el proton blanco está
 en reposo. Consulta en la página de Partice Data Group las masas de las partıículas.
-\begin{itemize}
-    \item $p+p \rightarrow p+p+\pi^0$\\
+\begin{enumerate}
+    \item $p+p \rightarrow p+p+\pi^0$
     \item $p+p \rightarrow p+p+\pi^++\pi^-$
     \item $\pi^-+p \rightarrow p+\bar{p}+n$
     \item $\pi^-+p \rightarrow K^0+\sum^0$
-\end{itemize}
+\end{enumerate}
+Para los calculos de esas energías se usara la siguiente expresión:
+\begin{equation*}
+    E=\frac{(M-m_A-m_B)c^2}{2m_B}
+\end{equation*}
+donde $M=m_1+m_2+m_3+...+m_n$.
+\begin{enumerate}
+    \item Para este problema se tiene que  $m_p=938.27$ MeV, $m_{\pi^0} = 134.97$ Mev, por lo tanto
+    \begin{align*}
+        M&=2(938.27\,MeV)+134.97\,MeV=2011.51\,MeV\\
+        m_A&=m_B=m_p=938.27\,MeV\\
+        E&=\frac{(2011.51\,MeV)^2-2(938.27\,MeV)^2}{2(938.27\,MeV)}=1217.91\,MeV
+    \end{align*}
+    \item Para este caso se tiene que: 
+    \begin{equation*}
+        M=2m_p+2m_{\pi^+} \qquad m_{\pi^+}=m_{\pi^-}
+    \end{equation*}
+    con $m_{\pi^+}=139.57\,MeV$, entonces
+    \begin{align*}
+        M&=2(938.27\,MeV)+2(139.57)\,MeV=2155.68\,MeV\\
+        m_A&=m_B=m_p=938.27\,MeV\\
+        E&=\frac{(2155.68\,MeV)^2-2(938.27\,MeV)^2}{2(938.27\,MeV)}=1538.07\,MeV
+    \end{align*}
+    \item Para este caso se tiene que:
+    \begin{align*}
+        M=2m_p+m_n \qquad m_p=m_{p^-}
+    \end{align*}
+        con $m_n=939.56\,MeV$, entonces
+    \begin{align*}
+        M&=2(938.27\,MeV)+939.56\,MeV=2816.1\,MeV\\
+        m_A&=m_{\pi^-}=139.57\,MeV \qquad m_B=m_p=938.27\,MeV\\
+        E=&\frac{(2816.1\,MeV)^2-(139.57\,MeV)^2-(938.27\,MeV)^2}{2(938.27\,MeV)}=3746.5\,MeV
+    \end{align*}
+    \item Para este caso se tiene que:
+    \begin{align*}
+        M=m_{k^0}+m_{\sum^0}
+    \end{align*}
+    con $m_{k^0}=497.61\,MeV$ y $m_{\sum^0}=1192.64\,MeV$, entonces
+    \begin{align*}
+        M&=497.61\,MeV+1192.64\,MeV=1690.25\,MeV\\
+        m_A&=m_{\pi^-}=139.57\,MeV \qquad m_B=m_p=938.27\,MeV\\
+        E&=\frac{(1690.25\,MeV)^2-(139.57\,MeV)^2-(938.27\,MeV)^2}{2(938.27\,MeV)}=1042.93\,MeV
+    \end{align*}
+\end{enumerate}
