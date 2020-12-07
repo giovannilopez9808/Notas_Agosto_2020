@@ -10,8 +10,23 @@
 \usepackage{multicol}
 \usepackage{enumerate}
 \usepackage{float}
+\usepackage{hyperref}
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[usenames]{color}
+\definecolor{citecolor}{rgb}{.12,.54,.11}
+\definecolor{urlcolor}{RGB}{64, 145, 108}
+\definecolor{1ee592}{RGB}{30,229,146}
+\definecolor{1bac70}{RGB}{27,172,112}
+\definecolor{f38638}{RGB}{243,134,56}
+\definecolor{black}{RGB}{0,0,0}
+\definecolor{gray}{RGB}{156,156,156}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=urlcolor,
+    citecolor=citecolor,
+}
 \parindent=0mm
 \spanishdecimal{.}
 \pagestyle{empty}
@@ -63,25 +78,20 @@ Matricula:\\
 \end{flushright}
 \end{titlepage}
 \begin{enumerate}
-    \item Enuncie la diferencia entre analizar un sistema binario desde la perspectiva de la mecánica newtoniana y la relatividad general.
-    \item ¿Qué son las ondas gravitacionales?
-    \item Mencione y explique dos liíneas de investigacioón abiertas actualmente en la cosmología.
+    \item Enuncie la diferencia entre analizar un sistema binario desde la perspectiva de la mecánica newtoniana y la relatividad general.\\
+    En la mecánica newtoniana se obtiene que el sistema binario tiene un periodo constante en el tiempo, en cambio en la relatividad general este depende del tiempo dando como resultado el colapso de este en un tiempo determinado.
+    \item ¿Qué son las ondas gravitacionales?\\
+    Las ondas gravitacionales son perturbaciones en el campo del espacio-tiempo las cuales pueden haber sido creadas por cuerpos masivos acelerados.
+    \item Mencione y explique dos líneas de investigación abiertas actualmente en la cosmología.
+    \begin{enumerate}
+        \item Formación de galaxias a alto redshift.\\
+        En esta línea de investigación se propone el uso de simulaciones de formación de galaxias y observaciones de galaxy redshift para resolver este problema. Actualmente, se esta ejecutando un conjunto de simulaciones hidrodinámicas del proceso de formación de galaxias.
+        \item Campo de densidad de masa cósmica.\\
+        Esta investigación trata de describir una distribución de la masa en el universo a un instante dado.\\
+        \begin{center}
+        \href{http://www.udea.edu.co/wps/portal/udea/web/inicio/investigacion/grupos-investigacion/ciencias-naturales-exactas/facom/lineas-investigacion}{udea.edu.co}
+        \end{center}
+        
+    \end{enumerate}
 \end{enumerate}
-    \begin{table}[H]
-        \centering
-        \begin{tabular}{lcc} \hline
-        \textbf{Conditions} & \textbf{UV Index at Noon 21 June} & \textbf{My Notes} \\ \hline
-        Clean PBL & 15.9 & \\ \hline
-        Year 2000 - Aerosols AOD:&\multirow{3}{*}{9.7}& \multirow{3}{5cm}{-6.2=39\% reduction from clean} \\ 0.23 in FT, 0.7 in PBL;\\ O\textsubscript{3}=70, NO\textsubscript{2}=40, SO\textsubscript{2}=10 ppb\\ \hline
-        Excluding FT aerosols & 10.8 & +1.1 \\\hline
-        Excluding PBL aerosols & 12.7 & +3.0 \\\hline
-        Excluding PBL O\textsubscript{3} & 10.4 & +0.7 \\\hline
-        Excluding PBL NO\textsubscript{2} & 10.1 & +0.4 \\\hline
-        Excluding PBL SO\textsubscript{2} & 9.9 & +0.2\\\hline
-        Year 2019 - Aerosol AOD: & \multirow{3}{*}{11.1} & \multirow{3}{5cm}{+1.4 rel 2000 14\% increase; +4.8 rel clean still 30\% reduction from clean}\\
-        0.23 in FT, 0.5 in PBL;\\ O\textsubscript{3}=50, NO\textsubscript{2}=20, SO\textsubscript{2}=1 ppb\\ \hline
-        \end{tabular}
-        \caption{TUV Model Calculation Illustrating the Effect of Pollutants on the UV Index in Mexico City.}
-        \label{table:TUVmodel}
-        \end{table}
 \end{document}
