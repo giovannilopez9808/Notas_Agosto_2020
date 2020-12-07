@@ -1,2 +1,41 @@
 \section*{Ejercicio 36}
-Mostrar que las matrices $\hat{\Gamma}^m$ son linealmente independientes
+Mostrar que las matrices $\hat{\Gamma}^m$ son linealmente independientes.\\
+Para demostrar que es linealmente independiente, se propondra que:
+\begin{equation*}
+    \sum_n a_n \Gamma^n = 0
+\end{equation*}
+entonces:
+\begin{align*}
+    \sum_n a_n \Gamma^n &= 0\\
+    \sum_n a_n \Gamma^n \Gamma^m &=0
+\end{align*}
+se tomara el caso cuando $\Gamma^m \neq \Gamma^S$, entonces:
+\begin{align*}
+    \sum_n a_n \Gamma^n \Gamma^m =&0 \\
+    tr\left( \sum_n a_n \Gamma^n \Gamma^m\right)=&0 \\
+    \sum_n a_n tr\left(\Gamma^n \Gamma^m\right) =&0
+\end{align*}
+se propondra que:
+\begin{equation*}
+    \Gamma^n \Gamma^m = f_{nm}^\nu \Gamma^m\qquad  \text{para} \qquad n\neq m
+\end{equation*}
+entonces:
+\begin{align*}
+    \sum_n a_n tr\left(\Gamma^n \Gamma^m\right) =&0 \\
+    a_n tr\left(\left(\Gamma^m\right)^2\right) + \sum_{n\neq m} a_n  tr\left(f_{nm}^\nu\Gamma^\nu\right)=&0 \\
+     4a_n +  \sum_{n\neq m} a_n f_{nm}^\nu tr\left(\Gamma^\nu\right)=&0 \\
+    4a_n =& 0 
+\end{align*}
+lo cual s posible unicamente cuando $a_n=0$.\\
+Para el caso cuando $\Gamma^m=\Gamma^S$, se tiene que:
+\begin{align*}
+    \sum_n a_n \Gamma^n \Gamma^S =&0 \\
+    tr\left( \sum_n a_n \Gamma^n \Gamma^S\right)=&0 \\
+    \sum_n a_n tr\left(\Gamma^n \Gamma^S\right) =&0\\
+    a_n tr\left(\left(\Gamma^S\right)^2\right) + \sum_{n\neq m} a_n tr\left(\Gamma^n\right) =&0\\
+\end{align*}
+como $tr\left(\left(\Gamma^S\right)^2\right)=4$, entonces:
+\begin{equation*}
+    4a_n =0
+\end{equation*}
+por lo tanto $a_n$ necesariamente tiene que ser cero, por lo tanto las matrices $\Gamma$ son linealmente independientes.

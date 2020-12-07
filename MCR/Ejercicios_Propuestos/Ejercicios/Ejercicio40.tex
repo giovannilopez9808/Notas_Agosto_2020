@@ -1,2 +1,17 @@
 \section*{Ejericio 40}
-Mostrar que ${\bar{\psi}}' \gamma^5 \gamma^\nu {\psi}'$ es un pseudo vector
+Mostrar que ${\bar{\psi}}' \gamma^5 \gamma^\nu {\psi}'$ es un pseudo vector.\\
+Se tiene que:
+\begin{equation*}
+    \bar{\psi}'=\left(S\psi\right)^* \gamma^0 \qquad \psi'=S\psi \qquad S^{-1}\gamma^\nu S = {a^\nu}_\mu \gamma^\mu
+\end{equation*}
+entonces:
+\begin{align*}
+    {\bar{\psi}}' \gamma^5 \gamma^\nu {\psi}' =& \left(S\psi\right)^* \gamma^0 \gamma^5 \gamma^\nu S\psi \\
+    =& {\psi}' S' \gamma^0 \gamma^5 \gamma^\nu S\psi  \\
+    =& {\psi}' \gamma^0 \left(\gamma^0 S' \gamma^0\right) \gamma^5 \gamma^\nu S\psi \\
+    =& {\psi}' \gamma^0  S^{-1} \gamma^5 \gamma^\nu S\psi \\
+    =& {\psi}' \gamma^0 \left(-\gamma^5 S^{-1}\right)\gamma^\nu S\psi \\
+    =& -{\psi}' \gamma^0 \gamma^5 \left(S^{-1}\gamma^\nu S\right)\psi \\ 
+    =& -{\psi}' \gamma^0 \gamma^5 {a^\nu}_\mu \gamma^\mu \psi \\
+    =& -{a^\nu}_\mu \bar{\psi}' \gamma^5 \gamma^\mu  \psi
+\end{align*}

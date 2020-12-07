@@ -1,5 +1,24 @@
 \section*{Ejercicio 35}
 Tomar $\varphi=2\pi,4\pi$ y obtener ${\psi}'({x}')$ a partir de la ecuación
 \begin{equation*}
-    {\psi}'({x}') = exp\left[i\frac{\varphi}{2}\hat{\Sigma}_3\right] \psi(x)
+    {\psi}'({x}') = exp\left[i\frac{\varphi}{2}\hat{\Sigma}_3\right] \psi(x) 
+\end{equation*}
+Se tiene que:
+\begin{equation*}
+    e^{X}= \sum_{k=0}^\infty \frac{X^k}{k!}\qquad \left(\Sigma_3\right)^2 = \mathbb{I} \qquad \left(\Sigma_3\right)^3 = \Sigma_3
+\end{equation*}
+entonces:
+\begin{align*}
+    e^{\left[i\frac{\varphi}{2}\hat{\Sigma}_3\right]} =& \sum_{k=0}^\infty \frac{\left(\frac{i\varphi \Sigma_3 }{2}\right)^k}{k!}  \\
+    =& \sum_{k=0}^\infty \frac{\left(\frac{i\varphi}{2}\right)^{2k}}{(2k)!} +\Sigma_3  \sum_{k=0}^\infty \frac{\left(\frac{i\varphi }{2}\right)^{2k+1}}{(2k+1)!}  \\ 
+    =& \mathbb{I}\sum_{k=0}^\infty \frac{(-1)^k\left(\frac{\varphi}{2}\right)^{2k}}{(2k)!} +i\Sigma_3 \sum_{k=0}^\infty \frac{(-1)^k\left(\frac{\varphi }{2}\right)^{2k+1}}{(2k+1)!}  \\ 
+    =& \cos\left(\frac{\varphi}{2}\right)\mathbb{I} + i\Sigma_3 \sin\left(\frac{\varphi}{2}\right)
+\end{align*}
+para $\varphi=2\pi$, se tiene que:
+\begin{equation*}
+    {\psi}'({x}') = -\mathbb{I} \psi(x)
+\end{equation*}
+para $\varphi=4\pi$, se tiene que:
+\begin{equation*}
+    {\psi}'({x}') = \mathbb{I}\psi(x)
 \end{equation*}
